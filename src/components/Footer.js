@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ContactForm from "./forms/ContactForm";
 
 export default function Footer() {
@@ -12,8 +13,9 @@ export default function Footer() {
         </div>
       </div>
       <div className="container">
-        <div className="text-body-2 flex flex-col items-center">
+        <div className="text-body-2 flex gap-1 justify-center">
           <span className="text-microcopy-1">&copy; 2024 Zachary Guerrero. All rights reserved.</span>
+          <Link href="/privacy-policy" className="text-microcopy-1 text-zg-teal underline">Privacy Policy</Link>
         </div>
       </div>
     </footer>
