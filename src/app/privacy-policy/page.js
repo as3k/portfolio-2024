@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="container flex justify-center">
+    <div className="container flex justify-center my-24">
       <div className="prose-sm prose-h1:text-heading-1-bold prose-h2:text-heading-3-bold md:max-w-3xl">
-        <h1>Privacy Policy</h1>
+        <h1 className="text-center">Privacy Policy</h1>
 
         <p>I respect your privacy and am committed to protecting the personal information you share with me. This policy outlines how I collect, use, and protect your information when you visit my website.</p>
 

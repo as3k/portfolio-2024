@@ -6,7 +6,7 @@ const Input = ({ label, type, id, value, onChange }) => {
   return (
     <div className="form-control flex flex-col gap-1">
       <label htmlFor={id} className="text-microcopy-1-semibold text-gray-200">{label}</label>
-      <input className="rounded-md px-4 py-2 text-body-1-semibold focus:ring-zg-coral bg-gray-300 text-gray-800" type={type} id={id} name={id} onChange={onChange} value={value} />
+      <input className="rounded-md px-4 py-2 text-body-1 focus:ring-zg-coral bg-zg-dark-1/50 border-none text-gray-200" type={type} id={id} name={id} onChange={onChange} value={value} />
     </div>
   )
 }
@@ -14,7 +14,7 @@ const Textarea = ({ label, id, value, onChange }) => {
   return (
     <div className="form-control flex flex-col gap-1">
       <label htmlFor={id} className="text-microcopy-1-semibold text-gray-200">{label}</label>
-      <textarea className="rounded-md px-4 py-2 text-body-1-semibold bg-gray-300 text-gray-800" id={id} name={id} onChange={onChange} value={value} />
+      <textarea className="rounded-md px-4 py-2 text-body-1 bg-zg-dark-1/50 text-gray-200 focus:ring-zg-coral border-none" id={id} name={id} onChange={onChange} value={value} />
     </div>
   )
 }
