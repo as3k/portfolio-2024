@@ -29,12 +29,16 @@ module.exports = {
         "body-3-semibold": ["1.25rem", { lineHeight: "150%", fontWeight: "600" }],
         "body-3-bold": ["1.25rem", { lineHeight: "150%", fontWeight: "800" }],
 
-        "utility-1": ["1rem", { lineHeight: "150%", letterSpacing: "30%", fontWeight: "600" }],
-        "utility-1-bold": ["1rem", { lineHeight: "150%", letterSpacing: "30%", fontWeight: "800" }],
-        "utility-2": ["1.125rem", { lineHeight: "150%", letterSpacing: "30%", fontWeight: "600" }],
-        "utility-2-bold": ["1.125rem", { lineHeight: "150%", letterSpacing: "30%", fontWeight: "800" }],
-        "utility-3": ["1.25rem", { lineHeight: "150%", letterSpacing: "30%", fontWeight: "600" }],
-        "utility-3-bold": ["1.25rem", { lineHeight: "150%", letterSpacing: "30%", fontWeight: "800" }],
+        "utility-micro-1": ["0.75rem", { lineHeight: "150%", letterSpacing: ".25rem", fontWeight: "400" }],
+        "utility-micro-1-semibold": ["0.75rem", { lineHeight: "150%", letterSpacing: ".25rem", fontWeight: "600" }],
+        "utility-micro-2": ["0.875rem", { lineHeight: "150%", letterSpacing: ".25rem", fontWeight: "400" }],
+        "utility-micro-2-semibold": ["0.875rem", { lineHeight: "150%", letterSpacing: ".25rem", fontWeight: "600" }],
+        "utility-1": ["1rem", { lineHeight: "150%", letterSpacing: ".25rem", fontWeight: "600" }],
+        "utility-1-bold": ["1rem", { lineHeight: "150%", letterSpacing: ".25rem", fontWeight: "800" }],
+        "utility-2": ["1.125rem", { lineHeight: "150%", letterSpacing: ".25rem", fontWeight: "600" }],
+        "utility-2-bold": ["1.125rem", { lineHeight: "150%", letterSpacing: ".25rem", fontWeight: "800" }],
+        "utility-3": ["1.25rem", { lineHeight: "150%", letterSpacing: ".25rem", fontWeight: "600" }],
+        "utility-3-bold": ["1.25rem", { lineHeight: "150%", letterSpacing: ".25rem", fontWeight: "800" }],
 
         "heading-1": ["2.25rem", { lineHeight: "115%", fontWeight: "400" }],
         "heading-1-semibold": ["2.25rem", { lineHeight: "115%", fontWeight: "600" }],
@@ -73,7 +77,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),
+    // require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
   ],
 };
