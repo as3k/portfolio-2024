@@ -2,6 +2,7 @@ import "./globals.css";
 import { Poppins } from 'next/font/google'
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import PlausibleProvider from "next-plausible";
 
 const poppins = Poppins({
   display: 'swap',
@@ -17,6 +18,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${poppins.className} bg-zg-dark-1 text-gray-200`}>
+      <head>
+        <PlausibleProvider domain="zacharyguerrero.com" trackOutboundLinks={true} taggedEvents={true} />
+      </head>
       <body className={`antialiased flex flex-col min-h-screen py-4 lg:py-6`}>
         <Header />
         <main className="flex flex-col flex-1">
