@@ -1,0 +1,122 @@
+{
+  "backlog": [
+    
+  ],
+  "in_progress": [],
+  "todo": [
+    {
+      "id": "runtime-testing",
+      "status": "todo",
+      "summary": "Run dev server sanity check",
+      "details": "Run `yarn dev`; verify routes, layouts, styling, and Umami script load (env-driven).",
+      "owner": "codex",
+      "eta": "0.25d"
+    },
+    {
+      "id": "regression-pass",
+      "status": "todo",
+      "summary": "Manual regression checklist",
+      "details": "Hero, navigation, footer, contact form submission (mock), Umami tracking, responsiveness, 404 route.",
+      "owner": "qa",
+      "eta": "0.25d"
+    }
+  ],
+  "done": [
+    {
+      "id": "docs-update",
+      "status": "done",
+      "summary": "Document upgrade steps and commands",
+      "details": "README now reflects Next 16/React 19 stack with Yarn commands and Umami env-driven analytics; AGENTS coding-style bullet updated to Next 16.",
+      "owner": "assistant",
+      "eta": "0.1d"
+    },
+    {
+      "id": "node-version-check",
+      "status": "done",
+      "summary": "Confirm Node.js version meets Next 16 requirements",
+      "details": "Verified Node v25.2.1 installed; meets >=18.18 requirement for Next 16. No action needed.",
+      "owner": "assistant",
+      "eta": "0.1d"
+    },
+    {
+      "id": "dependency-audit",
+      "status": "done",
+      "summary": "Inventory deps for compatibility",
+      "details": "Reviewed deps: removed next-plausible in favor of env-driven Umami script; tailwindcss@3.4.x, @tailwindcss/forms & typography, mailgun.js@10.2.3, form-data@4.0.0 remain compatible with Next 16.",
+      "owner": "assistant",
+      "eta": "0.25d"
+    },
+    {
+      "id": "routing-audit",
+      "status": "done",
+      "summary": "Verify App Router usage and conventions",
+      "details": "App Router only: layout.js and page.js plus privacy-policy route, API endpoint at src/app/api/contact/route.js; no legacy pages/ directory. Ready for Next 16 routing defaults.",
+      "owner": "assistant",
+      "eta": "0.25d"
+    },
+    {
+      "id": "image-routing-review",
+      "status": "done",
+      "summary": "Check Image component and assets",
+      "details": "Confirmed single Image usage in src/app/page.js references local public/images asset with explicit width/height and alt; no remote sources or next/image config needed for Next 16 defaults.",
+      "owner": "assistant",
+      "eta": "0.1d"
+    },
+    {
+      "id": "css-tailwind-pass",
+      "status": "done",
+      "summary": "Validate Tailwind/PostCSS setup",
+      "details": "Tailwind 3.4.1 and PostCSS 8 already configured; content globs cover src/app and components, PostCSS uses tailwindcss plugin only. Compatible with Next 16; no changes needed beyond optional cleanup of unused src/pages glob.",
+      "owner": "codex",
+      "eta": "0.1d"
+    },
+    {
+      "id": "middleware-edge-check",
+      "status": "done",
+      "summary": "Assess middleware/edge behavior",
+      "details": "No middleware or edge routes present in repo; App Router APIs use standard route handlers. Nothing to update for Next 16 compatibility.",
+      "owner": "codex",
+      "eta": "0.1d"
+    },
+    {
+      "id": "upgrade-next-core",
+      "status": "done",
+      "summary": "Bump Next/React and regenerate lockfile",
+      "details": "Updated Next to ^16.0.10 with React/React-DOM ^19.0.0 and regenerated yarn.lock; removed next-plausible dependency (analytics handled via Umami script).",
+      "owner": "codex",
+      "eta": "0.25d"
+    },
+    {
+      "id": "config-verification",
+      "status": "done",
+      "summary": "Re-evaluate next.config.mjs",
+      "details": "Removed Plausible proxy wrapper; config now exports a plain Next config compatible with Umami script injection.",
+      "owner": "codex",
+      "eta": "0.25d"
+    },
+    {
+      "id": "lint-config-update",
+      "status": "done",
+      "summary": "Sync ESLint/TypeScript settings (if present)",
+      "details": "Added ESLint 9 + eslint-config-next flat config (eslint.config.mjs), installed TypeScript peer dependency, updated lint script to eslint ., and fixed unescaped apostrophes flagged by new rules. Lint now passes.",
+      "owner": "codex",
+      "eta": "0.1d"
+    },
+    {
+      "id": "env-compat-scan",
+      "status": "done",
+      "summary": "Review Next.js 15 & 16 breaking changes (App Router focus)",
+      "details": "App Router static pages plus one POST-only API route. No middleware, custom caching, or remote images, so major Next 15/16 changes (fetch caching adjustments, partial prerendering defaults, stricter segment config) do not apply. Analytics now via Umami script env vars (no Next config proxy).",
+      "owner": "codex",
+      "eta": "0.5d"
+    },
+    {
+      "id": "prod-build-test",
+      "status": "done",
+      "summary": "Build and start production bundle",
+      "details": "Ran `yarn build` successfully after allowing network access to fetch Google Fonts (Poppins). Turbopack build completed; ready for `yarn start` smoke check.",
+      "owner": "assistant",
+      "eta": "0.25d"
+    }
+  ]
+}
