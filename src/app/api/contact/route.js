@@ -1,20 +1,24 @@
-import { NextResponse } from 'next/server';
-import FormData from 'form-data';
-import Mailgun from 'mailgun.js';
+import FormData from "form-data";
+import Mailgun from "mailgun.js";
+import { NextResponse } from "next/server";
 
-const DOMAIN = process.env.MAILGUN_DOMAIN
-const API_KEY = process.env.MAILGUN_API_KEY
-
-// Mailgun setup
-const mailgun = new Mailgun(FormData);
-const mg = mailgun.client({
-  username: 'api',
-  key: API_KEY,
-});
+const DOMAIN = process.env.MAILGUN_DOMAIN;
+const API_KEY = process.env.MAILGUN_API_KEY;
 
 export async function POST(request) {
 
   try {
+    if (!DOMAIN || !API_KEY) {
+      console.error('Mailgun environment variables are not configured');
+      return NextResponse.json({ success: false, message: 'Email service not configured.' }, { status: 500 });
+    }
+
+    const mailgun = new Mailgun(FormData);
+    const mg = mailgun.client({
+      username: 'api',
+      key: API_KEY,
+    });
+
     // Parse form data from the request body
     const formData = await request.json();
     const { name, email, message } = formData;

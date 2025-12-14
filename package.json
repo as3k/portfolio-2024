@@ -6,20 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "biome check ."
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "form-data": "^4.0.0",
     "mailgun.js": "^10.2.3",
-    "next": "14.2.12",
-    "next-plausible": "^3.12.2",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "^16.0.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.3.8",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.9.3"
   }
 }
