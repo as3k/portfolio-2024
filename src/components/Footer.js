@@ -9,7 +9,7 @@ export default function Footer({ hideContactForm }) {
           {!hideContactForm && <ContactForm />}
           <div className="text-side">
             <span id="eyebrow-copy" className="text-utility-micro-1 text-zg-teal uppercase">Get in touch</span>
-            <h2 className="text-heading-4-bold">Let's work together!</h2>
+            <h2 className="text-heading-4-bold">Let’s work together!</h2>
             <a href="mailto:zack@zkg.io" className="text-body-2 text-gray-400 text-center">zack@zkg.io</a>
           </div>
         </div>

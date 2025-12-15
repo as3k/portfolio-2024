@@ -6,7 +6,7 @@ export default function Home() {
     <div className="container my-12 lg:my-16">
       <section id="hero" className="grid grid-cols-1 md:grid-cols-5 gap-12 md:px-8 xl:px-40 items-center">
         <div className="text-side col-span-1 md:col-span-3 flex flex-col gap-6 lg:gap-8">
-          <h1 className="text-heading-4-bold md:text-heading-3-bold lg:text-heading-1-bold">Zachary is a designer who’s all about making people's lives easier, one experience at a time.</h1>
+          <h1 className="text-heading-4-bold md:text-heading-3-bold lg:text-heading-1-bold">Zachary is a designer who’s all about making people’s lives easier, one experience at a time.</h1>
           <p className="text-gray-400">With a passion for creating seamless, user-friendly digital experiences, Zachary specializes in apps, websites, and product design that bring your vision to life.</p>
 
           <div className="button-wrapper flex">
@@ -26,4 +26,3 @@ export default function Home() {
     </div>
   );
 }
-

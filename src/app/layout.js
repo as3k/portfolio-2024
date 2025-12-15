@@ -1,8 +1,8 @@
 import "./globals.css";
-import { Poppins } from 'next/font/google'
+import { Poppins } from "next/font/google";
+import Script from "next/script";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import PlausibleProvider from "next-plausible";
 
 const poppins = Poppins({
   display: 'swap',
@@ -16,12 +16,22 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const umamiScriptUrl = process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL;
+  const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+  const umamiHostUrl = process.env.NEXT_PUBLIC_UMAMI_HOST_URL;
+
   return (
     <html lang="en" className={`${poppins.className} bg-zg-dark-1 text-gray-200`}>
-      <head>
-        <PlausibleProvider domain="zacharyguerrero.com" trackOutboundLinks={true} taggedEvents={true} />
-      </head>
+      <head />
       <body className={`antialiased flex flex-col min-h-screen py-4 lg:py-6`}>
+        {umamiScriptUrl && umamiWebsiteId ? (
+          <Script
+            src={umamiScriptUrl}
+            data-website-id={umamiWebsiteId}
+            data-host-url={umamiHostUrl}
+            strategy="afterInteractive"
+          />
+        ) : null}
         <Header />
         <main className="flex flex-col flex-1">
           {children}
