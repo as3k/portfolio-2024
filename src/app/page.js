@@ -1,28 +1,338 @@
+"use client";
+
+import {
+  CodeBracketIcon,
+  MagnifyingGlassIcon,
+  Square3Stack3DIcon,
+  SwatchIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
+
+function StatCard({ value, label, isAnimated = false, animatedValue = 0, suffix = "" }) {
+  return (
+    <div className="flex flex-col">
+      <span className="text-heading-4-bold text-white">
+        {isAnimated ? (
+          <AnimatedCounter value={animatedValue} suffix={suffix} />
+        ) : (
+          value
+        )}
+      </span>
+      <span className="text-microcopy-2 text-gray-400">{label}</span>
+    </div>
+  );
+}
+
+function ServiceCard({ icon: Icon, title, description }) {
+  return (
+    <div className="h-full group bg-zg-dark-0 rounded-lg p-6 hover:ring-2 hover:ring-zg-teal/50 hover:shadow-lg hover:shadow-zg-teal/5 hover:-translate-y-1 transition-all duration-300">
+      <div className="w-10 h-10 rounded-lg bg-zg-teal/10 group-hover:bg-zg-teal/20 flex items-center justify-center mb-4 transition-colors duration-300">
+        <Icon className="w-5 h-5 text-zg-teal group-hover:scale-110 transition-transform duration-300" />
+      </div>
+      <h3 className="text-heading-6-semibold text-white mb-2">{title}</h3>
+      <p className="text-body-1 text-gray-400">{description}</p>
+    </div>
+  );
+}
+
+function ProjectCard({ project }) {
+  const { slug, meta } = project;
+
+  return (
+    <Link
+      href={`/projects/${slug}`}
+      className="group block bg-zg-dark-0 rounded-lg overflow-hidden hover:ring-2 hover:ring-zg-teal hover:shadow-xl hover:shadow-zg-teal/10 hover:-translate-y-1 transition-all duration-300"
+    >
+      <div className="relative aspect-video overflow-hidden">
+        <Image
+          src={meta.heroImage}
+          alt={meta.title}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+          <span className="flex items-center gap-2 text-white text-body-1-semibold translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            View Project
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div className="p-5">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-microcopy-2 text-gray-400">{meta.category}</span>
+          <span className="text-gray-600">•</span>
+          <span className="text-microcopy-2 text-gray-400">{meta.year}</span>
+        </div>
+        <h3 className="text-heading-5-semibold text-white mb-2 group-hover:text-zg-teal transition-colors duration-300">
+          {meta.title}
+        </h3>
+        <p className="text-body-1 text-gray-400 line-clamp-2">{meta.excerpt}</p>
+      </div>
+    </Link>
+  );
+}
 
 export default function Home() {
+  // Import content at build time via server component would be better,
+  // but for client component with animations, we'll use a simple approach
+  const featuredWork = useFeaturedWork();
+
+  const services = [
+    {
+      icon: SwatchIcon,
+      title: "Product Design",
+      description:
+        "I design end-to-end product experiences—from user research to high-fidelity prototypes—balancing user needs with technical feasibility.",
+    },
+    {
+      icon: MagnifyingGlassIcon,
+      title: "UX Research & Strategy",
+      description:
+        "I validate solutions through user interviews, usability testing, and competitive analysis before development begins.",
+    },
+    {
+      icon: Square3Stack3DIcon,
+      title: "Design Systems",
+      description:
+        "I build scalable design systems that keep teams aligned and accelerate product development.",
+    },
+    {
+      icon: CodeBracketIcon,
+      title: "Front-End Development",
+      description:
+        "I code what I design using React, Next.js, and modern web technologies—turning prototypes into production-ready products.",
+    },
+  ];
+
   return (
     <div className="container my-12 lg:my-16">
-      <section id="hero" className="grid grid-cols-1 md:grid-cols-5 gap-12 md:px-8 xl:px-40 items-center">
-        <div className="text-side col-span-1 md:col-span-3 flex flex-col gap-6 lg:gap-8">
-          <h1 className="text-heading-4-bold md:text-heading-3-bold lg:text-heading-1-bold">Zachary is a designer who’s all about making people’s lives easier, one experience at a time.</h1>
-          <p className="text-gray-400">With a passion for creating seamless, user-friendly digital experiences, Zachary specializes in apps, websites, and product design that bring your vision to life.</p>
+      {/* Hero Section */}
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="flex flex-col gap-6">
+          <FadeIn>
+            <h1 className="text-heading-3-bold md:text-heading-2-bold lg:text-heading-1-bold">
+              Designing B2B SaaS Products That Users Love and Engineering Teams Can Build
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="text-body-2 text-gray-400">
+              I didn't start in UX because I wanted to be a designer—I started because
+              things were broken and I was the one who could fix them. For 10+ years,
+              I've been solving the same problem: people don't understand what's being
+              asked of them. I make complex processes simple, turn confusing flows into
+              clear decisions, and design with technical reality in mind.
+            </p>
+          </FadeIn>
 
-          <div className="button-wrapper flex">
-            <Link className="rounded-md text-white bg-zg-teal hover:bg-zg-coral transition-all duration-500 px-3 py-2 text-body-1-bold" target="_blank" href="https://read.cv/zkg">View resume</Link>
+          <FadeIn delay={0.2}>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/projects"
+                className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
+              >
+                View My Work
+              </Link>
+              <Link
+                href="/about"
+                className="rounded-md text-white ring-2 ring-gray-600 hover:ring-zg-teal hover:bg-zg-teal/10 active:scale-95 active:bg-zg-teal/20 transition-all duration-300 px-5 py-3 text-body-1-bold"
+              >
+                About Me
+              </Link>
+            </div>
+          </FadeIn>
+
+          {/* Stats */}
+          <FadeIn delay={0.3}>
+            <div className="flex flex-wrap gap-8 mt-4 pt-6 border-t border-gray-800">
+              <StatCard value="10+ Years" label="Designing & Building Products" />
+              <StatCard
+                label="Average Lighthouse Accessibility"
+                isAnimated
+                animatedValue={92}
+                suffix="%"
+              />
+              <StatCard value="2x" label="User Growth for Clients" />
+            </div>
+          </FadeIn>
+        </div>
+
+        {/* Hero Images Grid */}
+        <FadeIn delay={0.2} direction="left">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-4">
+              <div className="relative aspect-[4/5] rounded-lg overflow-hidden group">
+                <Image
+                  src="/images/zg-coffee-ride-profile-photo.jpg"
+                  alt="Zachary Guerrero"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  priority
+                />
+                <div className="absolute inset-0 bg-zg-teal/0 group-hover:bg-zg-teal/5 transition-colors duration-500" />
+              </div>
+            </div>
+            <div className="space-y-4 pt-8">
+              <Link
+                href="/projects/cydrion"
+                className="relative aspect-square rounded-lg overflow-hidden group block"
+                aria-label="View Cydrion case study"
+              >
+                <Image
+                  src="/images/projects/cydrion/Cydrion-Featured-Image.jpg"
+                  alt="Cydrion project"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
+                  <span className="text-microcopy-2 text-zg-teal mb-1">B2B SaaS</span>
+                  <h3 className="text-body-1-semibold text-white mb-1">Cydrion</h3>
+                  <span className="flex items-center gap-1 text-microcopy-2 text-gray-300">
+                    View Project
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+              <Link
+                href="/projects/manta"
+                className="relative aspect-square rounded-lg overflow-hidden group block"
+                aria-label="View Manta case study"
+              >
+                <Image
+                  src="/images/projects/manta/Manta-Featured-Image.jpg"
+                  alt="Manta project"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
+                  <span className="text-microcopy-2 text-zg-teal mb-1">Product Design</span>
+                  <h3 className="text-body-1-semibold text-white mb-1">Manta</h3>
+                  <span className="flex items-center gap-1 text-microcopy-2 text-gray-300">
+                    View Project
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="md:col-span-2 photo-side flex justify-center">
-          <Image
-            src="/images/zg-coffee-ride-profile-photo.jpg"
-            className="rounded-lg shadow-zg max-w-64 md:max-w-full"
-            alt="Zachary Guerrero"
-            width={600}
-            height={600}
-          />
-        </div>
+        </FadeIn>
+      </section>
+
+      {/* My Focus Section */}
+      <section className="mt-24 lg:mt-32">
+        <FadeIn>
+          <div className="mb-12">
+            <span className="inline-block text-microcopy-2-semibold text-gray-400 border border-gray-700 rounded-full px-4 py-1.5 mb-4 hover:border-zg-teal/50 hover:text-zg-teal/80 transition-colors duration-300">
+              My Focus
+            </span>
+            <h2 className="text-heading-3-bold md:text-heading-2-bold max-w-3xl mb-4">
+              Building products for the companies shaping tomorrow
+            </h2>
+            <p className="text-body-2 text-gray-400 max-w-2xl">
+              I specialize in B2B SaaS and technical products where complex
+              problems meet elegant solutions. From fintech platforms to ISP
+              tools, I create experiences that empower users and drive business
+              results.
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" staggerDelay={0.1}>
+          {services.map((service) => (
+            <FadeInStaggerItem key={service.title} className="h-full">
+              <ServiceCard
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+              />
+            </FadeInStaggerItem>
+          ))}
+        </FadeInStagger>
+      </section>
+
+      {/* Project Showcase Section */}
+      <section className="mt-24 lg:mt-32">
+        <FadeIn>
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-heading-3-bold">Project Showcase</h2>
+            <Link
+              href="/projects"
+              className="group text-body-1-semibold text-zg-teal hover:text-zg-coral transition-colors duration-300 inline-flex items-center gap-1"
+            >
+              See All Projects
+              <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">→</span>
+            </Link>
+          </div>
+        </FadeIn>
+        <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" staggerDelay={0.15}>
+          {featuredWork.map((project) => (
+            <FadeInStaggerItem key={project.slug}>
+              <ProjectCard project={project} />
+            </FadeInStaggerItem>
+          ))}
+        </FadeInStagger>
       </section>
     </div>
   );
+}
+
+// Client-side hook to get featured work
+// In a real app, this would come from server component or API
+function useFeaturedWork() {
+  // This is a simplified version - the actual data comes from MDX files
+  // For now, we'll return the featured projects statically
+  return [
+    {
+      slug: "art-healing-hearts",
+      meta: {
+        title: "Art Healing Hearts",
+        category: "Nonprofit",
+        year: 2025,
+        excerpt: "Emergency redesign and rebuild for a nonprofit's website in under a week to support their television feature and streamline donations.",
+        heroImage: "/images/projects/art-healing-hearts/art-healing-hearts-featured-image.jpg",
+        featured: true,
+      },
+    },
+    {
+      slug: "cydrion",
+      meta: {
+        title: "Cydrion",
+        category: "B2B SaaS",
+        year: 2025,
+        excerpt: "Built a complete digital presence and brand identity from scratch for an ISP support company, establishing them as a leader in network operations.",
+        heroImage: "/images/projects/cydrion/Cydrion-Featured-Image.jpg",
+        featured: true,
+      },
+    },
+    {
+      slug: "manta",
+      meta: {
+        title: "MANTA: A Secure and Memorable Passphrase Generator",
+        category: "Product Design",
+        year: 2025,
+        excerpt: "Chrome extension that generates secure, memorable passphrases using a custom-built API. Designed for security-conscious users who want better password practices.",
+        heroImage: "/images/projects/manta/Manta-Featured-Image.jpg",
+        featured: true,
+      },
+    },
+    {
+      slug: "high-rapid-networks",
+      meta: {
+        title: "High Rapid Networks",
+        category: "B2B",
+        year: 2025,
+        excerpt: "Complete rebrand and website redesign for a rural ISP that doubled their subscriber base and expanded into larger markets.",
+        heroImage: "/images/projects/high-rapid-networks/hrn-featured-image.jpg",
+        featured: true,
+      },
+    },
+  ];
 }
