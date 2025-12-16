@@ -20,6 +20,30 @@ export default function Header() {
             <li>
               <Link
                 className="relative hover:text-zg-teal transition-colors duration-300 pb-1 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-zg-teal after:transition-all after:duration-300 hover:after:w-full"
+                href="/process"
+              >
+                Process
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="relative hover:text-zg-teal transition-colors duration-300 pb-1 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-zg-teal after:transition-all after:duration-300 hover:after:w-full"
+                href="/about"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="relative hover:text-zg-teal transition-colors duration-300 pb-1 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-zg-teal after:transition-all after:duration-300 hover:after:w-full"
+                href="/now"
+              >
+                Now
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="relative hover:text-zg-teal transition-colors duration-300 pb-1 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-zg-teal after:transition-all after:duration-300 hover:after:w-full"
                 href="/blog"
               >
                 Blog

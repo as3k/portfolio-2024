@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import Script from "next/script";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import JsonLd, { personSchema, websiteSchema, professionalServiceSchema } from "@/components/JsonLd";
 
 const poppins = Poppins({
   display: 'swap',
@@ -22,7 +23,11 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className={`${poppins.className} bg-zg-dark-1 text-gray-200`}>
-      <head />
+      <head>
+        <JsonLd data={{ "@context": "https://schema.org", ...personSchema }} />
+        <JsonLd data={websiteSchema} />
+        <JsonLd data={{ "@context": "https://schema.org", ...professionalServiceSchema }} />
+      </head>
       <body className={`antialiased flex flex-col min-h-screen py-4 lg:py-6`}>
         {umamiScriptUrl && umamiWebsiteId ? (
           <Script

@@ -10,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
+import JsonLd, { profilePageSchema } from "@/components/JsonLd";
 
 function StatCard({ value, label, isAnimated = false, animatedValue = 0, suffix = "" }) {
   return (
@@ -110,8 +111,10 @@ export default function Home() {
   ];
 
   return (
-    <div className="container my-12 lg:my-16">
-      {/* Hero Section */}
+    <>
+      <JsonLd data={profilePageSchema} />
+      <div className="container my-12 lg:my-16">
+        {/* Hero Section */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className="flex flex-col gap-6">
           <FadeIn>
@@ -261,15 +264,8 @@ export default function Home() {
       {/* Project Showcase Section */}
       <section className="mt-24 lg:mt-32">
         <FadeIn>
-          <div className="flex items-center justify-between mb-8">
+          <div className="mb-8">
             <h2 className="text-heading-3-bold">Project Showcase</h2>
-            <Link
-              href="/projects"
-              className="group text-body-1-semibold text-zg-teal hover:text-zg-coral transition-colors duration-300 inline-flex items-center gap-1"
-            >
-              See All Projects
-              <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">→</span>
-            </Link>
           </div>
         </FadeIn>
         <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" staggerDelay={0.15}>
@@ -279,8 +275,28 @@ export default function Home() {
             </FadeInStaggerItem>
           ))}
         </FadeInStagger>
+        <FadeIn delay={0.4}>
+          <div className="flex justify-center mt-10">
+            <Link
+              href="/projects"
+              className="group text-body-1-semibold text-gray-400 hover:text-zg-teal transition-colors duration-300 inline-flex flex-col items-center gap-1"
+            >
+              See all projects
+              <svg
+                className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </Link>
+          </div>
+        </FadeIn>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 

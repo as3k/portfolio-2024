@@ -4,7 +4,8 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
 import MDXComponents from '@/components/MDXComponents';
-import { getWorkBySlug, getWorkSlugs } from '@/lib/content';
+import { getWorkBySlug, getWorkSlugs, getAllWork } from '@/lib/content';
+import JsonLd, { createCaseStudySchema, createBreadcrumbSchema } from '@/components/JsonLd';
 
 export async function generateStaticParams() {
   const slugs = getWorkSlugs();
@@ -48,8 +49,25 @@ export default async function WorkDetailPage({ params }) {
 
   const { meta, content } = work;
 
+  // Get all projects for next/prev navigation
+  const allProjects = getAllWork();
+  const currentIndex = allProjects.findIndex((p) => p.slug === slug);
+  const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
+  const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
+
+  // Create schema data
+  const caseStudySchema = createCaseStudySchema({ slug, meta });
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://zkg.io" },
+    { name: "Projects", url: "https://zkg.io/projects" },
+    { name: meta.title, url: `https://zkg.io/projects/${slug}` },
+  ]);
+
   return (
-    <div className="container my-12 lg:my-16">
+    <>
+      <JsonLd data={caseStudySchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <div className="container my-12 lg:my-16">
       {/* Back link */}
       <FadeIn>
         <Link
@@ -214,7 +232,7 @@ export default async function WorkDetailPage({ params }) {
       {/* Tags */}
       <FadeIn>
         <footer className="mt-16 pt-8 border-t border-gray-800">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mb-12">
             {meta.tags?.map((tag) => (
               <span
                 key={tag}
@@ -224,8 +242,58 @@ export default async function WorkDetailPage({ params }) {
               </span>
             ))}
           </div>
+
+          {/* Project Navigation */}
+          <nav className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {prevProject ? (
+              <Link
+                href={`/projects/${prevProject.slug}`}
+                className="group p-4 rounded-lg bg-zg-dark-0 hover:bg-zg-dark-1 transition-colors"
+              >
+                <span className="text-microcopy-2 text-gray-500 block mb-1">Previous Project</span>
+                <span className="text-body-1-semibold text-white group-hover:text-zg-teal transition-colors">
+                  {prevProject.meta.title}
+                </span>
+              </Link>
+            ) : (
+              <div />
+            )}
+            {nextProject && (
+              <Link
+                href={`/projects/${nextProject.slug}`}
+                className="group p-4 rounded-lg bg-zg-dark-0 hover:bg-zg-dark-1 transition-colors text-right"
+              >
+                <span className="text-microcopy-2 text-gray-500 block mb-1">Next Project</span>
+                <span className="text-body-1-semibold text-white group-hover:text-zg-teal transition-colors">
+                  {nextProject.meta.title}
+                </span>
+              </Link>
+            )}
+          </nav>
+
+          {/* CTA */}
+          <div className="mt-12 p-6 bg-zg-dark-0 rounded-lg text-center">
+            <p className="text-body-1 text-gray-400 mb-4">
+              Interested in working together?
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/lets-talk"
+                className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
+              >
+                Get in Touch
+              </Link>
+              <Link
+                href="/about"
+                className="text-gray-400 hover:text-zg-teal transition-colors px-5 py-3 text-body-1-bold"
+              >
+                About Me
+              </Link>
+            </div>
+          </div>
         </footer>
       </FadeIn>
-    </div>
+      </div>
+    </>
   );
 }

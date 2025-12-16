@@ -2,11 +2,29 @@
 
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
+import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
 
 export default function PrivacyPolicy() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://zkg.io" },
+    { name: "Privacy Policy", url: "https://zkg.io/privacy-policy" },
+  ]);
+
+  const privacySchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://zkg.io/privacy-policy",
+    name: "Privacy Policy | Zachary Guerrero",
+    description: "Privacy policy for the portfolio website of Zachary Guerrero.",
+    url: "https://zkg.io/privacy-policy",
+  };
+
   return (
-    <div className="container flex justify-center my-24">
-      <FadeIn>
+    <>
+      <JsonLd data={privacySchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <div className="container flex justify-center my-24">
+        <FadeIn>
         <div className="prose-sm prose-h1:text-heading-1-bold prose-h2:text-heading-3-bold md:max-w-3xl">
           <h1 className="text-center">Privacy Policy</h1>
 
@@ -35,8 +53,18 @@ export default function PrivacyPolicy() {
           <p>I may update this privacy policy from time to time. Please check back periodically for any changes.</p>
 
           <p>If you have any questions or concerns, feel free to contact me at <Link href="mailto:zack@zkg.io">zack@zkg.io</Link>.</p>
+
+          <div className="mt-8 pt-8 border-t border-gray-800 not-prose">
+            <Link
+              href="/"
+              className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+            >
+              ← Back to Home
+            </Link>
+          </div>
         </div>
-      </FadeIn>
-    </div>
+        </FadeIn>
+      </div>
+    </>
   );
 }

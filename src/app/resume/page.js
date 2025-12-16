@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
 import { resumeData } from "@/lib/resume-data";
+import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
 
 function ContactItem({ icon: Icon, children, href }) {
   const content = (
@@ -66,10 +67,31 @@ function SkillTag({ children }) {
 }
 
 export default function ResumePage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://zkg.io" },
+    { name: "Resume", url: "https://zkg.io/resume" },
+  ]);
+
+  // Resume schema
+  const resumeSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://zkg.io/resume",
+    name: "Resume | Zachary Guerrero",
+    description: "Professional resume of Zachary Guerrero, Product Designer with 10+ years of experience in UX design and front-end development.",
+    url: "https://zkg.io/resume",
+    mainEntity: {
+      "@id": "https://zkg.io/#person",
+    },
+  };
+
   return (
-    <div className="container my-12 lg:my-16">
-      {/* Header */}
-      <FadeIn>
+    <>
+      <JsonLd data={resumeSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <div className="container my-12 lg:my-16">
+        {/* Header */}
+        <FadeIn>
         <header className="mb-12 pb-8 border-b border-gray-800">
           <h1 className="text-heading-1-bold mb-2">{resumeData.name}</h1>
           <p className="text-heading-5-semibold text-zg-teal mb-6">{resumeData.title}</p>
@@ -157,7 +179,7 @@ export default function ResumePage() {
           </FadeIn>
 
           <FadeIn delay={0.5}>
-            <section>
+            <section className="mb-12">
               <h2 className="text-heading-4-bold mb-6 pb-2 border-b border-gray-800">
                 Download
               </h2>
@@ -172,8 +194,43 @@ export default function ResumePage() {
               </Link>
             </section>
           </FadeIn>
+
+          <FadeIn delay={0.6}>
+            <section className="p-6 bg-zg-dark-0 rounded-lg">
+              <h2 className="text-heading-6-semibold mb-3 text-white">
+                Learn More
+              </h2>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/projects"
+                  className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+                >
+                  View My Work
+                </Link>
+                <Link
+                  href="/process"
+                  className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+                >
+                  My Process
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+                >
+                  About Me
+                </Link>
+                <Link
+                  href="/lets-talk"
+                  className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+                >
+                  Get in Touch
+                </Link>
+              </div>
+            </section>
+          </FadeIn>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

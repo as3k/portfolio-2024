@@ -1,6 +1,7 @@
 import { FadeIn } from "@/components/FadeIn";
 import ContactForm from "@/components/forms/ContactForm";
 import Link from "next/link";
+import JsonLd, { contactPageSchema, createBreadcrumbSchema } from "@/components/JsonLd";
 
 export const metadata = {
   title: "Let's Talk | Zachary Guerrero",
@@ -9,9 +10,17 @@ export const metadata = {
 };
 
 export default function LetsTalkPage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://zkg.io" },
+    { name: "Contact", url: "https://zkg.io/lets-talk" },
+  ]);
+
   return (
-    <div className="container my-12 lg:my-16">
-      <div className="max-w-2xl mx-auto">
+    <>
+      <JsonLd data={contactPageSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <div className="container my-12 lg:my-16">
+        <div className="max-w-2xl mx-auto">
         <FadeIn>
           <header className="mb-12">
             <h1 className="text-heading-1-bold mb-4">Let's Talk</h1>
@@ -92,7 +101,7 @@ export default function LetsTalkPage() {
         </FadeIn>
 
         <FadeIn delay={0.3}>
-          <section className="p-6 rounded-lg bg-zg-dark-0 border border-gray-800">
+          <section className="p-6 rounded-lg bg-zg-dark-0 border border-gray-800 mb-8">
             <h2 className="text-heading-6-semibold mb-3 text-white">
               What I'm Looking For
             </h2>
@@ -119,7 +128,42 @@ export default function LetsTalkPage() {
             </p>
           </section>
         </FadeIn>
+
+        <FadeIn delay={0.4}>
+          <section className="text-center">
+            <p className="text-body-1 text-gray-500 mb-4">
+              Want to learn more about me first?
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/about"
+                className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+              >
+                About Me
+              </Link>
+              <Link
+                href="/projects"
+                className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+              >
+                My Work
+              </Link>
+              <Link
+                href="/process"
+                className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+              >
+                My Process
+              </Link>
+              <Link
+                href="/resume"
+                className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+              >
+                Resume
+              </Link>
+            </div>
+          </section>
+        </FadeIn>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
 import { getAllWork } from '@/lib/content';
+import JsonLd, { createCollectionPageSchema, createBreadcrumbSchema } from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Project Showcase | Zachary Guerrero',
@@ -65,25 +66,62 @@ function ProjectCard({ project }) {
 export default function ProjectsPage() {
   const allProjects = getAllWork();
 
-  return (
-    <div className="container my-12 lg:my-16">
-      <FadeIn>
-        <section className="mb-12">
-          <h1 className="text-heading-2-bold md:text-heading-1-bold mb-4">Project Showcase</h1>
-          <p className="text-body-2 text-gray-400 max-w-2xl">
-            A collection of UX design case studies showcasing my approach to solving problems
-            through thoughtful design, research, and development.
-          </p>
-        </section>
-      </FadeIn>
+  const collectionSchema = createCollectionPageSchema(allProjects);
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://zkg.io" },
+    { name: "Projects", url: "https://zkg.io/projects" },
+  ]);
 
-      <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" staggerDelay={0.15}>
-        {allProjects.map((project) => (
-          <FadeInStaggerItem key={project.slug}>
-            <ProjectCard project={project} />
-          </FadeInStaggerItem>
-        ))}
-      </FadeInStagger>
-    </div>
+  return (
+    <>
+      <JsonLd data={collectionSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <div className="container my-12 lg:my-16">
+        <FadeIn>
+          <section className="mb-12">
+            <h1 className="text-heading-2-bold md:text-heading-1-bold mb-4">Project Showcase</h1>
+            <p className="text-body-2 text-gray-400 max-w-2xl">
+              A collection of UX design case studies showcasing my approach to solving problems
+              through thoughtful design, research, and development. Want to know more about how I work? Check out my{' '}
+              <Link href="/process" className="text-zg-teal hover:text-zg-coral transition-colors">
+                design process
+              </Link>.
+            </p>
+          </section>
+        </FadeIn>
+
+        <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" staggerDelay={0.15}>
+          {allProjects.map((project) => (
+            <FadeInStaggerItem key={project.slug}>
+              <ProjectCard project={project} />
+            </FadeInStaggerItem>
+          ))}
+        </FadeInStagger>
+
+        {/* CTA Section */}
+        <FadeIn delay={0.3}>
+          <section className="mt-16 p-8 bg-zg-dark-0 rounded-lg text-center">
+            <h2 className="text-heading-5-semibold mb-4">Interested in working together?</h2>
+            <p className="text-body-1 text-gray-400 mb-6 max-w-xl mx-auto">
+              I'm currently looking for product design roles at B2B SaaS companies.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/lets-talk"
+                className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
+              >
+                Get in Touch
+              </Link>
+              <Link
+                href="/about"
+                className="rounded-md text-white ring-2 ring-gray-600 hover:ring-zg-teal hover:bg-zg-teal/10 active:scale-95 active:bg-zg-teal/20 transition-all duration-300 px-5 py-3 text-body-1-bold"
+              >
+                About Me
+              </Link>
+            </div>
+          </section>
+        </FadeIn>
+      </div>
+    </>
   );
 }

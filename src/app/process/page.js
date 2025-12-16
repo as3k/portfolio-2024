@@ -1,5 +1,6 @@
 import { FadeIn } from "@/components/FadeIn";
 import Link from "next/link";
+import JsonLd, { createHowToSchema, createBreadcrumbSchema } from "@/components/JsonLd";
 
 export const metadata = {
   title: "Design Process | Zachary Guerrero",
@@ -375,10 +376,19 @@ const differentiators = [
 ];
 
 export default function ProcessPage() {
+  const howToSchema = createHowToSchema(processSteps);
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://zkg.io" },
+    { name: "Design Process", url: "https://zkg.io/process" },
+  ]);
+
   return (
-    <div className="container my-12 lg:my-16">
-      {/* Header */}
-      <FadeIn>
+    <>
+      <JsonLd data={howToSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <div className="container my-12 lg:my-16">
+        {/* Header */}
+        <FadeIn>
         <header className="max-w-3xl mb-16">
           <h1 className="text-heading-1-bold mb-6">How I Work</h1>
           <p className="text-heading-5 text-gray-400">
@@ -522,14 +532,15 @@ export default function ProcessPage() {
               View My Work
             </Link>
             <Link
-              href="/api/resume"
+              href="/resume"
               className="inline-flex items-center gap-2 rounded-md text-gray-400 hover:text-zg-teal active:scale-95 transition-all duration-300 px-6 py-3 text-body-1-bold"
             >
-              Download Resume
+              View Resume
             </Link>
           </div>
         </section>
       </FadeIn>
-    </div>
+      </div>
+    </>
   );
 }
