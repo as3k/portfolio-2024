@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
           <Script
             src={umamiScriptUrl}
             data-website-id={umamiWebsiteId}
-            data-host-url={umamiHostUrl}
+            {...(umamiHostUrl ? { "data-host-url": umamiHostUrl } : {})}
             strategy="afterInteractive"
           />
         ) : null}

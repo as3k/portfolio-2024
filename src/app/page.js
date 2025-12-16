@@ -11,6 +11,7 @@ import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import JsonLd, { profilePageSchema } from "@/components/JsonLd";
+import ToolkitSection from "@/components/ToolkitSection";
 
 function StatCard({ value, label, isAnimated = false, animatedValue = 0, suffix = "" }) {
   return (
@@ -164,64 +165,69 @@ export default function Home() {
           </FadeIn>
         </div>
 
-        {/* Hero Images Grid */}
+        {/* Hero Images Grid - Collage Style */}
         <FadeIn delay={0.2} direction="left">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-4">
-              <div className="relative aspect-[4/5] rounded-lg overflow-hidden group">
-                <Image
-                  src="/images/zg-coffee-ride-profile-photo.jpg"
-                  alt="Zachary Guerrero"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  priority
-                />
-                <div className="absolute inset-0 bg-zg-teal/0 group-hover:bg-zg-teal/5 transition-colors duration-500" />
+          <div className="flex flex-col gap-3">
+            {/* Top - Large featured image */}
+            <Link
+              href="/projects/cydrion"
+              className="relative aspect-[16/10] rounded-2xl overflow-hidden group block"
+              aria-label="View Cydrion case study"
+            >
+              <Image
+                src="/images/projects/cydrion/Cydrion-Featured-Image.jpg"
+                alt="Cydrion project"
+                fill
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-5">
+                <span className="text-microcopy-2 text-zg-teal mb-1">B2B SaaS</span>
+                <h3 className="text-body-1-semibold text-white mb-1">Cydrion</h3>
+                <span className="flex items-center gap-1 text-microcopy-2 text-gray-300">
+                  View Project
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
               </div>
-            </div>
-            <div className="space-y-4 pt-8">
-              <Link
-                href="/projects/cydrion"
-                className="relative aspect-square rounded-lg overflow-hidden group block"
-                aria-label="View Cydrion case study"
-              >
-                <Image
-                  src="/images/projects/cydrion/Cydrion-Featured-Image.jpg"
-                  alt="Cydrion project"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
-                  <span className="text-microcopy-2 text-zg-teal mb-1">B2B SaaS</span>
-                  <h3 className="text-body-1-semibold text-white mb-1">Cydrion</h3>
-                  <span className="flex items-center gap-1 text-microcopy-2 text-gray-300">
-                    View Project
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
+            </Link>
+
+            {/* Bottom - Two smaller images */}
+            <div className="grid grid-cols-2 gap-3">
               <Link
                 href="/projects/manta"
-                className="relative aspect-square rounded-lg overflow-hidden group block"
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden group block"
                 aria-label="View Manta case study"
               >
                 <Image
                   src="/images/projects/manta/Manta-Featured-Image.jpg"
                   alt="Manta project"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
+                <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
                   <span className="text-microcopy-2 text-zg-teal mb-1">Product Design</span>
-                  <h3 className="text-body-1-semibold text-white mb-1">Manta</h3>
-                  <span className="flex items-center gap-1 text-microcopy-2 text-gray-300">
-                    View Project
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
+                  <h3 className="text-body-1-semibold text-white">Manta</h3>
+                </div>
+              </Link>
+
+              <Link
+                href="/projects/high-rapid-networks"
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden group block"
+                aria-label="View High Rapid Networks case study"
+              >
+                <Image
+                  src="/images/projects/high-rapid-networks/hrn-featured-image.jpg"
+                  alt="High Rapid Networks project"
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
+                <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
+                  <span className="text-microcopy-2 text-zg-teal mb-1">B2B</span>
+                  <h3 className="text-body-1-semibold text-white">High Rapid Networks</h3>
                 </div>
               </Link>
             </div>
@@ -295,6 +301,9 @@ export default function Home() {
           </div>
         </FadeIn>
       </section>
+
+      {/* What's in My Toolkit Section */}
+      <ToolkitSection />
       </div>
     </>
   );
