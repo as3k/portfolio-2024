@@ -57,9 +57,8 @@ export default function LayoutWrapper({ children }) {
 
       {/* Main content wrapper - transforms when menu is open */}
       <motion.div
-        className={`relative z-50 flex flex-col min-h-screen ${
-          isMenuOpen ? "pointer-events-none lg:pointer-events-auto" : ""
-        }`}
+        className="relative z-50 flex flex-col min-h-screen"
+        onClick={() => isMenuOpen && setIsMenuOpen(false)}
         initial={false}
         animate={{
           x: isMenuOpen ? "70%" : "0%",
