@@ -72,7 +72,7 @@ export default async function WorkDetailPage({ params }) {
       <FadeIn>
         <Link
           href="/projects"
-          className="group inline-flex items-center gap-2 text-gray-400 hover:text-zg-teal transition-colors duration-300 mb-8"
+          className="group inline-flex items-center gap-2 text-gray-400 hover:text-zg-teal transition-colors duration-300 mb-12"
         >
           <span className="inline-block group-hover:-translate-x-1 transition-transform duration-300">
             <svg
@@ -117,7 +117,7 @@ export default async function WorkDetailPage({ params }) {
 
       {/* Hero image */}
       <FadeIn delay={0.2}>
-        <div className="relative aspect-video rounded-lg overflow-hidden mb-12 group">
+        <div className="relative aspect-video rounded-lg overflow-hidden mb-16 group">
           <Image
             src={meta.heroImage}
             alt={meta.title}
@@ -130,7 +130,7 @@ export default async function WorkDetailPage({ params }) {
 
       {/* Project info grid */}
       <FadeIn delay={0.3}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 pb-12 border-b border-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 mb-8 border-b border-gray-800">
           <div>
             <h3 className="text-utility-micro-2-semibold text-gray-500 uppercase tracking-wider mb-2">
               Client
@@ -157,7 +157,7 @@ export default async function WorkDetailPage({ params }) {
         <FadeIn delay={0.4}>
           <section className="mb-12">
             <h2 className="text-heading-5-semibold mb-6">Key Results</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-10">
               {meta.metrics.slice(0, 4).map((metric) => (
                 <MetricCard key={metric.label} metric={metric} />
               ))}
@@ -168,7 +168,7 @@ export default async function WorkDetailPage({ params }) {
 
       {/* MDX Content */}
       <FadeIn delay={0.5}>
-        <article className="max-w-3xl">
+        <article className="max-w-3xl mx-auto px-4 sm:px-0">
           <MDXRemote source={content} components={MDXComponents} />
         </article>
       </FadeIn>
@@ -178,7 +178,7 @@ export default async function WorkDetailPage({ params }) {
         <FadeIn>
           <section className="mt-16">
             <h2 className="text-heading-5-semibold mb-6">Project Gallery</h2>
-            <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-4" staggerDelay={0.1}>
+            <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.1}>
               {meta.images.map((image) => (
                 <FadeInStaggerItem key={image}>
                   <div className="relative aspect-video rounded-lg overflow-hidden group">
@@ -201,7 +201,7 @@ export default async function WorkDetailPage({ params }) {
         <FadeIn>
           <section className="mt-16">
             <h2 className="text-heading-5-semibold mb-6">Before & After</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
               <div>
                 <p className="text-microcopy-2 text-gray-400 mb-2">Before</p>
                 <div className="relative aspect-video rounded-lg overflow-hidden group">
@@ -231,7 +231,7 @@ export default async function WorkDetailPage({ params }) {
 
       {/* Tags */}
       <FadeIn>
-        <footer className="mt-16 pt-8 border-t border-gray-800">
+        <footer className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-wrap gap-2 mb-12">
             {meta.tags?.map((tag) => (
               <span
@@ -244,7 +244,7 @@ export default async function WorkDetailPage({ params }) {
           </div>
 
           {/* Project Navigation */}
-          <nav className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <nav className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             {prevProject ? (
               <Link
                 href={`/projects/${prevProject.slug}`}

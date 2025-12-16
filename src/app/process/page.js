@@ -16,13 +16,13 @@ export const metadata = {
 
 function ProcessStep({ number, title, philosophy, whatIDo, whatIDeliver }) {
   return (
-    <section className="py-12 border-b border-gray-800 last:border-b-0">
-      <div className="flex items-baseline gap-4 mb-6">
+    <section className="py-16 border-b border-gray-800 last:border-b-0">
+      <div className="flex items-baseline gap-6 mb-8">
         <span className="text-display-2-bold text-zg-teal/30">{number}</span>
         <h2 className="text-heading-3-bold text-white">{title}</h2>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-12">
         <div>
           <h3 className="text-body-1-semibold text-zg-teal mb-4">What I do</h3>
           <ul className="space-y-3">
@@ -39,7 +39,7 @@ function ProcessStep({ number, title, philosophy, whatIDo, whatIDeliver }) {
           <h3 className="text-body-1-semibold text-zg-teal mb-4">
             What I deliver
           </h3>
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {whatIDeliver.map((item) => (
               <li
                 key={item}
@@ -53,7 +53,7 @@ function ProcessStep({ number, title, philosophy, whatIDo, whatIDeliver }) {
         </div>
       </div>
 
-      <p className="mt-8 text-body-2 text-gray-500 italic border-l-2 border-zg-teal/30 pl-4">
+      <p className="mt-10 text-body-2 text-gray-500 italic border-l-2 border-zg-teal/30 pl-4">
         {philosophy}
       </p>
     </section>
@@ -389,7 +389,7 @@ export default function ProcessPage() {
       <div className="container my-12 lg:my-16">
         {/* Header */}
         <FadeIn>
-        <header className="max-w-3xl mb-16">
+        <header className="max-w-3xl mb-20 lg:mb-24">
           <h1 className="text-heading-1-bold mb-6">How I Work</h1>
           <p className="text-heading-5 text-gray-400">
             My approach is simple: understand the problem, design for clarity,
@@ -416,10 +416,10 @@ export default function ProcessPage() {
       <FadeIn delay={0.2}>
         <section className="mb-20">
           <h2 className="text-heading-3-bold mb-8">Tools I Use</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {tools.map((tool) => (
-              <div key={tool.category} className="p-4 bg-zg-dark-0 rounded-lg">
-                <h3 className="text-body-1-semibold text-zg-teal mb-2">
+              <div key={tool.category} className="p-6 bg-zg-dark-0 rounded-lg">
+                <h3 className="text-body-1-semibold text-zg-teal mb-3">
                   {tool.category}
                 </h3>
                 <p className="text-body-1 text-gray-400">{tool.items}</p>
@@ -443,7 +443,7 @@ export default function ProcessPage() {
               >
                 <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-zg-teal" />
                 <div>
-                  <h3 className="text-body-1-semibold text-white mb-1">
+                  <h3 className="text-body-1-semibold text-white mb-2">
                     {item.title}
                   </h3>
                   <p className="text-body-1 text-gray-400">{item.description}</p>

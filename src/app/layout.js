@@ -1,8 +1,7 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import LayoutWrapper from "@/components/LayoutWrapper";
 import JsonLd, { personSchema, websiteSchema, professionalServiceSchema } from "@/components/JsonLd";
 
 const poppins = Poppins({
@@ -22,13 +21,13 @@ export default function RootLayout({ children }) {
   const umamiHostUrl = process.env.NEXT_PUBLIC_UMAMI_HOST_URL;
 
   return (
-    <html lang="en" className={`${poppins.className} bg-zg-dark-1 text-gray-200`}>
+    <html lang="en" className={`${poppins.className} text-gray-200`}>
       <head>
         <JsonLd data={{ "@context": "https://schema.org", ...personSchema }} />
         <JsonLd data={websiteSchema} />
         <JsonLd data={{ "@context": "https://schema.org", ...professionalServiceSchema }} />
       </head>
-      <body className={`antialiased flex flex-col min-h-screen py-4 lg:py-6`}>
+      <body className="antialiased overflow-x-hidden">
         {umamiScriptUrl && umamiWebsiteId ? (
           <Script
             src={umamiScriptUrl}
@@ -37,11 +36,9 @@ export default function RootLayout({ children }) {
             strategy="afterInteractive"
           />
         ) : null}
-        <Header />
-        <main className="flex flex-col flex-1">
+        <LayoutWrapper>
           {children}
-        </main>
-        <Footer />
+        </LayoutWrapper>
       </body>
     </html>
   );

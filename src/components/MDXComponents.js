@@ -30,7 +30,7 @@ const MDXComponents = {
 
   // Paragraphs and text
   p: ({ children, ...props }) => (
-    <p className="text-body-1 text-gray-300 mb-4 leading-relaxed" {...props}>
+    <p className="text-body-1 text-gray-300 mb-4 md:mb-6 leading-relaxed" {...props}>
       {children}
     </p>
   ),
@@ -74,12 +74,12 @@ const MDXComponents = {
 
   // Lists
   ul: ({ children, ...props }) => (
-    <ul className="list-disc list-inside mb-4 space-y-2 text-gray-300" {...props}>
+    <ul className="list-disc list-inside mb-4 md:mb-6 space-y-3 text-gray-300" {...props}>
       {children}
     </ul>
   ),
   ol: ({ children, ...props }) => (
-    <ol className="list-decimal list-inside mb-4 space-y-2 text-gray-300" {...props}>
+    <ol className="list-decimal list-inside mb-4 md:mb-6 space-y-3 text-gray-300" {...props}>
       {children}
     </ol>
   ),

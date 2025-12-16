@@ -18,7 +18,7 @@ const toolBadges = [
 
 function ToolList({ items }) {
   return (
-    <ul className="space-y-1.5">
+    <ul className="space-y-2.5">
       {items.map((item) => (
         <li key={item} className="text-body-1 text-gray-400 flex items-start gap-2">
           <span className="text-zg-teal mt-1.5 text-xs">•</span>
@@ -33,7 +33,7 @@ export default function ToolkitSection() {
   return (
     <section className="mt-24 lg:mt-32">
       {/* Bento Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-auto">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 auto-rows-auto">
 
         {/* Row 1: Header + Top cards */}
         {/* Left: Section Header with Tool Badges */}
@@ -56,7 +56,7 @@ export default function ToolkitSection() {
                 <MagnifyingGlassIcon className="w-4 h-4 text-white" />
               </div>
             </div>
-            <h3 className="text-heading-5-semibold text-white mb-2">Research & Testing</h3>
+            <h3 className="text-heading-5-semibold text-white mb-3">Research & Testing</h3>
             <p className="text-body-1 text-gray-400">
               I validate before I build. Watch what users do, not what they say.
             </p>
@@ -137,7 +137,7 @@ export default function ToolkitSection() {
             <span className="inline-block text-microcopy-2-semibold text-gray-400 border border-gray-700 rounded-full px-3 py-1 mb-4">
               Development
             </span>
-            <h3 className="text-heading-4-bold text-white mb-2">
+            <h3 className="text-heading-4-bold text-white mb-3">
               10+ Years Building for the Web
             </h3>
             <p className="text-body-1 text-gray-400 mb-4">

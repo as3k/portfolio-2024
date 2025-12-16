@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="mt-16 py-12">
+    <footer className="mt-24 lg:mt-32 pt-12 pb-8 border-t border-gray-800">
       <div className="container flex flex-col items-center gap-8">
         {/* Main Row - stacked on mobile, inline on desktop */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 w-full">
@@ -73,7 +73,7 @@ export default function Footer() {
               href="/api/resume"
               className="text-gray-400 hover:text-zg-teal transition-colors"
             >
-              Download CV
+              Download Resume
             </Link>
           </div>
         </div>
