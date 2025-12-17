@@ -1,15 +1,29 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
-import { getAllWork } from '@/lib/content';
+import { getProjectsPageProjects, getProjectsByCategory } from '@/lib/content';
+import { ProjectBadge } from '@/components/ProjectBadge';
 import JsonLd, { createCollectionPageSchema, createBreadcrumbSchema } from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Project Showcase | Zachary Guerrero',
   description: 'UX design case studies and projects by Zachary Guerrero. Explore my portfolio of web design, branding, and product design work.',
+  openGraph: {
+    title: 'Project Showcase | Zachary Guerrero',
+    description: 'Solving problems through thoughtful design, research, and development.',
+    url: 'https://zkg.io/projects',
+    siteName: 'Zachary Guerrero',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Project Showcase | Zachary Guerrero',
+    description: 'Solving problems through thoughtful design, research, and development.',
+  },
 };
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, showBadge = false }) {
   const { slug, meta } = project;
 
   return (
@@ -24,10 +38,15 @@ function ProjectCard({ project }) {
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        {meta.featured && (
+        {meta.featured && !showBadge && (
           <span className="absolute top-3 right-3 bg-zg-teal text-zg-dark-1 text-microcopy-1-semibold px-2 py-1 rounded">
             Featured
           </span>
+        )}
+        {showBadge && (
+          <div className="absolute top-3 right-3">
+            <ProjectBadge project={project} />
+          </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
           <span className="flex items-center gap-2 text-white text-body-1-semibold translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -63,8 +82,37 @@ function ProjectCard({ project }) {
   );
 }
 
+function ProjectSection({ title, projects, showBadge = false, children }) {
+  if (projects.length === 0) return null;
+
+  return (
+    <section className="mb-16">
+      <FadeIn>
+        <h2 className="text-heading-4-bold mb-6">{title}</h2>
+      </FadeIn>
+      <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.1}>
+        {projects.map((project) => (
+          <FadeInStaggerItem key={project.slug}>
+            <ProjectCard project={project} showBadge={showBadge} />
+          </FadeInStaggerItem>
+        ))}
+      </FadeInStagger>
+      {children}
+    </section>
+  );
+}
+
 export default function ProjectsPage() {
-  const allProjects = getAllWork();
+  const allProjects = getProjectsPageProjects();
+
+  // Separate projects by category
+  const featured = allProjects.filter(p => p.meta.featured);
+  const b2bTech = allProjects.filter(p => p.meta.category === 'B2B Tech' && !p.meta.featured);
+  const personalProjects = allProjects.filter(p => p.meta.category === 'Personal Project' && !p.meta.featured);
+  const localBusiness = getProjectsByCategory('Local Business');
+
+  // Additional work combines non-featured B2B and personal projects
+  const additionalWork = [...b2bTech, ...personalProjects];
 
   const collectionSchema = createCollectionPageSchema(allProjects);
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -90,17 +138,51 @@ export default function ProjectsPage() {
           </section>
         </FadeIn>
 
-        <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.15}>
-          {allProjects.map((project) => (
-            <FadeInStaggerItem key={project.slug}>
-              <ProjectCard project={project} />
-            </FadeInStaggerItem>
-          ))}
-        </FadeInStagger>
+        {/* Featured Work */}
+        <ProjectSection title="Featured Work" projects={featured} showBadge />
+
+        {/* Additional Work */}
+        <ProjectSection title="Additional Work" projects={additionalWork} showBadge />
+
+        {/* Past Client Work - Local Business */}
+        <ProjectSection title="Past Client Work" projects={localBusiness}>
+          <FadeIn delay={0.2}>
+            <p className="text-body-1 text-gray-500 mt-6">
+              I also do freelance work for local businesses. If you're interested in that type of work, feel free to{' '}
+              <Link href="/lets-talk" className="text-zg-teal hover:text-zg-coral transition-colors">
+                reach out
+              </Link>{' '}
+              or visit{' '}
+              <a
+                href="https://beetleandfrog.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zg-teal hover:text-zg-coral transition-colors"
+              >
+                Beetle & Frog Design
+              </a>.
+            </p>
+          </FadeIn>
+        </ProjectSection>
+
+        {/* Archive Link */}
+        <FadeIn delay={0.3}>
+          <div className="flex justify-center mb-16">
+            <Link
+              href="/projects/archive"
+              className="group text-body-1-semibold text-gray-500 hover:text-gray-300 transition-colors duration-300 inline-flex items-center gap-2"
+            >
+              View Archived Projects
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </FadeIn>
 
         {/* CTA Section */}
-        <FadeIn delay={0.3}>
-          <section className="mt-16 p-6 md:p-8 lg:p-12 bg-zg-dark-0 rounded-lg text-center">
+        <FadeIn delay={0.4}>
+          <section className="p-6 md:p-8 lg:p-12 bg-zg-dark-0 rounded-lg text-center">
             <h2 className="text-heading-5-semibold mb-4">Interested in working together?</h2>
             <p className="text-body-1 text-gray-400 mb-6 max-w-xl mx-auto">
               I'm currently looking for product design roles at B2B SaaS companies.

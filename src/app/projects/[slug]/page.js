@@ -20,10 +20,28 @@ export async function generateMetadata({ params }) {
     return { title: 'Not Found' };
   }
 
+  const title = work.meta.seo?.metaTitle || `${work.meta.title} | Zachary Guerrero`;
+  const description = work.meta.seo?.metaDescription || work.meta.excerpt;
+
   return {
-    title: work.meta.seo?.metaTitle || `${work.meta.title} | Zachary Guerrero`,
-    description: work.meta.seo?.metaDescription || work.meta.excerpt,
+    title,
+    description,
     keywords: work.meta.seo?.keywords,
+    openGraph: {
+      title,
+      description,
+      url: `https://zkg.io/projects/${slug}`,
+      siteName: 'Zachary Guerrero',
+      locale: 'en_US',
+      type: 'article',
+      publishedTime: `${work.meta.year}-01-01T00:00:00.000Z`,
+      authors: ['Zachary Guerrero'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   };
 }
 
