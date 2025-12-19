@@ -1,5 +1,3 @@
-"use client";
-
 import {
   EnvelopeIcon,
   GlobeAltIcon,
@@ -7,9 +5,13 @@ import {
   PhoneIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { FadeIn } from "@/components/FadeIn";
 import { resumeData } from "@/lib/resume-data";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
+
+export const metadata = {
+  title: "Resume | Zachary Guerrero",
+  description: "Professional resume of Zachary Guerrero, Product Designer with 10+ years of experience in UX design and front-end development.",
+};
 
 function ContactItem({ icon: Icon, children, href }) {
   const content = (
@@ -91,7 +93,6 @@ export default function ResumePage() {
       <JsonLd data={breadcrumbSchema} />
       <div className="container my-12 lg:my-16">
         {/* Header */}
-        <FadeIn>
         <header className="mb-12 pb-8 border-b border-gray-800">
           <h1 className="text-heading-1-bold mb-2">{resumeData.name}</h1>
           <p className="text-heading-5-semibold text-zg-teal mb-6">{resumeData.title}</p>
@@ -109,125 +110,113 @@ export default function ResumePage() {
             </ContactItem>
           </div>
         </header>
-      </FadeIn>
 
-      {/* Summary */}
-      <FadeIn delay={0.1}>
+        {/* Summary */}
         <section className="mb-12">
           <p className="text-body-2 text-gray-400 max-w-3xl">
             {resumeData.summary}
           </p>
         </section>
-      </FadeIn>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Main Content - Experience */}
         <div className="lg:col-span-2">
-          <FadeIn delay={0.2}>
-            <section className="mb-12">
-              <h2 className="text-heading-4-bold mb-8 pb-2 border-b border-gray-800">
-                Work Experience
-              </h2>
+          <section className="mb-12">
+            <h2 className="text-heading-4-bold mb-8 pb-2 border-b border-gray-800">
+              Work Experience
+            </h2>
 
-              {resumeData.experience.map((exp) => (
-                <ExperienceItem
-                  key={exp.company}
-                  company={exp.company}
-                  location={exp.location}
-                  date={exp.date}
-                  title={exp.title}
-                >
-                  {exp.bullets.map((bullet) => (
-                    <ExperienceBullet key={bullet.slice(0, 30)}>
-                      {bullet}
-                    </ExperienceBullet>
-                  ))}
-                </ExperienceItem>
-              ))}
-            </section>
-          </FadeIn>
+            {resumeData.experience.map((exp) => (
+              <ExperienceItem
+                key={exp.company}
+                company={exp.company}
+                location={exp.location}
+                date={exp.date}
+                title={exp.title}
+              >
+                {exp.bullets.map((bullet) => (
+                  <ExperienceBullet key={bullet.slice(0, 30)}>
+                    {bullet}
+                  </ExperienceBullet>
+                ))}
+              </ExperienceItem>
+            ))}
+          </section>
         </div>
 
         {/* Sidebar - Skills & Education */}
         <div className="lg:col-span-1">
-          <FadeIn delay={0.3}>
-            <section className="mb-12">
-              <h2 className="text-heading-4-bold mb-6 pb-2 border-b border-gray-800">
-                Skills
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {resumeData.skills.map((skill) => (
-                  <SkillTag key={skill}>{skill}</SkillTag>
-                ))}
-              </div>
-            </section>
-          </FadeIn>
+          <section className="mb-12">
+            <h2 className="text-heading-4-bold mb-6 pb-2 border-b border-gray-800">
+              Skills
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {resumeData.skills.map((skill) => (
+                <SkillTag key={skill}>{skill}</SkillTag>
+              ))}
+            </div>
+          </section>
 
-          <FadeIn delay={0.4}>
-            <section className="mb-12">
-              <h2 className="text-heading-4-bold mb-6 pb-2 border-b border-gray-800">
-                Education
-              </h2>
-              <div>
-                <h3 className="text-body-1-semibold text-white">
-                  {resumeData.education.degree}
-                </h3>
-                <p className="text-body-1 text-gray-400">{resumeData.education.school}</p>
-                <p className="text-microcopy-2 text-gray-500">{resumeData.education.location}</p>
-              </div>
-            </section>
-          </FadeIn>
+          <section className="mb-12">
+            <h2 className="text-heading-4-bold mb-6 pb-2 border-b border-gray-800">
+              Education
+            </h2>
+            <div>
+              <h3 className="text-body-1-semibold text-white">
+                {resumeData.education.degree}
+              </h3>
+              <p className="text-body-1 text-gray-400">{resumeData.education.school}</p>
+              <p className="text-microcopy-2 text-gray-500">{resumeData.education.location}</p>
+            </div>
+          </section>
 
-          <FadeIn delay={0.5}>
-            <section className="mb-12">
-              <h2 className="text-heading-4-bold mb-6 pb-2 border-b border-gray-800">
-                Download
-              </h2>
+          <section className="mb-12">
+            <h2 className="text-heading-4-bold mb-6 pb-2 border-b border-gray-800">
+              Download
+            </h2>
+            <Link
+              href="/Zachary-Guerrero-Resume.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download PDF
+            </Link>
+          </section>
+
+          <section className="p-6 bg-zg-dark-0 rounded-lg">
+            <h2 className="text-heading-6-semibold mb-3 text-white">
+              Learn More
+            </h2>
+            <div className="flex flex-wrap gap-4">
               <Link
-                href="/api/resume"
-                className="inline-flex items-center gap-2 rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
+                href="/projects"
+                className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                Download PDF
+                View My Work
               </Link>
-            </section>
-          </FadeIn>
-
-          <FadeIn delay={0.6}>
-            <section className="p-6 bg-zg-dark-0 rounded-lg">
-              <h2 className="text-heading-6-semibold mb-3 text-white">
-                Learn More
-              </h2>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/projects"
-                  className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
-                >
-                  View My Work
-                </Link>
-                <Link
-                  href="/process"
-                  className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
-                >
-                  My Process
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
-                >
-                  About Me
-                </Link>
-                <Link
-                  href="/lets-talk"
-                  className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
-                >
-                  Get in Touch
-                </Link>
-              </div>
-            </section>
-          </FadeIn>
+              <Link
+                href="/process"
+                className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+              >
+                My Process
+              </Link>
+              <Link
+                href="/about"
+                className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+              >
+                About Me
+              </Link>
+              <Link
+                href="/lets-talk"
+                className="text-zg-teal hover:text-zg-coral transition-colors text-body-1-semibold"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </section>
         </div>
       </div>
       </div>

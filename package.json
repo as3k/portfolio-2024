@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/generate-resume-pdf.tsx",
     "build": "next build",
     "start": "next start",
     "lint": "biome check ."
@@ -27,6 +28,7 @@
     "@biomejs/biome": "^2.3.8",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }
