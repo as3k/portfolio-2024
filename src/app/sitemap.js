@@ -8,7 +8,7 @@ export const runtime = 'nodejs';
  * @returns {Array} Sitemap URL entries
  */
 export default function sitemap() {
-  const baseUrl = 'https://zkg.io';
+  const baseUrl = 'https://zacharyguerrero.com';
 
   // Static pages with their priorities
   const staticPages = [

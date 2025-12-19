@@ -184,7 +184,7 @@ export default async function Image({ params }) {
               color: '#9ca3af',
             }}
           >
-            zkg.io
+            zacharyguerrero.com
           </div>
         </div>
       </div>

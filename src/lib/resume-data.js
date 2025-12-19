@@ -5,8 +5,8 @@ export const resumeData = {
   phone: "(702) 469-5962",
   phoneHref: "tel:+17024695962",
   email: "zack@zkg.io",
-  website: "zkg.io",
-  websiteHref: "https://zkg.io",
+  website: "zacharyguerrero.com",
+  websiteHref: "https://zacharyguerrero.com",
 
   summary: `Senior Product Designer with 10+ years working on enterprise SaaS, insurance, and membership platforms. At Pacific Life, I led research and design for internal tools and customer portals—working within strict regulatory requirements while keeping workflows simple. I focus on turning unclear problems into tested solutions that improve conversion and reduce friction.`,
 

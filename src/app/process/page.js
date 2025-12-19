@@ -378,8 +378,8 @@ const differentiators = [
 export default function ProcessPage() {
   const howToSchema = createHowToSchema(processSteps);
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://zkg.io" },
-    { name: "Design Process", url: "https://zkg.io/process" },
+    { name: "Home", url: "https://zacharyguerrero.com" },
+    { name: "Design Process", url: "https://zacharyguerrero.com/process" },
   ]);
 
   return (

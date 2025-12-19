@@ -10,7 +10,7 @@ export const metadata = {
   openGraph: {
     title: 'Project Showcase | Zachary Guerrero',
     description: 'Solving problems through thoughtful design, research, and development.',
-    url: 'https://zkg.io/projects',
+    url: 'https://zacharyguerrero.com/projects',
     siteName: 'Zachary Guerrero',
     locale: 'en_US',
     type: 'website',
@@ -110,8 +110,8 @@ export default function ProjectsPage() {
 
   const collectionSchema = createCollectionPageSchema(allProjects);
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://zkg.io" },
-    { name: "Projects", url: "https://zkg.io/projects" },
+    { name: "Home", url: "https://zacharyguerrero.com" },
+    { name: "Projects", url: "https://zacharyguerrero.com/projects" },
   ]);
 
   return (

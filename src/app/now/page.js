@@ -6,19 +6,19 @@ import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
 
 export default function NowPage() {
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://zkg.io" },
-    { name: "Now", url: "https://zkg.io/now" },
+    { name: "Home", url: "https://zacharyguerrero.com" },
+    { name: "Now", url: "https://zacharyguerrero.com/now" },
   ]);
 
   const nowPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://zkg.io/now",
+    "@id": "https://zacharyguerrero.com/now",
     name: "Now - What I'm Currently Up To | Zachary Guerrero",
     description: "Currently seeking product design roles while redesigning member experiences and rebuilding my portfolio on Next.js.",
-    url: "https://zkg.io/now",
+    url: "https://zacharyguerrero.com/now",
     mainEntity: {
-      "@id": "https://zkg.io/#person",
+      "@id": "https://zacharyguerrero.com/#person",
     },
   };
 

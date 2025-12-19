@@ -68,20 +68,20 @@ function SkillTag({ children }) {
 
 export default function ResumePage() {
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://zkg.io" },
-    { name: "Resume", url: "https://zkg.io/resume" },
+    { name: "Home", url: "https://zacharyguerrero.com" },
+    { name: "Resume", url: "https://zacharyguerrero.com/resume" },
   ]);
 
   // Resume schema
   const resumeSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://zkg.io/resume",
+    "@id": "https://zacharyguerrero.com/resume",
     name: "Resume | Zachary Guerrero",
     description: "Professional resume of Zachary Guerrero, Product Designer with 10+ years of experience in UX design and front-end development.",
-    url: "https://zkg.io/resume",
+    url: "https://zacharyguerrero.com/resume",
     mainEntity: {
-      "@id": "https://zkg.io/#person",
+      "@id": "https://zacharyguerrero.com/#person",
     },
   };
 
