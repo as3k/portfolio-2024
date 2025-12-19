@@ -124,9 +124,11 @@ export default function Home() {
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
         <div className="flex flex-col gap-4 lg:gap-6 order-2 lg:order-1">
           <FadeIn>
-            <p className="text-body-1-semibold text-zg-teal mb-1 lg:mb-2">Senior Product Designer</p>
-            <h1 className="text-heading-4-bold md:text-heading-2-bold lg:text-heading-1-bold">
-              I help B2B SaaS companies turn complex problems into simple experiences.
+            <h1 className="flex flex-col gap-1 lg:gap-2">
+              <span className="text-body-1-semibold text-zg-teal">Zachary Guerrero</span>
+              <span className="text-heading-4-bold md:text-heading-2-bold lg:text-heading-1-bold">
+                I help B2B SaaS companies turn complex problems into simple experiences.
+              </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -224,7 +226,7 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
-                  <span className="text-microcopy-2 text-zg-teal mb-1">Product Design</span>
+                  <span className="text-microcopy-2 text-zg-teal mb-1">Personal Project</span>
                   <h3 className="text-body-1-semibold text-white">Manta</h3>
                 </div>
               </Link>
@@ -242,7 +244,7 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
-                  <span className="text-microcopy-2 text-zg-teal mb-1">B2B</span>
+                  <span className="text-microcopy-2 text-zg-teal mb-1">B2B SaaS</span>
                   <h3 className="text-body-1-semibold text-white">High Rapid Networks</h3>
                 </div>
               </Link>
@@ -357,7 +359,7 @@ function useFeaturedWork() {
       slug: "manta",
       meta: {
         title: "MANTA: A Secure and Memorable Passphrase Generator",
-        category: "Product Design",
+        category: "Personal Project",
         year: 2025,
         excerpt: "Chrome extension that generates secure, memorable passphrases using a custom-built API. Designed for security-conscious users who want better password practices.",
         heroImage: "/images/projects/manta/Manta-Featured-Image.jpg",
@@ -368,7 +370,7 @@ function useFeaturedWork() {
       slug: "high-rapid-networks",
       meta: {
         title: "High Rapid Networks",
-        category: "B2B",
+        category: "B2B SaaS",
         year: 2025,
         excerpt: "Complete rebrand and website redesign for a rural ISP that doubled their subscriber base and expanded into larger markets.",
         heroImage: "/images/projects/high-rapid-networks/hrn-featured-image.jpg",
