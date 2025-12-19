@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import {
   CodeBracketIcon,
   MagnifyingGlassIcon,
@@ -328,54 +329,17 @@ export default function Home() {
 }
 
 // Client-side hook to get featured work
-// In a real app, this would come from server component or API
+// Uses dynamic import to work around client component limitation
 function useFeaturedWork() {
-  // This is a simplified version - the actual data comes from MDX files
-  // For now, we'll return the featured projects statically
-  return [
-    {
-      slug: "art-healing-hearts",
-      meta: {
-        title: "Art Healing Hearts",
-        category: "Nonprofit",
-        year: 2025,
-        excerpt: "Emergency redesign and rebuild for a nonprofit's website in under a week to support their television feature and streamline donations.",
-        heroImage: "/images/projects/art-healing-hearts/art-healing-hearts-featured-image.jpg",
-        featured: true,
-      },
-    },
-    {
-      slug: "cydrion",
-      meta: {
-        title: "Cydrion",
-        category: "B2B SaaS",
-        year: 2025,
-        excerpt: "Built a complete digital presence and brand identity from scratch for an ISP support company, establishing them as a leader in network operations.",
-        heroImage: "/images/projects/cydrion/Cydrion-Featured-Image.jpg",
-        featured: true,
-      },
-    },
-    {
-      slug: "manta",
-      meta: {
-        title: "MANTA: A Secure and Memorable Passphrase Generator",
-        category: "Personal Project",
-        year: 2025,
-        excerpt: "Chrome extension that generates secure, memorable passphrases using a custom-built API. Designed for security-conscious users who want better password practices.",
-        heroImage: "/images/projects/manta/Manta-Featured-Image.jpg",
-        featured: true,
-      },
-    },
-    {
-      slug: "high-rapid-networks",
-      meta: {
-        title: "High Rapid Networks",
-        category: "B2B SaaS",
-        year: 2025,
-        excerpt: "Complete rebrand and website redesign for a rural ISP that doubled their subscriber base and expanded into larger markets.",
-        heroImage: "/images/projects/high-rapid-networks/hrn-featured-image.jpg",
-        featured: true,
-      },
-    },
-  ];
+  const [featuredWork, setFeaturedWork] = React.useState([]);
+
+  React.useEffect(() => {
+    // Fetch featured work from API route
+    fetch('/api/featured-work')
+      .then(res => res.json())
+      .then(data => setFeaturedWork(data))
+      .catch(err => console.error('Failed to load featured work:', err));
+  }, []);
+
+  return featuredWork;
 }
