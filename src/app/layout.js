@@ -12,10 +12,10 @@ const poppins = Poppins({
 
 export const metadata = {
   metadataBase: new URL('https://zacharyguerrero.com'),
-  title: "User experience design portfolio of Zachary Guerrero.",
-  description: "Zachary Guerrero, a UX designer crafting seamless, user-friendly digital experiences. Specializing in apps, websites, and product design that bring your vision to life.",
+  title: "Zachary Guerrero - Senior Product Designer",
+  description: "Senior Product Designer with 10+ years building B2B SaaS products. I design for clarity, build with React, and measure impact. Based in California, open to remote roles.",
   openGraph: {
-    title: "Zachary Guerrero - Product Designer & Developer",
+    title: "Zachary Guerrero - Senior Product Designer",
     description: "I help B2B SaaS companies turn complex problems into simple experiences.",
     url: 'https://zacharyguerrero.com',
     siteName: 'Zachary Guerrero',
@@ -24,7 +24,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Zachary Guerrero - Product Designer & Developer",
+    title: "Zachary Guerrero - Senior Product Designer",
     description: "I help B2B SaaS companies turn complex problems into simple experiences.",
   },
 };

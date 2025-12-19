@@ -124,7 +124,7 @@ export default function Home() {
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
         <div className="flex flex-col gap-4 lg:gap-6 order-2 lg:order-1">
           <FadeIn>
-            <p className="text-body-1-semibold text-zg-teal mb-1 lg:mb-2">Product Designer & Developer</p>
+            <p className="text-body-1-semibold text-zg-teal mb-1 lg:mb-2">Senior Product Designer</p>
             <h1 className="text-heading-4-bold md:text-heading-2-bold lg:text-heading-1-bold">
               I help B2B SaaS companies turn complex problems into simple experiences.
             </h1>
