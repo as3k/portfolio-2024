@@ -19,14 +19,14 @@ export const personSchema = {
   name: "Zachary Guerrero",
   givenName: "Zachary",
   familyName: "Guerrero",
-  jobTitle: "Product Designer",
+  jobTitle: "Senior Product Designer",
   description: "Product designer who codes. Specializing in B2B SaaS, complex flows, and technical products.",
   url: "https://zacharyguerrero.com",
   email: "zack@zkg.io",
   image: "https://zacharyguerrero.com/images/zg-coffee-ride-profile-photo.jpg",
   sameAs: [
     "https://linkedin.com/in/zacharyafguerrero",
-    "https://github.com/as3k/portfolio-2024",
+    "https://github.com/as3k",
   ],
   knowsAbout: [
     "UX Design",
