@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Document,
   Link,
@@ -6,7 +7,7 @@ import {
   Text,
   View,
 } from "@react-pdf/renderer";
-import { resumeData } from "@/lib/resume-data";
+import { resumeData } from "../lib/resume-data.js";
 
 const colors = {
   teal: "#0d9488",

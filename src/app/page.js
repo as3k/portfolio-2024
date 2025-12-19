@@ -18,7 +18,12 @@ function StatCard({ value, label, isAnimated = false, animatedValue = 0, suffix 
     <div className="flex flex-col">
       <span className="text-heading-6-bold md:text-heading-4-bold text-white">
         {isAnimated ? (
-          <AnimatedCounter value={animatedValue} suffix={suffix} />
+          <>
+            <span className="sr-only">{animatedValue}{suffix}</span>
+            <span aria-hidden="true">
+              <AnimatedCounter value={animatedValue} suffix={suffix} />
+            </span>
+          </>
         ) : (
           value
         )}
