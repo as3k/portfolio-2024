@@ -11,8 +11,8 @@ export const metadata = {
 
 export default function LetsTalkPage() {
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://zkg.io" },
-    { name: "Contact", url: "https://zkg.io/lets-talk" },
+    { name: "Home", url: "https://zacharyguerrero.com" },
+    { name: "Contact", url: "https://zacharyguerrero.com/lets-talk" },
   ]);
 
   return (

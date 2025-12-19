@@ -101,7 +101,7 @@ export default async function Image() {
               fontWeight: 600,
             }}
           >
-            zkg.io
+            zacharyguerrero.com
           </div>
         </div>
       </div>

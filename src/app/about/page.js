@@ -201,8 +201,8 @@ export default function AboutPage() {
   ];
 
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://zkg.io" },
-    { name: "About", url: "https://zkg.io/about" },
+    { name: "Home", url: "https://zacharyguerrero.com" },
+    { name: "About", url: "https://zacharyguerrero.com/about" },
   ]);
 
   return (

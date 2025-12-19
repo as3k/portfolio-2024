@@ -6,17 +6,17 @@ import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
 
 export default function PrivacyPolicy() {
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://zkg.io" },
-    { name: "Privacy Policy", url: "https://zkg.io/privacy-policy" },
+    { name: "Home", url: "https://zacharyguerrero.com" },
+    { name: "Privacy Policy", url: "https://zacharyguerrero.com/privacy-policy" },
   ]);
 
   const privacySchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://zkg.io/privacy-policy",
+    "@id": "https://zacharyguerrero.com/privacy-policy",
     name: "Privacy Policy | Zachary Guerrero",
     description: "Privacy policy for the portfolio website of Zachary Guerrero.",
-    url: "https://zkg.io/privacy-policy",
+    url: "https://zacharyguerrero.com/privacy-policy",
   };
 
   return (

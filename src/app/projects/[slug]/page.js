@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title,
       description,
-      url: `https://zkg.io/projects/${slug}`,
+      url: `https://zacharyguerrero.com/projects/${slug}`,
       siteName: 'Zachary Guerrero',
       locale: 'en_US',
       type: 'article',
@@ -76,9 +76,9 @@ export default async function WorkDetailPage({ params }) {
   // Create schema data
   const caseStudySchema = createCaseStudySchema({ slug, meta });
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://zkg.io" },
-    { name: "Projects", url: "https://zkg.io/projects" },
-    { name: meta.title, url: `https://zkg.io/projects/${slug}` },
+    { name: "Home", url: "https://zacharyguerrero.com" },
+    { name: "Projects", url: "https://zacharyguerrero.com/projects" },
+    { name: meta.title, url: `https://zacharyguerrero.com/projects/${slug}` },
   ]);
 
   return (

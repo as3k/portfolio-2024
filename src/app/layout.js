@@ -11,13 +11,13 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  metadataBase: new URL('https://zkg.io'),
+  metadataBase: new URL('https://zacharyguerrero.com'),
   title: "User experience design portfolio of Zachary Guerrero.",
   description: "Zachary Guerrero, a UX designer crafting seamless, user-friendly digital experiences. Specializing in apps, websites, and product design that bring your vision to life.",
   openGraph: {
     title: "Zachary Guerrero - Product Designer & Developer",
     description: "I help B2B SaaS companies turn complex problems into simple experiences.",
-    url: 'https://zkg.io',
+    url: 'https://zacharyguerrero.com',
     siteName: 'Zachary Guerrero',
     locale: 'en_US',
     type: 'website',
