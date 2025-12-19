@@ -110,3 +110,20 @@ export function getAllPosts() {
 
   return posts;
 }
+
+/**
+ * Get all projects for the projects page
+ * @returns {Array<{ slug: string, meta: object, content: string }>}
+ */
+export function getProjectsPageProjects() {
+  return getAllWork();
+}
+
+/**
+ * Get projects by category
+ * @param {string} category - The category to filter by
+ * @returns {Array<{ slug: string, meta: object, content: string }>}
+ */
+export function getProjectsByCategory(category) {
+  return getAllWork().filter((item) => item.meta.category === category);
+}

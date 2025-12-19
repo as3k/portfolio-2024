@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
 import { getProjectsPageProjects, getProjectsByCategory } from '@/lib/content';
-import { ProjectBadge } from '@/components/ProjectBadge';
 import JsonLd, { createCollectionPageSchema, createBreadcrumbSchema } from '@/components/JsonLd';
 
 export const metadata = {
@@ -23,7 +22,7 @@ export const metadata = {
   },
 };
 
-function ProjectCard({ project, showBadge = false }) {
+function ProjectCard({ project }) {
   const { slug, meta } = project;
 
   return (
@@ -38,15 +37,10 @@ function ProjectCard({ project, showBadge = false }) {
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        {meta.featured && !showBadge && (
+        {meta.featured && (
           <span className="absolute top-3 right-3 bg-zg-teal text-zg-dark-1 text-microcopy-1-semibold px-2 py-1 rounded">
             Featured
           </span>
-        )}
-        {showBadge && (
-          <div className="absolute top-3 right-3">
-            <ProjectBadge project={project} />
-          </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
           <span className="flex items-center gap-2 text-white text-body-1-semibold translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -82,7 +76,7 @@ function ProjectCard({ project, showBadge = false }) {
   );
 }
 
-function ProjectSection({ title, projects, showBadge = false, children }) {
+function ProjectSection({ title, projects, children }) {
   if (projects.length === 0) return null;
 
   return (
@@ -93,7 +87,7 @@ function ProjectSection({ title, projects, showBadge = false, children }) {
       <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.1}>
         {projects.map((project) => (
           <FadeInStaggerItem key={project.slug}>
-            <ProjectCard project={project} showBadge={showBadge} />
+            <ProjectCard project={project} />
           </FadeInStaggerItem>
         ))}
       </FadeInStagger>
@@ -139,10 +133,10 @@ export default function ProjectsPage() {
         </FadeIn>
 
         {/* Featured Work */}
-        <ProjectSection title="Featured Work" projects={featured} showBadge />
+        <ProjectSection title="Featured Work" projects={featured} />
 
         {/* Additional Work */}
-        <ProjectSection title="Additional Work" projects={additionalWork} showBadge />
+        <ProjectSection title="Additional Work" projects={additionalWork} />
 
         {/* Past Client Work - Local Business */}
         <ProjectSection title="Past Client Work" projects={localBusiness}>
