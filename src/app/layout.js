@@ -14,6 +14,23 @@ export const metadata = {
   metadataBase: new URL('https://zacharyguerrero.com'),
   title: "Zachary Guerrero - Senior Product Designer",
   description: "Senior Product Designer with 10+ years building B2B SaaS products. I design for clarity, build with React, and measure impact. Based in California, open to remote roles.",
+  keywords: [
+    "product designer",
+    "senior product designer",
+    "UX designer",
+    "UI designer",
+    "React developer",
+    "Next.js",
+    "TypeScript",
+    "B2B SaaS",
+    "design systems",
+    "front-end development",
+    "user experience",
+    "California",
+    "remote",
+    "Figma",
+    "conversion optimization"
+  ],
   openGraph: {
     title: "Zachary Guerrero - Senior Product Designer",
     description: "I help B2B SaaS companies turn complex problems into simple experiences.",
