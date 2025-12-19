@@ -1,5 +1,8 @@
 import { getAllWork, getAllPosts } from '@/lib/content';
 
+// Use Node.js runtime for file system access
+export const runtime = 'nodejs';
+
 /**
  * Generates sitemap for Next.js
  * @returns {Array} Sitemap URL entries
