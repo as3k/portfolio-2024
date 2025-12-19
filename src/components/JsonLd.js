@@ -26,7 +26,7 @@ export const personSchema = {
   image: "https://zkg.io/images/zg-coffee-ride-profile-photo.jpg",
   sameAs: [
     "https://linkedin.com/in/zacharyafguerrero",
-    "https://github.com/zachguerrero",
+    "https://github.com/as3k/portfolio-2024",
   ],
   knowsAbout: [
     "UX Design",
