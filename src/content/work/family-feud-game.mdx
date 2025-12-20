@@ -1,0 +1,215 @@
+---
+title: "Family Feud: Real-Time Multiplayer Game"
+slug: "family-feud-game"
+client: "Personal Project"
+year: 2024
+featured: true
+order: 4
+status: "live"
+category: "Personal Project"
+visibility: "homepage"
+excerpt: "Built a browser-based Family Feud game with real-time multiplayer, mobile buzzer support, and live scoreboard synchronization in one weekend."
+tags: ["Product Design", "Real-Time", "Multi-User", "Game Design", "InstantDB", "Vite", "React"]
+heroImage: "/images/projects/family-feud/hero.jpg"
+images:
+  - "/images/projects/family-feud/host-interface.jpg"
+  - "/images/projects/family-feud/mobile-buzzer.jpg"
+  - "/images/projects/family-feud/big-board.jpg"
+  - "/images/projects/family-feud/all-screens.jpg"
+  - "/images/projects/family-feud/party-action.jpg"
+metrics:
+  - label: "Players at Launch"
+    value: "20"
+    unit: "+"
+    type: "count"
+  - label: "Development Time"
+    value: "1 Weekend"
+    type: "qualitative"
+  - label: "Technical Issues During Play"
+    value: "0"
+    type: "count"
+  - label: "Real-Time Sync"
+    value: "Instant"
+    type: "qualitative"
+colors:
+  primary: "#0066CC"
+  accent: "#FFD700"
+technologies: ["Vite", "React", "InstantDB", "Real-Time Database", "Mobile-First Design"]
+roles: ["Product Designer", "Full-Stack Developer", "UX Designer"]
+links:
+  demo: "https://family-feud-demo.vercel.app"
+  github: "https://github.com/yourusername/family-feud"
+seo:
+  metaTitle: "Family Feud Game - Real-Time Multiplayer | Zachary Guerrero"
+  metaDescription: "Weekend project: Built a browser-based Family Feud game with real-time sync, mobile buzzers, and live scoreboard. 20+ players, zero issues."
+  keywords: ["real-time game design", "multiplayer UX", "InstantDB", "collaborative design", "mobile-first"]
+---
+
+# Family Feud: Real-Time Multiplayer Game
+
+20 people played at a Christmas party. Zero technical issues. Everyone immediately understood how to use it.
+
+My girlfriend needed a Family Feud game for her work party. The boxed version was old and clunky. So I built a better one in a weekend.
+
+## The Problem
+
+The physical board game version had issues:
+- Manual scorekeeping slowed down the game
+- Everyone crowded around to see answers
+- Buzzing in was unfair (whoever sat closest won)
+- The host fumbled through answer cards
+
+I needed to design something that worked for a live party—no room for confusion or technical failures with 20+ people watching.
+
+---
+
+## Design Solution
+
+I designed three interfaces that work together in real-time:
+
+**1. Host Dashboard** – Control panel for running the game without fumbling through cards
+**2. Player Buzzers** – Mobile phones become the buzzers (fair for everyone, wherever they're sitting)
+**3. Big Board Display** – TV screen everyone can see from across the room
+
+The key constraint: everything had to sync instantly. When the host reveals an answer, it appears on the big board immediately. When someone buzzes in, everyone sees who got there first.
+
+---
+
+## Design Decisions
+
+### 1. Designing the Mobile Buzzers
+
+**The challenge:** People needed to buzz in fast under pressure. Small buttons wouldn't work.
+
+**The solution:** I made the buzz button massive—minimum 80px tap target following iOS guidelines. Added haptic feedback so players got immediate tactile confirmation their buzz registered.
+
+**Design tradeoff:** What if two people hit buzz at the exact same moment?
+
+I designed clear visual feedback for both outcomes:
+- **You buzzed first:** Button turns green, shows "You got it!"
+- **Other team buzzed first:** Button turns red, shows "Red team buzzed!"
+
+This eliminated the anxiety of "did my tap count?" Everyone knew immediately whose buzz won.
+
+### 2. Optimizing the Host Experience
+
+**The challenge:** The host needed to keep the game moving without fumbling through menus or getting confused.
+
+**The solution:** Single-screen interface with clear visual hierarchy:
+- **Top:** Current question
+- **Center:** Answer grid (tap to reveal)
+- **Bottom:** Point controls
+
+No scrolling. No modals. No confirmation dialogs. Just tap to reveal, tap to award points, tap to add strikes.
+
+**Why this matters:** The host is performing for a crowd. Any friction (scrolling, searching for buttons, navigating menus) breaks the flow and makes the game feel amateur.
+
+### 3. Making the Big Board Readable
+
+**The challenge:** People needed to read answers from across a room while standing, sitting, drinking, chatting.
+
+**Design constraints:**
+- Minimum 48px font size for body text
+- 72px+ for scores and important numbers
+- High contrast (white text on dark background)
+- Smooth reveal animations (not jarring)
+
+**Accessibility considerations:**
+- Can't rely on color alone (color blind players)
+- Team names always visible, not just colors
+- Large touch targets for any interactive elements
+
+### 4. Handling Real-Time Synchronization
+
+**The UX challenge:** In multi-device games, lag kills trust. If the host reveals an answer but it takes 2 seconds to appear on the big board, players assume something broke.
+
+**The solution:** Designed for optimistic updates—when someone takes an action, it shows immediately on their screen, then syncs to everyone else within milliseconds.
+
+When the host taps "reveal answer":
+1. Answer flips on host's screen (instant feedback)
+2. Big board updates (< 50ms later)
+3. Player phones update (< 50ms later)
+
+Players never wondered if something was broken because feedback was instant.
+
+---
+
+## Results
+
+### Launch Night Stats
+- **20+ people** played at the party
+- **Zero technical issues** during live gameplay
+- **Instant synchronization** across all devices
+- **All players** buzzed in successfully (no missed inputs)
+
+### User Feedback
+
+**What people loved:**
+- "The buzzer felt so responsive!"
+- "Way better than the old box version"
+- "It looked exactly like the TV show"
+
+**Feature request:**
+- "Can you add Spanish translation?" (Multiple people asked)
+
+### What Worked
+
+**1. The buzzer feedback loop**
+Haptic + visual + instant confirmation made buzzing feel satisfying. Players trusted the system immediately.
+
+**2. Host interface simplicity**
+No fumbling, no confusion. The host stayed focused on the game, not the tech.
+
+**3. Big board presentation**
+Large text and smooth animations made it feel polished and TV-quality.
+
+**4. Zero-setup deployment**
+Just share three URLs (host, buzzer, big board). No apps to download, no accounts to create.
+
+### What I'd Improve
+
+**1. Add internationalization**
+Multiple people requested Spanish support. Would add i18n with toggle between languages.
+
+**2. Custom question editor**
+Currently questions are hardcoded. Build a CMS-style interface for hosts to create custom games.
+
+**3. Sound effects**
+Buzzer sounds, correct/incorrect chimes, reveal sound effects—audio would add to the experience.
+
+**4. Tournament mode**
+Track multiple rounds, show winner at the end, save game history.
+
+**5. Spectator mode**
+Let other party guests join as viewers without buzzing capability.
+
+---
+
+## Lessons Learned
+
+### 1. Designing for live, synchronous interactions is different
+In most apps, a 1-2 second delay is fine. In a party game, any lag kills the energy. Every action needed instant visual feedback to prevent the "did that work?" anxiety that breaks flow.
+
+### 2. Mobile-first isn't optional for party games
+Most interaction happened on phones. Designing for thumb zones, large tap targets, and one-handed use wasn't nice-to-have—it was make-or-break.
+
+### 3. The host is performing, not just clicking buttons
+The host interface couldn't require thinking. Any friction (scrolling, searching for buttons, modal confirmations) would make them look unprepared in front of 20 people. Single-screen, tap-to-reveal flow kept them in control.
+
+### 4. Constraints force ruthless prioritization
+One weekend timeline meant I couldn't build everything. I shipped what was needed for the party to work—no custom question editor, no tournament mode, no sound effects. It still worked perfectly.
+
+### 5. Real usage reveals what matters
+Watching 20 people play showed me things I'd never catch in testing. The Spanish translation request came from actual need, not a hypothetical "what if." User feedback beats assumptions every time.
+
+---
+
+## How It Works
+
+Built with Vite + React for the frontend and InstantDB for real-time database sync. All three interfaces (host, buzzer, big board) share the same data source—when one updates, the others sync instantly. Deployed to Vercel for zero-config hosting.
+
+The entire system runs in the browser with no app downloads required. Just share three URLs and start playing.
+
+---
+
+*Built in one weekend for a Christmas party. Played by 20+ people. Zero bugs. Just fun.*

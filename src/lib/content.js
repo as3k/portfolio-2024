@@ -127,3 +127,11 @@ export function getProjectsPageProjects() {
 export function getProjectsByCategory(category) {
   return getAllWork().filter((item) => item.meta.category === category);
 }
+
+/**
+ * Get archived projects
+ * @returns {Array<{ slug: string, meta: object, content: string }>}
+ */
+export function getArchivedProjects() {
+  return getAllWork().filter((item) => item.meta.status === 'archived');
+}
