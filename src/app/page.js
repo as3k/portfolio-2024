@@ -293,13 +293,15 @@ export default function Home() {
             <h2 className="text-heading-3-bold">Project Showcase</h2>
           </div>
         </FadeIn>
-        <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.15}>
-          {featuredWork.map((project) => (
-            <FadeInStaggerItem key={project.slug}>
-              <ProjectCard project={project} />
-            </FadeInStaggerItem>
-          ))}
-        </FadeInStagger>
+        {featuredWork.length > 0 && (
+          <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.15}>
+            {featuredWork.map((project) => (
+              <FadeInStaggerItem key={project.slug}>
+                <ProjectCard project={project} />
+              </FadeInStaggerItem>
+            ))}
+          </FadeInStagger>
+        )}
         <FadeIn delay={0.4}>
           <div className="flex justify-center mt-10">
             <Link
