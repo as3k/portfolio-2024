@@ -39,14 +39,16 @@ export function getWorkBySlug(slug) {
 }
 
 /**
- * Get all work items sorted by order
+ * Get all work items sorted by order (excludes drafts by default)
+ * @param {{ includeDrafts?: boolean }} options
  * @returns {Array<{ slug: string, meta: object, content: string }>}
  */
-export function getAllWork() {
+export function getAllWork({ includeDrafts = false } = {}) {
   const slugs = getWorkSlugs();
   const work = slugs
     .map((slug) => getWorkBySlug(slug))
     .filter(Boolean)
+    .filter((item) => includeDrafts || !item.meta.draft)
     .sort((a, b) => (a.meta.order || 0) - (b.meta.order || 0));
 
   return work;
@@ -94,14 +96,16 @@ export function getBlogBySlug(slug) {
 }
 
 /**
- * Get all blog posts sorted by date (newest first)
+ * Get all blog posts sorted by date (newest first, excludes drafts by default)
+ * @param {{ includeDrafts?: boolean }} options
  * @returns {Array<{ slug: string, meta: object, content: string }>}
  */
-export function getAllPosts() {
+export function getAllPosts({ includeDrafts = false } = {}) {
   const slugs = getBlogSlugs();
   const posts = slugs
     .map((slug) => getBlogBySlug(slug))
     .filter(Boolean)
+    .filter((item) => includeDrafts || !item.meta.draft)
     .sort((a, b) => {
       const dateA = new Date(a.meta.date || 0);
       const dateB = new Date(b.meta.date || 0);
