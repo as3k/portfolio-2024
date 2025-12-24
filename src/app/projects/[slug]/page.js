@@ -1,12 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
+import JsonLd, { createBreadcrumbSchema, createCaseStudySchema } from '@/components/JsonLd';
 import MDXComponents from '@/components/MDXComponents';
-import { getWorkBySlug, getWorkSlugs, getAllWork } from '@/lib/content';
-import JsonLd, { createCaseStudySchema, createBreadcrumbSchema } from '@/components/JsonLd';
-import { ProjectBackLink, ProjectNavLink, ProjectCTAButtons } from '@/components/ProjectNavigation';
+import { ProjectBackLink, ProjectCTAButtons, ProjectNavLink } from '@/components/ProjectNavigation';
+import { getAllWork, getWorkBySlug, getWorkSlugs } from '@/lib/content';
 
 export async function generateStaticParams() {
   const slugs = getWorkSlugs();

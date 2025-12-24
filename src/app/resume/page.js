@@ -5,9 +5,9 @@ import {
   PhoneIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { resumeData } from "@/lib/resume-data";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
 import ResumeDownloadButton from "@/components/ResumeDownloadButton";
+import { resumeData } from "@/lib/resume-data";
 
 export const metadata = {
   title: "Resume | Zachary Guerrero",

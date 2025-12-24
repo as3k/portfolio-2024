@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
-import { getProjectsPageProjects, getProjectsByCategory } from '@/lib/content';
-import JsonLd, { createCollectionPageSchema, createBreadcrumbSchema } from '@/components/JsonLd';
+import JsonLd, { createBreadcrumbSchema, createCollectionPageSchema } from '@/components/JsonLd';
 import ProjectCard from '@/components/ProjectCard';
+import { getProjectsByCategory, getProjectsPageProjects } from '@/lib/content';
 
 export const metadata = {
   title: 'Project Showcase | Zachary Guerrero',

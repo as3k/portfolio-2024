@@ -1,9 +1,9 @@
-import Image from 'next/image';
+
 import Link from 'next/link';
-import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
-import { getArchivedProjects } from '@/lib/content';
-import JsonLd, { createBreadcrumbSchema } from '@/components/JsonLd';
 import ArchiveProjectCard from '@/components/ArchiveProjectCard';
+import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
+import JsonLd, { createBreadcrumbSchema } from '@/components/JsonLd';
+import { getArchivedProjects } from '@/lib/content';
 
 export const metadata = {
   title: 'Project Archive | Zachary Guerrero',

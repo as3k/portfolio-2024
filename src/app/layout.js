@@ -1,8 +1,8 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
+import JsonLd, { personSchema, professionalServiceSchema, websiteSchema } from "@/components/JsonLd";
 import LayoutWrapper from "@/components/LayoutWrapper";
-import JsonLd, { personSchema, websiteSchema, professionalServiceSchema } from "@/components/JsonLd";
 
 const poppins = Poppins({
   display: 'swap',

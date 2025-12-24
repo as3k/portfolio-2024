@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import Header from "./Header";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import Footer from "./Footer";
-import { MobileNav } from "./Header";
+import Header, { MobileNav } from "./Header";
 
 export default function LayoutWrapper({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

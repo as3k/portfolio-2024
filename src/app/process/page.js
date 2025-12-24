@@ -1,6 +1,6 @@
-import { FadeIn } from "@/components/FadeIn";
 import Link from "next/link";
-import JsonLd, { createHowToSchema, createBreadcrumbSchema } from "@/components/JsonLd";
+import { FadeIn } from "@/components/FadeIn";
+import JsonLd, { createBreadcrumbSchema, createHowToSchema } from "@/components/JsonLd";
 
 export const metadata = {
   title: "Design Process | Zachary Guerrero",

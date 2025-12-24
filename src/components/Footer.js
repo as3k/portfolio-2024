@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { trackFooterNavClick, trackExternalLinkClick, trackResumeDownload } from "@/lib/umami";
+import { trackExternalLinkClick, trackFooterNavClick, trackResumeDownload } from "@/lib/umami";
 
 export default function Footer() {
   return (

@@ -1,4 +1,4 @@
-import { getAllWork, getAllPosts } from '@/lib/content';
+import { getAllPosts, getAllWork } from '@/lib/content';
 
 // Use Node.js runtime for file system access
 export const runtime = 'nodejs';

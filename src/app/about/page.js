@@ -1,17 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import {
+  ArrowPathIcon,
+  ChartBarIcon,
   CheckCircleIcon,
   CodeBracketIcon,
   CursorArrowRaysIcon,
   PuzzlePieceIcon,
-  ArrowPathIcon,
-  ChartBarIcon,
   Squares2X2Icon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import JsonLd, { aboutPageSchema, createBreadcrumbSchema } from "@/components/JsonLd";
 import { trackTimelineScroll } from "@/lib/umami";

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import {
   CodeBracketIcon,
   MagnifyingGlassIcon,
@@ -9,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import JsonLd, { profilePageSchema } from "@/components/JsonLd";

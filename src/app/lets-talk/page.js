@@ -1,8 +1,8 @@
+import Link from "next/link";
+import { ContactMethodCard } from "@/components/ContactMethodCard";
 import { FadeIn } from "@/components/FadeIn";
 import ContactForm from "@/components/forms/ContactForm";
-import Link from "next/link";
 import JsonLd, { contactPageSchema, createBreadcrumbSchema } from "@/components/JsonLd";
-import { ContactMethodCard } from "@/components/ContactMethodCard";
 
 export const metadata = {
   title: "Let's Talk | Zachary Guerrero",

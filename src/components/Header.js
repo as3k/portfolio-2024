@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bars3Icon } from "@heroicons/react/24/outline";
-import { trackLetsTalkCTA, trackNavigationClick, trackMobileMenuToggle, trackLogoClick } from "@/lib/umami";
+import { useEffect } from "react";
+import { trackLetsTalkCTA, trackLogoClick, trackMobileMenuToggle, trackNavigationClick } from "@/lib/umami";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -24,7 +24,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
     if (isMenuOpen && onMenuToggle) {
       onMenuToggle(false);
     }
-  }, [pathname]);
+  }, [isMenuOpen, onMenuToggle]);
 
   return (
     <header className="flex w-full justify-between items-center px-4 lg:px-8 py-4 lg:py-6">
