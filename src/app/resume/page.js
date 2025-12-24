@@ -7,6 +7,7 @@ import {
 import Link from "next/link";
 import { resumeData } from "@/lib/resume-data";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
+import ResumeDownloadButton from "@/components/ResumeDownloadButton";
 
 export const metadata = {
   title: "Resume | Zachary Guerrero",
@@ -174,16 +175,15 @@ export default function ResumePage() {
             <h2 className="text-heading-4-bold mb-6 pb-2 border-b border-gray-800">
               Download
             </h2>
-            <Link
+            <ResumeDownloadButton
               href="/Zachary-Guerrero-Resume.pdf"
-              download
               className="inline-flex items-center gap-2 rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               Download PDF
-            </Link>
+            </ResumeDownloadButton>
           </section>
 
           <section className="p-6 bg-zg-dark-0 rounded-lg">

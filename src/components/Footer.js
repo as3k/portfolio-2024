@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { trackFooterNavClick, trackExternalLinkClick, trackResumeDownload } from "@/lib/umami";
 
 export default function Footer() {
   return (
@@ -24,30 +25,35 @@ export default function Footer() {
             <Link
               href="/projects"
               className="text-gray-400 hover:text-zg-teal transition-colors"
+              onClick={() => trackFooterNavClick('Projects')}
             >
               Projects
             </Link>
             <Link
               href="/about"
               className="text-gray-400 hover:text-zg-teal transition-colors"
+              onClick={() => trackFooterNavClick('About')}
             >
               About
             </Link>
             <Link
               href="/process"
               className="text-gray-400 hover:text-zg-teal transition-colors"
+              onClick={() => trackFooterNavClick('Process')}
             >
               Process
             </Link>
             <Link
               href="/resume"
               className="text-gray-400 hover:text-zg-teal transition-colors"
+              onClick={() => trackFooterNavClick('Resume')}
             >
               Resume
             </Link>
             <Link
               href="/lets-talk"
               className="text-gray-400 hover:text-zg-teal transition-colors"
+              onClick={() => trackFooterNavClick('Contact')}
             >
               Contact
             </Link>
@@ -60,18 +66,21 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-zg-teal transition-colors"
+              onClick={() => trackExternalLinkClick('linkedin', 'footer')}
             >
               LinkedIn
             </Link>
             <Link
               href="mailto:zack@zkg.io"
               className="text-gray-400 hover:text-zg-teal transition-colors"
+              onClick={() => trackExternalLinkClick('email', 'footer')}
             >
               Email
             </Link>
             <Link
               href="/api/resume"
               className="text-gray-400 hover:text-zg-teal transition-colors"
+              onClick={() => trackResumeDownload('footer', 'pdf')}
             >
               Download Resume
             </Link>

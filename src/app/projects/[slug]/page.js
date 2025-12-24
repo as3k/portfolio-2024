@@ -6,6 +6,7 @@ import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
 import MDXComponents from '@/components/MDXComponents';
 import { getWorkBySlug, getWorkSlugs, getAllWork } from '@/lib/content';
 import JsonLd, { createCaseStudySchema, createBreadcrumbSchema } from '@/components/JsonLd';
+import { ProjectBackLink, ProjectNavLink, ProjectCTAButtons } from '@/components/ProjectNavigation';
 
 export async function generateStaticParams() {
   const slugs = getWorkSlugs();
@@ -88,28 +89,7 @@ export default async function WorkDetailPage({ params }) {
       <div className="container my-12 lg:my-16">
       {/* Back link */}
       <FadeIn>
-        <Link
-          href="/projects"
-          className="group inline-flex items-center gap-2 text-gray-400 hover:text-zg-teal transition-colors duration-300 mb-12"
-        >
-          <span className="inline-block group-hover:-translate-x-1 transition-transform duration-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-          </span>
-          Back to Projects
-        </Link>
+        <ProjectBackLink currentSlug={slug} />
       </FadeIn>
 
       {/* Hero section */}
@@ -264,51 +244,37 @@ export default async function WorkDetailPage({ params }) {
           {/* Project Navigation */}
           <nav className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             {prevProject ? (
-              <Link
+              <ProjectNavLink
                 href={`/projects/${prevProject.slug}`}
-                className="group p-4 rounded-lg bg-zg-dark-0 hover:bg-zg-dark-1 transition-colors"
+                direction="previous"
+                fromProject={slug}
+                toProject={prevProject.slug}
               >
                 <span className="text-microcopy-2 text-gray-500 block mb-1">Previous Project</span>
                 <span className="text-body-1-semibold text-white group-hover:text-zg-teal transition-colors">
                   {prevProject.meta.title}
                 </span>
-              </Link>
+              </ProjectNavLink>
             ) : (
               <div />
             )}
             {nextProject && (
-              <Link
+              <ProjectNavLink
                 href={`/projects/${nextProject.slug}`}
-                className="group p-4 rounded-lg bg-zg-dark-0 hover:bg-zg-dark-1 transition-colors text-right"
+                direction="next"
+                fromProject={slug}
+                toProject={nextProject.slug}
               >
                 <span className="text-microcopy-2 text-gray-500 block mb-1">Next Project</span>
                 <span className="text-body-1-semibold text-white group-hover:text-zg-teal transition-colors">
                   {nextProject.meta.title}
                 </span>
-              </Link>
+              </ProjectNavLink>
             )}
           </nav>
 
           {/* CTA */}
-          <div className="mt-12 p-6 bg-zg-dark-0 rounded-lg text-center">
-            <p className="text-body-1 text-gray-400 mb-4">
-              Interested in working together?
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/lets-talk"
-                className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
-              >
-                Get in Touch
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-400 hover:text-zg-teal transition-colors px-5 py-3 text-body-1-bold"
-              >
-                About Me
-              </Link>
-            </div>
-          </div>
+          <ProjectCTAButtons />
         </footer>
       </FadeIn>
       </div>

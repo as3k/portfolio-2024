@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { trackContactFormSubmit } from "@/lib/umami"
 
 const Input = ({ label, type, id, value, onChange, disabled }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -97,12 +98,15 @@ export default function ContactForm() {
       if (result.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
+        trackContactFormSubmit('success');
       } else {
         setSubmitStatus('error');
+        trackContactFormSubmit('error');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
+      trackContactFormSubmit('error', 'exception');
     } finally {
       setIsSubmitting(false);
     }

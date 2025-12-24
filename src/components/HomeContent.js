@@ -11,6 +11,7 @@ import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import { ProjectBadge } from "@/components/ProjectBadge";
+import { trackProjectCardClick, trackProjectCardHover, trackCTAClick } from "@/lib/umami";
 
 function StatCard({ value, label, isAnimated = false, animatedValue = 0, suffix = "" }) {
   return (
@@ -46,6 +47,8 @@ function ProjectCard({ project }) {
     <Link
       href={`/projects/${slug}`}
       className="group block bg-zg-dark-0 rounded-lg overflow-hidden hover:ring-2 hover:ring-zg-teal hover:shadow-xl hover:shadow-zg-teal/10 hover:-translate-y-1 transition-all duration-300"
+      onClick={() => trackProjectCardClick(slug, 'homepage_showcase', { featured: meta.featured })}
+      onMouseEnter={() => trackProjectCardHover(slug, 'homepage_showcase')}
     >
       <div className="relative aspect-video overflow-hidden">
         <Image
@@ -144,12 +147,14 @@ export default function HomeContent({ featuredWork }) {
               <Link
                 href="/projects"
                 className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-4 lg:px-5 py-2.5 lg:py-3 text-body-1-bold"
+                onClick={() => trackCTAClick('view_case_studies', 'homepage_hero')}
               >
                 View Case Studies
               </Link>
               <Link
                 href="/about"
                 className="group text-gray-400 hover:text-zg-teal transition-colors duration-300 text-body-1-semibold inline-flex items-center gap-2"
+                onClick={() => trackCTAClick('about_me', 'homepage_hero')}
               >
                 About Me
                 <svg
@@ -189,6 +194,8 @@ export default function HomeContent({ featuredWork }) {
                 href={`/projects/${firstProject.slug}`}
                 className="relative aspect-[16/10] rounded-2xl overflow-hidden group block"
                 aria-label={`View ${firstProject.meta.title} case study`}
+                onClick={() => trackProjectCardClick(firstProject.slug, 'homepage_hero', { size: 'large' })}
+                onMouseEnter={() => trackProjectCardHover(firstProject.slug, 'homepage_hero')}
               >
                 <Image
                   src={firstProject.meta.heroImage}
@@ -217,6 +224,8 @@ export default function HomeContent({ featuredWork }) {
                   href={`/projects/${secondProject.slug}`}
                   className="relative aspect-[4/3] rounded-2xl overflow-hidden group block"
                   aria-label={`View ${secondProject.meta.title} case study`}
+                  onClick={() => trackProjectCardClick(secondProject.slug, 'homepage_hero', { size: 'small' })}
+                  onMouseEnter={() => trackProjectCardHover(secondProject.slug, 'homepage_hero')}
                 >
                   <Image
                     src={secondProject.meta.heroImage}
@@ -237,6 +246,8 @@ export default function HomeContent({ featuredWork }) {
                   href={`/projects/${thirdProject.slug}`}
                   className="relative aspect-[4/3] rounded-2xl overflow-hidden group block"
                   aria-label={`View ${thirdProject.meta.title} case study`}
+                  onClick={() => trackProjectCardClick(thirdProject.slug, 'homepage_hero', { size: 'small' })}
+                  onMouseEnter={() => trackProjectCardHover(thirdProject.slug, 'homepage_hero')}
                 >
                   <Image
                     src={thirdProject.meta.heroImage}
@@ -307,6 +318,7 @@ export default function HomeContent({ featuredWork }) {
             <Link
               href="/projects"
               className="group text-body-1-semibold text-gray-400 hover:text-zg-teal transition-colors duration-300 inline-flex flex-col items-center gap-1"
+              onClick={() => trackCTAClick('see_all_projects', 'homepage_bottom')}
             >
               See all projects
               <svg

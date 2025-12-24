@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Bars3Icon } from "@heroicons/react/24/outline";
+import { trackLetsTalkCTA, trackNavigationClick, trackMobileMenuToggle, trackLogoClick } from "@/lib/umami";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -18,6 +19,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
   const pathname = usePathname();
 
   // Close menu on route change
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (isMenuOpen && onMenuToggle) {
       onMenuToggle(false);
@@ -31,6 +33,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
           href="/"
           className="hover:text-zg-teal transition-colors duration-300"
           aria-label="Zachary Guerrero home page"
+          onClick={() => trackLogoClick('header')}
         >
           ZG<span className="text-zg-teal">.</span>
         </Link>
@@ -40,7 +43,11 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
       <button
         type="button"
         className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
-        onClick={() => onMenuToggle?.(!isMenuOpen)}
+        onClick={() => {
+          const newState = !isMenuOpen;
+          onMenuToggle?.(newState);
+          trackMobileMenuToggle(newState ? 'open' : 'close');
+        }}
         aria-label="Toggle menu"
         aria-expanded={isMenuOpen}
       >
@@ -65,6 +72,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
                     }`}
                     href={item.href}
                     aria-current={isActive ? "page" : undefined}
+                    onClick={() => trackNavigationClick(item.label, 'desktop')}
                   >
                     {item.label}
                   </Link>
@@ -77,6 +85,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
           <Link
             className="rounded-md text-white ring-2 ring-zg-teal hover:bg-zg-teal hover:ring-zg-teal active:scale-95 active:brightness-90 transition-all duration-300 px-3 py-2"
             href="/lets-talk"
+            onClick={() => trackLetsTalkCTA('header_desktop')}
           >
             Let's Talk
           </Link>
@@ -115,7 +124,10 @@ export function MobileNav({ isOpen, onClose }) {
                     isActive ? "text-zg-teal" : "text-gray-300 hover:text-white"
                   }`}
                   href={item.href}
-                  onClick={onClose}
+                  onClick={() => {
+                    trackNavigationClick(item.label, 'mobile');
+                    onClose();
+                  }}
                 >
                   {item.label}
                 </Link>
@@ -127,7 +139,10 @@ export function MobileNav({ isOpen, onClose }) {
           <Link
             className="inline-block rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 transition-all duration-300 px-4 py-3 text-body-1-semibold"
             href="/lets-talk"
-            onClick={onClose}
+            onClick={() => {
+              trackLetsTalkCTA('mobile_nav');
+              onClose();
+            }}
           >
             Let's Talk
           </Link>

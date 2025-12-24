@@ -1,5 +1,8 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { trackExternalLinkClick } from "@/lib/umami";
 
 /**
  * Custom MDX components mapping
@@ -55,6 +58,7 @@ const MDXComponents = {
           className="text-zg-teal hover:text-zg-coral transition-colors underline"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackExternalLinkClick(href, 'project_content')}
           {...props}
         >
           {children}

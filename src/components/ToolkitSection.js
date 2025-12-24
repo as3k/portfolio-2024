@@ -7,6 +7,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { FadeIn } from "@/components/FadeIn";
+import { trackExternalLinkClick } from "@/lib/umami";
 
 const toolBadges = [
   { name: "Figma", src: "/images/icons/Figma Logo.png" },
@@ -148,6 +149,7 @@ export default function ToolkitSection() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-body-1-semibold text-zg-teal hover:text-zg-coral transition-colors"
+              onClick={() => trackExternalLinkClick('github', 'toolkit_section')}
             >
               View My Code
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -14,10 +14,12 @@ import {
 } from "@heroicons/react/24/outline";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import JsonLd, { aboutPageSchema, createBreadcrumbSchema } from "@/components/JsonLd";
+import { trackTimelineScroll } from "@/lib/umami";
 
 function TimelineSection() {
   const sectionRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const lastTrackedYear = useRef(null);
 
   const startYear = 2008;
   const endYear = new Date().getFullYear();
@@ -44,13 +46,23 @@ function TimelineSection() {
       const progress = Math.max(0, Math.min(1, scrolled / scrollRange));
 
       setScrollProgress(progress);
+
+      // Track timeline scroll when reaching certain milestones (every 5 years)
+      const yearIndex = Math.floor(progress * (years.length - 1));
+      const currentYear = years[Math.min(yearIndex, years.length - 1)];
+      
+      // Only track when we reach a new milestone year (every 5 years)
+      if (currentYear % 5 === 0 && currentYear !== lastTrackedYear.current) {
+        lastTrackedYear.current = currentYear;
+        trackTimelineScroll(currentYear);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [years]);
 
   // Calculate which year to highlight based on scroll progress
   const yearIndex = Math.floor(scrollProgress * (years.length - 1));
