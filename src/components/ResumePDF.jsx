@@ -6,6 +6,8 @@ import {
   Text,
   View,
 } from "@react-pdf/renderer";
+// biome-ignore lint/correctness/noUnusedImports: React is required for @react-pdf/renderer JSX
+import React from "react";
 import { resumeData } from "../lib/resume-data.js";
 
 const colors = {
