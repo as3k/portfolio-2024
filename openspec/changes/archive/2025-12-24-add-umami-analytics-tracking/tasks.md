@@ -25,6 +25,6 @@
 
 ## Cleanup
 
-- [ ] Fix lint errors in modified files
-- [ ] Commit lint fixes
-- [ ] Archive proposal to openspec/changes/archive/
+- [x] Fix lint errors in modified files
+- [x] Commit lint fixes
+- [x] Archive proposal to openspec/changes/archive/
