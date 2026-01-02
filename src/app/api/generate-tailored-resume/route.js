@@ -90,7 +90,7 @@ export async function POST(request) {
     const date = getCurrentDate();
     const filename = `resumes/${sanitizedCompany}-${date}.pdf`;
 
-    const buffer = await renderToBuffer(<ResumePDF customData={resumeData} />);
+    const buffer = await renderToBuffer(<ResumePDF data={resumeData} />);
 
     const blob = await put(filename, buffer, {
       access: "public",

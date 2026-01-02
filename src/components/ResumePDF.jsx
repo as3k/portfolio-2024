@@ -181,9 +181,7 @@ function ExperienceEntry({ company, location, date, title, bullets }) {
   );
 }
 
-export function ResumePDF({ customData = null }) {
-  const data = customData || resumeData;
-
+export function ResumePDF({ data = resumeData }) {
   return (
     <Document>
       <Page size="LETTER" style={styles.page}>
