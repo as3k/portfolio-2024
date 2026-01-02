@@ -1,0 +1,64 @@
+{
+  "name": "Jane Developer",
+  "title": "Full Stack Engineer",
+  "location": "San Francisco, California",
+  "phone": "(555) 123-4567",
+  "phoneHref": "tel:+15551234567",
+  "email": "jane@example.com",
+  "website": "janedev.com",
+  "websiteHref": "https://janedev.com",
+  "summary": "Full Stack Engineer with 8+ years building scalable web applications. Specialized in React, Node.js, and cloud infrastructure. Led migration of legacy monolith to microservices architecture serving 2M+ users. Focus on clean code, automated testing, and shipping features that solve real problems.",
+  "skills": [
+    "JavaScript/TypeScript",
+    "React & Next.js",
+    "Node.js",
+    "PostgreSQL",
+    "AWS & Docker",
+    "GraphQL & REST APIs",
+    "CI/CD Pipelines",
+    "Test-Driven Development",
+    "Agile/Scrum",
+    "Technical Leadership",
+    "Code Review",
+    "System Design"
+  ],
+  "experience": [
+    {
+      "company": "Tech Startup Inc",
+      "location": "San Francisco, CA",
+      "date": "03/2022 - Present",
+      "title": "Senior Full Stack Engineer",
+      "bullets": [
+        "Led frontend architecture redesign using Next.js 14 and TypeScript, improving page load time by 60% and reducing bundle size by 40%.",
+        "Built real-time collaboration features using WebSockets and Redis, supporting 50K+ concurrent users with 99.9% uptime.",
+        "Mentored team of 4 junior engineers through code reviews, pair programming, and technical design sessions."
+      ]
+    },
+    {
+      "company": "Digital Agency LLC",
+      "location": "Remote",
+      "date": "06/2019 - 02/2022",
+      "title": "Full Stack Developer",
+      "bullets": [
+        "Developed custom CMS and e-commerce platforms for 15+ clients using React, Node.js, and MongoDB.",
+        "Implemented automated testing pipeline reducing production bugs by 70% and deployment time from hours to minutes.",
+        "Collaborated with designers and product managers to deliver pixel-perfect, accessible user interfaces."
+      ]
+    },
+    {
+      "company": "Enterprise Corp",
+      "location": "New York, NY",
+      "date": "01/2017 - 05/2019",
+      "title": "Frontend Developer",
+      "bullets": [
+        "Built internal dashboards and reporting tools used by 200+ employees across sales, marketing, and operations teams.",
+        "Refactored legacy jQuery codebase to modern React components, improving maintainability and development velocity."
+      ]
+    }
+  ],
+  "education": {
+    "degree": "Bachelor of Science in Computer Science",
+    "school": "University of California",
+    "location": "Berkeley, CA"
+  }
+}

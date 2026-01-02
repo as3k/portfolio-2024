@@ -181,37 +181,37 @@ function ExperienceEntry({ company, location, date, title, bullets }) {
   );
 }
 
-export function ResumePDF() {
+export function ResumePDF({ data = resumeData }) {
   return (
     <Document>
       <Page size="LETTER" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.name}>{resumeData.name}</Text>
-          <Text style={styles.title}>{resumeData.title}</Text>
+          <Text style={styles.name}>{data.name}</Text>
+          <Text style={styles.title}>{data.title}</Text>
           <View style={styles.contactRow}>
-            <Text style={styles.contactItem}>{resumeData.location}</Text>
-            <Link src={resumeData.phoneHref} style={styles.contactLink}>
-              {resumeData.phone}
+            <Text style={styles.contactItem}>{data.location}</Text>
+            <Link src={data.phoneHref} style={styles.contactLink}>
+              {data.phone}
             </Link>
-            <Link src={`mailto:${resumeData.email}`} style={styles.contactLink}>
-              {resumeData.email}
+            <Link src={`mailto:${data.email}`} style={styles.contactLink}>
+              {data.email}
             </Link>
-            <Link src={resumeData.websiteHref} style={styles.contactLink}>
-              {resumeData.website}
+            <Link src={data.websiteHref} style={styles.contactLink}>
+              {data.website}
             </Link>
           </View>
         </View>
 
         {/* Summary */}
-        <Text style={styles.summary}>{resumeData.summary}</Text>
+        <Text style={styles.summary}>{data.summary}</Text>
 
         {/* Main Content */}
         <View style={styles.mainContent}>
           {/* Left Column - Experience */}
           <View style={styles.leftColumn}>
             <Text style={styles.sectionTitle}>Work Experience</Text>
-            {resumeData.experience.map((exp) => (
+            {data.experience.map((exp) => (
               <ExperienceEntry key={exp.company} {...exp} />
             ))}
           </View>
@@ -221,7 +221,7 @@ export function ResumePDF() {
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Skills</Text>
               <View style={styles.skillsContainer}>
-                {resumeData.skills.map((skill) => (
+                {data.skills.map((skill) => (
                   <Text key={skill} style={styles.skillTag}>
                     {skill}
                   </Text>
@@ -232,10 +232,10 @@ export function ResumePDF() {
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Education</Text>
               <Text style={styles.educationTitle}>
-                {resumeData.education.degree}
+                {data.education.degree}
               </Text>
-              <Text style={styles.educationSchool}>{resumeData.education.school}</Text>
-              <Text style={styles.educationLocation}>{resumeData.education.location}</Text>
+              <Text style={styles.educationSchool}>{data.education.school}</Text>
+              <Text style={styles.educationLocation}>{data.education.location}</Text>
             </View>
           </View>
         </View>
