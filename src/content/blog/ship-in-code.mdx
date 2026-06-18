@@ -1,0 +1,61 @@
+---
+title: "Why I Ship in Code"
+slug: "ship-in-code"
+date: "2026-06-18"
+excerpt: "I stopped handing off designs when I realized the best UX is one that ships. Here's why I design AND build — and what it means for the teams I work with."
+tags: ["design", "development", "workflow", "product-design"]
+readingTime: "5 min"
+---
+
+One of the things I hear most from the CTOs and founders I work with is that their biggest frustration with designers isn't bad taste — it's the handoff.
+
+They get beautiful Figma files. Pixel-perfect specs. A comprehensive design system. And then the engineering team builds something that looks *nothing* like what was designed.
+
+It's not malice. It's translation loss. The developer didn't see the hover state. The animation timing wasn't specced. The responsive breakpoint was an assumption. And by the time anyone notices, the sprint is over.
+
+I don't hand off designs. I ship working code.
+
+## The Handoff Tax
+
+The traditional design-to-development pipeline has four failure points:
+
+1. **Specification gaps** — things that exist in the designer's head but never make it into the file
+2. **Translation drift** — what the developer interprets vs. what the designer intended
+3. **Feedback loops** — review → revise → rebuild cycles that eat sprints
+4. **Context loss** — the *why* behind a design decision gets lost somewhere between handoff and implementation
+
+I've experienced all of them. And the fix isn't better specs or more meetings. It's removing the handoff entirely.
+
+## What Changes When You Build What You Design
+
+When I design a component in Figma and reach for the code editor without a handoff conversation, a few things happen differently.
+
+**I catch impossible states before they ship.** There's a unique awareness that comes from knowing both how something *looks* and how it *works*. When I'm designing a form, I'm already thinking about the loading state, the error state, the empty state, the success animation — not as separate specs, but as code I'm about to write.
+
+**Iteration speed changes entirely.** Instead of "let me update the mockup, export, write a spec, and hand it off," it's "let me tweak the Tailwind class and see it instantly." The feedback loop collapses from days to seconds.
+
+**Design decisions become informed by real constraints.** There's nothing like writing the CSS yourself to teach you why that 8-column grid was a bad idea for mobile. The designs that emerge from this process are *buildable* by default — not because I'm a saint, but because I hit the constraints myself.
+
+## A Real Example
+
+On my last project (a B2B SaaS platform for ISP support), I designed and built the site from scratch. The hero section had a specific animation I wanted — subtle, performant, responsive.
+
+In a traditional handoff, I would have spec'd it in Figma with notes about timing and easing curves, and hoped the developer got it right. Instead, I built it in React during the same session I designed it. The animation matched exactly what I visualized because *I wrote both the design spec and the implementation*.
+
+The result: 0.6-second load time and a 92% accessibility score. Not because I'm a better developer than any front-end engineer — but because there was zero translation loss between what I designed and what shipped.
+
+## What This Means for Teams I Join
+
+I'm not advocating that every designer needs to code. Design and engineering are distinct disciplines, and specialization exists for a reason.
+
+What I'm saying is: **when you hire me, you're getting someone who closes the loop.** I don't produce artifacts that need to be interpreted by someone else. I produce outcomes that go straight into the product.
+
+That means:
+- Fewer handoff meetings
+- Faster iteration cycles
+- Designs that survive contact with reality
+- A shared language with your engineering team
+
+I design in Figma because it's the best tool for exploration. I build in Next.js because it's the best tool for delivery. And I never let the gap between them cost you a sprint.
+
+*The best UX is the one that ships.*

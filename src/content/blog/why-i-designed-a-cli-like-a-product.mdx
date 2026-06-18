@@ -1,0 +1,58 @@
+---
+title: "Why I Designed a CLI Like a Product"
+slug: "why-i-designed-a-cli-like-a-product"
+date: "2026-07-16"
+excerpt: "Infrastructure tools don't get UX budgets. So I built my own. Here's what happened when I applied product design thinking to a terminal interface."
+tags: ["cli", "ux", "infrastructure", "design-thinking", "case-study"]
+readingTime: "6 min"
+---
+
+Most designers would never look at a command-line interface and think "I can improve that."
+
+CLIs are the domain of engineers. They're utilitarian by nature. Designed by developers, for developers. UX is an afterthought — if it's thought about at all.
+
+But here's the thing: if a tool has a human on the other end of it, it has a UX problem. Even if that human is a sysadmin typing commands at 2 AM.
+
+## The Problem with Proxmox
+
+Proxmox is a powerful virtualization platform. It runs my home lab, my personal projects, and several production services. But its native CLI — the tool you use when the web interface isn't enough — has a learning curve that feels like a cliff.
+
+Commands are long and opaque. Destructive actions have no confirmation prompts. Output is machine-readable but hard for a human to scan quickly. And if you're managing VMs from your phone (which I do more often than you'd think), forget it.
+
+I found myself writing the same sequence of commands over and over, double-checking every flag to make sure I wasn't about to delete the wrong VM.
+
+So I built PXC.
+
+## Applying Product Design to a Terminal
+
+PXC is a modern CLI for Proxmox VM management. But more importantly, it's an example of what happens when you treat a terminal interface as a product experience.
+
+**Safe defaults with confirmation prompts.** Before PXC, deleting a VM meant typing a long command with precise flags. One character off and you've deleted the wrong machine. PXC asks "are you sure?" and shows you exactly what you're about to do. It's the undo button CLIs never had.
+
+**Human-readable output.** Standard CLI tools output raw JSON or table dumps. PXC formats VM lists with status icons, color-coded states, and a layout that's scannable at a glance. The same information, structured for human perception.
+
+**Progressive disclosure.** New users see simple commands with sensible defaults. Power users can pass flags for advanced operations. The same tool scales from "list my VMs" to "migrate this machine across nodes with custom networking" — one command at a time.
+
+**Mobile-first design thinking.** This sounds absurd for a CLI tool. But I manage servers from my phone regularly. PXC's output is designed to be readable on a narrow terminal (phone screen) just as well as a wide one (desktop terminal). This meant compact output, no horizontal scrolling, and clear touch-friendly command construction.
+
+## What Building PXC Taught Me
+
+Every designer says they're "user-centered" or they "think about the whole experience." PXC forced me to prove it.
+
+**UX isn't what's on the screen. It's every interface a human interacts with.** A CLI is a user interface. A terminal is a surface. A command is an interaction. The principles of good product design — clarity, safety, feedback, progressive disclosure — apply just as much to a command prompt as they do to a mobile app.
+
+**Comfort with the full stack makes you a better designer.** I wrote PXC in Go. It talks to the Proxmox API. It handles SSH connections, error states, and edge cases. Designing for an experience I was also building forced me to understand the constraints at every layer. The resulting design was better because I knew what was possible and what wasn't — not from a spec, but from writing the code.
+
+**The best tool is the one that makes the hard thing easy.** PXC doesn't do anything that raw Proxmox commands can't do. It just makes common operations safe, fast, and readable. The UX improvement isn't new features — it's reduced cognitive load. And that's the most valuable thing a designer can deliver.
+
+## The Takeaway
+
+I don't expect every designer to build a CLI tool. But I do think every designer benefits from stepping outside the browser.
+
+The problems you solve don't stop at the edge of the viewport. They exist in APIs, in developer tools, in internal dashboards, in workflows that no one has thought to design because "users" don't touch them.
+
+Someone is using that tool. Someone is frustrated by it. Someone is making mistakes because it doesn't give them feedback.
+
+That's a design problem. Even if it lives in a terminal.
+
+*Great design doesn't stop at the browser. It follows the user wherever they are.*

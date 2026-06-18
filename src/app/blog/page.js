@@ -1,8 +1,47 @@
-"use client";
-
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
+import { getAllPosts } from "@/lib/content";
+
+export const metadata = {
+  title: "Blog | Zachary Guerrero",
+  description: "Thoughts on design, development, and building better products.",
+};
+
+function PostCard({ post }) {
+  const { slug, meta } = post;
+  return (
+    <article className="group">
+      <Link href={`/blog/${slug}`} className="block">
+        <div className="bg-zg-dark-0 rounded-lg p-6 border border-transparent hover:border-zg-teal/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-zg-teal/5">
+          <div className="flex items-center gap-3 mb-3">
+            <time className="text-microcopy-2 text-gray-500">{meta.date}</time>
+            <span className="text-gray-700">·</span>
+            <span className="text-microcopy-2 text-gray-500">{meta.readingTime}</span>
+          </div>
+          <h2 className="text-heading-5-semibold text-white mb-2 group-hover:text-zg-teal transition-colors duration-300">
+            {meta.title}
+          </h2>
+          <p className="text-body-2 text-gray-400 mb-4 line-clamp-2">
+            {meta.excerpt}
+          </p>
+          {meta.tags && meta.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {meta.tags.slice(0, 3).map((tag) => (
+                <span
+                  key={tag}
+                  className="text-microcopy-2 bg-zg-dark-1 text-gray-400 px-2.5 py-1 rounded"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </Link>
+    </article>
+  );
+}
 
 export default function BlogPage() {
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -19,8 +58,7 @@ export default function BlogPage() {
     url: "https://zacharyguerrero.com/blog",
   };
 
-  // TODO: Replace with actual blog posts from MDX files
-  const posts = [];
+  const posts = getAllPosts();
 
   return (
     <>
@@ -91,9 +129,13 @@ export default function BlogPage() {
             </div>
           </FadeIn>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Blog post cards will go here */}
-          </div>
+          <FadeIn delay={0.1}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
+                <PostCard key={post.slug} post={post} />
+              ))}
+            </div>
+          </FadeIn>
         )}
       </div>
     </>
