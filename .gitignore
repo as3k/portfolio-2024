@@ -38,5 +38,6 @@ next-env.d.ts
 # generated files
 /public/Zachary-Guerrero-Resume.pdf
 .env
-.omc/ echo graphify-out
-.omc/ echo graphify-out
+
+.omc/
+graphify-out/
