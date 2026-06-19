@@ -19,8 +19,8 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
   const pathname = usePathname();
 
   // Close menu on route change
-  // biome-ignore lint/correctness/useExhaustiveDependencies: intentionally only depends on pathname
   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // biome-ignore lint/correctness/useExhaustiveDependencies: intentionally only depends on pathname
   useEffect(() => {
     if (isMenuOpen && onMenuToggle) {
       onMenuToggle(false);
@@ -33,7 +33,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
         <Link
           href="/"
           className="hover:text-zg-teal transition-colors duration-300"
-          aria-label="Zachary Guerrero home page"
+          aria-label="ZG. – Zachary Guerrero home page"
           onClick={() => trackLogoClick('header')}
         >
           ZG<span className="text-zg-teal">.</span>

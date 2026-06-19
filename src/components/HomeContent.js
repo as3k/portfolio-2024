@@ -146,7 +146,7 @@ export default function HomeContent({ featuredWork }) {
             <div className="flex flex-wrap gap-4 lg:gap-6 items-center">
               <Link
                 href="/projects"
-                className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-4 lg:px-5 py-2.5 lg:py-3 text-body-1-bold"
+                className="rounded-md text-white bg-zg-teal-dark hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-4 lg:px-5 py-2.5 lg:py-3 text-body-1-bold"
                 onClick={() => trackCTAClick('view_case_studies', 'homepage_hero')}
               >
                 View Case Studies
@@ -208,7 +208,7 @@ export default function HomeContent({ featuredWork }) {
                 <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-5">
                   <span className="text-microcopy-2 text-zg-teal mb-1">{firstProject.meta.category}</span>
-                  <h3 className="text-body-1-semibold text-white mb-1">{firstProject.meta.title}</h3>
+                  <p className="text-body-1-semibold text-white mb-1">{firstProject.meta.title}</p>
                   <span className="flex items-center gap-1 text-microcopy-2 text-gray-300">
                     View Project
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -238,7 +238,7 @@ export default function HomeContent({ featuredWork }) {
                   <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
                     <span className="text-microcopy-2 text-zg-teal mb-1">{secondProject.meta.category}</span>
-                    <h3 className="text-body-1-semibold text-white">{secondProject.meta.title}</h3>
+                    <p className="text-body-1-semibold text-white">{secondProject.meta.title}</p>
                   </div>
                 </Link>
               )}
@@ -260,7 +260,7 @@ export default function HomeContent({ featuredWork }) {
                   <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
                     <span className="text-microcopy-2 text-zg-teal mb-1">{thirdProject.meta.category}</span>
-                    <h3 className="text-body-1-semibold text-white">{thirdProject.meta.title}</h3>
+                    <p className="text-body-1-semibold text-white">{thirdProject.meta.title}</p>
                   </div>
                 </Link>
               )}

@@ -13,6 +13,7 @@ module.exports = {
       },
       colors: {
         "zg-teal": "#009BA6",
+        "zg-teal-dark": "#007080",
         "zg-dark-0": "#182634",
         "zg-dark-1": "#0E1216",
         "zg-coral": "#EF6363",
