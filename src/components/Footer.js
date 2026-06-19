@@ -22,6 +22,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <nav className="flex flex-wrap justify-center gap-6 text-microcopy-1" aria-label="Footer navigation">
+            <Link
               href="/projects"
               className="text-gray-400 hover:text-zg-teal transition-colors"
               onClick={() => trackFooterNavClick('Projects')}
