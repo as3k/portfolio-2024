@@ -66,7 +66,7 @@ export default function LaunchBookProjectPage() {
               A branded booking platform for solo providers. One script tag on your website. Your colors, your logo, your domain. No platform branding, no account walls, no marketplace commissions.
             </p>
             <p className="text-body-1 text-gray-500 max-w-2xl">
-              Flat 1.5% per transaction. Auth-hold no-show protection. In active development. Real code. Real architecture.
+              Concept to working booking flow in a weekend. Flat 1.5% per transaction. Auth-hold no-show protection. In active development.
             </p>
           </FadeIn>
         </section>
@@ -114,7 +114,7 @@ export default function LaunchBookProjectPage() {
                 Most booking tools also assume a desktop workflow. These providers run their business from their phone. Instagram DMs. Google Business messages. Text threads. The booking system should live where they already are.
               </p>
               <p className="text-body-1 text-gray-400">
-                Concept to working booking flow in a weekend. Payment processing took longer. Auth-hold adds real complexity. Built solo, in parallel with a day job. Platforms take. Providers lose.
+                Built solo, in parallel with a day job. Platforms take. Providers lose.
               </p>
             </section>
 
@@ -243,8 +243,8 @@ export default function LaunchBookProjectPage() {
                 </div>
 
                 <div>
-                  <p className="text-body-1-semibold text-zg-teal mb-1">Self-serve should have been first</p>
-                  <p className="text-body-1 text-gray-400">Manual onboarding builds relationships with early adopters. It also creates a bottleneck. The self-serve builder should have been the first investment after MVP. It's next on the list.</p>
+                  <p className="text-body-1-semibold text-zg-teal mb-1">Manual onboarding first was the right call. Then it became the bottleneck.</p>
+                  <p className="text-body-1 text-gray-400">Validates the model before building self-serve. Every early adopter gets a direct conversation. The bottleneck is real and it's next on the list.</p>
                 </div>
               </div>
             </section>

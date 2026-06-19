@@ -66,7 +66,7 @@ export default function RenProjectPage() {
               Not a productivity app. A cognitive prosthesis. She lives in your pocket. Captures what you'd lose. Brings things back when you need them. Privacy-first. ADHD-designed.
             </p>
             <p className="text-body-1 text-gray-500 max-w-2xl">
-              In active development. Real code. Real architecture.
+              In active development. Real code. Real architecture. Auth is deferred by design while the capture UX is validated.
             </p>
           </FadeIn>
         </section>
@@ -114,8 +114,13 @@ export default function RenProjectPage() {
                 So I built one. I made every product call, every architecture call, every tradeoff. Fast capture. Deferred classification. Intelligent recall. Zero guilt. The architecture evolved from that need, not from a pitch deck.
               </p>
               <p className="text-body-1 text-gray-400">
-                Built solo. Four days from blank repo to working capture loop and memory system. Currently extending to on-device React Native. The UX constraints (no notifications, deferred classification, intentionally boring UI) drove every architecture decision that follows.
+                The UX constraints (no notifications, deferred classification, intentionally boring UI) drove every architecture decision that follows.
               </p>
+            </section>
+
+            <section className="bg-zg-dark-0 rounded-lg p-6 md:p-8">
+              <p className="text-heading-5-semibold text-white mb-1">Four days from blank repo to working capture loop and memory system.</p>
+              <p className="text-body-1 text-gray-400">Built solo. Currently extending to on-device React Native.</p>
             </section>
 
             {/* BITE: The barrier is categorization at entry time */}
