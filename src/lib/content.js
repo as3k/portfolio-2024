@@ -49,6 +49,7 @@ export function getAllWork({ includeDrafts = false } = {}) {
     .map((slug) => getWorkBySlug(slug))
     .filter(Boolean)
     .filter((item) => includeDrafts || !item.meta.draft)
+    .filter((item) => item.meta.status !== 'archived')
     .sort((a, b) => (a.meta.order || 0) - (b.meta.order || 0));
 
   return work;

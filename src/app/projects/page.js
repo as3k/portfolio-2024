@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
 import JsonLd, { createBreadcrumbSchema, createCollectionPageSchema } from '@/components/JsonLd';
 import ProjectCard from '@/components/ProjectCard';
-import { getProjectsByCategory, getProjectsPageProjects } from '@/lib/content';
+import { getArchivedProjects, getProjectsByCategory, getProjectsPageProjects } from '@/lib/content';
 
 export const metadata = {
   title: 'Case Studies | Zachary Guerrero',
@@ -139,6 +139,7 @@ export default function ProjectsPage() {
 
   // Additional work combines non-featured B2B and personal projects
   const additionalWork = [...b2bTech, ...personalProjects];
+  const archived = getArchivedProjects();
 
   const collectionSchema = createCollectionPageSchema(allProjects);
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -240,19 +241,21 @@ export default function ProjectsPage() {
         </section>
 
         {/* Archive Link */}
-        <FadeIn delay={0.3}>
-          <div className="flex justify-center mb-16">
-            <Link
-              href="/projects/archive"
-              className="group text-body-1-semibold text-gray-500 hover:text-gray-300 transition-colors duration-300 inline-flex items-center gap-2"
-            >
-              View Archived Projects
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        </FadeIn>
+        {archived.length > 0 && (
+          <FadeIn delay={0.3}>
+            <div className="flex justify-center mb-16">
+              <Link
+                href="/projects/archive"
+                className="group text-body-1-semibold text-gray-500 hover:text-gray-300 transition-colors duration-300 inline-flex items-center gap-2"
+              >
+                View Archived Projects
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </FadeIn>
+        )}
 
         {/* CTA Section */}
         <FadeIn delay={0.4}>
