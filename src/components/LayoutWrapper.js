@@ -15,7 +15,7 @@ export default function LayoutWrapper({ children }) {
       "font-size: 13px; color: #94a3b8;"
     );
     console.log(
-      "%cEither way — let's talk.\n→ zack@zacharyguerrero.com",
+      "%cEither way — let's talk.\n→ zack@zkg.io",
       "font-size: 13px; font-weight: 600; color: #009ba6;"
     );
   }, []);
