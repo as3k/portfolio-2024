@@ -5,8 +5,8 @@ client: "High Rapid Networks"
 year: 2025
 featured: true
 order: 3
-excerpt: "Complete rebrand and website redesign for a rural ISP that doubled their subscriber base and expanded into larger markets."
-category: "B2B SaaS"
+excerpt: "Complete rebrand and website redesign for a rural ISP that doubled their subscriber base through full-funnel marketing and CRM integration."
+category: "B2B Tech"
 tags: ["UX/UI Design", "Web Design", "SEO", "Responsive Design", "WordPress", "Marketing"]
 heroImage: "/images/projects/high-rapid-networks/hrn-featured-image.jpg"
 images:
@@ -16,7 +16,7 @@ images:
   - "/images/projects/high-rapid-networks/hrn-04.jpg"
 metrics:
   - label: "Subscriber Growth"
-    value: "2"
+    value: "3"
     unit: "x"
     type: "multiplier"
   - label: "Marketing Mailers Sent"
@@ -33,7 +33,7 @@ metrics:
 colors:
   primary: "#00B8D4"
   accent: "#FF6B35"
-technologies: ["WordPress", "Figma", "Print Design", "CRM Integration"]
+technologies: ["WordPress", "Figma", "Print Design", "Splynx", "n8n", "CRM Integration"]
 roles: ["UX/UI Designer", "Brand Designer", "Marketing Designer", "WordPress Developer"]
 location: "Craig, Maybell, and Steamboat Springs, Colorado"
 seo:
@@ -42,44 +42,54 @@ seo:
   keywords: ["ISP design", "rural internet", "WordPress", "local SEO", "rebrand", "subscriber growth"]
 ---
 
-# High Rapid Networks
+## The problem
 
-High Rapid Networks needed a complete redesign to reflect their new direction under new ownership. The previous website was outdated, lacked branding, and didn't support the modern, community-focused vision they wanted to project. The redesign centered around creating a fresh, modern brand style that highlighted their commitment to providing high-quality internet services to rural communities in Northwestern Colorado.
+**A rural ISP with an outdated website and no brand identity.**
 
-## Challenge
+High Rapid Networks serves Northwestern Colorado. Craig, Steamboat Springs, Maybell, Lay, Sunbeam. Small towns where everybody knows everybody. The only locally owned ISP in Moffat and Routt counties.
 
-Under new ownership, High Rapid Networks faced:
-- Outdated website that didn't reflect their new vision
-- No cohesive brand identity
-- Need to drive new customer signups in rural markets
-- Competition from larger ISPs expanding into their territory
-- Desire to emphasize community involvement and values
+My friend Tyler bought into the company. He moved from Los Angeles to Craig to run it. He had the infrastructure: a wireless ISP broadcasting from a local fiber hub across 50+ antenna sites. What he didn't have was a website that could drive signups or a brand that reflected the business they were building.
 
-## Goals
+The old site was barely functional. The only way to sign up was to call a phone number. No online form. No self-service. No way to reach new customers who were browsing at 10 PM. The brand didn't exist. Everything was handled through phone calls and word of mouth.
 
-The goals were twofold: **rebrand the business** with a professional, contemporary look and **drive new customer signups**.
+**Tyler's problem was bigger than a bad website.**
 
-## Process
+In a town like Craig, trust is everything. Nobody trusts a company that looks like it came from somewhere else. A polished, big-city website would ring false. The design had to look professional and modern without looking like it was designed in Los Angeles.
 
-To achieve this, I designed and developed a user-friendly website built on WordPress, integrating a streamlined signup form and backend tools to connect with their CRM and management systems. The site also emphasized their dedication to the community with sections highlighting their nonprofit support, and discounts for first responders, military, teachers, and students.
+Tyler briefed me on this problem because he knew I'd understand it. I grew up in Colorado: Denver, Thornton, unincorporated Adams County. I know how these communities work. "Design" often means "fluff" to people here. A beautiful website is suspicious. It suggests you're spending money on things that don't matter instead of on the service itself.
 
-In addition to the website, I created print mailer assets and flyers that were distributed across Craig, Maybell, and Steamboat Springs, Colorado. These efforts, combined with the redesigned website, helped High Rapid Networks double their subscriber base and expand their reach into larger cities, opening the door to even greater growth.
+## What I did
 
-### Through this project, I:
+**Built the entire brand and site around earning trust.**
 
-- **Redesigned the website** to establish a professional and modern brand style that aligned with the company's new vision.
-- **Developed a streamlined signup form** integrated with backend CRM tools to make customer onboarding simple and efficient.
-- **Optimized the site for local SEO**, targeting customers in rural Colorado to improve visibility and engagement.
-- **Created marketing materials**, including flyers and assets, that supported physical outreach efforts in Craig, Maybell, and Steamboat Springs.
-- **Highlighted community values**, adding sections to showcase their support for nonprofits, first responders, and local events.
-- **Collaborated on CRM integration**, resolving challenges to ensure seamless functionality.
+The brand identity was collaborative with Tyler. Colors, voice, logo, positioning. It needed to feel local without looking amateur. Bold, honest, no brand theater.
 
-## Results
+The website was built on WordPress with one rule: every element had to earn its place. No web fonts: system font stack loads instantly on slow rural connections. Images were either proof of work (a technician installing equipment) or they were cut. The layout was structured around questions real customers ask: *How fast is it? How much does it cost? When can I get it?*
 
-These efforts, combined with the redesigned website, helped High Rapid Networks **double their subscriber base** and expand their reach into larger cities, opening the door to even greater growth.
+High contrast. 16px minimum body text. Clear button labels. The design was not award-winning. That was the point. It looked like a company that doesn't waste money on things that don't matter.
 
-- **2x Subscribers** - Doubled customer base after rebrand
-- **35,000+ Marketing Mailers Sent** - Multi-channel outreach campaign
-- **30% Faster Load Time** - Improved website performance
-- **New Brand & Identity** - Professional, community-focused positioning
-- **Market Expansion** - Successful entry into larger Colorado cities
+**The signup pipeline was the real conversion engine.**
+
+The old site required a phone call to sign up. The new site connects directly to Splynx, their ISP billing and provisioning system, through n8n webhooks.
+
+A customer fills out the form. It creates a ticket inside Splynx. The installation team is notified via Slack and email. They verify the information, collect payment, and dispatch a network engineer to the home. The entire pipeline runs automatically.
+
+Support emails work the same way. An incoming support email creates a Splynx ticket and notifies the team via Slack. No manual routing. No lost messages. The plumbing behind the site was a bigger lift than the site itself, and both are equally important.
+
+**Full-funnel marketing to drive traffic to the new flow.**
+
+A website that converts is useless if nobody visits it. We ran every-door direct mail campaigns across Craig, Steamboat Springs, Maybell, and the surrounding areas. Over 35,000 mailers. Targeted advertising drove people to the new signup flow. The website was the conversion point for a cross-channel campaign.
+
+The site loaded 30% faster than the old site because every design decision was made under the same constraint: these users were on connections slower than 10Mbps, using budget phones and aging desktops. If a page didn't load fast, it didn't matter how good it looked.
+
+## The result
+
+**Subscribers doubled, then nearly tripled.**
+
+From roughly 200 to over 1,000 subscribers in three years. The website became their primary lead generation engine. Not referrals. Not cold calls. The website.
+
+The integration pipeline runs on its own. New customers flow from form submission to installation without manual intervention. Support tickets route themselves. The brand is established and trusted in the community.
+
+I still work with Tyler and the High Rapid team. Less involved these days, but I maintain the site, create ads and graphics, and handle whatever comes up. That's the kind of relationship a project like this builds. Not a handoff, but an ongoing partnership with a friend I've known since 2008.
+
+If you run a business in a community where trust is your biggest asset, you know exactly why this project worked.

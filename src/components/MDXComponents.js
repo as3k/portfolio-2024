@@ -16,7 +16,7 @@ const MDXComponents = {
     </h1>
   ),
   h2: ({ children, ...props }) => (
-    <h2 className="text-heading-3-bold mb-4 mt-8" {...props}>
+    <h2 className="text-2xl font-semibold text-white lg:text-3xl mb-4 mt-10" {...props}>
       {children}
     </h2>
   ),
@@ -33,7 +33,7 @@ const MDXComponents = {
 
   // Paragraphs and text
   p: ({ children, ...props }) => (
-    <p className="text-body-1 text-gray-300 mb-4 md:mb-6 leading-relaxed" {...props}>
+    <p className="text-base lg:text-lg text-gray-400 mb-5 leading-relaxed" {...props}>
       {children}
     </p>
   ),
@@ -43,7 +43,7 @@ const MDXComponents = {
     </strong>
   ),
   em: ({ children, ...props }) => (
-    <em className="italic text-gray-200" {...props}>
+    <em className="italic text-gray-300" {...props}>
       {children}
     </em>
   ),
@@ -78,17 +78,17 @@ const MDXComponents = {
 
   // Lists
   ul: ({ children, ...props }) => (
-    <ul className="list-disc list-inside mb-4 md:mb-6 space-y-3 text-gray-300" {...props}>
+    <ul className="list-disc list-inside mb-5 space-y-2 text-gray-400" {...props}>
       {children}
     </ul>
   ),
   ol: ({ children, ...props }) => (
-    <ol className="list-decimal list-inside mb-4 md:mb-6 space-y-3 text-gray-300" {...props}>
+    <ol className="list-decimal list-inside mb-5 space-y-2 text-gray-400" {...props}>
       {children}
     </ol>
   ),
   li: ({ children, ...props }) => (
-    <li className="text-body-1" {...props}>
+    <li className="text-base lg:text-lg" {...props}>
       {children}
     </li>
   ),
@@ -96,7 +96,7 @@ const MDXComponents = {
   // Blockquote
   blockquote: ({ children, ...props }) => (
     <blockquote
-      className="border-l-4 border-zg-teal pl-4 my-6 italic text-gray-400"
+      className="border-l-4 border-zg-teal pl-5 my-8 text-gray-300 text-lg italic"
       {...props}
     >
       {children}
@@ -114,7 +114,7 @@ const MDXComponents = {
   ),
   pre: ({ children, ...props }) => (
     <pre
-      className="bg-zg-dark-0 p-4 rounded-lg overflow-x-auto mb-4 text-sm"
+      className="bg-zg-dark-0 p-4 rounded-lg overflow-x-auto mb-5 text-sm"
       {...props}
     >
       {children}
@@ -122,11 +122,11 @@ const MDXComponents = {
   ),
 
   // Horizontal rule
-  hr: (props) => <hr className="border-gray-700 my-8" {...props} />,
+  hr: (props) => <hr className="border-gray-700 my-10" {...props} />,
 
   // Images - use Next.js Image component
   img: ({ src, alt, ...props }) => (
-    <span className="block my-6">
+    <span className="block my-8">
       <Image
         src={src || ''}
         alt={alt || ''}
@@ -138,10 +138,8 @@ const MDXComponents = {
     </span>
   ),
 
-  // Custom wrapper for the entire MDX content
-  wrapper: ({ children }) => (
-    <article className="prose prose-invert max-w-none">{children}</article>
-  ),
+  // Wrapper — not used by RSC MDXRemote, styling is on the article element in [slug]/page.js
+  wrapper: ({ children }) => <>{children}</>,
 };
 
 export default MDXComponents;

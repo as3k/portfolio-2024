@@ -8,6 +8,11 @@ import {
   CursorArrowRaysIcon,
   PuzzlePieceIcon,
   Squares2X2Icon,
+  ServerStackIcon,
+  CommandLineIcon,
+  CubeIcon,
+  WrenchScrewdriverIcon,
+  RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
@@ -112,7 +117,7 @@ function TimelineSection() {
 
         {/* Content - Right 2/3 */}
         <div className="lg:col-span-2">
-          <h2 className="text-heading-4-bold mb-6">How I Got Here</h2>
+          <h2 className="text-heading-4-bold mb-6">From Design to the Full Stack</h2>
           <div className="space-y-4 text-body-1 text-gray-400">
             <p>
               I started designing websites in 2008. At the time, I was focused on how things looked,
@@ -127,14 +132,16 @@ function TimelineSection() {
             </p>
             <p>
               Over the years, that focus deepened through my work with Multimedia LLC, Aeries,
-              Beetle & Frog, and now Member Splash. Each role reinforced the same lesson: the
-              best experiences don't announce themselves. They guide people naturally, remove
-              hesitation, and make the right next step feel obvious.
+              Beetle & Frog, and now Member Splash. But something shifted along the way. I kept
+              wanting to cross the line from design to build. Designing something and handing it
+              off felt like stopping at the interesting part. So I started writing code. Then
+              infrastructure. Then automation. Step by step, I became someone who doesn't just
+              figure out what to build and how it should work. I build it and ship it too.
             </p>
             <p>
-              Today, I design by thinking in systems first, flows second, and visuals last.
-              When something feels off, I look for breakdowns in structure, clarity, or
-              decision-making, not a new color or font.
+              Today, I own features from problem to production. I research, define, design,
+              prototype, validate, build, QA, deploy, and iterate. Every role in that pipeline
+              is me. I work with teams. I don't depend on them to cross the finish line.
             </p>
           </div>
         </div>
@@ -153,63 +160,62 @@ export default function AboutPage() {
 
   const skills = [
     {
+      icon: CommandLineIcon,
+      title: "Full-Stack Architecture",
+      description: "Architecting and building production systems across React, Next.js, Vue, Python, PHP, Supabase, and PostgreSQL. I pick the stack that fits the problem.",
+    },
+    {
+      icon: ServerStackIcon,
+      title: "DevOps & Infrastructure",
+      description: "Docker, CI/CD, Cloudflare, Vercel, Linux server management. I build deployment pipelines that let me ship without thinking about it.",
+    },
+    {
+      icon: CubeIcon,
+      title: "AI Agent Workflows",
+      description: "Directing multiple AI agents to accelerate every phase of development. I research and design the foundation, then amplify the build with agents under my direction.",
+    },
+    {
       icon: ArrowPathIcon,
-      title: "Multi-step Flows",
-      description: "Redesigning flows that lose users halfway through",
+      title: "Workflow Orchestration",
+      description: "Automation pipelines, cron chains, n8n workflows. I wire systems together so processes run themselves instead of needing human babysitting.",
     },
     {
-      icon: Squares2X2Icon,
-      title: "Information Architecture",
-      description: "Simplifying structures that have grown organically over years",
+      icon: WrenchScrewdriverIcon,
+      title: "Design to Production",
+      description: "From first Figma sketch to live deployment. I own the full cycle, so there is no handoff tax and no translation loss between design and code.",
     },
     {
-      icon: PuzzlePieceIcon,
-      title: "Design Systems",
-      description: "Building systems that scale without breaking",
-    },
-    {
-      icon: CursorArrowRaysIcon,
-      title: "Onboarding",
-      description: "Fixing sequences that confuse instead of guide",
-    },
-    {
-      icon: ChartBarIcon,
-      title: "Conversion Optimization",
-      description: "Making the path from interest to action obvious",
-    },
-    {
-      icon: CodeBracketIcon,
-      title: "Prototyping in Code",
-      description: "Showing is faster than explaining",
+      icon: RocketLaunchIcon,
+      title: "Security & Automation",
+      description: "Security audits across 20+ client sites. Vulnerability remediation, standards enforcement, AI-assisted code reviews. Security built in, not bolted on.",
     },
   ];
 
   const philosophy = [
     {
+      principle: "Shipping beats perfect. Deadlines sharpen judgment.",
+      explanation: "A shipped product with rough edges teaches you more than a polished one that never launches. Scope is a feature. The deadline is the forcing function.",
+    },
+    {
+      principle: "Confusion kills conversion.",
+      explanation: "Every moment a user stops to think is a moment they might walk away. Clarity is the highest form of polish. Good UX guides, bad UX asks questions.",
+    },
+    {
       principle: "Clarity beats cleverness.",
       explanation: "Users don't need to be impressed. They need to know what to do next.",
     },
     {
-      principle: "Fewer choices beat more features.",
-      explanation: "Decision paralysis is real. Give people one clear path, not five mediocre options.",
-    },
-    {
-      principle: "A clear next step is better than a perfect layout.",
-      explanation: "Users don't want options—they want confidence. My job is to give them that confidence at every step.",
-    },
-    {
       principle: "Good UX reduces effort, not adds polish.",
-      explanation: "If users have to think hard about your interface, you've already lost.",
+      explanation: "If users have to think hard about your interface, you've already lost. The best experiences don't announce themselves.",
     },
   ];
 
   const lookingFor = [
-    "Design decisions are tied to business outcomes",
-    "Designers sit at the table when product decisions are made",
-    "Technical constraints are real challenges, not excuses",
-    "The team values clarity over trends",
-    "Metrics matter and design is held accountable",
-    "Impact matters more than Dribbble shots",
+    "Small B2B SaaS or startups where I own features end to end",
+    "Fast-moving teams that ship instead of chase trends",
+    "Take ambiguous features from scope to deploy without handoffs",
+    "Design, code, and infrastructure decisions made together, not in silos",
+    "Remote or hybrid in Southern California",
   ];
 
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -229,18 +235,17 @@ export default function AboutPage() {
             <span className="inline-block text-microcopy-2-semibold text-gray-400 border border-gray-700 rounded-full px-4 py-1.5 mb-6">
               About Me
             </span>
-            <h1 className="text-heading-2-bold md:text-heading-1-bold mb-6">
-              I help people make decisions without friction.
+            <h1 className="text-heading-2-bold md:text-heading-1-bold mb-4">
+              I own the full cycle.
             </h1>
+            <span className="inline-block text-microcopy-1 text-zg-teal mb-4">
+              Design, code, infrastructure. End to end. Full time or consulting.
+            </span>
             <p className="text-body-2 text-gray-400 mb-4">
-              For over a decade, I've been the person companies call when something isn't working.
-              Not when they need a pretty interface—when they need someone to figure out why users
-              start but don't finish, why traffic doesn't convert, why a simple process feels complicated.
+              Companies call me when their product isn't shipping, their systems are tangled, or they need someone to take an ambiguous feature to production without handoffs.
             </p>
             <p className="text-body-2 text-gray-400">
-              I'm a product designer who codes. That combination means I design with implementation
-              in mind, I understand technical constraints, and I build my own tools when off-the-shelf
-              solutions get in the way.
+              I'm a builder who owns the full stack. That means I don't hand off designs and hope for the best. I design it, I code it, I deploy it, I monitor it. If something breaks, I fix it. If something needs to ship faster, I build the pipeline that makes that possible. I work full time or consulting.
             </p>
           </FadeIn>
         </div>
@@ -263,7 +268,7 @@ export default function AboutPage() {
       {/* The Pattern I Keep Seeing - Quote Cards */}
       <section className="mb-24">
         <FadeIn>
-          <h2 className="text-heading-4-bold mb-4">The Pattern I Keep Seeing</h2>
+          <h2 className="text-heading-4-bold mb-4">Same Problems, Every Industry</h2>
           <p className="text-body-1 text-gray-400 max-w-2xl mb-8">
             Across every company, every industry, every project, the same problems keep appearing:
           </p>
@@ -284,33 +289,28 @@ export default function AboutPage() {
             </p>
             <p className="text-body-1 text-gray-400">
               Most of my work is about decisions, not screens. That's why I focus on booking flows,
-              multi-step forms, onboarding sequences, and information architecture—the unglamorous
+              multi-step forms, onboarding sequences, and information architecture. The unglamorous
               stuff that actually moves metrics.
             </p>
           </div>
         </FadeIn>
       </section>
 
-      {/* Why Designer Who Codes Matters */}
+      {/* Why Full Stack Ownership Matters */}
       <FadeIn>
         <section className="mb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
             <div>
-              <h2 className="text-heading-4-bold mb-6">Why "Designer Who Codes" Actually Matters</h2>
+              <h2 className="text-heading-4-bold mb-6">Full Cycle, One Person</h2>
               <div className="space-y-4 text-body-1 text-gray-400">
                 <p>
-                  I'm not a designer who dabbles in code. I ship production React applications.
-                  I've rebuilt entire platforms from WordPress to Supabase. I've spent enough time
-                  debugging CSS to know what's realistic to build.
+                  I'm not a designer who dabbles in code. I ship production applications across the full stack. React, Next.js, Vue, Python, PHP. Docker, PostgreSQL, Supabase. I've rebuilt entire platforms from WordPress to modern stacks. I've debugged enough CSS and enough network latency to know what's realistic to build.
                 </p>
                 <p>
-                  This isn't about being a "full-stack designer." It's about designing with reality in mind.
-                  That makes my UX more durable and less fragile.
+                  The difference is not that I can code. The difference is that one person owns the entire lifecycle. No handoff tax between design and engineering. No translation loss between prototype and production. When I design a feature, I know how I'm going to build it. When I build it, I already know how I'm going to deploy it.
                 </p>
                 <p>
-                  I work with React, Next.js, Figma, and whatever else gets the job done. My experience
-                  with APIs, authentication, and backend services shapes how I design flows. I don't
-                  hand things off and hope for the best—I see them through.
+                  I use AI agents as force multipliers, not replacements. I direct them under my strategy and feedback. That means I can ship what takes most teams two weeks in two days, without cutting corners on thinking or judgment.
                 </p>
               </div>
             </div>
@@ -318,10 +318,12 @@ export default function AboutPage() {
               <h3 className="text-body-1-semibold text-white">What this means in practice:</h3>
               <ul className="space-y-3">
                 {[
-                  "I know what's feasible to build",
-                  "I adjust flows based on technical constraints instead of ignoring them",
-                  "I think about state, edge cases, errors, and what users see when things fail",
-                  "I prototype in code because showing is faster than explaining",
+                  "I own features from vague idea to live deployment",
+                  "I design with the implementation already in mind",
+                  "I adjust scope based on real technical constraints, not guesses",
+                  "I build the deployment pipeline alongside the feature",
+                  "I debug at every layer from CSS to database queries",
+                  "I ship faster because there are no handoffs to wait on",
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircleIcon className="w-5 h-5 text-zg-teal flex-shrink-0 mt-0.5" />
@@ -337,15 +339,12 @@ export default function AboutPage() {
       {/* What I Actually Do - Skill Cards */}
       <section className="mb-24">
         <FadeIn>
-          <h2 className="text-heading-4-bold mb-4">What I Actually Do</h2>
+          <h2 className="text-heading-4-bold mb-4">What I Ship</h2>
           <p className="text-body-1 text-gray-400 max-w-2xl mb-4">
-            I help B2B SaaS companies turn complex problems into simple experiences. I specialize
-            in technical products where complexity meets the need for clarity.
+            I work across the full stack. Design, code, infrastructure. DevOps, AI pipelines, architecture, automation. I specialize in projects where the hardest part is figuring out what to build and how to make it fit together.
           </p>
           <p className="text-body-1 text-gray-400 max-w-2xl mb-8">
-            I've worked across healthcare, fintech, ISPs, nonprofits, and technical service providers.
-            The industry changes, but the problem doesn't: <span className="text-white font-semibold">people don't
-            understand what's being asked of them.</span>
+            I've shipped across healthcare, fintech, ISPs, membership platforms, and technical infrastructure. The industry changes but the playbook doesn't: <span className="text-white font-semibold">figure out what matters, design it, build it, ship it, iterate it.</span>
           </p>
         </FadeIn>
         <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10" staggerDelay={0.1}>
@@ -363,10 +362,10 @@ export default function AboutPage() {
         </FadeInStagger>
       </section>
 
-      {/* Design Philosophy - Horizontal Cards */}
+      {/* Engineering Philosophy - Horizontal Cards */}
       <section className="mb-24">
         <FadeIn>
-          <h2 className="text-heading-4-bold mb-8">My Design Philosophy</h2>
+          <h2 className="text-heading-4-bold mb-8">How I Decide</h2>
         </FadeIn>
         <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.1}>
           {philosophy.map((item, index) => (
@@ -380,7 +379,7 @@ export default function AboutPage() {
         </FadeInStagger>
         <FadeIn delay={0.5}>
           <p className="text-body-1 text-gray-400 mt-6 max-w-2xl">
-            I design for momentum. If users keep moving forward, the design is working. If they stop, I want to know why.
+            I design and build for momentum. If a feature keeps shipping and users keep moving forward, the architecture is working. If it stalls, I want to know why.
           </p>
         </FadeIn>
       </section>
@@ -389,23 +388,26 @@ export default function AboutPage() {
       <FadeIn>
         <section className="mb-24">
           <div className="bg-gradient-to-br from-zg-teal/10 to-transparent rounded-lg p-8 md:p-12 border border-zg-teal/20">
-            <h2 className="text-heading-4-bold mb-6">How I Work</h2>
+            <h2 className="text-heading-4-bold mb-6">Scope to Ship</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
               <div className="space-y-4 text-body-1 text-gray-400">
                 <p>
-                  I'm collaborative but direct. I explain tradeoffs without being defensive. I push back
-                  when something hurts the user. I translate UX decisions into business language because
-                  I've learned that good design means nothing if you can't explain why it matters.
+                  I take an ambiguous feature and drive it to production. Scope it, design it, build it, ship it, iterate it. Every step in that pipeline is mine to own. I work with teams, but I don't depend on a chain of handoffs to get things done.
                 </p>
                 <p>
-                  Part of my job is helping stakeholders figure out what actually matters.
-                  I translate complexity into decisions they can act on.
+                  I use AI agents to amplify every phase. I do the thinking, the strategy, the design, the direction. The agents accelerate the execution under my feedback. This lets me move at a velocity that most teams can't match without sacrificing judgment.
+                </p>
+                <p>
+                  I'm direct about tradeoffs. I push back when something hurts the user or the architecture. I translate technical decisions into business language because a feature that ships is better than a perfect one that never launches.
                 </p>
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex flex-col items-center justify-center space-y-3">
                 <p className="text-heading-5-bold text-white text-center">
-                  I don't oversell.<br />
-                  <span className="text-zg-teal">I explain.</span>
+                  Take ambiguous feature.<br />
+                  <span className="text-zg-teal">Ship production feature.</span>
+                </p>
+                <p className="text-body-1 text-gray-400 text-center max-w-xs">
+                  Scope &rarr; Design &rarr; Build &rarr; Deploy &rarr; Iterate. One person, full cycle, no handoff tax.
                 </p>
               </div>
             </div>
@@ -417,9 +419,6 @@ export default function AboutPage() {
       <section className="mb-24">
         <FadeIn>
           <h2 className="text-heading-4-bold mb-4">What I'm Looking For</h2>
-          <p className="text-body-1 text-gray-400 mb-8">
-            I'm looking for product design roles at B2B SaaS companies where:
-          </p>
         </FadeIn>
         <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-8" staggerDelay={0.08}>
           {lookingFor.map((item, index) => (
@@ -433,8 +432,7 @@ export default function AboutPage() {
         </FadeInStagger>
         <FadeIn delay={0.5}>
           <p className="text-body-1 text-gray-400 max-w-2xl">
-            I'm less interested in design that looks impressive but doesn't move metrics.
-            More interested in work that helps people finish what they start.
+            I'm not looking for a role where I design screens and hand them off. I'm looking for a role where I own the outcome. Features from problem to production. Full cycle, every layer, any stack.
           </p>
         </FadeIn>
       </section>
@@ -444,9 +442,7 @@ export default function AboutPage() {
         <section className="bg-zg-dark-0 rounded-lg p-8 md:p-12">
           <h2 className="text-heading-4-bold mb-4">Let's Talk</h2>
           <p className="text-body-1 text-gray-400 max-w-2xl mb-6">
-            If you're building products where user decisions matter, where technical complexity
-            is real, and where you need someone who can both design the solution and help build
-            it—let's talk.
+            If you need a Senior Product Engineer who can take a feature from vague idea to live deployment without handoffs, or a consultant who can untangle a stalled system and get it shipping again. Let's talk.
           </p>
           <div className="flex flex-wrap gap-4 mb-8">
             <Link
@@ -469,7 +465,7 @@ export default function AboutPage() {
             </Link>
           </div>
           <p className="text-microcopy-2 text-gray-500">
-            Based in California. Open to remote roles at product-focused companies.
+            Based in California. Open to remote or hybrid roles at product-focused companies. Also available for consulting engagements.
           </p>
         </section>
       </FadeIn>
