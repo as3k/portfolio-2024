@@ -2,31 +2,30 @@
 title: "PXC: Bringing Product Design Thinking to Infrastructure Tooling"
 slug: "pxc-cli"
 client: "Open Source"
-year: 2024
+year: 2025
 featured: true
 order: 2
-excerpt: "A modern CLI for Proxmox VM management that applies web UX principles to terminal interfaces. Built to make complex infrastructure operations safe, fast, and accessible from anywhere—including your phone."
+excerpt: "A modern CLI for Proxmox VM management that applies web UX principles to terminal interfaces. Built to make complex infrastructure operations safe, fast, and accessible from anywhere&mdash;including your phone."
 category: "Open Source"
 tags: ["CLI Tool", "Product Design", "UX Design", "React", "TypeScript", "Infrastructure", "Open Source"]
-heroImage: "/images/projects/pxc/pxc-hero.png"
+heroImage: "/images/projects/pxc/pxc-list.png"
 images:
-  - "/images/projects/pxc/pxc-cluster-status.png"
-  - "/images/projects/pxc/pxc-deletion-flow.png"
-  - "/images/projects/pxc/pxc-wizard-creation.png"
-  - "/images/projects/pxc/pxc-comparison.png"
+  - "/images/projects/pxc/pxc-iso-ls.png"
+  - "/images/projects/pxc/pxc-iso-delete.png"
 metrics:
   - label: "Safety Layers"
     value: "3"
     unit: "levels"
     type: "number"
+  - label: "VM Creation Time"
+    value: "80"
+    unit: "s"
+    type: "speed"
   - label: "Cluster Support"
     value: "Multi-node"
     type: "qualitative"
-  - label: "User Experience"
-    value: "Wizard-based interactions"
-    type: "qualitative"
   - label: "Version"
-    value: "2.1.1"
+    value: "v2.2.3"
     type: "qualitative"
 colors:
   primary: "#0EA5E9"
@@ -34,296 +33,82 @@ colors:
 technologies: ["React", "Ink", "TypeScript", "Proxmox API", "Node.js"]
 roles: ["Product Designer", "Full-Stack Developer", "Open Source Maintainer"]
 links:
-  github: "https://github.com/as3k/pve-cli"
+  github: "https://github.com/as3k/pxc"
   npm: "https://npmjs.com/package/pxc"
-  docs: "#"
 seo:
   metaTitle: "PXC CLI - Modern Proxmox Management | Zachary Guerrero"
   metaDescription: "Open source CLI tool for Proxmox infrastructure management. Safety-first design with cluster support, wizard-based interactions, and mobile-friendly terminal interface."
   keywords: ["CLI tool", "Proxmox", "infrastructure management", "product design", "UX design", "React", "TypeScript", "open source"]
 ---
 
-## Overview
+## The problem
 
-**Role:** Creator, Product Designer & Developer
-**Timeline:** 2024 - Present
-**Technology:** React, Ink, TypeScript, Proxmox API
-**Status:** Open Source, Active Development (v2.1.1)
+**A three-node cluster managed entirely from my phone.**
 
-**The Challenge:**
-Infrastructure management tools prioritize power over usability, leaving operators struggling with arcane commands and desktop-only interfaces. How do you make complex VM orchestration accessible from anywhere—including a phone at Disneyland?
+I run a three-node Proxmox cluster. Claw, Nexus, and a handful of production VMs: websites, services, Minecraft servers for my son and his friends. Everything runs on this cluster. And I manage it all from my phone.
 
-**The Solution:**
-A modern CLI that applies web UX principles to terminal interfaces, making Proxmox infrastructure management fast, safe, and genuinely pleasant to use.
+I use Blink Terminal on my iPhone and iPad. When a Minecraft server crashes while I'm at the grocery store, I need to fix it. When a service needs a restart while I'm at a coffee shop, I need to do it from there. SSH works fine from a phone. The tools waiting on the other end don't.
 
-![Infrastructure management that's actually readable](/images/projects/pxc/pxc-hero.png)
-*Infrastructure management that's actually readable*
+**The web UI doesn't work on mobile. The CLI requires memorizing arcane flags.**
 
----
+The Proxmox web UI was designed for a desktop monitor. Panels, nested menus, drag-and-drop, hover states. None of it works on a phone screen. Even on an iPad the interface doesn't scale. Creating a VM, stopping a container, deleting an ISO: every operation means navigating a panel designed for 24 inches.
 
-## The Problem: When Infrastructure Can't Wait
+The alternative is `qm create [vmid] --cores --memory --storage --net`. That works from a phone. But the flags are arcane. A dozen of them minimum per VM. On a phone keyboard, each one is a trip hazard. You either memorize the pattern or look it up every time.
 
-Picture this: You're at Disneyland with your family. A monitoring VM goes down. You pull out your phone, navigate to the Proxmox web UI, and... spend five minutes fat-fingering your way through a microscopic desktop interface trying to tap the right buttons.
+I looked for a CLI tool that wrapped this into something friendlier. Nothing existed for my use case. So I built one.
 
-Or you're at dinner. You need to start a test suite, but the VM is stopped. Same frustrating experience—squinting at tiny buttons, accidentally tapping the wrong options, eventually giving up and shoving your phone back in your pocket.
+## What I did
 
-This was my reality. As someone who manages Proxmox infrastructure daily—from production servers to self-hosted services to Minecraft servers for my son—I needed infrastructure management that worked **wherever I was**, not just when I was at my desk.
+**React components in the terminal. One question at a time.**
 
-### Why Existing Solutions Failed
+I chose React and Ink. Ink renders React components to the terminal. I'm a React developer, so it was the tool I already knew. I'd seen interesting Ink projects and wanted to see what it could do. What I found was a framework that let me build terminal interactions with the same patterns I use on the web. Component composition. State management. Event handling. The same mental model, just a different render target.
 
-**The Proxmox Web UI:** Desktop-optimized, unusable on mobile. What should be a 10-second status check becomes a frustrating exercise in precision tapping.
+The design came from the Vercel CLI. One question at a time. Guided steps. Nothing shown until you need it. Most tools dump everything on screen at once: a wall of flags and options. For the way my brain works, that's noise. The Vercel approach asks one thing, you answer, then it asks the next thing.
 
-**Direct API Calls:** Technically possible via terminal (I already had Blink Shell on my phone), but ironically *slower* than the janky web UI. Too many commands to remember, too much syntax to type correctly on a phone keyboard.
+**Nine screens. Each asking exactly one question.**
 
-**Traditional CLI Tools (qm, pct, pvesh):** Powerful but arcane. Every operation requires memorizing flags, parameters, and command structure. Perfect for scripting, terrible for quick operational tasks.
+Welcome. Identity. Compute. Storage. Network. ISO. Summary. Execute. Success or Error. The wizard auto-detects available storage pools, network bridges, and ISOs from your Proxmox node. No manual typing of pool names or bridge IDs. Arrow keys to navigate. Enter to confirm.
 
-![The mobile experience problem: desktop UI vs. terminal clarity](/images/projects/pxc/pxc-comparison.png)
-*The mobile experience problem: desktop UI vs. terminal clarity*
+Configuration preferences are auto-saved. The next time you create a VM, your previous choices are the defaults. The tool learns how you use it.
 
-### The Core Insight
+Power users can skip the wizard entirely with flags. `pxc create --cores 4 --memory 8192`. The flag interface mirrors the wizard steps. Both paths produce the same result. The default path optimizes for clarity. The fast path optimizes for speed.
 
-The problem wasn't access to functionality—the Proxmox API exposed everything needed. The problem was **interface design**. What was needed wasn't just a CLI, but a **thoughtfully designed experience** that made common operations fast and intuitive from a terminal.
+<img src="/images/projects/pxc/pxc-demo.gif" alt="PXC CLI demo: creating and managing VMs from terminal" className="w-full rounded-lg my-8" />
 
----
+**The safety system came from a close call.**
 
-## Design Philosophy: Cognitive Load Over Keystroke Count
+I almost deleted the wrong VM. Working fast, scrolling through a list, my finger tapped the wrong line. I caught it in time. But it made me realize something. If you're managing production infrastructure from a phone, you're going to make mistakes. Not because you're careless. Because the interface gives you no room to be careful.
 
-### Inspiration: The Vercel Model
+Three layers of confirmation for every destructive operation. Visual confirmation: "You are about to delete VM 103." Type-to-confirm: you must type the VM ID to proceed. A 10-second countdown, visible and cancellable.
 
-Vercel's CLI doesn't make you remember arcane flags. It guides you through decisions conversationally. It's fast, clear, and feels natural even when you're typing on a phone screen.
+Three layers because each one is a moment to stop and think. Nobody who genuinely wants to delete something is stopped by three seconds of friction. But a rushed tap on the wrong line: that gets caught. The countdown is configurable now. Five seconds. Disabled entirely. Your call. The default path stays safe.
 
-That's the experience I wanted for infrastructure management.
+ISO management got the same treatment. List, download, upload, delete. Cluster-aware, knows which node has which storage. Delete has the same three-layer confirmation. Consistent safety habits across every command.
 
-### Core Principles
+**Architecture that follows Proxmox's design.**
 
-**1. Don't Make Me Think**
-Users shouldn't need to memorize flags or syntax. While power users *can* use flags if memorized, the default path is a guided wizard that asks clear questions and shows only relevant options.
+PXC runs node-local. Each node has its own install. The tool shells out to Proxmox's internal commands: `qm`, `pvesm`, `pvesh`. The same commands the web UI uses under the hood. No separate daemon. No agent to deploy. `npm install -g pxc` and it works.
 
-**2. Progressive Disclosure**
-Keep the screen clean. Show only what's needed at each step. Complex infrastructure operations become a series of simple decisions rather than overwhelming configuration dumps.
+Multi-node support arrived in v2.0. The tool detects single-node or cluster and adjusts. List VMs grouped by node. See online and offline status. Choose a target node during creation. Per-node config means different defaults for different hardware: Ceph on one node, local ZFS on another. The tool respects the topology of your actual environment.
 
-**3. Safety by Default**
-Destructive operations should require conscious thought, not just correct syntax. Accidents happen when people are tired—design should protect against fatigue-induced mistakes.
+Mock mode was built early. `npm run dev:mock` runs the full wizard with fake data. No Proxmox node required. A deliberate investment: iterate on the interface fast, mock the infrastructure, ship faster. Build the test surface before you need it.
 
-**4. Power Through Comprehensiveness**
-For advanced users, power comes from *scope* not *complexity*. Support clusters, comprehensive resource management, and sophisticated operations while maintaining the simple interface.
+## The result
 
-![Guided wizards replace memorized flags](/images/projects/pxc/pxc-wizard-creation.png)
-*Guided wizards replace memorized flags*
+**80 seconds instead of three minutes.**
 
----
+The web UI takes two to three minutes to provision a VM. PXC does it in about 80 seconds. Not because it's doing less. Because it removes the friction. No panel navigation. No form filling. No hunting for the right dropdown. The wizard steps through each decision once, auto-discovers what's available, and executes.
 
-## Key Design Decisions
+**It doesn't get used every day. When it does, it saves more time than it cost to build.**
 
-### 1. VM Deletion: A Case Study in Safety-First Design
+Creating a VM from my phone at a coffee shop. Shutting down a container from a parking lot. Checking cluster status from my iPad while watching TV. These operations were tedious or impossible before PXC. Now they're the fastest path through my infrastructure.
 
-> "We've all accidentally deleted the wrong VM at 4am"
+The project is MIT-licensed, written in TypeScript, and built for the people who run Proxmox clusters out of their own homelabs. GitHub issues have real users. npm has real downloads. It's not a portfolio piece. It's a tool that ships.
 
-**The Personal Catalyst:**
-I once accidentally deleted the wrong VM. It ran dozens of Docker services—Plex, Jellyfin, Uptime Kuma, n8n, Postgres, Redis, multiple WordPress test installs. Spending hours reinstalling everything was awful. This experience informed a deliberate, multi-layered safety approach.
+**What's next: full remote orchestration from a single node.**
 
-![Three layers of safety protect against 4am mistakes](/images/projects/pxc/pxc-deletion-flow.png)
-*Three layers of safety protect against 4am mistakes*
+The architecture is node-local today. But the cluster awareness already works. The next version controls all three nodes from any one of them. No extra installs. No central server. Just the same tool, smarter about where commands go.
 
-**Three Lines of Defense:**
+If you run Proxmox and manage it from a phone, you know exactly why this tool exists.
 
-**Layer 1: Visual Confirmation**
-Display complete VM details before any action. Force the user to *see* what they're about to delete—name, ID, resources, current state.
-
-**Layer 2: Cognitive Engagement**
-Require typing both the VMID and the word "delete". This forces conscious reading and acknowledgment—you can't autopilot through deletion. The typing requirement ensures you're reading what you're confirming.
-
-**Layer 3: Temporal Buffer**
-A 10-second countdown as a final safeguard. This protects the 4am operator making tired decisions. Long enough to catch immediate regret, short enough not to become annoying (tested at 15 seconds—too long).
-
-**Design Intentionality:**
-All three layers were designed upfront, not added iteratively. Each addresses a different failure mode:
-- Visual: "Am I looking at the right VM?"
-- Typing: "Am I consciously choosing this action?"
-- Countdown: "Do I have immediate regret?"
-
-**Acknowledging Trade-offs:**
-For bulk operations (cleaning up test environments), this safety becomes friction. This is recognized and planned for future releases, balancing safety-by-default with power-user efficiency.
-
----
-
-### 2. Cluster Support: Scaling Information Architecture
-
-**From Personal Need:**
-My infrastructure runs on a 3-node Proxmox cluster (kholinar, azimir, herdaz). The initial single-node view was immediately limiting—I needed visibility across all nodes, not just one.
-
-**The UX Challenge:**
-How do you show resources across multiple nodes without overwhelming the user? The information hierarchy needed to communicate:
-- Overall cluster health at a glance
-- Which nodes are online/offline
-- Where each VM/container lives
-- Resource status and state
-
-**Status-First Information Hierarchy:**
-
-Cluster: 3/3 nodes online • kholinar(●) • azimir(●) • herdaz(●)
-
-Status is always first. Filled circles (●) indicate online nodes, hollow circles (○) show offline. At a glance, you know cluster health before seeing any resources.
-
-![At-a-glance cluster health before diving into resources](/images/projects/pxc/pxc-cluster-status.png)
-*At-a-glance cluster health before diving into resources*
-
-Resources are then grouped by node, making it immediately clear where each VM/container lives. The mental model matches the infrastructure: nodes contain resources.
-
-**Smart Defaults:**
-The system auto-detects cluster vs single-node configurations, adapting the display without user configuration. This maintains simplicity—the tool just works regardless of infrastructure scale.
-
-**Acceptable Trade-offs:**
-Querying multiple nodes introduced some latency, but comprehensive visibility was more valuable than marginal speed gains. The experience remains snappy enough for real-world use.
-
----
-
-### 3. Wizard-Based Interaction Model
-
-**The Problem with Flags:**
-Traditional CLIs require memorizing syntax:
-
-```bash
-qm create 100 --memory 2048 --cores 2 --net0 virtio,bridge=vmbr0 --ide2 local:iso/debian.iso
-```
-
-This is powerful for scripting but terrible for human interaction, especially on mobile.
-
-**The Wizard Approach:**
-PXC guides you through decisions step-by-step:
-
-- What's the VM ID?
-- How much memory?
-- How many cores?
-- Which network bridge?
-- Which ISO?
-
-Each question appears when relevant, with sensible defaults. The cognitive load is distributed across simple choices rather than concentrated in remembering complex syntax.
-
-**Progressive Enhancement:**
-Power users who know what they want can still use flags. But the default path optimizes for clarity over brevity.
-
------
-
-## Technical Execution
-
-### Technology Choices
-
-**React + Ink:**
-As a React developer, leveraging existing expertise enabled rapid development. Ink brings React's component model to terminal interfaces, enabling compositional UI patterns that work well for complex interactions.
-
-**TypeScript with Strict Mode:**
-Comprehensive typing catches errors early and makes the codebase maintainable. For a CLI tool where errors could lead to infrastructure problems, type safety isn't optional.
-
-**Proxmox API Integration:**
-Direct API integration provides access to all Proxmox functionality while maintaining clean abstraction layers between API calls and UI components.
-
-### Architecture Principles
-
-**Component-Based UI:**
-Terminal interfaces are built from reusable React components—confirmation dialogs, status displays, resource lists. This maintains consistency across features and accelerates development of new capabilities.
-
-**Mock Mode for Testing:**
-A comprehensive mock mode enables development and testing without requiring live Proxmox infrastructure. This accelerated iteration cycles and made the tool accessible for contributors without existing setups.
-
-**Graceful Error Handling:**
-API failures, network issues, and edge cases are handled with clear, actionable error messages. Users shouldn't see stack traces—they should know what went wrong and how to fix it.
-
------
-
-## Feature Evolution
-
-### Phase 1: Core Operations
-
-- VM status checking
-- Cluster node health monitoring
-- Basic start/stop operations
-
-### Phase 2: VM Lifecycle Management
-
-- Full VM creation wizard
-- Comprehensive deletion with safety measures
-- Resource modification (memory, CPU, disk)
-
-### Phase 3: Cluster & Advanced Operations
-
-- Multi-node resource visibility
-- ISO management
-- Container support alongside VMs
-- Configuration management
-
-### Current State (v2.1.1)
-
-A comprehensive infrastructure management tool supporting:
-
-- Complete VM/container lifecycle operations
-- Cluster and single-node deployments
-- ISO image management
-- Resource monitoring and status checks
-- Safe destructive operations with multi-layer confirmations
-
------
-
-## Impact & Reflection
-
-### UX is Universal
-
-> "Understanding people matters more than understanding platforms"
-
-This was my first CLI tool, but it reinforced something fundamental: **UX isn't just about web interfaces**. It's about how people use *things* in the world—whether that's CLI tools, credit card terminals (why is the accept button never in the same spot?), or car infotainment systems.
-
-My skills in product design, web strategy, and conversion optimization aren't domain-specific—they extend to anything that serves users. The same principles that make a web form intuitive apply to CLI wizards. The same safety considerations for destructive actions apply whether it's deleting a database record or a VM.
-
-### From Personal Tool to Open Source Product
-
-PXC started as scratching my own itch—managing VMs from my phone at Disneyland. But building it required thinking beyond personal convenience:
-
-- **Safety measures** that protect tired operators at 4am
-- **Information architecture** that scales from one node to large clusters
-- **Interaction patterns** that balance speed with clarity
-- **Documentation and error handling** that makes the tool accessible to others
-
-This is product thinking: solving your own problem in a way that solves it for everyone facing similar challenges.
-
-### What's Next
-
-**Planned Features (v2.2+):**
-
-- Batch operations for power users
-- Enhanced filtering and search
-- Resource templates for common VM configurations
-- Improved performance monitoring
-
-**Exploring New Approaches:**
-The CLI landscape is evolving. Tools like OpenTUI represent newer approaches that may offer advantages. Staying aware of these developments while focusing on delivering value now reflects a balanced approach to technical decision-making.
-
------
-
-## Key Takeaways
-
-**1. Good UX transcends medium.**
-The principles of user-centered design apply equally to web apps, mobile interfaces, and terminal tools. Understanding user context and cognitive load matters more than understanding specific technologies.
-
-**2. Safety requires intentional design.**
-Protecting users from mistakes—especially when tired or distracted—requires multi-layered approaches and conscious consideration of failure modes.
-
-**3. Personal pain points make the best products.**
-Building tools you use daily ensures you understand the problem deeply and can iterate based on real usage, not assumptions.
-
-**4. Simplicity and power aren't opposites.**
-Comprehensive functionality delivered through clear, guided interactions serves both novices and experts better than arcane commands that require memorization.
-
-**5. Product thinking elevates technical execution.**
-Anyone can call an API. Thoughtful product design considers context, safety, mental models, and long-term maintainability—transforming functional code into genuinely useful tools.
-
------
-
-## Links & Resources
-
-- **GitHub Repository:** [github.com/as3k/pve-cli](https://github.com/as3k/pve-cli)
-- **NPM Package:** [npmjs.com/package/pxc](https://npmjs.com/package/pxc)
-- **Documentation:** Coming soon
-
------
-
-*Want to discuss product design for developer tools? [Let's connect](#)*
+[GitHub →](https://github.com/as3k/pxc) · [npm →](https://www.npmjs.com/package/pxc) · `npm install -g pxc`

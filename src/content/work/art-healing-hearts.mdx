@@ -25,11 +25,8 @@ metrics:
     value: "5"
     unit: "%"
     type: "percentage"
-  - label: "Load Time"
-    value: "Blazing fast"
-    type: "qualitative"
-  - label: "Security"
-    value: "Zero attack surface"
+  - label: "Site Vulnerabilities"
+    value: "Zero"
     type: "qualitative"
 colors:
   primary: "#FFFFFF"
@@ -38,51 +35,48 @@ technologies: ["Next.js", "Vercel", "Stripe", "Figma"]
 roles: ["UX/UI Designer", "Front-End Developer", "Brand Designer"]
 seo:
   metaTitle: "Art Healing Hearts - UX Case Study | Zachary Guerrero"
-  metaDescription: "How I rebuilt a nonprofit's website in under a week to support their television feature, resulting in 10 donations on launch day and a 30% conversion funnel."
+  metaDescription: "Emergency nonprofit website redesign in under a week. 10 donations on launch day, 5% conversion rate, zero security vulnerabilities."
   keywords: ["nonprofit web design", "Next.js", "UX design", "donation optimization", "emergency redesign"]
 ---
 
-# Art Healing Hearts
+## The problem
 
-Art Healing Hearts needed a new website to share their mission of helping people heal through artistic expression. With a television feature in Las Vegas fast approaching, the site had to inspire visitors, streamline donations, and clearly communicate their impact.
+**A nonprofit's website was hacked six days before their television feature.**
 
-The project took on additional urgency when the previous version of the website was attacked less than a week before the TV spot, requiring quick action to design and launch a high-quality, functional site.
+Art Healing Hearts helps people heal through artistic expression. Shelters, convalescent homes, youth centers. The founder, Lu Monteleone, is an old friend. She brings an incredible amount of joy and warmth to the work she does.
 
-## Challenge
+The existing website had been online for years. Wordpress, plugins, the usual stack. Less than a week before a live TV feature in Las Vegas, the site was attacked. Hacked, defaced, completely unusable. The TV spot was going to drive a wave of traffic directly to the website. If the site was down, the donations wouldn't come.
 
-The organization faced multiple urgent challenges:
-- Previous website was hacked less than a week before their television feature
-- Needed to inspire donations quickly for their TV appearance
-- Required clear communication of their mission and impact areas
-- Time constraint: less than one week to design, build, and launch
+**One week to design, build, and launch a secure donation site from scratch.**
 
-## Process
+No time for a full redesign cycle. No time for multiple rounds of review. The TV feature was happening on a fixed date, and the site needed to be accepting donations before that camera started rolling.
 
-To reflect their mission and capture the warmth and vitality of their brand, I used white as the primary color, accented with a vibrant purple-pink-orange gradient. This design choice brought a sense of hope, warmth, and care while avoiding harsh black tones, maintaining a light and uplifting aesthetic.
+The old site was gone. Whatever came next had to be built fast, work perfectly, and stay secure. No plugins to exploit. No vulnerable dependencies. A clean slate.
 
-A grid layout showcased the areas they serve—such as shelters, convalescent homes, and youth centers—while emphasizing their commitment to bringing healing where it's needed most.
+## What I did
 
-Given the tight timeline, we adopted a single-page design optimized for speed and clarity, focusing on guiding visitors to donate. Built on Next.js and hosted on Vercel, the site offered faster load times and seamless performance.
+**A single-page design stripped down to what mattered: mission and donate.**
 
-Tracking scroll depth revealed that 30% of visitors reached the donation form, and 5% completed a donation—a testament to the site's effective user flow.
+White background with a warm purple-pink-orange gradient accent. Bright, hopeful, welcoming. Real photos of people creating art, not stock photography. The site needed to capture Lu's personality and the emotional impact of the work. Every element was either communicating the mission or guiding toward the donation form.
 
-Capturing the personality and joy that founder Lu Monteleone brings to the organization was central to the project. Using photos of people actively creating and healing through art gave the site authenticity and emotional resonance. Additionally, a bold, colorful donation form stood out from the rest of the site, directing visitors to take action quickly and securely via Stripe.
+Single-page layout optimized for the TV audience. Someone sees the feature on TV, opens the site on their phone, and has a clear path to donate in under 30 seconds. No navigation, no sidebar, no distractions. The page scrolled through the mission, the impact areas, and the stories, then landed on a bold, colorful donation button.
 
-### Through this process, I:
+**Next.js on Vercel. Stripe for payments. Zero attack surface.**
 
-- **Designed an uplifting, vibrant website** that reflected Art Healing Hearts' mission, using a light color palette with warm, hopeful accents to create an inviting experience.
-- **Rebuilt the site in under a week** to prepare for the television spot, balancing speed with quality to ensure the site was ready to accept donations on time.
-- **Streamlined the donation process** by integrating Stripe for ease of use and payment security, and designed a bold, action-oriented donation form to maximize conversions.
-- **Optimized for performance and tracking**, leveraging Next.js and Vercel for fast load times, while implementing scroll-depth analytics to measure user engagement and donation conversions.
-- **Emphasized storytelling through design**, using real photos of participants creating art to showcase the emotional impact of the organization's work and maintain founder Lu Monteleone's joyful personality at the heart of the site.
-- **Focused on clarity and urgency**, adopting a single-page design for the TV spot that funneled users directly to donate, resulting in 10 donations on the first day of the feature.
+The old site was hacked through vulnerable plugins. The new site had zero plugins. No database to inject. No admin panel to brute force. Static generation with a Stripe integration. The site was a fixed set of pages served from a CDN. There was nothing to hack.
 
-## Results
+Scroll-depth tracking showed the flow was working. 30% of visitors reached the donation form. 5% completed a donation. For a single-page site built in a week, those numbers told us the structure was right.
 
-This project was deeply meaningful to me, not only because Lu is an old friend, but also because art and helping others have always been important parts of my life. It was incredibly rewarding to contribute to a cause that brings healing and hope to so many.
+**The design was mine. The site has since moved on.**
 
-- **10 donors on launch day** - Immediate impact from the TV feature
-- **30% of visitors** reached the donation form - Strong engagement funnel
-- **5% donation conversion rate** - Effective user flow and CTA placement
-- **Blazing fast load times** - Next.js and Vercel optimization
-- **Zero attack surface** - Secure, modern architecture prevented further attacks
+This project was built for a specific moment. The TV feature launched, the donations came in, and the site did its job. For personal reasons, the website is no longer mine to maintain. But the design, the architecture, and the work I did that week belong to this portfolio.
+
+## The result
+
+**10 donations on launch day. Zero vulnerabilities ever.**
+
+The TV spot aired. The site stayed up. 10 people donated on launch day. 5% of everyone who landed on the site completed a donation. The attack surface was zero. Nothing to hack, nothing to exploit.
+
+Loading was instant. Stripe handled payments securely. The site worked on every device because the single-page format was designed for mobile-first traffic from a TV call-to-action.
+
+It was one week of work for a friend who needed help, and the site delivered exactly what it needed to deliver at the exact moment it mattered most.

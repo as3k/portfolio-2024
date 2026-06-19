@@ -127,7 +127,22 @@ export default async function BlogPostPage({ params }) {
 
         {/* Article content */}
         <FadeIn delay={0.2}>
-          <article className="max-w-3xl mx-auto px-4 sm:px-0">
+          <article className="max-w-3xl mx-auto px-4 sm:px-0
+            prose prose-invert
+            prose-headings:font-semibold prose-headings:text-white
+            prose-h2:text-2xl prose-h2:lg:text-3xl prose-h2:mt-10 prose-h2:mb-4
+            prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+            prose-p:text-base prose-p:lg:text-lg prose-p:text-gray-400 prose-p:leading-relaxed prose-p:mb-5
+            prose-strong:text-white prose-strong:font-semibold
+            prose-a:text-zg-teal prose-a:no-underline hover:prose-a:underline
+            prose-ul:text-gray-400 prose-ul:mb-5
+            prose-ol:text-gray-400 prose-ol:mb-5
+            prose-li:text-base prose-li:lg:text-lg
+            prose-blockquote:border-l-zg-teal prose-blockquote:text-gray-300 prose-blockquote:text-lg prose-blockquote:italic prose-blockquote:pl-5 prose-blockquote:my-8
+            prose-code:text-zg-teal prose-code:bg-zg-dark-0 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+            prose-pre:bg-zg-dark-0 prose-pre:rounded-lg prose-pre:p-4 prose-pre:mb-5
+            prose-hr:border-gray-700 prose-hr:my-10
+          ">
             <MDXRemote source={content} components={MDXComponents} />
           </article>
         </FadeIn>

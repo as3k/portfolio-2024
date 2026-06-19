@@ -7,7 +7,7 @@ import JsonLd, { contactPageSchema, createBreadcrumbSchema } from "@/components/
 export const metadata = {
   title: "Let's Talk | Zachary Guerrero",
   description:
-    "Contact Zachary Guerrero about product design roles or potential collaborations.",
+    "Contact Zachary Guerrero about Senior Product Engineer roles or consulting engagements.",
 };
 
 export default function LetsTalkPage() {
@@ -26,9 +26,7 @@ export default function LetsTalkPage() {
           <header className="mb-12">
             <h1 className="text-heading-1-bold mb-4">Let's Talk</h1>
             <p className="text-body-2 text-gray-400">
-              I'm currently open to product design roles at B2B SaaS companies
-              where design decisions tie directly to business outcomes. If that
-              sounds like your team, I'd love to hear from you.
+              <span className="text-white font-semibold">Senior Product Engineer (FTE) or Consulting.</span> I own features end to end at B2B SaaS companies and startups. Also take consulting engagements where a broken product or system needs rewiring. If that sounds like you, fill out the form below and I will respond within 24 hours on weekdays.
             </p>
           </header>
         </FadeIn>
@@ -93,25 +91,25 @@ export default function LetsTalkPage() {
         </FadeIn>
 
         <FadeIn delay={0.3}>
-          <section className="p-6 rounded-lg bg-zg-dark-0 border border-gray-800 mb-8">
+          <section className="mb-12">
             <h2 className="text-heading-6-semibold mb-3 text-white">
               What I'm Looking For
             </h2>
             <ul className="space-y-2 text-body-1 text-gray-400">
               <li className="flex gap-2">
-                <span className="text-zg-teal">•</span>
-                <span>B2B SaaS products with real technical complexity</span>
+                <span className="text-zg-teal">&#x2022;</span>
+                <span>Small B2B SaaS or startups where I can own features end to end</span>
               </li>
               <li className="flex gap-2">
-                <span className="text-zg-teal">•</span>
-                <span>Teams where design shapes product direction</span>
+                <span className="text-zg-teal">&#x2022;</span>
+                <span>Fast-moving teams that ship over chase trends</span>
               </li>
               <li className="flex gap-2">
-                <span className="text-zg-teal">•</span>
-                <span>Teams that ship useful things over chasing trends</span>
+                <span className="text-zg-teal">&#x2022;</span>
+                <span>Consulting engagements to rewire systems or unblock product delivery</span>
               </li>
               <li className="flex gap-2">
-                <span className="text-zg-teal">•</span>
+                <span className="text-zg-teal">&#x2022;</span>
                 <span>Remote or hybrid in Southern California</span>
               </li>
             </ul>

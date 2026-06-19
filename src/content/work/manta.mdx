@@ -18,54 +18,71 @@ metrics:
     unit: "stars"
     type: "rating"
   - label: "User Feedback"
-    value: "I love this handy lil extension"
+    value: '"I love this handy lil extension"'
     type: "testimonial"
   - label: "Security"
-    value: "Safer Passphrases"
+    value: "Trillions of years to crack"
     type: "qualitative"
   - label: "UX"
-    value: "Simple Intuitive Design"
+    value: "One click, copy, done"
     type: "qualitative"
 colors:
   primary: "#1A1A1A"
   accent: "#4A90E2"
-technologies: ["Next.js", "Chrome Extension API", "Figma", "Custom Passphrase API"]
+technologies: ["Chrome Extension API", "Figma", "JavaScript", "npm"]
 roles: ["Product Designer", "Full-Stack Developer", "API Developer"]
 links:
-  chromeStore: "https://chrome.google.com/webstore"
+  chromeStore: "https://chromewebstore.google.com/detail/manta-passpharase-generat/fajmkhjbfpdiajdkjepebibjpdnkjlfc"
 seo:
   metaTitle: "MANTA - Secure Passphrase Generator | Zachary Guerrero"
-  metaDescription: "Personal project: Chrome extension for generating secure, memorable passphrases. 5-star rated with custom-built API and intuitive design."
-  keywords: ["Chrome extension", "password security", "passphrase generator", "product design", "Next.js"]
+  metaDescription: "Personal project: Chrome extension for generating secure, memorable passphrases. 5-star rated with zero-network-attack architecture."
+  keywords: ["Chrome extension", "password security", "passphrase generator", "product design", "zero network"]
 ---
 
-# MANTA: A Secure and Memorable Passphrase Generator
+## The problem
 
-Manta is a Chrome extension designed to simplify the process of creating secure and memorable passphrases. Born out of my passion for security and a desire to make my own life easier, Manta leverages a custom-built API to generate passphrases that are easier to use, highly secure, and far more memorable compared to traditional hard-to-read strings from password managers.
+**Password managers generate passwords people can't remember.**
 
-## Challenge
+I use Bitwarden every day. It stores my credentials, generates random strings, and autofills them. It's great. But every password manager has the same problem: the passwords it generates are gibberish.
 
-Traditional password managers generate secure but unmemorable strings of random characters. Users need passwords that are:
-- Highly secure against brute force attacks
-- Actually memorable for human beings
-- Quick and easy to generate
-- Accessible without external tools
+`J8$k2mP!qR9#` is secure. It's also impossible to type, impossible to say over the phone, and impossible to remember if you ever need to enter it manually. So people reuse passwords, write them on sticky notes, or use patterns that defeat the security.
 
-## Process
+Passphrases solve this. `correct-horse-battery-staple` is more secure than `J8$k2mP!qR9#` and infinitely more memorable. The problem was nobody made generating them fast and easy. Everything required too many clicks, too much configuration, or too much thought.
 
-I developed Manta from the ground up using Next.js and designed the user interface in Figma to create an intuitive and seamless experience. The extension enables users to quickly generate passphrases that balance security and usability.
+**I built the tool I wanted: one click, copy, done.**
 
-### Through this process, I:
+I wrote a small function that generates passphrases using the `ultra-ignorant-aardvark` package. Animals, adjectives, predicates, capitalization. The combinations are random and secure. They're also often funny. A passphrase that makes you laugh is one you will not forget.
 
-- **Designed an engaging and accessible interface** with Figma, ensuring usability for both technical and non-technical users.
-- **Packaged my custom-built passphrase API** into a functional Chrome extension, eliminating the need for external tools.
-- **Focused on creating a tool that promotes better security practices** by encouraging users to adopt passphrases that are easy to remember yet highly secure.
+I tested it against password strength checkers. Trillions of years to crack. Stronger than the random-character alternative, and I can actually type it.
 
-## Results
+## What I did
 
-Manta currently holds a **5-star rating** in the Chrome Web Store, with a glowing review that says, _"I love this handy lil extension."_ While small, this feedback highlights how Manta has already positively impacted users, further validating my goal of making secure passphrase generation simple and enjoyable.
+**A Chrome extension with zero network calls.**
 
-- **5-star Chrome Web Store Rating** - Validated by actual users
-- **Safer Passphrases** - More secure than traditional passwords
-- **Simple, Intuitive Design** - Easy for anyone to use
-- **Self-initiated project** - Demonstrates initiative and technical range
+I wanted this in my browser. So I built a Chrome extension that runs entirely on-device. The passphrase generation happens inside the extension. No API calls. No network requests. No servers to intercept. Nothing to track, nothing to crack, nothing to maintain on the backend.
+
+The security model is simple: there is no attack surface. The extension calls the npm package directly, generates the passphrase, and displays it. You click copy. You paste it into your password manager. Done. The extension doesn't even store a history of what you generated.
+
+**The design follows the same rule: don't make me think.**
+
+Open the extension. One passphrase is ready immediately. Click to copy. If you want a different one, click regenerate. That's the entire interface. No settings, no options, no configuration screens. The extension appears when you need it and disappears when you don't.
+
+This is early work. I updated it a couple years ago to keep it running, and it still works today. The design is simple because that's all it needs to be.
+
+**Every passphrase is a silly one you will remember.**
+
+The word combinations are generated from curated lists with patterns that include predicates and capitalization. The result is often absurd. `Ultra-Ignorant-Aardvark` or something equally ridiculous. The absurdity is the feature. A passphrase that makes you smile is one you will not forget, and one that a computer cannot guess.
+
+## The result
+
+**5 stars in the Chrome Web Store. Used every day.**
+
+One user called it "this handy lil extension." Low bar to entry, high bar for how much value it delivers per interaction. Open, click, copy, done. Under five seconds from need to solution.
+
+I use it every day. New accounts, password resets, any reason I need a credential I can actually remember. It works alongside Bitwarden without conflict. Bitwarden stores the gibberish Manta generates. Manta makes the gibberish human-friendly.
+
+What's next: entropy options for power users, and the ability to recall your last generated passphrase. The core interaction is solid. Just a few more features to round it out.
+
+Small project. Clean execution. Shipped and working for years.
+
+[Chrome Web Store →](https://chromewebstore.google.com/detail/manta-passpharase-generat/fajmkhjbfpdiajdkjepebibjpdnkjlfc)

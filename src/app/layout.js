@@ -12,8 +12,8 @@ const poppins = Poppins({
 
 export const metadata = {
   metadataBase: new URL('https://zacharyguerrero.com'),
-  title: "Zachary Guerrero - Senior Product Designer",
-  description: "Senior Product Designer with 10+ years building B2B SaaS products. I design for clarity, build with React, and measure impact. Based in California, open to remote roles.",
+  title: "Zachary Guerrero - Senior Product Engineer",
+  description: "Senior Product Engineer with 10+ years building B2B SaaS products. I design for clarity, build with React, and measure impact. Based in California, open to remote roles.",
   keywords: [
     "product designer",
     "senior product designer",
@@ -32,7 +32,7 @@ export const metadata = {
     "conversion optimization"
   ],
   openGraph: {
-    title: "Zachary Guerrero - Senior Product Designer",
+    title: "Zachary Guerrero - Senior Product Engineer",
     description: "I help B2B SaaS companies turn complex problems into simple experiences.",
     url: 'https://zacharyguerrero.com',
     siteName: 'Zachary Guerrero',
@@ -41,7 +41,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Zachary Guerrero - Senior Product Designer",
+    title: "Zachary Guerrero - Senior Product Engineer",
     description: "I help B2B SaaS companies turn complex problems into simple experiences.",
   },
 };
@@ -67,6 +67,11 @@ export default function RootLayout({ children }) {
             strategy="afterInteractive"
           />
         ) : null}
+        <Script
+          src="https://stats.zkg.io/api/script.js"
+          data-site-id="fafd29329cd3"
+          strategy="afterInteractive"
+        />
         <LayoutWrapper>
           {children}
         </LayoutWrapper>

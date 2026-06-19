@@ -93,27 +93,27 @@ export default function Home() {
   const services = [
     {
       icon: SwatchIcon,
-      title: "Product Design",
+      title: "Ship from First Sketch to Deployment",
       description:
-        "I design end-to-end product experiences—from user research to high-fidelity prototypes—balancing user needs with technical feasibility.",
+        "I design end-to-end product experiences from user research to high-fidelity prototypes, then build them in code. No handoff tax, no translation loss.",
     },
     {
       icon: MagnifyingGlassIcon,
-      title: "UX Research & Strategy",
+      title: "Ship with Confidence, Not Guesswork",
       description:
-        "I validate solutions through user interviews, usability testing, and competitive analysis before development begins.",
+        "I validate solutions through user interviews, usability testing, and competitive analysis before writing a line of production code.",
     },
     {
       icon: Square3Stack3DIcon,
-      title: "Design Systems",
+      title: "Ship Faster Because the System Scales Itself",
       description:
-        "I build scalable design systems that keep teams aligned and accelerate product development.",
+        "I build design systems that keep teams aligned and accelerate product development. Reusable components, documented patterns, scalable architecture.",
     },
     {
       icon: CodeBracketIcon,
-      title: "Front-End Development",
+      title: "Ship in the Tools Your Team Already Uses",
       description:
-        "I code what I design using React, Next.js, and modern web technologies—turning prototypes into production-ready products.",
+        "React, Next.js, Vue, Python, PHP, WordPress - I work in whatever stack the team uses and adapt without ramp-up time.",
     },
   ];
 
@@ -128,17 +128,17 @@ export default function Home() {
             <h1 className="flex flex-col gap-1 lg:gap-2">
               <span className="text-body-1-semibold text-zg-teal">Zachary Guerrero</span>
               <span className="text-heading-4-bold md:text-heading-2-bold lg:text-heading-1-bold">
-                I help B2B SaaS companies turn complex problems into simple experiences.
+                I own features end to end.
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
             <div className="space-y-3 lg:space-y-4 text-body-1 lg:text-body-2 text-gray-400">
               <p>
-                For 10+ years, I've been fixing the same problem: confusing flows that lose users halfway through.
+                For 10+ years, I have been fixing the same problem: teams that need one person to own the full cycle. Research, design, code, deploy, iterate - no handoffs, no translation loss.
               </p>
               <p className="hidden md:block">
-                I design for clarity, build with code, and measure impact. No design theater—just work that ships and moves metrics.
+                I design in Figma, build in whatever stack the team uses, deploy on whatever infrastructure fits, and measure what moves. No design theater - just shipped features that move metrics.
               </p>
             </div>
           </FadeIn>
@@ -172,14 +172,9 @@ export default function Home() {
           {/* Stats */}
           <FadeIn delay={0.3}>
             <div className="flex flex-wrap gap-4 md:gap-8 pt-4 lg:pt-6 border-t border-gray-800">
-              <StatCard value="10+ Years" label="Designing & Building" />
-              <StatCard
-                label="Lighthouse Accessibility"
-                isAnimated
-                animatedValue={92}
-                suffix="%"
-              />
-              <StatCard value="2x" label="User Growth" />
+              <StatCard value="End-to-End" label="Full Cycle" />
+              <StatCard value="Every Layer" label="Any Stack" />
+              <StatCard value="10+ Years" label="Shipping Products" />
             </div>
           </FadeIn>
         </div>
@@ -259,16 +254,16 @@ export default function Home() {
         <FadeIn>
           <div className="mb-12">
             <span className="inline-block text-microcopy-2-semibold text-gray-400 border border-gray-700 rounded-full px-4 py-1.5 mb-4 hover:border-zg-teal/50 hover:text-zg-teal/80 transition-colors duration-300">
-              My Focus
+              My Expertise
             </span>
             <h2 className="text-heading-3-bold md:text-heading-2-bold max-w-3xl mb-4">
-              Building products for the companies shaping tomorrow
+              End-to-end ownership. Full-stack delivery. Any stack, full cycle.
             </h2>
             <p className="text-body-2 text-gray-400 max-w-2xl">
-              I specialize in B2B SaaS and technical products where complex
-              problems meet elegant solutions. From fintech platforms to ISP
-              tools, I create experiences that empower users and drive business
-              results.
+              Design, code, infrastructure, deploy, monitor. I own every layer of
+              the product lifecycle. From fintech platforms to ISP tools to
+              membership systems, I build experiences that users trust and
+              businesses count on.
             </p>
           </div>
         </FadeIn>
@@ -290,7 +285,7 @@ export default function Home() {
       <section className="mt-24 lg:mt-32">
         <FadeIn>
           <div className="mb-8">
-            <h2 className="text-heading-3-bold">Project Showcase</h2>
+            <h2 className="text-heading-3-bold">Shipped Projects</h2>
           </div>
         </FadeIn>
         {featuredWork.length > 0 && (

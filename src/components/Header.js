@@ -24,7 +24,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
     if (isMenuOpen && onMenuToggle) {
       onMenuToggle(false);
     }
-  }, [isMenuOpen, onMenuToggle]);
+  }, [pathname]);
 
   return (
     <header className="flex w-full justify-between items-center px-4 lg:px-8 py-4 lg:py-6">

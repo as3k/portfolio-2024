@@ -1,62 +1,63 @@
 import Link from "next/link";
-import { FadeIn } from "@/components/FadeIn";
+import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import JsonLd, { createBreadcrumbSchema, createHowToSchema } from "@/components/JsonLd";
 
 export const metadata = {
-  title: "Design Process | Zachary Guerrero",
+  title: "From Concept to Production | Zachary Guerrero",
   description:
-    "How I approach product design: from understanding the problem to shipping solutions that move metrics.",
-  keywords: [
-    "design process",
-    "UX methodology",
-    "product design approach",
-    "user-centered design",
-  ],
+    "Seven stages. One person. Full cycle. How I own features from research through deployment with AI amplification at every step.",
 };
 
-function ProcessStep({ number, title, philosophy, whatIDo, whatIDeliver }) {
+function ProcessStep({ number, title, claim, body, ships, isAmplified }) {
   return (
-    <section className="py-16 border-b border-gray-800 last:border-b-0">
-      <div className="flex items-baseline gap-6 mb-8">
-        <span className="text-display-2-bold text-zg-teal/30">{number}</span>
+    <section className="py-12 border-b border-gray-800 last:border-b-0">
+      <div className="flex items-baseline gap-4 mb-4">
+        <span className={`text-display-2-bold ${isAmplified ? "text-zg-teal/40" : "text-zg-teal/30"}`}>
+          {number}
+        </span>
         <h2 className="text-heading-3-bold text-white">{title}</h2>
+        {isAmplified && (
+          <span className="inline-flex items-center gap-1 text-microcopy-2 text-zg-teal bg-zg-teal/10 px-2 py-0.5 rounded-full">
+            AI-amplified
+          </span>
+        )}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12">
-        <div>
-          <h3 className="text-body-1-semibold text-zg-teal mb-4">What I do</h3>
-          <ul className="space-y-3">
-            {whatIDo.map((item) => (
-              <li key={item.title} className="text-body-1 text-gray-400">
-                <span className="text-white font-medium">{item.title}</span>
-                {item.description && ` — ${item.description}`}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="text-body-1-semibold text-zg-teal mb-4">
-            What I deliver
-          </h3>
-          <ul className="space-y-3">
-            {whatIDeliver.map((item) => (
-              <li
-                key={item}
-                className="flex gap-2 text-body-1 text-gray-400"
-              >
-                <span className="text-zg-teal">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <p className="mt-10 text-body-2 text-gray-500 italic border-l-2 border-zg-teal/30 pl-4">
-        {philosophy}
+      {/* Snack: one bold claim */}
+      <p className="text-body-1-semibold text-white mb-3 max-w-2xl">
+        {claim}
       </p>
+
+      {/* Meal: body paragraph */}
+      <p className="text-body-1 text-gray-400 mb-4 max-w-3xl">
+        {body}
+      </p>
+
+      {/* Snack: deliverables */}
+      <div className="flex flex-wrap gap-2">
+        <span className="text-microcopy-2 text-gray-500 mr-1">Ships:</span>
+        {ships.map((item) => (
+          <span
+            key={item}
+            className="text-microcopy-2 bg-zg-dark-0 text-gray-400 px-2.5 py-1 rounded"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
     </section>
+  );
+}
+
+function DifferentiatorCard({ title, description }) {
+  return (
+    <div className="flex gap-4 p-6 bg-zg-dark-0 rounded-lg">
+      <div className="flex-shrink-0 w-1.5 h-1.5 mt-2.5 rounded-full bg-zg-teal" />
+      <div>
+        <h3 className="text-body-1-semibold text-white mb-2">{title}</h3>
+        <p className="text-body-1 text-gray-400">{description}</p>
+      </div>
+    </div>
   );
 }
 
@@ -64,322 +65,125 @@ const processSteps = [
   {
     number: "01",
     title: "Understand & Research",
-    philosophy:
-      "You can't design the right solution until you understand the right problem.",
-    whatIDo: [
-      {
-        title: "Talk to stakeholders",
-        description:
-          "What are the business goals? What constraints exist? What's been tried before?",
-      },
-      {
-        title: "Talk to users",
-        description:
-          "What are they trying to accomplish? Where do they get stuck? What workarounds have they created?",
-      },
-      {
-        title: "Audit the current experience",
-        description:
-          "Click through existing flows, note friction points, identify where people drop off",
-      },
-      {
-        title: "Review analytics",
-        description:
-          "Where are users spending time? Where are they leaving? What paths are they taking?",
-      },
-      {
-        title: "Identify assumptions",
-        description: "What does everyone believe is true that might not be?",
-      },
-    ],
-    whatIDeliver: [
-      "Clear problem statement (not a feature request)",
-      "User pain points mapped to business impact",
-      "Constraints and requirements documented",
-      "Alignment on what success looks like",
-    ],
+    claim: "I do the research myself. No handoff to a separate researcher.",
+    body: "User interviews, competitive analysis, analytics review, current-state audit. I go straight to the source. AI helps me synthesize sessions, spot patterns across datasets, and flag assumptions I might have missed. But I ask the questions. I watch the recordings. I decide what matters.",
+    ships: ["Problem statement", "User pain points mapped", "Constraints documented"],
+    isAmplified: false,
   },
   {
     number: "02",
     title: "Define & Strategize",
-    philosophy:
-      "Strategy before aesthetics. If you don't know why you're designing something, you can't design it well.",
-    whatIDo: [
-      {
-        title: "Map user journeys",
-        description:
-          "What are the steps from awareness to completion? Where's the friction?",
-      },
-      {
-        title: "Prioritize problems",
-        description:
-          "What will have the biggest impact? What's feasible given time and technical constraints?",
-      },
-      {
-        title: "Set design principles",
-        description:
-          'The 3-4 rules this solution needs to follow (e.g., "Clarity over features")',
-      },
-      {
-        title: "Define success metrics",
-        description: "What will we measure? How will we know this worked?",
-      },
-      {
-        title: "Identify technical constraints",
-        description:
-          "What's realistic to build? What are the limitations?",
-      },
-    ],
-    whatIDeliver: [
-      "User journey maps showing current vs. ideal state",
-      "Prioritized list of problems to solve",
-      "Design principles specific to this project",
-      "Success metrics defined upfront",
-    ],
+    claim: "I scope the feature. I set the principles. No PM gatekeeper.",
+    body: "Journey maps, prioritization, success metrics, design principles. I define what we are solving and why before anyone touches a design tool. AI helps me generate journey alternatives, stress-test assumptions against edge cases I might not have considered, and document decisions as I go.",
+    ships: ["User journey maps", "Design principles", "Success metrics"],
+    isAmplified: false,
   },
   {
     number: "03",
     title: "Ideate & Prototype",
-    philosophy:
-      "Test the logic before you polish the pixels. A beautiful design that doesn't work is still broken.",
-    whatIDo: [
-      {
-        title: "Sketch multiple directions",
-        description:
-          "Explore 2-3 different approaches on paper or in low-fi wireframes",
-      },
-      {
-        title: "Focus on flow, not visuals",
-        description:
-          "What's the sequence of steps? What information is needed when?",
-      },
-      {
-        title: "Prototype key interactions",
-        description:
-          "Build clickable prototypes to test the flow, not just show static screens",
-      },
-      {
-        title: "Test internally first",
-        description:
-          "Walk through the prototype with the team before showing users",
-      },
-      {
-        title: "Refine based on feedback",
-        description: "Iterate quickly, adjusting flows before adding polish",
-      },
-    ],
-    whatIDeliver: [
-      "Low-fidelity wireframes exploring multiple approaches",
-      "Clickable prototypes showing key flows",
-      "Rationale for design decisions",
-      "Identified edge cases and error states",
-    ],
+    claim: "Human-led exploration. AI-accelerated iteration.",
+    body: "I sketch in Figma first. Low-fi wireframes, flow diagrams, rough layouts. The thinking is mine — the information architecture, the decision hierarchy, the sequencing. Once the structure is right, AI helps me generate visual alternatives, fill in component variations, and spin up clickable prototypes faster so I can test sooner.",
+    ships: ["Wireframes (multiple directions)", "Clickable prototype", "Edge cases identified"],
+    isAmplified: false,
   },
   {
     number: "04",
     title: "Test & Iterate",
-    philosophy:
-      "Your users will tell you what's broken. Listen to them.",
-    whatIDo: [
-      {
-        title: "Run usability tests",
-        description:
-          "Watch 3-5 people attempt key tasks. Where do they hesitate?",
-      },
-      {
-        title: 'Ask "why" relentlessly',
-        description:
-          "When someone clicks the wrong thing, understand what they were thinking",
-      },
-      {
-        title: "Identify patterns",
-        description:
-          "If one person struggles, it might be them. If three struggle, it's the design",
-      },
-      {
-        title: "Prioritize fixes",
-        description:
-          "What's breaking the experience vs. what's just suboptimal?",
-      },
-      {
-        title: "Iterate and re-test",
-        description: "Major changes get retested. Minor tweaks move forward",
-      },
-    ],
-    whatIDeliver: [
-      "Usability test findings with specific recommendations",
-      "Updated prototypes addressing critical issues",
-      "Confidence that the design will work before development",
-    ],
+    claim: "I watch every session. I decide what to fix.",
+    body: "Usability tests, stakeholder walkthroughs, pattern analysis. If one person struggles, I note it. If three struggle, I redesign it. AI helps me pull themes across test sessions, compile findings faster, and track which patterns keep appearing across projects so I don't solve the same problem twice.",
+    ships: ["Test findings with recommendations", "Updated prototype", "Confidence to build"],
+    isAmplified: false,
   },
+];
+
+const amplifiedSteps = [
   {
     number: "05",
-    title: "Design & Document",
-    philosophy:
-      "Beautiful design is useless if developers can't build it correctly.",
-    whatIDo: [
-      {
-        title: "Apply visual design",
-        description:
-          "Typography, color, spacing, imagery—polished and on-brand",
-      },
-      {
-        title: "Design for all states",
-        description: "Empty, loading, error, success states",
-      },
-      {
-        title: "Build component libraries",
-        description: "Reusable components that scale across the product",
-      },
-      {
-        title: "Create responsive layouts",
-        description: "Mobile, tablet, desktop at different viewport sizes",
-      },
-      {
-        title: "Annotate for developers",
-        description: "Spacing values, color tokens, font sizes, breakpoints",
-      },
-    ],
-    whatIDeliver: [
-      "High-fidelity mockups in Figma",
-      "Component library with variants and states",
-      "Developer handoff documentation",
-      "Responsive designs for multiple breakpoints",
-    ],
+    title: "Build",
+    claim: "Foundation is locked. AI flips the switch on execution.",
+    body: "I direct agents to generate code, write tests, scaffold components. They execute under my feedback and review. Every pull request runs through AI-assisted review alongside my eyes. I catch issues before they hit production. The result: what takes most teams two weeks ships in two days, without cutting corners on judgment.",
+    ships: ["Production code", "Tests", "Documentation"],
+    isAmplified: true,
   },
   {
     number: "06",
-    title: "Build & Collaborate",
-    philosophy:
-      "Design isn't done until it's shipped. Staying involved catches problems before they reach users.",
-    whatIDo: [
-      {
-        title: "Build front-end components",
-        description: "I often code the UI myself (React, Next.js, HTML/CSS)",
-      },
-      {
-        title: "Work alongside developers",
-        description:
-          "In Slack/standup answering questions and unblocking issues",
-      },
-      {
-        title: "Adjust for technical reality",
-        description:
-          "Sometimes the ideal design isn't feasible. I adjust without compromising UX",
-      },
-      {
-        title: "Review in staging",
-        description:
-          "QA the implementation to ensure it matches design and functions correctly",
-      },
-      {
-        title: "Handle edge cases",
-        description:
-          "What happens when the API fails? What if there's no data?",
-      },
-    ],
-    whatIDeliver: [
-      "Production-ready code or detailed QA feedback",
-      "Solutions to technical blockers during development",
-      "Confidence that what ships matches what was designed",
-    ],
+    title: "Deploy",
+    claim: "I handle the pipeline. Code doesn't ship until I ship it.",
+    body: "Docker images, CI/CD pipelines, DNS, SSL, environment configs, monitoring. I build the deployment infrastructure alongside the feature so there is no 'throw it over the wall to DevOps.' If something breaks at 2am, I know the stack well enough to fix it without escalating.",
+    ships: ["Deployed feature", "Monitoring in place", "Rollback plan"],
+    isAmplified: true,
   },
   {
     number: "07",
     title: "Measure & Optimize",
-    philosophy:
-      "Design improves when you watch how people actually use it.",
-    whatIDo: [
-      {
-        title: "Track key metrics",
-        description:
-          "Did completion rates improve? Did drop-off decrease? Did support tickets go down?",
-      },
-      {
-        title: "Gather user feedback",
-        description: "What are people saying? What's still confusing?",
-      },
-      {
-        title: "Identify new friction points",
-        description: "What problems did this solution create? What did we miss?",
-      },
-      {
-        title: "Iterate based on data",
-        description: "Small tweaks can have big impact. Adjust and re-measure",
-      },
-      {
-        title: "Document learnings",
-        description: "What worked? What didn't? What would I do differently?",
-      },
-    ],
-    whatIDeliver: [
-      "Post-launch analysis showing impact",
-      "Recommendations for iteration",
-      "Documented learnings for future projects",
-    ],
-  },
-];
-
-const tools = [
-  {
-    category: "Design",
-    items: "Figma, Pen & Paper, Whimsical",
-  },
-  {
-    category: "Development",
-    items: "React, Next.js, TypeScript, Tailwind CSS",
-  },
-  {
-    category: "Prototyping",
-    items: "Figma, CodeSandbox, Stackblitz",
-  },
-  {
-    category: "Testing",
-    items: "Maze, UserTesting, Guerrilla testing",
-  },
-  {
-    category: "Analytics",
-    items: "Google Analytics, Hotjar, PostHog",
-  },
-  {
-    category: "Collaboration",
-    items: "Slack, Linear, Notion, GitHub",
+    claim: "Did it move the needle? I track it. I iterate it.",
+    body: "Post-launch metrics, user feedback, session replays, support ticket analysis. I don't launch and walk away. I watch how people actually use what I built, identify new friction points, and prioritize the next iteration. AI helps me surface anomalies across datasets and flag regression patterns early.",
+    ships: ["Post-launch analysis", "Iteration backlog", "Learnings documented"],
+    isAmplified: true,
   },
 ];
 
 const differentiators = [
   {
-    title: "I don't separate design and development",
+    title: "One person, full cycle.",
     description:
-      'I design with implementation in mind and often build what I design. Fewer "can we actually build this?" conversations.',
+      "From research to deploy. No handoff tax, no translation loss. The person who designs it builds it. The person who builds it ships it.",
   },
   {
-    title: "I prioritize clarity over trends",
+    title: "Human direction, AI amplification.",
     description:
-      "I'm not designing for awards. I'm solving real problems for real users. If it works, it works.",
+      "I do the thinking. I set the strategy. AI accelerates the execution under my feedback. That means I ship what takes most teams two weeks in two days, without sacrificing judgment.",
   },
   {
-    title: "I design for decisions, not screens",
+    title: "No PM buffer, no handoff chain.",
     description:
-      "Every screen is a decision point. My job is to make those decisions obvious and frictionless.",
+      "I scope features, prioritize decisions, and manage tradeoffs directly with stakeholders. The person you talk to is the person building it. One conversation replaces a chain of meetings.",
   },
   {
-    title: "I iterate based on data, not opinions",
+    title: "Design with reality, not theory.",
     description:
-      "I have opinions, but I trust data more. If users are struggling, I adjust—even if I love the original design.",
+      "I design in the stack. I prototype in production-grade tools. Every decision is made knowing how it will be built, deployed, and maintained. No surprises at implementation time.",
+  },
+];
+
+const tools = [
+  { category: "Design", items: "Figma, Pen & Paper" },
+  { category: "Build", items: "Next.js, React, Vue, Python, PHP, Node.js" },
+  { category: "Ship", items: "Docker, Vercel, Cloudflare, CI/CD, AWS" },
+  { category: "Amplify", items: "Claude Code, Pi, Hermes, Codex" },
+  { category: "Test", items: "Production monitoring, Umami, session replay" },
+  { category: "Manage", items: "Obsidian, Linear, GitHub, n8n" },
+];
+
+const expectations = [
+  {
+    claim: "I ask a lot of questions upfront.",
+    body: "I need to understand the problem, constraints, and goals before I design or build anything. Expect a deep discovery phase.",
   },
   {
-    title: "I explain my thinking",
-    description:
-      "Stakeholders and developers get context, not just deliverables. I explain why I made specific choices.",
+    claim: "I show work early and often.",
+    body: "First in Figma, then in a live staging environment. I don't disappear for two weeks. You see progress in real time.",
+  },
+  {
+    claim: "I push back when it hurts the user or the architecture.",
+    body: "I'm collaborative but direct. If a requirement creates a bad experience or technical debt that will bite you later, I will explain why and propose alternatives.",
+  },
+  {
+    claim: "I ship the full pipeline.",
+    body: "Design, code, deploy, monitor. I don't hand off and disappear. I see features through to production and measure their impact. That is the full cycle.",
   },
 ];
 
 export default function ProcessPage() {
-  const howToSchema = createHowToSchema(processSteps);
+  // Build HowTo steps from our data
+  const howToSteps = [...processSteps, ...amplifiedSteps].map((step) => ({
+    title: step.title,
+    body: step.claim + " " + step.body,
+  }));
+  const howToSchema = createHowToSchema(howToSteps);
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", url: "https://zacharyguerrero.com" },
-    { name: "Design Process", url: "https://zacharyguerrero.com/process" },
+    { name: "Process", url: "https://zacharyguerrero.com/process" },
   ]);
 
   return (
@@ -387,39 +191,104 @@ export default function ProcessPage() {
       <JsonLd data={howToSchema} />
       <JsonLd data={breadcrumbSchema} />
       <div className="container my-12 lg:my-16">
-        {/* Header */}
+        {/* Hero --- Bite + Snack + Meal */}
         <FadeIn>
-        <header className="max-w-3xl mb-20 lg:mb-24">
-          <h1 className="text-heading-1-bold mb-6">How I Work</h1>
-          <p className="text-heading-5 text-gray-400">
-            My approach is simple: understand the problem, design for clarity,
-            build with constraints in mind, and measure what matters.
+        <header className="max-w-3xl mb-16 lg:mb-20">
+          {/* Bite */}
+          <h1 className="text-heading-1-bold mb-4">
+            From Concept to Production
+          </h1>
+          <p className="text-heading-5 text-zg-teal mb-6">
+            Seven stages. One person. Full cycle.
           </p>
-          <p className="mt-6 text-body-1 text-gray-500">
-            I don't follow a rigid process. Every project is different. But
-            there are patterns in how I approach problems—especially when the
-            goal is to turn something complex into something simple.
+          {/* Snack */}
+          <p className="text-body-2 text-gray-300 mb-4">
+            I am the researcher, the definer, the designer, the builder, the QA tester, the shipper. Every role in this pipeline is me. I work with teams, but I don't depend on them to cross the finish line.
+          </p>
+          {/* Meal */}
+          <p className="text-body-1 text-gray-500">
+            AI agents amplify every stage under my direction. Research synthesis, prototype iteration, code generation, deployment orchestration, monitoring. They accelerate the execution. I own the decisions. The thinking is human. The output is amplified.
           </p>
         </header>
       </FadeIn>
 
-      {/* Process Steps */}
+      {/* Process Steps --- Human-led (01-04) */}
       <FadeIn delay={0.1}>
-        <div className="mb-20">
+        <div className="mb-12">
           {processSteps.map((step) => (
             <ProcessStep key={step.number} {...step} />
           ))}
         </div>
       </FadeIn>
 
-      {/* Tools */}
+      {/* AI Amplifier Callout --- Bite-level visual breakpoint */}
+      <FadeIn delay={0.15}>
+        <section className="mb-12 p-8 md:p-10 bg-gradient-to-br from-zg-teal/10 to-zg-dark-0 rounded-lg border border-zg-teal/20">
+          {/* Bite */}
+          <h2 className="text-heading-3-bold text-white mb-3">
+            At this point, the process changes.
+          </h2>
+          {/* Snack */}
+          <p className="text-body-1-semibold text-zg-teal mb-4">
+            Human direction shifts to AI-amplified execution.
+          </p>
+          {/* Meal */}
+          <p className="text-body-1 text-gray-400 mb-6 max-w-3xl">
+            Steps 1 through 4 are where the thinking happens. Research, strategy, design, testing. I own every decision. No AI shortcuts on judgment. Step 5 is where AI flips the switch. The foundation is locked, the direction is clear. Now I direct agents to build, iterate, and ship at a velocity most teams cannot match.
+          </p>
+          {/* Bite-level visual: two columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-zg-dark-0 rounded-lg p-4 border border-gray-700/50">
+              <span className="text-microcopy-1 text-gray-400">Human-led</span>
+              <div className="flex items-center gap-2 text-body-1 text-white">
+                <span className="text-zg-teal">01&ndash;04</span>
+                <span>Research &rarr; Define &rarr; Ideate &rarr; Test</span>
+              </div>
+            </div>
+            <div className="bg-zg-dark-0 rounded-lg p-4 border border-zg-teal/20">
+              <span className="text-microcopy-1 text-zg-teal">AI-amplified</span>
+              <div className="flex items-center gap-2 text-body-1 text-white">
+                <span className="text-zg-teal">05&ndash;07</span>
+                <span>Build &rarr; Deploy &rarr; Measure</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* Process Steps --- AI-amplified (05-07) */}
       <FadeIn delay={0.2}>
-        <section className="mb-20">
+        <div className="mb-16">
+          {amplifiedSteps.map((step) => (
+            <ProcessStep key={step.number} {...step} />
+          ))}
+        </div>
+      </FadeIn>
+
+      {/* The Product Engineer Difference */}
+      <FadeIn delay={0.25}>
+        <section className="mb-16">
+          <h2 className="text-heading-3-bold mb-8">The Product Engineer Difference</h2>
+          <div className="space-y-4">
+            {differentiators.map((item) => (
+              <DifferentiatorCard
+                key={item.title}
+                title={item.title}
+                description={item.description}
+              />
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* Tools --- Snack grid */}
+      <FadeIn delay={0.3}>
+        <section className="mb-16">
           <h2 className="text-heading-3-bold mb-8">Tools I Use</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {tools.map((tool) => (
-              <div key={tool.category} className="p-6 bg-zg-dark-0 rounded-lg">
-                <h3 className="text-body-1-semibold text-zg-teal mb-3">
+              <div key={tool.category} className="p-5 bg-zg-dark-0 rounded-lg">
+                <h3 className="text-body-1-semibold text-zg-teal mb-2">
                   {tool.category}
                 </h3>
                 <p className="text-body-1 text-gray-400">{tool.items}</p>
@@ -429,24 +298,19 @@ export default function ProcessPage() {
         </section>
       </FadeIn>
 
-      {/* What Makes Me Different */}
-      <FadeIn delay={0.3}>
-        <section className="mb-20">
-          <h2 className="text-heading-3-bold mb-8">
-            What Makes My Process Different
-          </h2>
-          <div className="space-y-6">
-            {differentiators.map((item) => (
-              <div
-                key={item.title}
-                className="flex gap-4 p-6 bg-zg-dark-0 rounded-lg"
-              >
-                <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-zg-teal" />
+      {/* What to Expect */}
+      <FadeIn delay={0.35}>
+        <section className="mb-16 p-8 bg-zg-dark-0 rounded-lg">
+          <h2 className="text-heading-3-bold mb-6">What to Expect</h2>
+          <div className="space-y-5">
+            {expectations.map((item) => (
+              <div key={item.claim} className="flex gap-3">
+                <span className="text-zg-teal font-bold mt-0.5">&rarr;</span>
                 <div>
-                  <h3 className="text-body-1-semibold text-white mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-body-1 text-gray-400">{item.description}</p>
+                  <p className="text-body-1-semibold text-white mb-1">
+                    {item.claim}
+                  </p>
+                  <p className="text-body-1 text-gray-400">{item.body}</p>
                 </div>
               </div>
             ))}
@@ -454,69 +318,12 @@ export default function ProcessPage() {
         </section>
       </FadeIn>
 
-      {/* How We'd Work Together */}
-      <FadeIn delay={0.4}>
-        <section className="mb-20 p-8 bg-zg-dark-0 rounded-lg">
-          <h2 className="text-heading-3-bold mb-6">How We'd Work Together</h2>
-          <p className="text-body-1 text-gray-400 mb-6">
-            If you hire me, here's what you can expect:
-          </p>
-          <ul className="space-y-4 text-body-1 text-gray-400">
-            <li className="flex gap-3">
-              <span className="text-zg-teal font-bold">→</span>
-              <span>
-                <strong className="text-white">
-                  I ask a lot of questions upfront.
-                </strong>{" "}
-                I need to understand the problem, constraints, and goals before
-                I design anything.
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-zg-teal font-bold">→</span>
-              <span>
-                <strong className="text-white">
-                  I show work in progress early.
-                </strong>{" "}
-                I don't disappear for two weeks. I share rough work, get
-                feedback, and iterate.
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-zg-teal font-bold">→</span>
-              <span>
-                <strong className="text-white">
-                  I push back when something hurts the user.
-                </strong>{" "}
-                I'm collaborative, but if a requirement creates a bad
-                experience, I'll explain why and propose alternatives.
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-zg-teal font-bold">→</span>
-              <span>
-                <strong className="text-white">I communicate clearly.</strong> I
-                avoid jargon, explain tradeoffs, and make sure everyone
-                understands what we're building and why.
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-zg-teal font-bold">→</span>
-              <span>
-                <strong className="text-white">I ship.</strong> I don't just
-                design—I see things through to launch and measure their impact.
-              </span>
-            </li>
-          </ul>
-        </section>
-      </FadeIn>
-
       {/* CTA */}
-      <FadeIn delay={0.5}>
+      <FadeIn delay={0.4}>
         <section className="text-center">
           <h2 className="text-heading-3-bold mb-4">Let's Work Together</h2>
           <p className="text-body-1 text-gray-400 mb-8">
-            If this sounds like a good fit, let's talk.
+            If this sounds like how you want features built, let's talk.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
@@ -529,7 +336,7 @@ export default function ProcessPage() {
               href="/projects"
               className="inline-flex items-center gap-2 rounded-md text-white ring-2 ring-gray-600 hover:ring-zg-teal hover:text-zg-teal active:scale-95 transition-all duration-300 px-6 py-3 text-body-1-bold"
             >
-              View My Work
+              View Case Studies
             </Link>
             <Link
               href="/resume"

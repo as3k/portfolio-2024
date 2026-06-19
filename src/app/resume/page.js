@@ -11,7 +11,7 @@ import { resumeData } from "@/lib/resume-data";
 
 export const metadata = {
   title: "Resume | Zachary Guerrero",
-  description: "Professional resume of Zachary Guerrero, Product Designer with 10+ years of experience in UX design and front-end development.",
+  description: "Professional resume of Zachary Guerrero, Senior Product Engineer with 10+ years of experience in full-stack product engineering and UX design.",
 };
 
 function ContactItem({ icon: Icon, children, href }) {
