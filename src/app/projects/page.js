@@ -195,23 +195,6 @@ export default function ProjectsPage() {
           </section>
         </FadeIn>
 
-        {/* Work in Progress */}
-        <section className="mb-16">
-          <FadeIn>
-            <h2 className="text-heading-4-bold mb-6">In Development</h2>
-            <p className="text-body-1 text-gray-400 mb-8 max-w-2xl">
-              Active projects currently being built end to end. Full architecture details are password protected — request access to see the deep dives.
-            </p>
-          </FadeIn>
-          <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.1}>
-            {inProgress.map((project) => (
-              <FadeInStaggerItem key={project.slug}>
-                <WorkInProgressCard {...project} />
-              </FadeInStaggerItem>
-            ))}
-          </FadeInStagger>
-        </section>
-
         {/* Featured Work */}
         <ProjectSection title="Built for Production" projects={featured} />
 
@@ -238,6 +221,23 @@ export default function ProjectsPage() {
             </p>
           </FadeIn>
         </ProjectSection>
+
+        {/* Work in Progress */}
+        <section className="mb-16">
+          <FadeIn>
+            <h2 className="text-heading-4-bold mb-6">In Development</h2>
+            <p className="text-body-1 text-gray-400 mb-8 max-w-2xl">
+              Active projects currently being built end to end. Full architecture details are password protected — request access to see the deep dives.
+            </p>
+          </FadeIn>
+          <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.1}>
+            {inProgress.map((project) => (
+              <FadeInStaggerItem key={project.slug}>
+                <WorkInProgressCard {...project} />
+              </FadeInStaggerItem>
+            ))}
+          </FadeInStagger>
+        </section>
 
         {/* Archive Link */}
         <FadeIn delay={0.3}>
