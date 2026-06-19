@@ -1,5 +1,3 @@
-"use client";
-
 import {
   CodeBracketIcon,
   MagnifyingGlassIcon,
@@ -8,11 +6,11 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import JsonLd, { profilePageSchema } from "@/components/JsonLd";
 import ToolkitSection from "@/components/ToolkitSection";
+import { getFeaturedWork } from "@/lib/content";
 
 function StatCard({ value, label, isAnimated = false, animatedValue = 0, suffix = "" }) {
   return (
@@ -59,6 +57,7 @@ function ProjectCard({ project }) {
           src={meta.heroImage}
           alt={meta.title}
           fill
+          sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
@@ -86,9 +85,7 @@ function ProjectCard({ project }) {
 }
 
 export default function Home() {
-  // Import content at build time via server component would be better,
-  // but for client component with animations, we'll use a simple approach
-  const featuredWork = useFeaturedWork();
+  const featuredWork = getFeaturedWork();
 
   const services = [
     {
@@ -192,6 +189,8 @@ export default function Home() {
                 src="/images/projects/cydrion/Cydrion-Featured-Image.jpg"
                 alt="Cydrion project"
                 fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
@@ -218,6 +217,7 @@ export default function Home() {
                   src="/images/projects/manta/Manta-Featured-Image.jpg"
                   alt="Manta project"
                   fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
@@ -236,6 +236,7 @@ export default function Home() {
                   src="/images/projects/high-rapid-networks/hrn-featured-image.jpg"
                   alt="High Rapid Networks project"
                   fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
@@ -288,15 +289,13 @@ export default function Home() {
             <h2 className="text-heading-3-bold">Shipped Projects</h2>
           </div>
         </FadeIn>
-        {featuredWork.length > 0 && (
-          <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.15}>
-            {featuredWork.map((project) => (
-              <FadeInStaggerItem key={project.slug}>
-                <ProjectCard project={project} />
-              </FadeInStaggerItem>
-            ))}
-          </FadeInStagger>
-        )}
+        <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.15}>
+          {featuredWork.map((project) => (
+            <FadeInStaggerItem key={project.slug}>
+              <ProjectCard project={project} />
+            </FadeInStaggerItem>
+          ))}
+        </FadeInStagger>
         <FadeIn delay={0.4}>
           <div className="flex justify-center mt-10">
             <Link
@@ -325,18 +324,3 @@ export default function Home() {
   );
 }
 
-// Client-side hook to get featured work
-// Uses dynamic import to work around client component limitation
-function useFeaturedWork() {
-  const [featuredWork, setFeaturedWork] = React.useState([]);
-
-  React.useEffect(() => {
-    // Fetch featured work from API route
-    fetch('/api/featured-work')
-      .then(res => res.json())
-      .then(data => setFeaturedWork(data))
-      .catch(err => console.error('Failed to load featured work:', err));
-  }, []);
-
-  return featuredWork;
-}

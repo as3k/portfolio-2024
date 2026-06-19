@@ -124,6 +124,7 @@ export default function ToolkitSection() {
                     src={src}
                     alt={name}
                     fill
+                    sizes="56px"
                     className="object-contain"
                   />
                 </div>
@@ -145,7 +146,7 @@ export default function ToolkitSection() {
               React, Next.js, TypeScript, Tailwind CSS. I don't just design it—I can build it.
             </p>
             <Link
-              href="https://github.com/as3k/portfolio-2024"
+              href="https://github.com/as3k"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-body-1-semibold text-zg-teal hover:text-zg-coral transition-colors"
