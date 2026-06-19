@@ -186,7 +186,7 @@ export default function HomeContent({ featuredWork }) {
         </div>
 
         {/* Hero Images Grid - Collage Style */}
-        <FadeIn delay={0.1} direction="left" className="order-1 lg:order-2">
+        <div className="order-1 lg:order-2">
           <div className="flex flex-col gap-2 lg:gap-3">
             {/* Top - Large featured image */}
             {firstProject && (
@@ -201,6 +201,8 @@ export default function HomeContent({ featuredWork }) {
                   src={firstProject.meta.heroImage}
                   alt={`${firstProject.meta.title} project`}
                   fill
+                  priority
+                  sizes="(max-width: 1024px) calc(100vw - 2rem), 50vw"
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
@@ -264,7 +266,7 @@ export default function HomeContent({ featuredWork }) {
               )}
             </div>
           </div>
-        </FadeIn>
+        </div>
       </section>
 
       {/* My Focus Section */}
