@@ -11,11 +11,11 @@ export default function LayoutWrapper({ children }) {
 
   useEffect(() => {
     console.log(
-      "%cYou're in DevTools. Either something broke, or you're scoping the build.",
+      "%cSomething broke. Or you're scoping the build.",
       "font-size: 13px; color: #94a3b8;"
     );
     console.log(
-      "%cIf it's the latter — let's talk.\n→ zack@zacharyguerrero.com",
+      "%cEither way — let's talk.\n→ zack@zacharyguerrero.com",
       "font-size: 13px; font-weight: 600; color: #009ba6;"
     );
   }, []);
