@@ -63,10 +63,10 @@ export default function RenProjectPage() {
               Ren
             </h1>
             <p className="text-body-2 text-gray-400 max-w-2xl mb-4">
-              Not a productivity app. A cognitive prosthesis. Ren is a body double that lives in your pocket. She remembers what you forget, brings things back at the right time, and makes doing the thing feel possible.
+              Not a productivity app. A cognitive prosthesis. She lives in your pocket. Captures what you'd lose. Brings things back when you need them. Privacy-first. ADHD-designed.
             </p>
             <p className="text-body-1 text-gray-500 max-w-2xl">
-              Privacy-first, ADHD-designed, cross-platform. Currently in active development. Full architecture below.
+              In active development. Real code. Real architecture.
             </p>
           </FadeIn>
         </section>
@@ -102,16 +102,19 @@ export default function RenProjectPage() {
             <section>
               <h2 className="text-heading-3-bold mb-3">Ideas arrive fast. They disappear faster.</h2>
               <p className="text-body-2 text-gray-300 mb-6">
-                Not because you forget. Because they left your field of view. Object permanence failure. It's the core cognitive friction of ADHD, and almost nothing on the market addresses it directly.
+                Not because you forget. Because they left your field of view. Object permanence failure. Almost nothing on the market addresses it directly.
               </p>
               <p className="text-body-1 text-gray-400 mb-4">
-                Existing tools punish this instead of accommodating it. Streak counters shame you for missing a day. Notification badges demand attention you don't have. Gamification assumes the problem is motivation when it's actually the opposite. You need less noise, not more dopamine.
+                Existing tools punish this instead of accommodating it. Streak counters shame you for missing a day. Notification badges demand attention you don't have. Gamification assumes the problem is motivation when it's the opposite. You need less noise, not more dopamine.
               </p>
               <p className="text-body-1 text-gray-400 mb-4">
-                I abandoned 14 productivity apps before I saw the pattern. They were all designed for neurotypical brains and retrofitted with ADHD features. That's not good enough.
+                I abandoned 14 productivity apps before I saw the pattern. They were all designed for neurotypical brains and retrofitted with ADHD features.
+              </p>
+              <p className="text-body-1 text-gray-400 mb-4">
+                So I built one. I made every product call, every architecture call, every tradeoff. Fast capture. Deferred classification. Intelligent recall. Zero guilt. The architecture evolved from that need, not from a pitch deck.
               </p>
               <p className="text-body-1 text-gray-400">
-                So I started building one for myself. Not a startup. Not a product play. I wanted something that works the way my brain actually works. Fast capture. Deferred classification. Intelligent recall. Zero guilt. The architecture evolved from that need, not from a pitch deck.
+                Built solo. Four days from blank repo to working capture loop and memory system. Currently extending to on-device React Native. The UX constraints — no notifications, deferred classification, intentionally boring UI — drove every architecture decision that follows.
               </p>
             </section>
 
@@ -125,7 +128,7 @@ export default function RenProjectPage() {
               {/* BITE: Classification happens on your schedule */}
               <h2 className="text-heading-4-bold mb-6">Classification happens on your schedule</h2>
               <p className="text-body-1 text-gray-400 mb-6">
-                The Sifter runs an AI classifier over every raw input. It identifies intent and routes to the right surface with a confidence percentage. You confirm or correct. It learns. The critical insight: <span className="text-white">classification doesn't need to happen at input time.</span> It happens whenever you have the bandwidth. The thought is captured immediately. The sorting waits for you.
+                The Sifter runs an AI classifier over every raw input. It identifies intent and routes to the right surface with a confidence percentage. You confirm or correct. It learns. <span className="text-white">Classification doesn't need to happen at input time.</span> It happens whenever you have the bandwidth. The thought is captured immediately. The sorting waits for you.
               </p>
 
               {/* BITE: ADHD tools shouldn't demand attention */}
@@ -189,7 +192,7 @@ export default function RenProjectPage() {
               <h2 className="text-heading-4-bold mb-6">Offline is not a fallback. It's the architecture.</h2>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                A body double that disappears when you lose signal isn't a body double. Every write lands in local SQLite on the device, classified by an on-device Gemma 4 model. No network call. No loading state. No "connect to use" wall. When the device reconnects, the sync queue fires automatically against Neon in the cloud. Conflict resolution uses op_id idempotency with last-write-wins at the record level, so two devices capturing the same thought offline converge cleanly.
+                A body double that disappears when you lose signal isn't a body double. Every write lands in local SQLite on the device, classified by an on-device Gemma 4 model. No network call. No loading state. No wall. When the device reconnects, the sync queue fires automatically against Neon in the cloud. Conflict resolution uses op_id idempotency with last-write-wins at the record level, so two devices capturing the same thought offline converge cleanly.
               </p>
 
               <p className="text-body-1 text-gray-400 mb-4">
@@ -210,7 +213,7 @@ export default function RenProjectPage() {
               <h2 className="text-heading-4-bold mb-6">A cognition stack that adapts to the device in your pocket</h2>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                At startup, Ren detects the device tier based on available RAM and chipset. The model stack adjusts accordingly -- no one-size-fits-all.
+                At startup, Ren assigns a device tier based on available RAM and an on-device benchmark. The model stack adjusts accordingly — no one-size-fits-all.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
@@ -229,7 +232,7 @@ export default function RenProjectPage() {
               </div>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                The local model only handles one thing: <span className="text-white">narration.</span> Not reasoning, not retrieval, not scoring. Rules and embeddings do the heavy lifting -- the LLM converts structured data into a warm sentence. This keeps the on-device model small and reliable.
+                The local model only handles one thing: <span className="text-white">narration.</span> Not reasoning, not retrieval, not scoring. Rules and embeddings do the heavy lifting — the LLM converts structured data into a warm sentence. This keeps the on-device model small and reliable.
               </p>
 
               <h3 className="text-heading-5-semibold text-white mb-3">The local RAG loop</h3>
@@ -259,11 +262,11 @@ export default function RenProjectPage() {
               <h2 className="text-heading-4-bold mb-6">The Sifter runs every night, not at input time</h2>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                Classification doesn't have to happen when the thought arrives. That's the key insight. Capture is zero-friction -- type or paste anything, no categorization required. The raw input lives in the Inbox table forever. Nothing is lost because you didn't file it correctly.
+                Classification doesn't have to happen when the thought arrives. That's the key insight. Capture is zero-friction — type or paste anything, no categorization required. The raw input lives in the Inbox table forever. Nothing is lost because you didn't file it correctly.
               </p>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                Every night, the Sifter processes unclassified inputs in batch. It pulls raw items, chunks multi-thought dumps into individual items (two-pass: split then classify), extracts entities (people, dates, actions), and routes each item to the appropriate table -- tasks, people, events, ideas, or projects. Each classification carries a confidence score. Low-confidence items surface for user confirmation in the Inbox screen.
+                Every night, the Sifter processes unclassified inputs in batch. It pulls raw items, chunks multi-thought dumps into individual items (two-pass: split then classify), extracts entities (people, dates, actions), and routes each item to the appropriate table — tasks, people, events, ideas, or projects. Each classification carries a confidence score. Low-confidence items surface for user confirmation in the Inbox screen.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
@@ -286,7 +289,7 @@ export default function RenProjectPage() {
               </div>
 
               <p className="text-body-1 text-gray-400">
-                On high-tier devices, extraction happens directly via Gemma 4 4B. On mid-tier devices offline, a two-pass approach splits the input into discrete items first, then classifies each one -- two simple tasks the 1B model handles reliably. On low-tier devices, rule-based extraction flags items for review when connectivity returns, with Xiaomi MiMo-V2-Flash as the cloud fallback (262K context window at $0.09/M input).
+                On high-tier devices, extraction happens directly via Gemma 4 4B. On mid-tier devices offline, a two-pass approach splits the input into discrete items first, then classifies each one — two simple tasks the 1B model handles reliably. On low-tier devices, rule-based extraction flags items for review when connectivity returns, with Xiaomi MiMo-V2-Flash as the cloud fallback. MiMo was chosen for its 262K context window — large enough to hold a full week of captures in one call — and its cost ($0.09/M input tokens), which makes nightly batch processing economically viable.
               </p>
             </section>
 
@@ -301,11 +304,11 @@ export default function RenProjectPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
                 <div className="bg-zg-dark-0 rounded p-3">
                   <p className="text-body-2-semibold text-zg-teal mb-1">Capture Layer</p>
-                  <p className="text-microcopy-2 text-gray-400">inbox_items -- raw input, timestamp, classification status</p>
+                  <p className="text-microcopy-2 text-gray-400">inbox_items — raw input, timestamp, classification status</p>
                 </div>
                 <div className="bg-zg-dark-0 rounded p-3">
                   <p className="text-body-2-semibold text-zg-teal mb-1">Entity Layer</p>
-                  <p className="text-microcopy-2 text-gray-400">tasks, people, events, projects, ideas -- typed entities with relationships</p>
+                  <p className="text-microcopy-2 text-gray-400">tasks, people, events, projects, ideas — typed entities with relationships</p>
                 </div>
                 <div className="bg-zg-dark-0 rounded p-3">
                   <p className="text-body-2-semibold text-zg-teal mb-1">Meta Layer</p>
@@ -318,7 +321,7 @@ export default function RenProjectPage() {
               </p>
 
               <p className="text-body-1 text-gray-400">
-                The links table is the most important structural decision. Any entity can connect to any other entity -- a task linked to a person, an idea linked to a project, an event linked to multiple people. This replaces the folder hierarchy that traditional productivity apps impose. Relationships are first-class data.
+                The links table is the most important structural decision. Any entity can connect to any other entity — a task linked to a person, an idea linked to a project, an event linked to multiple people. This replaces the folder hierarchy that traditional productivity apps impose. Relationships are first-class data.
               </p>
 
               <div className="flex flex-wrap gap-2 mt-4">
@@ -335,11 +338,11 @@ export default function RenProjectPage() {
               <h2 className="text-heading-4-bold mb-6">Nightly distillation turns raw history into patterns</h2>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                Once per night, when the device is charging and on wifi, Ren sends the last 7 days of captures, interactions, and completions to the cloud model (Xiaomi MiMo-V2-Flash, 262K context). The response writes back <span className="text-white">UserPattern</span> rows -- avoidance patterns, focus windows, completion rates. Next day's nudges are richer without any extra API cost during the day.
+                Once per night, when the device is charging and on wifi, Ren sends the last 7 days of captures, interactions, and completions to the cloud model (Xiaomi MiMo-V2-Flash, 262K context). The response writes back <span className="text-white">UserPattern</span> rows — avoidance patterns, focus windows, completion rates. Next day's nudges are richer without any extra API cost during the day.
               </p>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                The 262K context window fits months of user history in a single call. No chunking, no sliding window, no lossy summarization. MiMo runs at $0.09/M input -- roughly 3.5% the cost of comparable quality from Claude Sonnet.
+                The 262K context window fits months of user history in a single call. No chunking, no sliding window, no lossy summarization. At $0.09/M input, nightly batch processing across all users costs less than a coffee per day.
               </p>
 
               <p className="text-body-1 text-gray-400">
@@ -357,15 +360,15 @@ export default function RenProjectPage() {
 
               <div className="space-y-4 mb-4">
                 <div>
-                  <p className="text-body-1-semibold text-zg-teal mb-1">Ren Agent -- the persona in your pocket</p>
-                  <p className="text-body-1 text-gray-400">Runs on device. Fast, local, always available. Handles the real-time interaction -- capture, classification, surfacing. References on-device data without network calls. This is what users talk to.</p>
+                  <p className="text-body-1-semibold text-zg-teal mb-1">Ren Agent — the persona in your pocket</p>
+                  <p className="text-body-1 text-gray-400">Runs on device. Fast, local, always available. Handles the real-time interaction — capture, classification, surfacing. References on-device data without network calls. This is what users talk to.</p>
                 </div>
                 <div>
-                  <p className="text-body-1-semibold text-zg-teal mb-1">Ren Brain -- cold storage and deep synthesis</p>
+                  <p className="text-body-1-semibold text-zg-teal mb-1">Ren Brain — cold storage and deep synthesis</p>
                   <p className="text-body-1 text-gray-400">Runs in the cloud with a compact local mirror. Long-term pattern analysis, nightly distillation, cross-session reasoning. The brain reflects. It doesn't react.</p>
                 </div>
                 <div>
-                  <p className="text-body-1-semibold text-zg-teal mb-1">Memo -- the memory system</p>
+                  <p className="text-body-1-semibold text-zg-teal mb-1">Memo — the memory system</p>
                   <p className="text-body-1 text-gray-400">Honcho-based MCP memory layer connecting both. Structured persistence for facts, relationships, and context that survives beyond the current session. Memo is the substrate. Agent and Brain are the processes that read and write it.</p>
                 </div>
               </div>
@@ -394,8 +397,8 @@ export default function RenProjectPage() {
                 </div>
 
                 <div>
-                  <p className="text-body-1-semibold text-zg-teal mb-1">Auth should have been first</p>
-                  <p className="text-body-1 text-gray-400">`isAuthenticated: true` is hardcoded. The migration exists via Neon Auth with Row-Level Security and custom JWT in SecureStore. But it hasn't been applied yet. Technical debt that needs a dedicated sprint before shipping.</p>
+                  <p className="text-body-1-semibold text-zg-teal mb-1">Auth is deferred, not missing</p>
+                  <p className="text-body-1 text-gray-400">`isAuthenticated: true` is hardcoded — an intentional deferral while validating the capture UX. The migration is written: Neon Auth with Row-Level Security and custom JWT in SecureStore. It applies before anything ships to users.</p>
                 </div>
 
                 <div>
@@ -414,8 +417,8 @@ export default function RenProjectPage() {
               </p>
 
               <p className="text-body-1 text-gray-500">
-                Ren is being built one layer at a time. She's not for everyone. That's the point.{" "}
-                <Link href="/lets-talk" className="text-zg-teal hover:text-zg-coral transition-colors">Get in touch</Link> if you want to talk architecture or test early access.
+                She's not for everyone. That's the point.{" "}
+                <Link href="/lets-talk" className="text-zg-teal hover:text-zg-coral transition-colors">Get in touch</Link> to talk architecture or how this translates to your stack.
               </p>
             </section>
 
