@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
-import Image from 'next/image';
 import JsonLd, { createBreadcrumbSchema, createCollectionPageSchema } from '@/components/JsonLd';
 import ProjectCard from '@/components/ProjectCard';
 import { getProjectsByCategory, getProjectsPageProjects } from '@/lib/content';

@@ -2,17 +2,12 @@
 
 import {
   ArrowPathIcon,
-  ChartBarIcon,
   CheckCircleIcon,
-  CodeBracketIcon,
-  CursorArrowRaysIcon,
-  PuzzlePieceIcon,
-  Squares2X2Icon,
-  ServerStackIcon,
   CommandLineIcon,
   CubeIcon,
-  WrenchScrewdriverIcon,
   RocketLaunchIcon,
+  ServerStackIcon,
+  WrenchScrewdriverIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";

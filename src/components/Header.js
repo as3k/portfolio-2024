@@ -19,6 +19,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
   const pathname = usePathname();
 
   // Close menu on route change
+  // biome-ignore lint/correctness/useExhaustiveDependencies: intentionally only depends on pathname
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (isMenuOpen && onMenuToggle) {

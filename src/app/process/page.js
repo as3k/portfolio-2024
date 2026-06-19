@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
+import { FadeIn, } from "@/components/FadeIn";
 import JsonLd, { createBreadcrumbSchema, createHowToSchema } from "@/components/JsonLd";
 
 export const metadata = {
@@ -178,7 +178,7 @@ export default function ProcessPage() {
   // Build HowTo steps from our data
   const howToSteps = [...processSteps, ...amplifiedSteps].map((step) => ({
     title: step.title,
-    body: step.claim + " " + step.body,
+    body: `${step.claim} ${step.body}`,
   }));
   const howToSchema = createHowToSchema(howToSteps);
   const breadcrumbSchema = createBreadcrumbSchema([

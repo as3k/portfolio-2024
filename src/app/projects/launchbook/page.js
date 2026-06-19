@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from 'next/image';
+import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
 import PasswordGate from "@/components/PasswordGate";

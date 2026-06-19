@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "zg_portfolio_access";
 const PROJECT_PASSWORDS = {
@@ -67,7 +67,6 @@ export default function PasswordGate({ projectId, children }) {
             }}
             placeholder="Enter password"
             className="w-full bg-zg-dark-1 border border-gray-700 rounded-lg px-4 py-3 text-body-1 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-zg-teal/50 focus:border-zg-teal transition-colors"
-            autoFocus
           />
           {error && (
             <p className="text-microcopy-2 text-zg-coral mt-2 text-left">
