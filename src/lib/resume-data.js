@@ -51,8 +51,9 @@ export const resumeData = {
       date: "10/2018 - Present",
       title: "UX Consultant (part-time)",
       bullets: [
-        "Audited and fixed security vulnerabilities across 20+ client websites. Established security standards and remediation workflows that prevented recurrence.",
-        "Designed and built the complete security infrastructure and server architecture for Lift, the hosting environment serving all B&F client sites.",
+        "Designed and shipped strategy-first websites for local service businesses. Brand, information architecture, conversion copy, development, deployment. Full cycle, every project.",
+        "Built and shipped booking systems and automation flows for service providers. Intake forms, payment collection, reminder sequences, and lead routing.",
+        "Designed and built Lift, the hosting and security infrastructure serving all B&F client sites. Audited and remediated vulnerabilities across 20+ properties.",
       ],
     },
     {
