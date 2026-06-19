@@ -125,64 +125,58 @@ export default function HomeContent({ featuredWork }) {
       {/* Hero Section */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
         <div className="flex flex-col gap-4 lg:gap-6 order-2 lg:order-1">
-          <FadeIn>
+          <div>
             <p className="text-body-1-semibold text-zg-teal mb-1 lg:mb-2">Product Designer & Developer</p>
             <h1 className="text-heading-4-bold md:text-heading-2-bold lg:text-heading-1-bold">
               I help B2B SaaS companies turn complex problems into simple experiences.
             </h1>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div className="space-y-3 lg:space-y-4 text-body-1 lg:text-body-2 text-gray-400">
-              <p>
-                For 10+ years, I've been fixing the same problem: confusing flows that lose users halfway through.
-              </p>
-              <p className="hidden md:block">
-                I design for clarity, build with code, and measure impact. No design theater—just work that ships and moves metrics.
-              </p>
-            </div>
-          </FadeIn>
+          </div>
+          <div className="space-y-3 lg:space-y-4 text-body-1 lg:text-body-2 text-gray-400">
+            <p>
+              For 10+ years, I've been fixing the same problem: confusing flows that lose users halfway through.
+            </p>
+            <p className="hidden md:block">
+              I design for clarity, build with code, and measure impact. No design theater—just work that ships and moves metrics.
+            </p>
+          </div>
 
-          <FadeIn delay={0.2}>
-            <div className="flex flex-wrap gap-4 lg:gap-6 items-center">
-              <Link
-                href="/projects"
-                className="rounded-md text-white bg-zg-teal-dark hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-4 lg:px-5 py-2.5 lg:py-3 text-body-1-bold"
-                onClick={() => trackCTAClick('view_case_studies', 'homepage_hero')}
+          <div className="flex flex-wrap gap-4 lg:gap-6 items-center">
+            <Link
+              href="/projects"
+              className="rounded-md text-white bg-zg-teal-dark hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-4 lg:px-5 py-2.5 lg:py-3 text-body-1-bold"
+              onClick={() => trackCTAClick('view_case_studies', 'homepage_hero')}
+            >
+              View Case Studies
+            </Link>
+            <Link
+              href="/about"
+              className="group text-gray-400 hover:text-zg-teal transition-colors duration-300 text-body-1-semibold inline-flex items-center gap-2"
+              onClick={() => trackCTAClick('about_me', 'homepage_hero')}
+            >
+              About Me
+              <svg
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
               >
-                View Case Studies
-              </Link>
-              <Link
-                href="/about"
-                className="group text-gray-400 hover:text-zg-teal transition-colors duration-300 text-body-1-semibold inline-flex items-center gap-2"
-                onClick={() => trackCTAClick('about_me', 'homepage_hero')}
-              >
-                About Me
-                <svg
-                  className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-          </FadeIn>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
 
           {/* Stats */}
-          <FadeIn delay={0.3}>
-            <div className="flex flex-wrap gap-4 md:gap-8 pt-4 lg:pt-6 border-t border-gray-800">
-              <StatCard value="10+ Years" label="Designing & Building" />
-              <StatCard
-                label="Lighthouse Accessibility"
-                isAnimated
-                animatedValue={92}
-                suffix="%"
-              />
-              <StatCard value="2x" label="User Growth" />
-            </div>
-          </FadeIn>
+          <div className="flex flex-wrap gap-4 md:gap-8 pt-4 lg:pt-6 border-t border-gray-800">
+            <StatCard value="10+ Years" label="Designing & Building" />
+            <StatCard
+              label="Lighthouse Accessibility"
+              isAnimated
+              animatedValue={92}
+              suffix="%"
+            />
+            <StatCard value="2x" label="User Growth" />
+          </div>
         </div>
 
         {/* Hero Images Grid - Collage Style */}
