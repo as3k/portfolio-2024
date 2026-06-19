@@ -92,7 +92,7 @@ export default function LayoutWrapper({ children }) {
         }}
       >
         <Header onMenuToggle={setIsMenuOpen} isMenuOpen={isMenuOpen} />
-        <main className="flex flex-col flex-1 mt-8 lg:mt-12">
+        <main id="main-content" className="flex flex-col flex-1 mt-8 lg:mt-12">
           {children}
         </main>
         <Footer />

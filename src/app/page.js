@@ -196,7 +196,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-5">
                 <span className="text-microcopy-2 text-zg-teal mb-1">B2B SaaS</span>
-                <h3 className="text-body-1-semibold text-white mb-1">Cydrion</h3>
+                <h2 className="text-body-1-semibold text-white mb-1">Cydrion</h2>
                 <span className="flex items-center gap-1 text-microcopy-2 text-gray-300">
                   View Project
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -223,7 +223,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
                   <span className="text-microcopy-2 text-zg-teal mb-1">Personal Project</span>
-                  <h3 className="text-body-1-semibold text-white">Manta</h3>
+                  <h2 className="text-body-1-semibold text-white">Manta</h2>
                 </div>
               </Link>
 
@@ -242,7 +242,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-zg-dark-1/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-start justify-end p-4">
                   <span className="text-microcopy-2 text-zg-teal mb-1">B2B SaaS</span>
-                  <h3 className="text-body-1-semibold text-white">High Rapid Networks</h3>
+                  <h2 className="text-body-1-semibold text-white">High Rapid Networks</h2>
                 </div>
               </Link>
             </div>

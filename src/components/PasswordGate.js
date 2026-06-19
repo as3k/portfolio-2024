@@ -81,9 +81,9 @@ export default function PasswordGate({ projectId, children }) {
           Unlock Case Study
         </button>
       </form>
-      <p className="text-microcopy-2 text-gray-500 mt-4">
+      <p className="text-microcopy-2 text-gray-400 mt-4">
         Don't have the password?{" "}
-        <a href="/lets-talk" className="text-zg-teal hover:text-zg-coral transition-colors">
+        <a href="/lets-talk" className="text-zg-teal hover:text-zg-coral underline transition-colors">
           Request access
         </a>
       </p>

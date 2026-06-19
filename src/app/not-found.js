@@ -18,7 +18,7 @@ export default function NotFound() {
             <p className="text-body-1 text-gray-400 mb-2">
               This page doesn't exist. Either I broke something, or you followed a bad link.
             </p>
-            <p className="text-body-2 text-gray-500">
+            <p className="text-body-2 text-gray-400">
               Either way, it's probably worth investigating.
             </p>
           </div>

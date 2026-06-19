@@ -129,21 +129,21 @@ export default async function WorkDetailPage({ params }) {
       <FadeIn delay={0.3}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 mb-8 border-b border-gray-800">
           <div>
-            <h3 className="text-utility-micro-2-semibold text-gray-500 uppercase tracking-wider mb-2">
+            <h2 className="text-utility-micro-2-semibold text-gray-400 uppercase tracking-wider mb-2">
               Client
-            </h3>
+            </h2>
             <p className="text-body-1 text-white">{meta.client}</p>
           </div>
           <div>
-            <h3 className="text-utility-micro-2-semibold text-gray-500 uppercase tracking-wider mb-2">
+            <h2 className="text-utility-micro-2-semibold text-gray-400 uppercase tracking-wider mb-2">
               Role
-            </h3>
+            </h2>
             <p className="text-body-1 text-white">{meta.roles?.join(', ')}</p>
           </div>
           <div>
-            <h3 className="text-utility-micro-2-semibold text-gray-500 uppercase tracking-wider mb-2">
+            <h2 className="text-utility-micro-2-semibold text-gray-400 uppercase tracking-wider mb-2">
               Technologies
-            </h3>
+            </h2>
             <p className="text-body-1 text-white">{meta.technologies?.join(', ')}</p>
           </div>
         </div>

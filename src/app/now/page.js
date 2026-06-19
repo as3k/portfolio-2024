@@ -21,7 +21,7 @@ export default function NowPage() {
           <FadeIn>
             <header className="mb-12">
               <h1 className="text-heading-1-bold mb-2">Now</h1>
-              <p className="text-microcopy-1 text-gray-500">
+              <p className="text-microcopy-1 text-gray-400">
                 Updated June 18, 2026 from Riverside, California
               </p>
             </header>
@@ -79,7 +79,7 @@ export default function NowPage() {
 
           <FadeIn delay={0.5}>
             <section className="text-center pt-8 border-t border-gray-800">
-              <p className="text-microcopy-1 text-gray-500 mb-4">
+              <p className="text-microcopy-1 text-gray-400 mb-4">
                 This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" className="text-zg-teal hover:text-zg-coral transition-colors">/now page</a>. Updated monthly-ish.
               </p>
               <div className="flex flex-wrap justify-center gap-4">

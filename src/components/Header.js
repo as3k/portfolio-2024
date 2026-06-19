@@ -57,7 +57,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
 
       {/* Desktop nav */}
       <div className="hidden lg:flex gap-4 lg:gap-6 text-microcopy-1-semibold md:text-body-1-semibold">
-        <nav className="items-center flex">
+        <nav className="items-center flex" aria-label="Main navigation">
           <ul className="flex gap-6">
             {navItems.map((item) => {
               const isActive = item.href === "/"
@@ -107,6 +107,7 @@ export function MobileNav({ isOpen, onClose }) {
         className={`absolute left-0 top-0 bottom-0 w-72 pt-8 px-6 transition-opacity duration-300 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0"
         }`}
+        aria-label="Mobile navigation"
       >
         {/* Logo */}
         <div className="text-heading-3-bold text-white mb-8">

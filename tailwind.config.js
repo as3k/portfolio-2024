@@ -12,12 +12,12 @@ module.exports = {
         padding: "1rem",
       },
       colors: {
-        "zg-teal": "#009BA6",
+        "zg-teal": "#008080",
         "zg-teal-dark": "#007080",
         "zg-dark-0": "#182634",
         "zg-dark-1": "#0E1216",
         "zg-coral": "#EF6363",
-        "white": "#f1f1f1",
+        "white": "#ffffff",
       },
       fontSize: {
         "body-1": ["1rem", { lineHeight: "150%", fontWeight: "400" }],

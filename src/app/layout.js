@@ -59,6 +59,12 @@ export default function RootLayout({ children }) {
         <JsonLd data={{ "@context": "https://schema.org", ...professionalServiceSchema }} />
       </head>
       <body className="antialiased overflow-x-hidden">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-zg-teal focus:text-white focus:rounded-md focus:text-body-1-semibold"
+        >
+          Skip to content
+        </a>
         {umamiScriptUrl && umamiWebsiteId ? (
           <Script
             src={umamiScriptUrl}

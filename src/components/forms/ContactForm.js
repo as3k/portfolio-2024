@@ -134,18 +134,18 @@ export default function ContactForm() {
         </button>
 
         {submitStatus === 'success' && (
-          <div className="p-3 bg-green-500/10 border border-green-500/30 rounded-md text-green-400 text-body-1 animate-in fade-in slide-in-from-top-2 duration-300">
+          <div role="alert" className="p-3 bg-green-500/10 border border-green-500/30 rounded-md text-green-400 text-body-1 animate-in fade-in slide-in-from-top-2 duration-300">
             Message sent successfully! I'll get back to you soon.
           </div>
         )}
 
         {submitStatus === 'error' && (
-          <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-md text-red-400 text-body-1 animate-in fade-in slide-in-from-top-2 duration-300">
+          <div role="alert" className="p-3 bg-red-500/10 border border-red-500/30 rounded-md text-red-400 text-body-1 animate-in fade-in slide-in-from-top-2 duration-300">
             Something went wrong. Please try again or email me directly.
           </div>
         )}
 
-        <span className="text-microcopy-1 text-gray-500">
+        <span className="text-microcopy-1 text-gray-400">
           I'll only use your info to get in touch. No spam, ever, I promise!
         </span>
       </div>

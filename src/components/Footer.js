@@ -14,15 +14,14 @@ export default function Footer() {
             </span>
             <div>
               <p className="text-body-1-semibold text-white">Zachary Guerrero</p>
-              <p className="text-microcopy-1 text-gray-500">
+              <p className="text-microcopy-1 text-gray-400">
                 Senior Product Engineer
               </p>
             </div>
           </div>
 
           {/* Navigation */}
-          <nav className="flex flex-wrap justify-center gap-6 text-microcopy-1">
-            <Link
+          <nav className="flex flex-wrap justify-center gap-6 text-microcopy-1" aria-label="Footer navigation">
               href="/projects"
               className="text-gray-400 hover:text-zg-teal transition-colors"
               onClick={() => trackFooterNavClick('Projects')}
@@ -88,7 +87,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-microcopy-2 text-gray-500">
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-microcopy-2 text-gray-400">
           <p>&copy; {new Date().getFullYear()} Zachary Guerrero</p>
           <span className="hidden sm:inline">•</span>
           <span>Based in California</span>

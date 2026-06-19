@@ -113,7 +113,7 @@ export default function LetsTalkPage() {
                 <span>Remote or hybrid in Southern California</span>
               </li>
             </ul>
-            <p className="mt-4 text-microcopy-1 text-gray-500">
+            <p className="mt-4 text-microcopy-1 text-gray-400">
               I typically respond within 24 hours on weekdays.
             </p>
           </section>
@@ -121,7 +121,7 @@ export default function LetsTalkPage() {
 
         <FadeIn delay={0.4}>
           <section className="text-center">
-            <p className="text-body-1 text-gray-500 mb-4">
+            <p className="text-body-1 text-gray-400 mb-4">
               Want to learn more about me first?
             </p>
             <div className="flex flex-wrap justify-center gap-4">
