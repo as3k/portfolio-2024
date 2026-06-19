@@ -9,6 +9,17 @@ import Header, { MobileNav } from "./Header";
 export default function LayoutWrapper({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  useEffect(() => {
+    console.log(
+      "%cYou're in DevTools. Either something broke, or you're scoping the build.",
+      "font-size: 13px; color: #94a3b8;"
+    );
+    console.log(
+      "%cIf it's the latter — let's talk.\n→ zack@zacharyguerrero.com",
+      "font-size: 13px; font-weight: 600; color: #009ba6;"
+    );
+  }, []);
+
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
