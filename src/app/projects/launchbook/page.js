@@ -105,7 +105,7 @@ export default function LaunchBookProjectPage() {
                 Fresha takes up to 20% of new client revenue. Booksy takes 30%. Vagaro pushes per-seat fees. The model works by renting the provider's customers back to them.
               </p>
               <p className="text-body-1 text-gray-400 mb-4">
-                I've been building booking and payment systems at Member Splash — Splash Cards, Check-In 2.0. I know how these systems work from the inside. LaunchBook is what booking looks like when the platform disappears and the provider's brand comes first.
+                I've been building booking and payment systems at Member Splash: Splash Cards, Check-In 2.0. I know how these systems work from the inside. LaunchBook is what booking looks like when the platform disappears and the provider's brand comes first.
               </p>
               <p className="text-body-1 text-gray-400 mb-4">
                 On top of the commission, clients hit an account wall. Create a profile on a platform they will never use again. And when they book, they see the platform's branding. The person doing the work becomes invisible.
@@ -114,7 +114,7 @@ export default function LaunchBookProjectPage() {
                 Most booking tools also assume a desktop workflow. These providers run their business from their phone. Instagram DMs. Google Business messages. Text threads. The booking system should live where they already are.
               </p>
               <p className="text-body-1 text-gray-400">
-                Concept to working booking flow in a weekend. Payment processing took longer — auth-hold adds real complexity. Built solo, in parallel with a day job. Platforms take. Providers lose.
+                Concept to working booking flow in a weekend. Payment processing took longer. Auth-hold adds real complexity. Built solo, in parallel with a day job. Platforms take. Providers lose.
               </p>
             </section>
 
@@ -132,7 +132,7 @@ export default function LaunchBookProjectPage() {
 
               <h2 className="text-heading-4-bold mb-6">1.5% flat. No commission creep.</h2>
               <p className="text-body-1 text-gray-400 mb-4">
-                No tiers. No per-seat charges. The 1.5% is a platform fee on top of the provider's standard Stripe processing costs — the same card fees they'd pay anywhere. LaunchBook doesn't take a cut of that. It's infrastructure, not a marketplace.
+                No tiers. No per-seat charges. The 1.5% is a platform fee on top of the provider's standard Stripe processing costs, the same card fees they'd pay anywhere. LaunchBook doesn't take a cut of that. It's infrastructure, not a marketplace.
               </p>
               <div className="bg-zg-dark-0 rounded-lg p-4 mb-2">
                 <p className="text-body-1-semibold text-white">A $120 service costs the provider $1.80 in LaunchBook fees. Fresha would take $24.</p>
@@ -146,7 +146,7 @@ export default function LaunchBookProjectPage() {
                 Logo. Brand colors. Service menu. No-show policy. Stripe email. That's it. The branded page is built, services imported, payments connected, Google Business Profile synced. The provider never touches a settings page.
               </p>
               <p className="text-body-1 text-gray-400">
-                Currently this is manual. Manual onboarding means I validate the value prop before building self-serve — and I talk to every early adopter directly. A self-serve builder is the next major investment.
+                Currently this is manual. Manual onboarding means I validate the value prop before building self-serve, and I talk to every early adopter directly. A self-serve builder is the next major investment.
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 <Tag>$600 one-time setup</Tag>
@@ -160,15 +160,15 @@ export default function LaunchBookProjectPage() {
               <h2 className="text-heading-4-bold mb-6">Stripe Connect. PCI-compliant by architecture.</h2>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                Every payment runs through Stripe Connect Standard. Funds flow directly to the provider's Stripe account. LaunchBook takes its 1.5% as a platform fee at capture time — no float, no escrow, no manual settlement.
+                Every payment runs through Stripe Connect Standard. Funds flow directly to the provider's Stripe account. LaunchBook takes its 1.5% as a platform fee at capture time. No float, no escrow, no manual settlement.
               </p>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                PCI compliance is handled entirely by Stripe Elements. No credit card data ever touches the LaunchBook server. The card number goes from the client's browser to Stripe's API — never seen, stored, or routed by LaunchBook. The booking page is built in React with Stripe Elements embedded in a Next.js app — the provider's brand colors and logo render as CSS over the Stripe payment form.
+                PCI compliance is handled entirely by Stripe Elements. No credit card data ever touches the LaunchBook server. The card number goes from the client's browser to Stripe's API. Never seen, stored, or routed by LaunchBook. The booking page is built in React with Stripe Elements embedded in a Next.js app — the provider's brand colors and logo render as CSS over the Stripe payment form.
               </p>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                The one-script-tag embed is a React component rendered on Next.js. The provider drops a script into their site (or I host a dedicated subpage). Their brand profile — colors, logo, services — is fetched at render time from PostgreSQL. No iframe. No external redirect. It feels like a native part of their site because the script renders the booking experience inline.
+                The one-script-tag embed is a React component rendered on Next.js. The provider drops a script into their site (or I host a dedicated subpage). Their brand profile (colors, logo, services) is fetched at render time from PostgreSQL. No iframe. No external redirect. It feels like a native part of their site because the script renders the booking experience inline.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-6">
@@ -183,14 +183,14 @@ export default function LaunchBookProjectPage() {
               <ol className="list-decimal pl-5 space-y-2 text-body-1 text-gray-400 mb-4">
                 <li>Client selects a time slot. Unique booking ID generated server-side.</li>
                 <li>Stripe Payment Element renders inline with the provider's brand.</li>
-                <li>Card is authorized but not captured — the hold prevents double-booking the slot.</li>
+                <li>Card is authorized but not captured. The hold prevents double-booking the slot.</li>
                 <li>After service, the platform captures the authorized amount and takes the 1.5% fee.</li>
                 <li>Remaining balance settles to the provider's Stripe account automatically.</li>
                 <li>Stripe webhooks push booking status updates back to LaunchBook's frontend in real time.</li>
               </ol>
 
               <p className="text-body-1 text-gray-400">
-                Auth-hold is harder than capture-at-booking. Card expiration, declines on capture, disputes, insufficient funds — all edge cases that a simpler design avoids. But auth-hold protects the provider from managing refunds. Harder to build. Better for the person doing the work.
+                Auth-hold is harder than capture-at-booking. Card expiration, declines on capture, disputes, insufficient funds. All edge cases a simpler design avoids. But auth-hold protects the provider from managing refunds. Harder to build. Better for the person doing the work.
               </p>
 
               <div className="flex flex-wrap gap-2">
@@ -207,7 +207,7 @@ export default function LaunchBookProjectPage() {
               <h2 className="text-heading-4-bold mb-6">Mobile-first means phone-first, not responsive</h2>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                Most booking tools are desktop apps with mobile responsive layouts. That's backwards for this market. Solo providers run their business from a phone — Instagram DMs, text threads, Google Business messages. The booking flow needs to work in a browser tab at 375px width on a cellular connection.
+                Most booking tools are desktop apps with mobile responsive layouts. That's backwards for this market. Solo providers run their business from a phone: Instagram DMs, text threads, Google Business messages. The booking flow needs to work in a browser tab at 375px width on a cellular connection.
               </p>
 
               <p className="text-body-1 text-gray-400 mb-4">
@@ -234,7 +234,7 @@ export default function LaunchBookProjectPage() {
               <div className="space-y-5">
                 <div>
                   <p className="text-body-1-semibold text-zg-teal mb-1">You keep your clients, but you need them to start</p>
-                  <p className="text-body-1 text-gray-400">LaunchBook is built for providers with an existing client base — not cold starts. You keep 100% of the relationship. You just stop paying 20-30% to keep it.</p>
+                  <p className="text-body-1 text-gray-400">LaunchBook is built for providers with an existing client base. Not cold starts. You keep 100% of the relationship. You just stop paying 20-30% to keep it.</p>
                 </div>
 
                 <div>
@@ -258,7 +258,7 @@ export default function LaunchBookProjectPage() {
               </p>
 
               <p className="text-body-1 text-gray-500">
-                LaunchBook proves I can scope a product, validate a model, and ship a working payments system — solo, without a runway.{" "}
+                Invisible, fair, and designed for the phone in your pocket.{" "}
                 <Link href="/lets-talk" className="text-zg-teal hover:text-zg-coral transition-colors">Get in touch</Link> to talk architecture or early access.
               </p>
             </section>

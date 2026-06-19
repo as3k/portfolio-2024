@@ -114,7 +114,7 @@ export default function RenProjectPage() {
                 So I built one. I made every product call, every architecture call, every tradeoff. Fast capture. Deferred classification. Intelligent recall. Zero guilt. The architecture evolved from that need, not from a pitch deck.
               </p>
               <p className="text-body-1 text-gray-400">
-                Built solo. Four days from blank repo to working capture loop and memory system. Currently extending to on-device React Native. The UX constraints — no notifications, deferred classification, intentionally boring UI — drove every architecture decision that follows.
+                Built solo. Four days from blank repo to working capture loop and memory system. Currently extending to on-device React Native. The UX constraints (no notifications, deferred classification, intentionally boring UI) drove every architecture decision that follows.
               </p>
             </section>
 
@@ -213,7 +213,7 @@ export default function RenProjectPage() {
               <h2 className="text-heading-4-bold mb-6">A cognition stack that adapts to the device in your pocket</h2>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                At startup, Ren assigns a device tier based on available RAM and an on-device benchmark. The model stack adjusts accordingly — no one-size-fits-all.
+                At startup, Ren assigns a device tier based on available RAM and an on-device benchmark. The model stack adjusts accordingly. No one-size-fits-all.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
@@ -232,7 +232,7 @@ export default function RenProjectPage() {
               </div>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                The local model only handles one thing: <span className="text-white">narration.</span> Not reasoning, not retrieval, not scoring. Rules and embeddings do the heavy lifting — the LLM converts structured data into a warm sentence. This keeps the on-device model small and reliable.
+                The local model only handles one thing: <span className="text-white">narration.</span> Not reasoning, not retrieval, not scoring. Rules and embeddings do the heavy lifting. The LLM converts structured data into a warm sentence. This keeps the on-device model small and reliable.
               </p>
 
               <h3 className="text-heading-5-semibold text-white mb-3">The local RAG loop</h3>
@@ -262,11 +262,11 @@ export default function RenProjectPage() {
               <h2 className="text-heading-4-bold mb-6">The Sifter runs every night, not at input time</h2>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                Classification doesn't have to happen when the thought arrives. That's the key insight. Capture is zero-friction — type or paste anything, no categorization required. The raw input lives in the Inbox table forever. Nothing is lost because you didn't file it correctly.
+                Classification doesn't have to happen when the thought arrives. That's the key insight. Capture is zero-friction. Type or paste anything, no categorization required. The raw input lives in the Inbox table forever. Nothing is lost because you didn't file it correctly.
               </p>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                Every night, the Sifter processes unclassified inputs in batch. It pulls raw items, chunks multi-thought dumps into individual items (two-pass: split then classify), extracts entities (people, dates, actions), and routes each item to the appropriate table — tasks, people, events, ideas, or projects. Each classification carries a confidence score. Low-confidence items surface for user confirmation in the Inbox screen.
+                Every night, the Sifter processes unclassified inputs in batch. It pulls raw items, chunks multi-thought dumps into individual items (two-pass: split then classify), extracts entities (people, dates, actions), and routes each item to the appropriate table: tasks, people, events, ideas, or projects. Each classification carries a confidence score. Low-confidence items surface for user confirmation in the Inbox screen.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
@@ -289,7 +289,7 @@ export default function RenProjectPage() {
               </div>
 
               <p className="text-body-1 text-gray-400">
-                On high-tier devices, extraction happens directly via Gemma 4 4B. On mid-tier devices offline, a two-pass approach splits the input into discrete items first, then classifies each one — two simple tasks the 1B model handles reliably. On low-tier devices, rule-based extraction flags items for review when connectivity returns, with Xiaomi MiMo-V2-Flash as the cloud fallback. MiMo was chosen for its 262K context window — large enough to hold a full week of captures in one call — and its cost ($0.09/M input tokens), which makes nightly batch processing economically viable.
+                On high-tier devices, extraction happens directly via Gemma 4 4B. On mid-tier devices offline, a two-pass approach splits the input into discrete items first, then classifies each one. Two simple tasks the 1B model handles reliably. On low-tier devices, rule-based extraction flags items for review when connectivity returns, with Xiaomi MiMo-V2-Flash as the cloud fallback. MiMo was chosen for its 262K context window (large enough to hold a full week of captures in one call) and its cost ($0.09/M input tokens), which makes nightly batch processing economically viable.
               </p>
             </section>
 
@@ -321,7 +321,7 @@ export default function RenProjectPage() {
               </p>
 
               <p className="text-body-1 text-gray-400">
-                The links table is the most important structural decision. Any entity can connect to any other entity — a task linked to a person, an idea linked to a project, an event linked to multiple people. This replaces the folder hierarchy that traditional productivity apps impose. Relationships are first-class data.
+                The links table is the most important structural decision. Any entity can connect to any other entity: a task linked to a person, an idea linked to a project, an event linked to multiple people. This replaces the folder hierarchy that traditional productivity apps impose. Relationships are first-class data.
               </p>
 
               <div className="flex flex-wrap gap-2 mt-4">
@@ -338,7 +338,7 @@ export default function RenProjectPage() {
               <h2 className="text-heading-4-bold mb-6">Nightly distillation turns raw history into patterns</h2>
 
               <p className="text-body-1 text-gray-400 mb-4">
-                Once per night, when the device is charging and on wifi, Ren sends the last 7 days of captures, interactions, and completions to the cloud model (Xiaomi MiMo-V2-Flash, 262K context). The response writes back <span className="text-white">UserPattern</span> rows — avoidance patterns, focus windows, completion rates. Next day's nudges are richer without any extra API cost during the day.
+                Once per night, when the device is charging and on wifi, Ren sends the last 7 days of captures, interactions, and completions to the cloud model (Xiaomi MiMo-V2-Flash, 262K context). The response writes back <span className="text-white">UserPattern</span> rows: avoidance patterns, focus windows, completion rates. Next day's nudges are richer without any extra API cost during the day.
               </p>
 
               <p className="text-body-1 text-gray-400 mb-4">
@@ -361,7 +361,7 @@ export default function RenProjectPage() {
               <div className="space-y-4 mb-4">
                 <div>
                   <p className="text-body-1-semibold text-zg-teal mb-1">Ren Agent — the persona in your pocket</p>
-                  <p className="text-body-1 text-gray-400">Runs on device. Fast, local, always available. Handles the real-time interaction — capture, classification, surfacing. References on-device data without network calls. This is what users talk to.</p>
+                  <p className="text-body-1 text-gray-400">Runs on device. Fast, local, always available. Handles the real-time interaction: capture, classification, surfacing. References on-device data without network calls. This is what users talk to.</p>
                 </div>
                 <div>
                   <p className="text-body-1-semibold text-zg-teal mb-1">Ren Brain — cold storage and deep synthesis</p>
@@ -398,7 +398,7 @@ export default function RenProjectPage() {
 
                 <div>
                   <p className="text-body-1-semibold text-zg-teal mb-1">Auth is deferred, not missing</p>
-                  <p className="text-body-1 text-gray-400">`isAuthenticated: true` is hardcoded — an intentional deferral while validating the capture UX. The migration is written: Neon Auth with Row-Level Security and custom JWT in SecureStore. It applies before anything ships to users.</p>
+                  <p className="text-body-1 text-gray-400">`isAuthenticated: true` is hardcoded. Intentional deferral while validating the capture UX. The migration is written: Neon Auth with Row-Level Security and custom JWT in SecureStore. It applies before anything ships to users.</p>
                 </div>
 
                 <div>
