@@ -121,55 +121,63 @@ export default function Home() {
         {/* Hero Section */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
         <div className="flex flex-col gap-4 lg:gap-6 order-2 lg:order-1">
-          <h1 className="flex flex-col gap-1 lg:gap-2">
-            <span className="text-body-1-semibold text-zg-teal">Zachary Guerrero</span>
-            <span className="text-heading-4-bold md:text-heading-2-bold lg:text-heading-1-bold">
-              I own features end to end.
-            </span>
-          </h1>
-          <div className="space-y-3 lg:space-y-4 text-body-1 lg:text-body-2 text-gray-400">
-            <p>
-              For 10+ years, I have been fixing the same problem: teams that need one person to own the full cycle. Research, design, code, deploy, iterate - no handoffs, no translation loss.
-            </p>
-            <p className="hidden md:block">
-              I design in Figma, build in whatever stack the team uses, deploy on whatever infrastructure fits, and measure what moves. No design theater - just shipped features that move metrics.
-            </p>
-          </div>
+          <FadeIn>
+            <h1 className="flex flex-col gap-1 lg:gap-2">
+              <span className="text-body-1-semibold text-zg-teal">Zachary Guerrero</span>
+              <span className="text-heading-4-bold md:text-heading-2-bold lg:text-heading-1-bold">
+                I own features end to end.
+              </span>
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div className="space-y-3 lg:space-y-4 text-body-1 lg:text-body-2 text-gray-400">
+              <p>
+                For 10+ years, I have been fixing the same problem: teams that need one person to own the full cycle. Research, design, code, deploy, iterate - no handoffs, no translation loss.
+              </p>
+              <p className="hidden md:block">
+                I design in Figma, build in whatever stack the team uses, deploy on whatever infrastructure fits, and measure what moves. No design theater - just shipped features that move metrics.
+              </p>
+            </div>
+          </FadeIn>
 
-          <div className="flex flex-wrap gap-4 lg:gap-6 items-center">
-            <Link
-              href="/projects"
-              className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-4 lg:px-5 py-2.5 lg:py-3 text-body-1-bold"
-            >
-              View Case Studies
-            </Link>
-            <Link
-              href="/about"
-              className="group text-gray-400 hover:text-zg-teal transition-colors duration-300 text-body-1-semibold inline-flex items-center gap-2"
-            >
-              About Me
-              <svg
-                className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
+          <FadeIn delay={0.2}>
+            <div className="flex flex-wrap gap-4 lg:gap-6 items-center">
+              <Link
+                href="/projects"
+                className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-4 lg:px-5 py-2.5 lg:py-3 text-body-1-bold"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
+                View Case Studies
+              </Link>
+              <Link
+                href="/about"
+                className="group text-gray-400 hover:text-zg-teal transition-colors duration-300 text-body-1-semibold inline-flex items-center gap-2"
+              >
+                About Me
+                <svg
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </FadeIn>
 
           {/* Stats */}
-          <div className="flex flex-wrap gap-4 md:gap-8 pt-4 lg:pt-6 border-t border-gray-800">
-            <StatCard value="End-to-End" label="Full Cycle" />
-            <StatCard value="Every Layer" label="Any Stack" />
-            <StatCard value="10+ Years" label="Shipping Products" />
-          </div>
+          <FadeIn delay={0.3}>
+            <div className="flex flex-wrap gap-4 md:gap-8 pt-4 lg:pt-6 border-t border-gray-800">
+              <StatCard value="End-to-End" label="Full Cycle" />
+              <StatCard value="Every Layer" label="Any Stack" />
+              <StatCard value="10+ Years" label="Shipping Products" />
+            </div>
+          </FadeIn>
         </div>
 
         {/* Hero Images Grid - Collage Style */}
-        <div className="order-1 lg:order-2">
+        <FadeIn delay={0.1} direction="left" className="order-1 lg:order-2">
           <div className="flex flex-col gap-2 lg:gap-3">
             {/* Top - Large featured image */}
             <Link
@@ -239,7 +247,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* My Focus Section */}
