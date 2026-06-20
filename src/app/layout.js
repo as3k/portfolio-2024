@@ -12,6 +12,9 @@ const poppins = Poppins({
 
 export const metadata = {
   metadataBase: new URL('https://zacharyguerrero.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: "Zachary Guerrero - Senior Product Engineer",
   description: "Senior Product Engineer with 10+ years building B2B SaaS products. I design for clarity, build with React, and measure impact. Based in California, open to remote roles.",
   keywords: [
