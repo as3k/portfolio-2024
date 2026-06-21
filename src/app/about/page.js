@@ -234,7 +234,8 @@ export default function AboutPage() {
               I own the full cycle.
             </h1>
             <span className="inline-block text-microcopy-1 text-zg-teal mb-4">
-              Design, code, infrastructure. End to end. Full time or consulting.
+              Design, code, infrastructure. End to end. Full time or{" "}
+              <Link href="/consulting" className="underline underline-offset-2 hover:text-zg-coral transition-colors">consulting</Link>.
             </span>
             <p className="text-body-2 text-gray-400 mb-4">
               Companies call me when their product isn't shipping, their systems are tangled, or they need someone to take an ambiguous feature to production without handoffs.
@@ -460,7 +461,8 @@ export default function AboutPage() {
             </Link>
           </div>
           <p className="text-microcopy-2 text-gray-500">
-            Based in California. Open to remote or hybrid roles at product-focused companies. Also available for consulting engagements.
+            Based in California. Open to remote or hybrid roles at product-focused companies. Also available for{" "}
+            <Link href="/consulting" className="text-gray-400 hover:text-zg-teal transition-colors">consulting engagements</Link>.
           </p>
         </section>
       </FadeIn>

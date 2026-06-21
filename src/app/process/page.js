@@ -344,6 +344,12 @@ export default function ProcessPage() {
             >
               View Resume
             </Link>
+            <Link
+              href="/consulting"
+              className="inline-flex items-center gap-2 rounded-md text-gray-400 hover:text-zg-teal active:scale-95 transition-all duration-300 px-6 py-3 text-body-1-bold"
+            >
+              Consulting Engagements
+            </Link>
           </div>
         </section>
       </FadeIn>
