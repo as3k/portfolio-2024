@@ -26,7 +26,11 @@ export default function LetsTalkPage() {
           <header className="mb-12">
             <h1 className="text-heading-1-bold mb-4">Let's Talk</h1>
             <p className="text-body-2 text-gray-400">
-              <span className="text-white font-semibold">Senior Product Engineer (FTE) or Consulting.</span> I own features end to end at B2B SaaS companies and startups. Also take consulting engagements where a broken product or system needs rewiring. If that sounds like you, fill out the form below and I will respond within 24 hours on weekdays.
+              <span className="text-white font-semibold">Senior Product Engineer (FTE) or Consulting.</span> I own features end to end at B2B SaaS companies and startups. For consulting, the starting point is{" "}
+              <Link href="/consulting" className="text-zg-teal hover:text-zg-coral transition-colors">
+                The Diagnosis
+              </Link>{" "}
+              — a 5-day paid engagement that finds exactly what&apos;s stalling your product. If that sounds like you, fill out the form below and I will respond within 24 hours on weekdays.
             </p>
           </header>
         </FadeIn>
