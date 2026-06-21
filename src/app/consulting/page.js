@@ -125,7 +125,7 @@ export default function ConsultingPage() {
               and you can{"'"}t fix both without hiring two people. I{"'"}m the one person
               who owns the full fix: research, design, code, deploy. No handoffs.
             </p>
-            <Link
+            <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
             >
@@ -144,7 +144,7 @@ export default function ConsultingPage() {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </Link>
+            </a>
           </section>
         </FadeIn>
 
@@ -224,12 +224,12 @@ export default function ConsultingPage() {
               The Diagnosis is the right starting point. Five days. $2,500. You get a specific action plan you can use. Or your money back.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link
+              <a
                 href="#contact"
                 className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
               >
                 Start with The Diagnosis
-              </Link>
+              </a>
               <Link
                 href="/process"
                 className="rounded-md text-gray-400 hover:text-zg-teal transition-all duration-300 px-5 py-3 text-body-1-bold"
