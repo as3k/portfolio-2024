@@ -67,7 +67,7 @@ export default function ConsultingPage() {
         "I find exactly what's stalling your product: stuck features, broken UX flows, the design-eng gap your team can't bridge on its own.",
       deliverable:
         "Written diagnosis + prioritized fix list + recommended next step",
-      guarantee: "Specific, actionable plan you can act on immediately — or full refund",
+      guarantee: "Specific, actionable plan you can act on immediately. Or your money back.",
       convertsTo: "The Rewire",
       featured: false,
     },
@@ -76,7 +76,7 @@ export default function ConsultingPage() {
       price: "$9,500 – $14,000",
       timeline: "2–4 weeks · fixed scope",
       description:
-        "I fix the top priorities from the Diagnosis — design it, build it, ship it to production. Fixed price. No scope creep.",
+        "I fix the top priorities from the Diagnosis. Design it, build it, ship it to production. Fixed price. No scope creep.",
       deliverable:
         "Shipped feature or flow. No handoff debt. No translation loss.",
       guarantee: null,
@@ -88,9 +88,9 @@ export default function ConsultingPage() {
       price: "$6,500/mo",
       timeline: "15 hrs/week · 3-month min",
       description:
-        "I own a product area like a senior hire — design + engineering, full cycle. No $180K overhead, no 6-month ramp, no handoff chain.",
+        "I own a product area like a senior hire: design + engineering, full cycle. No $180K overhead, no 6-month ramp, no handoff chain.",
       deliverable:
-        "Ongoing product area ownership — features scoped, built, and shipped",
+        "Ongoing product area ownership. Features scoped, built, and shipped.",
       guarantee: null,
       convertsTo: null,
       featured: false,
@@ -122,13 +122,13 @@ export default function ConsultingPage() {
             <p className="text-body-2 text-gray-400 mb-8 max-w-2xl">
               You shipped the MVP. Now features are stuck in branches, the UX is a mess,
               and you can{"'"}t fix both without hiring two people. I{"'"}m the one person
-              who owns the full fix — research, design, code, deploy. No handoffs.
+              who owns the full fix: research, design, code, deploy. No handoffs.
             </p>
             <Link
               href="/lets-talk"
               className="inline-flex items-center gap-2 rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
             >
-              Start with The Diagnosis — $2,500
+              Start with The Diagnosis ($2,500)
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -162,8 +162,7 @@ export default function ConsultingPage() {
               ))}
             </div>
             <p className="mt-6 text-body-1 text-gray-400 max-w-2xl">
-              This is one problem: nobody on your team owns design{" "}
-              <em>and</em> engineering <em>and</em> shipping. That{"'"}s the gap I fill.
+              This is one problem: nobody on your team owns design, engineering, and shipping together. That{"'"}s the gap I fill.
             </p>
           </section>
         </FadeIn>
@@ -173,7 +172,7 @@ export default function ConsultingPage() {
           <FadeIn>
             <h2 className="text-heading-4-bold mb-3">How I Work</h2>
             <p className="text-body-1 text-gray-400 mb-10 max-w-2xl">
-              Three offers. One ladder. Each converts naturally to the next.
+              Three offers. One ladder. Each one leads to the next.
             </p>
           </FadeIn>
           <FadeInStagger className="grid grid-cols-1 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
@@ -193,8 +192,8 @@ export default function ConsultingPage() {
               Years of stalled features. Shipped in weeks.
             </p>
             <p className="text-body-1 text-gray-400 max-w-2xl">
-              MemberSplash had features promised for years sitting in dormant branches —
-              check-in flows, core UX work that never made it to production. I picked them
+              MemberSplash had features promised for years sitting in dormant branches.
+              Check-in flows, core UX work that never made it to production. I picked them
               up, rebuilt what needed rebuilding, and shipped them. Full case study coming
               soon.
             </p>
@@ -221,8 +220,7 @@ export default function ConsultingPage() {
           <section className="bg-zg-dark-0 rounded-lg p-8 md:p-12">
             <h2 className="text-heading-4-bold mb-4">Ready to unblock your product?</h2>
             <p className="text-body-1 text-gray-400 mb-6 max-w-xl">
-              The Diagnosis is the right starting point. Five days. $2,500. Guaranteed
-              actionable output — or full refund.
+              The Diagnosis is the right starting point. Five days. $2,500. You get a specific action plan you can use. Or your money back.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
