@@ -90,7 +90,7 @@ export default function ContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, type: 'general' }),
       });
 
       const result = await response.json();
@@ -98,15 +98,15 @@ export default function ContactForm() {
       if (result.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
-        trackContactFormSubmit('success');
+        trackContactFormSubmit('general', 'success');
       } else {
         setSubmitStatus('error');
-        trackContactFormSubmit('error');
+        trackContactFormSubmit('general', 'error');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
-      trackContactFormSubmit('error', 'exception');
+      trackContactFormSubmit('general', 'error', 'exception');
     } finally {
       setIsSubmitting(false);
     }
