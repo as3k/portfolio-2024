@@ -16,12 +16,17 @@ export function track(eventName, properties = {}) {
 
 // Specific event trackers
 
-export function trackContactFormSubmit(status, errorType = null) {
-  track('contact_form_submit', {
+export function trackContactFormSubmit(type, status, errorType = null) {
+  const props = {
     status,
-    form_location: 'lets_talk_page',
+    form_type: type,
+    form_location: type === 'consulting' ? 'consulting_page' : 'lets_talk_page',
     ...(errorType && { error_type: errorType })
-  });
+  };
+  track('contact_form_submit', props);
+  if (typeof window !== 'undefined' && window.rybbit) {
+    window.rybbit.track('contact_form_submit', props);
+  }
 }
 
 export function trackLetsTalkCTA(location) {

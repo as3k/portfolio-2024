@@ -76,7 +76,11 @@ export default function RootLayout({ children }) {
             strategy="afterInteractive"
           />
         ) : null}
-        {/* stats.zkg.io removed — CORS misconfiguration causes 7 console errors per page */}
+        <Script
+          src="https://stats.zkg.io/api/script.js"
+          data-site-id="fafd29329cd3"
+          strategy="afterInteractive"
+        />
         <LayoutWrapper>
           {children}
         </LayoutWrapper>

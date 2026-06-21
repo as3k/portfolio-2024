@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ContactMethodCard } from "@/components/ContactMethodCard";
 import { FadeIn } from "@/components/FadeIn";
-import ContactForm from "@/components/forms/ContactForm";
+import IntentGate from "@/components/IntentGate";
 import JsonLd, { contactPageSchema, createBreadcrumbSchema } from "@/components/JsonLd";
 
 export const metadata = {
@@ -26,11 +26,7 @@ export default function LetsTalkPage() {
           <header className="mb-12">
             <h1 className="text-heading-1-bold mb-4">Let's Talk</h1>
             <p className="text-body-2 text-gray-400">
-              <span className="text-white font-semibold">Senior Product Engineer (FTE) or Consulting.</span> I own features end to end at B2B SaaS companies and startups. For consulting, the starting point is{" "}
-              <Link href="/consulting" className="text-zg-teal hover:text-zg-coral transition-colors">
-                The Diagnosis
-              </Link>{" "}
-              — a 5-day paid engagement that finds exactly what&apos;s stalling your product. If that sounds like you, fill out the form below and I will respond within 24 hours on weekdays.
+              <span className="text-white font-semibold">Senior Product Engineer (FTE) or Consulting.</span> I own features end to end at B2B SaaS companies and startups. Select what fits below and I&apos;ll route you to the right place.
             </p>
           </header>
         </FadeIn>
@@ -40,7 +36,7 @@ export default function LetsTalkPage() {
             <h2 className="text-heading-5-semibold mb-6 text-white">
               Send a Message
             </h2>
-            <ContactForm />
+            <IntentGate />
           </section>
         </FadeIn>
 

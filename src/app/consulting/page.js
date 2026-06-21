@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
+import ConsultingForm from "@/components/forms/ConsultingForm";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
 
 export const metadata = {
@@ -125,7 +126,7 @@ export default function ConsultingPage() {
               who owns the full fix: research, design, code, deploy. No handoffs.
             </p>
             <Link
-              href="/lets-talk"
+              href="#contact"
               className="inline-flex items-center gap-2 rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
             >
               Start with The Diagnosis ($2,500)
@@ -217,14 +218,14 @@ export default function ConsultingPage() {
 
         {/* CTA */}
         <FadeIn delay={0.2}>
-          <section className="bg-zg-dark-0 rounded-lg p-8 md:p-12">
+          <section className="bg-zg-dark-0 rounded-lg p-8 md:p-12 mb-12">
             <h2 className="text-heading-4-bold mb-4">Ready to unblock your product?</h2>
             <p className="text-body-1 text-gray-400 mb-6 max-w-xl">
               The Diagnosis is the right starting point. Five days. $2,500. You get a specific action plan you can use. Or your money back.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/lets-talk"
+                href="#contact"
                 className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 transition-all duration-300 px-5 py-3 text-body-1-bold"
               >
                 Start with The Diagnosis
@@ -236,6 +237,17 @@ export default function ConsultingPage() {
                 See My Process
               </Link>
             </div>
+          </section>
+        </FadeIn>
+
+        {/* Contact Form */}
+        <FadeIn delay={0.25}>
+          <section id="contact">
+            <h2 className="text-heading-4-bold mb-3">Start the conversation</h2>
+            <p className="text-body-1 text-gray-400 mb-8 max-w-xl">
+              Tell me what&apos;s going on. I&apos;ll read it and respond within 24 hours on weekdays.
+            </p>
+            <ConsultingForm />
           </section>
         </FadeIn>
       </div>
