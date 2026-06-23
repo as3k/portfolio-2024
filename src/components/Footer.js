@@ -96,6 +96,14 @@ export default function Footer() {
           <span>Open to remote roles</span>
           <span className="hidden sm:inline">•</span>
           <Link
+            href="https://www.beetleandfrog.com/"
+            className="hover:text-zg-teal transition-colors"
+            onClick={() => trackExternalLinkClick('beetle-and-frog', 'footer')}
+          >
+            Portfolio by Beetle & Frog
+          </Link>
+          <span className="hidden sm:inline">•</span>
+          <Link
             href="/privacy-policy"
             className="hover:text-zg-teal transition-colors"
           >
