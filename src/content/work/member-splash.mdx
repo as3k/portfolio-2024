@@ -2,57 +2,130 @@
 title: "Member Splash"
 slug: "member-splash"
 client: "Member Splash"
-year: 2025
+year: 2026
 featured: true
-order: 4
-excerpt: "Product engineering at a B2B SaaS platform serving 460+ swim clubs. Shipped features end to end, from problem framing through production."
-category: "B2B Tech"
-tags: ["B2B SaaS", "Product Engineering", "Full-Stack", "UX Design", "Security", "PHP", "Vue.js"]
-heroImage: "/images/projects/ms-cover.png"
+order: 1
+excerpt: "Designing and shipping operational, payment, and developer-experience improvements for a B2B membership platform."
+category: "B2B SaaS"
+tags: ["Design Engineering", "Product Design", "Full-Stack", "Payments", "Developer Experience"]
+heroImage: "/images/projects/ms-cover.webp"
 metrics:
-  - label: "Clubs on Platform"
-    value: "460"
-    unit: "+"
+  - label: "Check-in workflow"
+    value: "30+ sec → <10 sec"
+    unit: ""
+    type: "speed"
+  - label: "Active Splash Card clubs"
+    value: "72"
+    unit: ""
     type: "count"
-  - label: "Check-in Time"
-    value: "< 10"
-    unit: "s"
-    type: "speed"
-  - label: "Was"
-    value: "30"
-    unit: "s"
-    type: "speed"
+  - label: "2026 card loads"
+    value: "~$76K"
+    unit: ""
+    type: "revenue"
 colors:
   primary: "#0284c7"
   accent: "#38bdf8"
 technologies: ["PHP", "WordPress Multisite", "Vue.js", "JavaScript", "Docker", "MySQL"]
-roles: ["Product Engineer", "Full-Stack Developer", "UX Designer"]
+roles: ["Senior Product Engineer", "UX Engineer", "Full-Stack Developer"]
+sectionNav:
+  - id: "context"
+    label: "Context"
+  - id: "member-check-in"
+    label: "Member Check-In"
+  - id: "splash-cards"
+    label: "Splash Cards"
+  - id: "developer-experience"
+    label: "Developer experience"
+  - id: "reflection"
+    label: "Reflection"
 seo:
   metaTitle: "Member Splash Case Study | Zachary Guerrero"
-  metaDescription: "Product engineering at Member Splash — shipping features end to end across a B2B SaaS platform serving 460+ swim clubs."
-  keywords: ["B2B SaaS", "product engineering", "swim club software", "membership management", "full-stack"]
+  metaDescription: "Design engineering across front-desk workflows, stored-value payments, and developer experience at Member Splash."
+  keywords: ["design engineering", "B2B SaaS", "payments", "developer experience", "membership management"]
 ---
 
-## The platform
+<h2 id="context">The context</h2>
 
-Member Splash is membership management software for swim clubs. 460+ clubs use it to run online registration, collect dues, and manage waitlists. The platform runs on WordPress Multisite. The right tool for the multitenancy model, not the trendy one.
+Member Splash is membership-management software for swim clubs. I work as a Senior Product Engineer, carrying features across product design and implementation while partnering with Customer Success, support, and other engineers.
 
-Two product engineers on the platform. We each own features end to end: problem framing, design, implementation, production. Over three years, that's meant working across payment flows, operations tooling, infrastructure, and security.
+The work is operational by nature. A small interaction decision can affect a busy front desk, a family managing purchases for their children, or the developer who needs a working local environment before they can help ship the next improvement.
 
-## What I've shipped
+<h2 id="member-check-in">Member Check-In</h2>
 
-**A member credential system** that rolled out to all 460+ clubs. No opt-in migration. Every existing membership got updated automatically. The systems involved weren't designed to talk to each other, and club data was inconsistent across years of schema drift. The migration had to resolve all of it without touching live membership state.
+### A counter workflow built for the busiest moments
 
-**A check-in flow redesign** that brought check-in time from 30+ seconds to under 10. I set the 30-second baseline before building. That number drove every decision. The previous flow had too many steps between "person shows up" and "attendance recorded." Tested with actual club staff before shipping.
+At a check-in counter, staff might need to find an account by member name or account number, select each family member present, add and name guests, check available guest credits, sell more credits if necessary, and finally confirm that everyone was checked in.
 
-**A Docker-based development environment** that replaced a fragile, documentation-heavy local setup. Before it existed, developers were testing against production. The Docker environment closed that gap. Onboarding dropped from a half-day to under an hour as a side effect.
+The old workflow was slow and unintuitive, especially around guest entry. That is a meaningful problem when the counter is staffed by high-school employees, volunteers, or an understaffed seasonal team and opening-weekend lines are building.
 
-**Security remediation** after a third-party audit surfaced vulnerabilities in the codebase. Triaged by exploitability and blast radius. Addressed critical issues first. Documented the vulnerability patterns as a threat-class reference the team now uses in code review. Closing tickets isn't the goal. Not reopening them is.
+### The interaction model
 
-## What I'm after
+I owned the upgrade end to end. I replaced the fragmented lookup with an omnibox that accepts a last name, address, or phone number. Staff can then select the people who arrived, with a ready-to-use next guest row instead of another button press.
 
-I own it from design through implementation. Every step.
+Guest credits are visible in context: how many are available and how many the current entry will use. When a family needs more, staff can purchase them in the same flow with bill-to-account or a credit card.
 
-I work best where the product problem and the technical problem are the same problem.
+<img src="/images/projects/member-splash/member-check-in-working-sketch.webp" alt="Hand-drawn Member Check-In working sketch comparing the old staff workflow with the shipped flow for account lookup, arrivals, guests, visible guest-credit status, and confirmation" width={1963} height={2052} className="w-full rounded-lg my-8" />
 
-Architecture and implementation specifics are under NDA.
+*Working sketch reconstructed from the shipped interaction model. It compares the prior staff workflow with the redesigned flow; it is not a production screen.*
+
+### How we evaluated it
+
+There was no formal research program around the old flow. The signal was shared operational experience: people could get through it, but it took too long and everyone knew it could be improved. I ran timed workflow tests, used server data to model the consequence of opening-day volume, and reviewed the work with Customer Success, support, and other engineers.
+
+In internal timing, the workflow went from more than 30 seconds to under 10 seconds. It rolled out to all clubs with documentation for staff and club administrators. Clubs described the redesign as faster, easier to understand, and better to use.
+
+<img src="/images/projects/member-splash/member-check-in-timing.webp" alt="Internal manual timing reconstruction of the Member Check-In workflow, showing the prior flow taking more than 30 seconds and the redesigned flow under 10 seconds for a busy front-desk scenario" width={1291} height={1084} className="w-full rounded-lg my-8" />
+
+*Internal reconstruction of the manual workflow-timing comparison behind the 30-plus-to-under-10-second result. It reflects timed manual runs covering search, arrivals, guests, and credits against a busy front-desk scenario, with server data used to understand peak-period traffic. It is not club-wide analytics and not a production screen.*
+
+<h2 id="splash-cards">Splash Cards</h2>
+
+### Prepaid spending that works for families and clubs
+
+Splash Cards are entirely digital stored-value cards. They let primary account holders load money for children or unattended youth to spend at the snack shack, without needing a parent present. The same prepaid model also lets clubs collect money before purchases that members would have made anyway.
+
+I owned the feature end to end, from the member-facing management experience through the payment and point-of-sale paths.
+
+### Designing for a real family account
+
+The initial concept assumed one card per person. Customer Success and community-forum feedback changed that. Families needed to provision more or fewer cards, transfer funds, and pause a card when appropriate. A primary member can now manage multiple cards across a family account, so one child cannot spend the entire shared balance.
+
+Members load cards in the portal using credit or debit cards through the existing payment gateway. At the snack shack, the attendant selects the member account as part of the usual order flow, and the account’s eligible Splash Cards appear as payment methods. Flexible card provisioning shipped in the first release; guest-pass payment support followed in July.
+
+<img src="/images/projects/member-splash/splash-cards-flowchart.webp" alt="Working flowchart reconstruction of Splash Cards, from a primary member loading a digital card and managing card status to point-of-sale payment when the attendant selects the family account" width={1251} height={1878} className="w-full rounded-lg my-8" />
+
+*Working flowchart reconstruction. It traces card funding and status management from the member account through point-of-sale payment, including what happens when a linked card is paused or has insufficient funds; it is not a production screen.*
+
+### Rollout and results
+
+Work began April 15, 2026, and v1 shipped June 12. The capability was available to every club, behind a club-level toggle so adoption was opt-in.
+
+In 2026, 72 of 499 live clubs had Splash Card activity. The feature supported roughly 4,979 people across 1,701 active cards and approximately $76,000 in card loads.
+
+### Money movement needed a safer boundary
+
+An audit of the payment flow exposed a correctness risk: ambiguous gateway responses could be treated as successful loads even when payment confirmation was missing. I redesigned the failure boundary so the wrapper can return only a verified transaction ID or an explicit error. I added a second validation at the controllers where money moves, improved the authorized correction path for mistaken loads, and repaired a silently failing test bootstrap.
+
+The principle was simple: money state should be verified at the edge or refused at the boundary. The issue has not recurred since the hardening work.
+
+<img src="/images/projects/member-splash/money-movement-boundary.webp" alt="Abstract before/after reconstruction of the Splash Card payment-success boundary, where ambiguous gateway responses are made explicit failures and money state is re-verified before an authorized load or correction" width={1029} height={1092} className="w-full rounded-lg my-8" />
+
+*Abstract reconstruction of the payment-success and correction boundary. It shows flow structure only, not real payment data or production UI.*
+
+<h2 id="developer-experience">Developer experience</h2>
+
+### Turning a personal environment into a team tool
+
+The old local environment used Lando plus a substantial set of configuration and tooling layers. Setup could take days of back-and-forth, and it was unreliable on my Mac. I began with a Docker environment that ran Member Splash on my own machine, then asked the lead developer what the wider team needed before turning it into shared infrastructure.
+
+The result incorporated local SSL through mkcert and Traefik, along with the team’s existing Make commands. It runs on Windows, macOS, and Linux. After setting environment variables and adding local subsite host entries, normal setup is measured in minutes; slower cases remain under an hour.
+
+<img src="/images/projects/member-splash/developer-environment.webp" alt="Before/after abstract reconstruction of the OmniSplash local developer environment, from the old Lando setup with layered configuration to a Docker Compose stack with mkcert, Traefik, and shared Make commands that runs cross-platform" width={1188} height={1151} className="w-full rounded-lg my-8" />
+
+*Abstract infrastructure-onboarding reconstruction. It shows the before/after local development flow, not production configuration.*
+
+Existing developers adopted it, and new developers have used it to get running. The goal was not Docker for its own sake. It was reducing the delay between joining the codebase and being able to investigate, debug, and contribute.
+
+<h2 id="reflection">Reflection</h2>
+
+The strongest work here has been less about a single interface and more about keeping context across a system: the staff member at the counter, the parent managing a family account, the payment boundary, and the developer who maintains the platform. That is where design engineering is most useful to me: making the product decision and the implementation decision reinforce each other.

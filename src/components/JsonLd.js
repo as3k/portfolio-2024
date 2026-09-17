@@ -4,11 +4,10 @@
  */
 
 export default function JsonLd({ data }) {
+  const json = JSON.stringify(data).replace(/</g, "\\u003c");
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <script type="application/ld+json">{json}</script>
   );
 }
 
@@ -19,17 +18,19 @@ export const personSchema = {
   name: "Zachary Guerrero",
   givenName: "Zachary",
   familyName: "Guerrero",
-  jobTitle: "Senior Product Engineer",
-  description: "Senior Product Engineer who owns features end to end. Research, design, code, deploy. No handoff tax.",
+  jobTitle: "Design Engineer",
+  description: "Design Engineer and UX Engineer working across product design, frontend engineering, and systems thinking.",
   url: "https://zacharyguerrero.com",
   email: "zack@zkg.io",
-  image: "https://zacharyguerrero.com/images/zg-coffee-ride-profile-photo.jpg",
+  image: "https://zacharyguerrero.com/images/zg-coffee-ride-profile-photo.webp",
   sameAs: [
     "https://linkedin.com/in/zacharyafguerrero",
     "https://github.com/as3k",
   ],
   knowsAbout: [
     "UX Design",
+    "UX Engineering",
+    "Design Engineering",
     "Product Design",
     "User Interface Design",
     "Design Systems",
@@ -38,10 +39,6 @@ export const personSchema = {
     "Front-End Development",
     "B2B SaaS",
   ],
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "California State University, San Bernardino",
-  },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Riverside",
@@ -55,38 +52,26 @@ export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": "https://zacharyguerrero.com/#website",
-  name: "Zachary Guerrero - Senior Product Engineer",
+  name: "Zachary Guerrero | Design Engineer",
   url: "https://zacharyguerrero.com",
-  description: "Portfolio of Zachary Guerrero, a senior product engineer who owns features end to end. Research, design, code, deploy.",
+  description: "Portfolio of Zachary Guerrero, a Design Engineer and UX Engineer working across product design, frontend engineering, and systems thinking.",
   publisher: {
     "@id": "https://zacharyguerrero.com/#person",
   },
   inLanguage: "en-US",
 };
 
-// Professional service schema
-export const professionalServiceSchema = {
+// Professional profile schema. The site represents Zachary's work, not a service business.
+export const professionalProfileSchema = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://zacharyguerrero.com/#service",
-  name: "Zachary Guerrero - UX Design Services",
+  "@type": "ProfilePage",
+  "@id": "https://zacharyguerrero.com/#professional-profile",
+  name: "Zachary Guerrero | Design Engineer",
   url: "https://zacharyguerrero.com",
-  description: "Product design, UX research, design systems, and front-end development services for B2B SaaS companies.",
-  provider: {
+  description: "Portfolio of Zachary Guerrero, a Design Engineer and UX Engineer working across product design, frontend engineering, and systems thinking.",
+  mainEntity: {
     "@id": "https://zacharyguerrero.com/#person",
   },
-  areaServed: {
-    "@type": "Country",
-    name: "United States",
-  },
-  serviceType: [
-    "Product Design",
-    "UX Design",
-    "UI Design",
-    "Design Systems",
-    "Front-End Development",
-    "UX Research",
-  ],
 };
 
 // Helper function to create page-specific schemas
@@ -113,7 +98,6 @@ export function createCaseStudySchema(work) {
     description: work.meta.excerpt,
     url: `https://zacharyguerrero.com/projects/${work.slug}`,
     image: `https://zacharyguerrero.com${work.meta.heroImage}`,
-    dateCreated: `${work.meta.year}-01-01`,
     author: {
       "@id": "https://zacharyguerrero.com/#person",
     },
@@ -138,8 +122,8 @@ export function createCollectionPageSchema(projects) {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": "https://zacharyguerrero.com/projects",
-    name: "Project Showcase | Zachary Guerrero",
-    description: "UX design case studies and projects by Zachary Guerrero. Explore my portfolio of web design, branding, and product design work.",
+    name: "Design Engineering Case Studies | Zachary Guerrero",
+    description: "Design engineering case studies by Zachary Guerrero, spanning B2B SaaS, enterprise UX, infrastructure, and independent product work.",
     url: "https://zacharyguerrero.com/projects",
     mainEntity: {
       "@type": "ItemList",
@@ -162,7 +146,7 @@ export const aboutPageSchema = {
   "@type": "AboutPage",
   "@id": "https://zacharyguerrero.com/about",
   name: "About Zachary Guerrero",
-  description: "Learn about Zachary Guerrero, a product designer who codes. Over a decade of experience in UX design, design systems, and front-end development.",
+  description: "Learn about Zachary Guerrero, a Design Engineer and UX Engineer with experience in product design, design systems, and frontend development.",
   url: "https://zacharyguerrero.com/about",
   mainEntity: {
     "@id": "https://zacharyguerrero.com/#person",
@@ -175,7 +159,7 @@ export const contactPageSchema = {
   "@type": "ContactPage",
   "@id": "https://zacharyguerrero.com/lets-talk",
   name: "Contact Zachary Guerrero",
-  description: "Contact Zachary Guerrero about product design roles or potential collaborations.",
+  description: "Contact Zachary Guerrero about Design Engineer, UX Engineer, product design, or product engineering opportunities.",
   url: "https://zacharyguerrero.com/lets-talk",
   mainEntity: {
     "@id": "https://zacharyguerrero.com/#person",
@@ -204,8 +188,8 @@ export function createHowToSchema(steps) {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "@id": "https://zacharyguerrero.com/process",
-    name: "How I Approach Product Design",
-    description: "My design process: from understanding the problem to shipping solutions that move metrics.",
+    name: "From Concept to Production",
+    description: "How Zachary Guerrero connects research, interaction design, implementation, and iteration.",
     url: "https://zacharyguerrero.com/process",
     step: steps.map((step, index) => ({
       "@type": "HowToStep",
@@ -224,8 +208,8 @@ export const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   "@id": "https://zacharyguerrero.com/",
-  name: "Zachary Guerrero - Product Designer Portfolio",
-  description: "Designing B2B SaaS products that users love and engineering teams can build. 10+ years of experience in UX design and front-end development.",
+  name: "Zachary Guerrero | Design Engineer Portfolio",
+  description: "A portfolio of product design, frontend engineering, and systems-thinking work by Zachary Guerrero.",
   url: "https://zacharyguerrero.com",
   mainEntity: {
     "@id": "https://zacharyguerrero.com/#person",

@@ -11,7 +11,7 @@ import { resumeData } from "@/lib/resume-data";
 
 export const metadata = {
   title: "Resume | Zachary Guerrero",
-  description: "Professional resume of Zachary Guerrero, Senior Product Engineer with 10+ years of experience in full-stack product engineering and UX design.",
+  description: "Professional resume of Zachary Guerrero, a Design Engineer and UX Engineer with experience in product design, frontend engineering, and complex product systems.",
 };
 
 function ContactItem({ icon: Icon, children, href }) {
@@ -40,7 +40,7 @@ function ExperienceItem({ company, location, date, title, children }) {
           <h3 className="text-heading-6-semibold text-white">{company}</h3>
           <p className="text-body-1-semibold text-zg-teal">{title}</p>
         </div>
-        <div className="text-microcopy-2 text-gray-500 md:text-right mt-1 md:mt-0">
+        <div className="text-microcopy-2 text-gray-400 md:text-right mt-1 md:mt-0">
           {location && <p>{location}</p>}
           <p>{date}</p>
         </div>
@@ -81,7 +81,7 @@ export default function ResumePage() {
     "@type": "WebPage",
     "@id": "https://zacharyguerrero.com/resume",
     name: "Resume | Zachary Guerrero",
-    description: "Professional resume of Zachary Guerrero, Product Designer with 10+ years of experience in UX design and front-end development.",
+    description: "Professional resume of Zachary Guerrero, a Design Engineer and UX Engineer with experience in product design and frontend engineering.",
     url: "https://zacharyguerrero.com/resume",
     mainEntity: {
       "@id": "https://zacharyguerrero.com/#person",
@@ -167,7 +167,7 @@ export default function ResumePage() {
                 {resumeData.education.degree}
               </h3>
               <p className="text-body-1 text-gray-400">{resumeData.education.school}</p>
-              <p className="text-microcopy-2 text-gray-500">{resumeData.education.location}</p>
+              <p className="text-microcopy-2 text-gray-400">{resumeData.education.location}</p>
             </div>
           </section>
 

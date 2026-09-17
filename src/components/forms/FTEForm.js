@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { trackContactFormSubmit } from "@/lib/umami"
 
-const Input = ({ label, type = "text", id, value, onChange, disabled }) => {
+const Input = ({ label, type = "text", id, value, onChange, disabled, ...inputProps }) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
     <div className="form-control flex flex-col gap-1">
@@ -20,6 +20,7 @@ const Input = ({ label, type = "text", id, value, onChange, disabled }) => {
         value={value}
         onChange={onChange}
         disabled={disabled}
+        {...inputProps}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
       />
@@ -27,7 +28,7 @@ const Input = ({ label, type = "text", id, value, onChange, disabled }) => {
   );
 };
 
-const Textarea = ({ label, id, value, onChange, disabled }) => {
+const Textarea = ({ label, id, value, onChange, disabled, ...inputProps }) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
     <div className="form-control flex flex-col gap-1">
@@ -44,6 +45,7 @@ const Textarea = ({ label, id, value, onChange, disabled }) => {
         value={value}
         onChange={onChange}
         disabled={disabled}
+        {...inputProps}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
       />
@@ -61,7 +63,7 @@ function Spinner() {
 }
 
 export default function FTEForm() {
-  const [formData, setFormData] = useState({ name: '', email: '', company: '', role: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', company: '', role: '', message: '', website: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
@@ -80,7 +82,7 @@ export default function FTEForm() {
       const result = await response.json();
       if (result.success) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', company: '', role: '', message: '' });
+        setFormData({ name: '', email: '', company: '', role: '', message: '', website: '' });
         trackContactFormSubmit('fte', 'success');
       } else {
         setSubmitStatus('error');
@@ -96,11 +98,15 @@ export default function FTEForm() {
 
   return (
     <form className="flex flex-col gap-4 p-6 bg-zg-dark-0 rounded-md" onSubmit={handleSubmit}>
-      <Input label="Name" id="name" value={formData.name} onChange={handleChange} disabled={isSubmitting} />
-      <Input label="Email" type="email" id="email" value={formData.email} onChange={handleChange} disabled={isSubmitting} />
-      <Input label="Company" id="company" value={formData.company} onChange={handleChange} disabled={isSubmitting} />
-      <Input label="Role you're hiring for" id="role" value={formData.role} onChange={handleChange} disabled={isSubmitting} />
-      <Textarea label="Message" id="message" value={formData.message} onChange={handleChange} disabled={isSubmitting} />
+      <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+      </div>
+      <Input label="Name" id="name" value={formData.name} onChange={handleChange} disabled={isSubmitting} autoComplete="name" maxLength={120} required />
+      <Input label="Email" type="email" id="email" value={formData.email} onChange={handleChange} disabled={isSubmitting} autoComplete="email" maxLength={254} required />
+      <Input label="Company" id="company" value={formData.company} onChange={handleChange} disabled={isSubmitting} autoComplete="organization" maxLength={200} />
+      <Input label="Role you're hiring for" id="role" value={formData.role} onChange={handleChange} disabled={isSubmitting} maxLength={200} />
+      <Textarea label="Message" id="message" value={formData.message} onChange={handleChange} disabled={isSubmitting} maxLength={5000} />
       <div className="flex flex-col gap-3">
         <button
           type="submit"

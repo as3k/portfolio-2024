@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { trackContactFormSubmit } from "@/lib/umami"
 
-const Input = ({ label, type, id, value, onChange, disabled }) => {
+const Input = ({ label, type, id, value, onChange, disabled, ...inputProps }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -23,6 +23,7 @@ const Input = ({ label, type, id, value, onChange, disabled }) => {
         onChange={onChange}
         value={value}
         disabled={disabled}
+        {...inputProps}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
       />
@@ -30,7 +31,7 @@ const Input = ({ label, type, id, value, onChange, disabled }) => {
   )
 }
 
-const Textarea = ({ label, id, value, onChange, disabled }) => {
+const Textarea = ({ label, id, value, onChange, disabled, ...inputProps }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -50,6 +51,7 @@ const Textarea = ({ label, id, value, onChange, disabled }) => {
         onChange={onChange}
         value={value}
         disabled={disabled}
+        {...inputProps}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
       />
@@ -71,6 +73,7 @@ export default function ContactForm() {
     name: '',
     email: '',
     message: '',
+    website: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
@@ -97,7 +100,7 @@ export default function ContactForm() {
 
       if (result.success) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', message: '', website: '' });
         trackContactFormSubmit('general', 'success');
       } else {
         setSubmitStatus('error');
@@ -114,9 +117,13 @@ export default function ContactForm() {
 
   return (
     <form className="flex flex-col gap-4 p-6 bg-zg-dark-0 rounded-md" onSubmit={handleSubmit}>
-      <Input label="Name" type="text" id="name" value={formData.name} onChange={handleChange} disabled={isSubmitting} />
-      <Input label="Email" type="email" id="email" value={formData.email} onChange={handleChange} disabled={isSubmitting} />
-      <Textarea label="Message" id="message" value={formData.message} onChange={handleChange} disabled={isSubmitting} />
+      <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+      </div>
+      <Input label="Name" type="text" id="name" value={formData.name} onChange={handleChange} disabled={isSubmitting} autoComplete="name" maxLength={120} required />
+      <Input label="Email" type="email" id="email" value={formData.email} onChange={handleChange} disabled={isSubmitting} autoComplete="email" maxLength={254} required />
+      <Textarea label="Message" id="message" value={formData.message} onChange={handleChange} disabled={isSubmitting} maxLength={5000} required />
       <div className="button-wrapper flex flex-col gap-3">
         <button
           className="rounded-md text-white bg-zg-teal hover:bg-zg-coral active:scale-95 active:brightness-90 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-zg-teal transition-all duration-300 px-3 py-2 text-body-1-bold flex items-center justify-center gap-2"

@@ -1,6 +1,6 @@
 export const resumeData = {
   name: "Zachary Guerrero",
-  title: "Senior Product Engineer",
+  title: "Design Engineer / UX Engineer",
   location: "Riverside, California",
   phone: "(702) 469-5962",
   phoneHref: "tel:+1702****962",
@@ -8,7 +8,7 @@ export const resumeData = {
   website: "zacharyguerrero.com",
   websiteHref: "https://zacharyguerrero.com",
 
-  summary: `Senior Product Engineer with 10+ years shipping enterprise SaaS, insurance, and membership platforms. I own features from problem to production. Research, design, code, deploy, iterate. At Pacific Life I led UX across complex regulatory environments. At Member Splash I expanded into full-stack ownership, shipping payment systems, redesigning check-in flows, building member portals, and creating dev tools for the team. I've shipped in React, Vue, Next.js, Python, and PHP. I use AI to work faster.`,
+  summary: `Design Engineer and UX Engineer with 10+ years across enterprise SaaS, insurance, and membership platforms. I work where product design and implementation overlap: framing workflows, designing interactions, building interfaces, and staying involved through launch. At Member Splash, I have shipped payment capabilities, redesigned member check-in, and improved the developer environment while working with Customer Success, support, and engineering. I work in React, Vue, Next.js, Python, and PHP.`,
 
   skills: [
     // Design
@@ -39,10 +39,10 @@ export const resumeData = {
       date: "05/2025 - Present",
       title: "Senior Product Engineer",
       bullets: [
-        "Shipped Splash Cards, a prepaid digital POS system now running at 460+ clubs and processing thousands of daily transactions. Owned the full lifecycle: scoped, architected, built, integrated payments, documented, and trained staff.",
-        "Redesigned the member check-in experience. Ran competitive research across venues, redesigned primary/guest/exception flows, and cut check-in time from 30+ seconds to under 10. Shipped with full staff and club admin documentation.",
-        "Built LWT (Local Worktree Tool) and a shareable Docker dev stack that cut new developer setup from half a day to under an hour. Established coding standards, worktree workflows, and automated build triggers.",
-        "Found and fixed security vulnerabilities including password hash exposure in API responses and broken auth gates. Ran AI-assisted code reviews across team PRs, catching issues before production. Documented fixes and trained the team on prevention.",
+        "Shipped Splash Cards, a prepaid digital stored-value system available across 499 clubs. In 2026, 72 clubs used it, serving roughly 4,979 card participants and supporting approximately $76,000 in card loads. Owned product and implementation delivery: scoped the work, designed and built the feature, integrated payments, documented it, and trained staff.",
+        "Redesigned the member check-in experience, simplifying primary-member, guest, and credit-purchase paths. Internal timing reduced the workflow from 30+ seconds to under 10 seconds; shipped with staff and club-admin documentation.",
+        "Built a shareable, cross-platform Docker development environment that replaced an unreliable Lando setup. After environment configuration, setup normally takes minutes and slower cases remain under an hour.",
+        "Identified and remediated a sensitive-data exposure in an API response by rewriting the handler so the data was no longer returned.",
       ],
     },
     {
@@ -51,7 +51,7 @@ export const resumeData = {
       date: "10/2018 - Present",
       title: "UX Consultant (part-time)",
       bullets: [
-        "Designed and shipped strategy-first websites for local service businesses. Brand, information architecture, conversion copy, development, deployment. Full cycle, every project.",
+        "Designed and shipped strategy-first websites for local service businesses, spanning brand, information architecture, conversion copy, development, and deployment.",
         "Built and shipped booking systems and automation flows for service providers. Intake forms, payment collection, reminder sequences, and lead routing.",
         "Designed and built Lift, the hosting and security infrastructure serving all B&F client sites. Audited and remediated vulnerabilities across 20+ properties.",
       ],

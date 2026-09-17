@@ -27,7 +27,7 @@ So I built PXC.
 
 PXC is a modern CLI for Proxmox VM management. But more importantly, it's an example of what happens when you treat a terminal interface as a product experience.
 
-**Safe defaults with confirmation prompts.** Before PXC, deleting a VM meant typing a long command with precise flags. One character off and you've deleted the wrong machine. PXC asks "are you sure?" and shows you exactly what you're about to do. It's the undo button CLIs never had.
+**Safe defaults with confirmation prompts.** Before PXC, deleting a VM meant typing a long command with precise flags. One character off could target the wrong machine. PXC makes the target visible, requires a VM-ID confirmation, and adds a cancellable countdown. It is not an undo button; it is a deliberate pause before an irreversible action.
 
 **Human-readable output.** Standard CLI tools output raw JSON or table dumps. PXC formats VM lists with status icons, color-coded states, and a layout that's scannable at a glance. The same information, structured for human perception.
 
@@ -41,7 +41,7 @@ Every designer says they're "user-centered" or they "think about the whole exper
 
 **UX isn't what's on the screen. It's every interface a human interacts with.** A CLI is a user interface. A terminal is a surface. A command is an interaction. The principles of good product design — clarity, safety, feedback, progressive disclosure — apply just as much to a command prompt as they do to a mobile app.
 
-**Comfort with the full stack makes you a better designer.** I wrote PXC in Go. It talks to the Proxmox API. It handles SSH connections, error states, and edge cases. Designing for an experience I was also building forced me to understand the constraints at every layer. The resulting design was better because I knew what was possible and what wasn't — not from a spec, but from writing the code.
+**Comfort with the full stack makes you a better designer.** I wrote PXC in TypeScript with React Ink. It uses the Proxmox API alongside node-local Proxmox commands, and handles error states and edge cases. Designing for an experience I was also building forced me to understand the constraints at every layer. The resulting design was better because I knew what was possible and what wasn't — not from a spec, but from writing the code.
 
 **The best tool is the one that makes the hard thing easy.** PXC doesn't do anything that raw Proxmox commands can't do. It just makes common operations safe, fast, and readable. The UX improvement isn't new features — it's reduced cognitive load. And that's the most valuable thing a designer can deliver.
 

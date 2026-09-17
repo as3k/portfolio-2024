@@ -53,7 +53,7 @@ export default function NotFound() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-gray-800">
-            <p className="text-microcopy-1 text-gray-600">
+            <p className="text-microcopy-1 text-gray-400">
               Looking for something specific?{" "}
               <Link
                 href="/lets-talk"

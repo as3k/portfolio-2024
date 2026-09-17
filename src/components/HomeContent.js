@@ -55,6 +55,7 @@ function ProjectCard({ project }) {
           src={meta.heroImage}
           alt={meta.title}
           fill
+          sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 560px"
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
         {(meta.workInProgress || meta.status === 'in-progress') && (
@@ -126,7 +127,7 @@ export default function HomeContent({ featuredWork }) {
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
         <div className="flex flex-col gap-4 lg:gap-6 order-2 lg:order-1">
           <FadeIn>
-            <p className="text-body-1-semibold text-zg-teal mb-1 lg:mb-2">Product Designer & Developer</p>
+            <p className="text-body-1-semibold text-zg-teal mb-1 lg:mb-2">Design Engineer · UX Engineer</p>
             <h1 className="text-heading-4-bold md:text-heading-2-bold lg:text-heading-1-bold">
               I help B2B SaaS companies turn complex problems into simple experiences.
             </h1>
@@ -233,6 +234,7 @@ export default function HomeContent({ featuredWork }) {
                     src={secondProject.meta.heroImage}
                     alt={`${secondProject.meta.title} project`}
                     fill
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />
@@ -255,6 +257,7 @@ export default function HomeContent({ featuredWork }) {
                     src={thirdProject.meta.heroImage}
                     alt={`${thirdProject.meta.title} project`}
                     fill
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-zg-teal/20 mix-blend-color group-hover:opacity-0 transition-opacity duration-500" />

@@ -14,49 +14,46 @@ export default function sitemap() {
   const staticPages = [
     {
       url: baseUrl,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/projects`,
-      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/process`,
-      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/consulting`,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/now`,
-      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/lets-talk`,
-      lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/resume`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
@@ -66,7 +63,6 @@ export default function sitemap() {
   const work = getAllWork();
   const workPages = work.map((item) => ({
     url: `${baseUrl}/projects/${item.slug}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.8,
   }));
@@ -83,7 +79,6 @@ export default function sitemap() {
   // Add blog listing page if posts exist
   const blogListingPage = posts.length > 0 ? [{
     url: `${baseUrl}/blog`,
-    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
   }] : [];

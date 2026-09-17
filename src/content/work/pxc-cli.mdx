@@ -1,114 +1,122 @@
 ---
-title: "PXC: Bringing Product Design Thinking to Infrastructure Tooling"
+title: "PXC: A safer Proxmox CLI for a phone-sized terminal"
 slug: "pxc-cli"
-client: "Open Source"
+client: "Personal project"
 year: 2025
 featured: true
 order: 2
-excerpt: "A modern CLI for Proxmox VM management that applies web UX principles to terminal interfaces. Built to make complex infrastructure operations safe, fast, and accessible from anywhere&mdash;including your phone."
-category: "Open Source"
-tags: ["CLI Tool", "Product Design", "UX Design", "React", "TypeScript", "Infrastructure", "Open Source"]
-heroImage: "/images/projects/pxc/pxc-list.png"
+excerpt: "A personal Proxmox CLI that combines a guided terminal flow, configuration reuse, and deliberate safeguards for destructive infrastructure work."
+category: "Personal project"
+tags: ["CLI Tool", "Design Engineering", "UX Engineering", "React Ink", "TypeScript", "Infrastructure"]
+heroImage: "/images/projects/pxc/pxc-list.webp"
 images:
-  - "/images/projects/pxc/pxc-iso-ls.png"
-  - "/images/projects/pxc/pxc-iso-delete.png"
+  - "/images/projects/pxc/pxc-iso-ls.webp"
+  - "/images/projects/pxc/pxc-iso-delete.webp"
 metrics:
-  - label: "Safety Layers"
+  - label: "Safety layers"
     value: "3"
-    unit: "levels"
+    unit: "checks"
     type: "number"
-  - label: "VM Creation Time"
-    value: "80"
-    unit: "s"
-    type: "speed"
-  - label: "Cluster Support"
-    value: "Multi-node"
+  - label: "Default interaction"
+    value: "Guided terminal flow"
     type: "qualitative"
-  - label: "Version"
-    value: "v2.2.3"
+  - label: "Use case"
+    value: "Personal homelab"
     type: "qualitative"
 colors:
   primary: "#0EA5E9"
   accent: "#06B6D4"
-technologies: ["React", "Ink", "TypeScript", "Proxmox API", "Node.js"]
-roles: ["Product Designer", "Full-Stack Developer", "Open Source Maintainer"]
+technologies: ["TypeScript", "React Ink", "Proxmox API", "Node.js"]
+roles: ["Product Designer", "UX Engineer", "Developer"]
+sectionNav:
+  - id: "problem"
+    label: "Problem"
+  - id: "interaction-model"
+    label: "Interaction model"
+  - id: "safety-model"
+    label: "Safety model"
+  - id: "engineering"
+    label: "Engineering"
+  - id: "outcome"
+    label: "Outcome"
 links:
   github: "https://github.com/as3k/pxc"
   npm: "https://npmjs.com/package/pxc"
 seo:
-  metaTitle: "PXC CLI - Modern Proxmox Management | Zachary Guerrero"
-  metaDescription: "Open source CLI tool for Proxmox infrastructure management. Safety-first design with cluster support, wizard-based interactions, and mobile-friendly terminal interface."
-  keywords: ["CLI tool", "Proxmox", "infrastructure management", "product design", "UX design", "React", "TypeScript", "open source"]
+  metaTitle: "PXC CLI: Proxmox management from a terminal | Zachary Guerrero"
+  metaDescription: "A personal TypeScript and React Ink CLI for guided, safer Proxmox management from a terminal, including a phone shell emulator."
+  keywords: ["PXC", "Proxmox", "CLI", "terminal UX", "React Ink", "TypeScript", "infrastructure"]
 ---
 
-## The problem
+<h2 id="problem">The problem</h2>
 
-**A three-node cluster managed entirely from my phone.**
+**A homelab task should not require remembering a command from scratch.**
 
-I run a three-node Proxmox cluster. Claw, Nexus, and a handful of production VMs: websites, services, Minecraft servers for my son and his friends. Everything runs on this cluster. And I manage it all from my phone.
+PXC began as a scratch-your-own-itch tool for managing my Proxmox homelab. The Proxmox web UI can take me a few minutes to work through when I need to create a VM. From a phone shell emulator, that kind of panel-based workflow is even less practical.
 
-I use Blink Terminal on my iPhone and iPad. When a Minecraft server crashes while I'm at the grocery store, I need to fix it. When a service needs a restart while I'm at a coffee shop, I need to do it from there. SSH works fine from a phone. The tools waiting on the other end don't.
+The alternative, a flags-only CLI, is powerful but puts the burden on memory. I can forget a flag or miss a required step, especially when I am using a phone keyboard. I wanted a terminal interface that preserved the speed of commands without making recall the primary interface.
 
-**The web UI doesn't work on mobile. The CLI requires memorizing arcane flags.**
+<h2 id="interaction-model">The interaction model</h2>
 
-The Proxmox web UI was designed for a desktop monitor. Panels, nested menus, drag-and-drop, hover states. None of it works on a phone screen. Even on an iPad the interface doesn't scale. Creating a VM, stopping a container, deleting an ISO: every operation means navigating a panel designed for 24 inches.
+**Guidance by default, flags when I already know the path.**
 
-The alternative is `qm create [vmid] --cores --memory --storage --net`. That works from a phone. But the flags are arcane. A dozen of them minimum per VM. On a phone keyboard, each one is a trip hazard. You either memorize the pattern or look it up every time.
+The default flow is deliberately inspired by the sequential simplicity of `create-next-app`: one question at a time, only the decision currently needed, then the next. It is designed for a regular terminal but is especially useful from a shell emulator on a phone.
 
-I looked for a CLI tool that wrapped this into something friendlier. Nothing existed for my use case. So I built one.
+PXC still supports flags for a faster, command-driven path. The two modes serve different needs:
 
-## What I did
+- The guided flow helps me complete configuration without missing a step or recalling every option.
+- Flags remain available when I already know exactly what I want to create.
 
-**React components in the terminal. One question at a time.**
+<img src="/images/projects/pxc/pxc-demo.gif" alt="PXC guided terminal flow for Proxmox management" className="w-full rounded-lg my-8" />
 
-I chose React and Ink. Ink renders React components to the terminal. I'm a React developer, so it was the tool I already knew. I'd seen interesting Ink projects and wanted to see what it could do. What I found was a framework that let me build terminal interactions with the same patterns I use on the web. Component composition. State management. Event handling. The same mental model, just a different render target.
+<img src="/images/projects/pxc/pxc-guided-creation-working-sketch.webp" alt="Hand-drawn PXC VM-creation flow showing configuration reuse, explicit target selection, guided VM settings, review, and deliberate confirmation" width={2359} height={1619} className="w-full rounded-lg my-8" />
 
-The design came from the Vercel CLI. One question at a time. Guided steps. Nothing shown until you need it. Most tools dump everything on screen at once: a wall of flags and options. For the way my brain works, that's noise. The Vercel approach asks one thing, you answer, then it asks the next thing.
+*Working sketch of the interaction model. It records the decisions behind the guided flow rather than representing a literal terminal screen.*
 
-**Nine screens. Each asking exactly one question.**
+**Make the available choices visible.**
 
-Welcome. Identity. Compute. Storage. Network. ISO. Summary. Execute. Success or Error. The wizard auto-detects available storage pools, network bridges, and ISOs from your Proxmox node. No manual typing of pool names or bridge IDs. Arrow keys to navigate. Enter to confirm.
+Instead of requiring me to type infrastructure identifiers from memory, the guided flow auto-discovers available storage pools, network bridges, and ISOs. It also remembers the prior VM configuration and can offer to reuse its CPU, RAM, and network settings for the next VM.
 
-Configuration preferences are auto-saved. The next time you create a VM, your previous choices are the defaults. The tool learns how you use it.
+That combination reduces repeated setup work without hiding the underlying decisions. I can accept a known-good starting point, then change the values that need to differ.
 
-Power users can skip the wizard entirely with flags. `pxc create --cores 4 --memory 8192`. The flag interface mirrors the wizard steps. Both paths produce the same result. The default path optimizes for clarity. The fast path optimizes for speed.
+<h2 id="safety-model">Safety model</h2>
 
-<img src="/images/projects/pxc/pxc-demo.gif" alt="PXC CLI demo: creating and managing VMs from terminal" className="w-full rounded-lg my-8" />
+**Destructive actions deserve more than one chance to reconsider.**
 
-**The safety system came from a close call.**
+PXC’s destructive-action flow comes from the risk of making an irreversible infrastructure mistake, not from a particular incident. I am careful with deployments, but careful people still benefit from interfaces that make the target and consequence explicit.
 
-I almost deleted the wrong VM. Working fast, scrolling through a list, my finger tapped the wrong line. I caught it in time. But it made me realize something. If you're managing production infrastructure from a phone, you're going to make mistakes. Not because you're careless. Because the interface gives you no room to be careful.
+Every destructive operation uses three safeguards:
 
-Three layers of confirmation for every destructive operation. Visual confirmation: "You are about to delete VM 103." Type-to-confirm: you must type the VM ID to proceed. A 10-second countdown, visible and cancellable.
+1. A visible confirmation of the target.
+2. A type-to-confirm check using the VM ID.
+3. A visible countdown that can be cancelled.
 
-Three layers because each one is a moment to stop and think. Nobody who genuinely wants to delete something is stopped by three seconds of friction. But a rushed tap on the wrong line: that gets caught. The countdown is configurable now. Five seconds. Disabled entirely. Your call. The default path stays safe.
+The goal is not to make a valid action difficult. It is to create deliberate pause points before an action that could affect the wrong server. The same safety pattern is applied consistently rather than relying on attention alone.
 
-ISO management got the same treatment. List, download, upload, delete. Cluster-aware, knows which node has which storage. Delete has the same three-layer confirmation. Consistent safety habits across every command.
+<img src="/images/projects/pxc/safety-model.svg" alt="PXC destructive-action safety model showing target verification, type-to-confirm, and a cancellable countdown" className="w-full rounded-lg my-8" />
 
-**Architecture that follows Proxmox's design.**
+*Interaction-model reconstruction based on the shipped safeguards.*
 
-PXC runs node-local. Each node has its own install. The tool shells out to Proxmox's internal commands: `qm`, `pvesm`, `pvesh`. The same commands the web UI uses under the hood. No separate daemon. No agent to deploy. `npm install -g pxc` and it works.
+<img src="/images/projects/pxc/pxc-iso-delete.webp" alt="PXC confirmation flow before deleting an ISO" className="w-full rounded-lg my-8" />
 
-Multi-node support arrived in v2.0. The tool detects single-node or cluster and adjusts. List VMs grouped by node. See online and offline status. Choose a target node during creation. Per-node config means different defaults for different hardware: Ceph on one node, local ZFS on another. The tool respects the topology of your actual environment.
+<h2 id="engineering">Engineering</h2>
 
-Mock mode was built early. `npm run dev:mock` runs the full wizard with fake data. No Proxmox node required. A deliberate investment: iterate on the interface fast, mock the infrastructure, ship faster. Build the test surface before you need it.
+**A terminal UI built around the environment it manages.**
 
-## The result
+PXC is implemented in TypeScript with React Ink and installed on the Proxmox node. It uses both the Proxmox API and local Proxmox commands, allowing the interface to combine guided interaction with the information and operations available on that node.
 
-**80 seconds instead of three minutes.**
+React Ink made it possible to bring familiar interface patterns into a terminal renderer: composed UI, stateful steps, and input handling. The implementation matters here because the product decision is inseparable from the medium. The terminal is not treated as a degraded web form; it is the interface I need when I am away from a desktop.
 
-The web UI takes two to three minutes to provision a VM. PXC does it in about 80 seconds. Not because it's doing less. Because it removes the friction. No panel navigation. No form filling. No hunting for the right dropdown. The wizard steps through each decision once, auto-discovers what's available, and executes.
+<img src="/images/projects/pxc/pxc-architecture-boundary.webp" alt="Working PXC architecture sketch tracing the guided React Ink terminal interface to the Proxmox node, which manages VMs, containers, storage, and networking" width={3024} height={4032} className="w-full rounded-lg my-8" />
 
-**It doesn't get used every day. When it does, it saves more time than it cost to build.**
+*My working architecture sketch. It shows the guided React Ink interface offering questions, saved configuration, and CLI flags on the node, able to use the Proxmox API and node-local commands against the VMs, containers, storage, and networking that node manages. It is a personal sketch, not production documentation, and does not show any specific cluster topology or host details.*
 
-Creating a VM from my phone at a coffee shop. Shutting down a container from a parking lot. Checking cluster status from my iPad while watching TV. These operations were tedious or impossible before PXC. Now they're the fastest path through my infrastructure.
+<h2 id="outcome">Outcome and reflection</h2>
 
-The project is MIT-licensed, written in TypeScript, and built for the people who run Proxmox clusters out of their own homelabs. GitHub issues have real users. npm has real downloads. It's not a portfolio piece. It's a tool that ships.
+**A tool I use for my own infrastructure.**
 
-**What's next: full remote orchestration from a single node.**
+PXC is a personal-use project, not an externally benchmarked product. For my own workflow, it replaces a few minutes of web-UI navigation with a guided terminal sequence I can use from a phone shell emulator.
 
-The architecture is node-local today. But the cluster awareness already works. The next version controls all three nodes from any one of them. No extra installs. No central server. Just the same tool, smarter about where commands go.
+Its most useful lesson is modest: infrastructure tools can make safer behavior easier without removing expert control. Guidance, discovery, remembered configuration, and an escape hatch to flags are all parts of the same design. The right interface depends on whether I need help remembering the path or simply need to move quickly through one I already know.
 
-If you run Proxmox and manage it from a phone, you know exactly why this tool exists.
-
-[GitHub →](https://github.com/as3k/pxc) · [npm →](https://www.npmjs.com/package/pxc) · `npm install -g pxc`
+[GitHub →](https://github.com/as3k/pxc) · [npm →](https://www.npmjs.com/package/pxc)

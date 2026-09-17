@@ -7,7 +7,7 @@ import JsonLd, { contactPageSchema, createBreadcrumbSchema } from "@/components/
 export const metadata = {
   title: "Let's Talk | Zachary Guerrero",
   description:
-    "Contact Zachary Guerrero about Senior Product Engineer roles or consulting engagements.",
+    "Contact Zachary Guerrero about Design Engineer, UX Engineer, or product-focused engineering roles and consulting engagements.",
 };
 
 export default function LetsTalkPage() {
@@ -26,7 +26,7 @@ export default function LetsTalkPage() {
           <header className="mb-12">
             <h1 className="text-heading-1-bold mb-4">Let's Talk</h1>
             <p className="text-body-2 text-gray-400">
-              <span className="text-white font-semibold">Senior Product Engineer (FTE) or Consulting.</span> I own features end to end at B2B SaaS companies and startups. Select what fits below and I&apos;ll route you to the right place.
+              <span className="text-white font-semibold">Design Engineer, UX Engineer, or consulting.</span> I work across product design and implementation at B2B SaaS companies and startups. Select what fits below and I&apos;ll route you to the right place.
             </p>
           </header>
         </FadeIn>

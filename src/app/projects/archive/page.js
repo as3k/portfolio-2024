@@ -54,7 +54,7 @@ export default function ArchivePage() {
         ) : (
           <FadeIn>
             <div className="text-center py-16">
-              <p className="text-body-1 text-gray-500">No archived projects yet.</p>
+              <p className="text-body-1 text-gray-400">No archived projects yet.</p>
             </div>
           </FadeIn>
         )}

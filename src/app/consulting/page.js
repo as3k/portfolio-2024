@@ -21,12 +21,12 @@ function OfferCard({ label, price, timeline, description, deliverable, guarantee
       <div className="mb-5">
         <span className="text-microcopy-2-semibold text-zg-teal">{label}</span>
         <p className="text-heading-4-bold text-white mt-1">{price}</p>
-        <p className="text-microcopy-1 text-gray-500 mt-1">{timeline}</p>
+        <p className="text-microcopy-1 text-gray-400 mt-1">{timeline}</p>
       </div>
       <p className="text-body-1 text-gray-400 mb-5 flex-1">{description}</p>
       <div className="space-y-3">
         <div className="bg-zg-dark-0/80 rounded p-3">
-          <span className="text-microcopy-2 text-gray-500 block mb-1">Deliverable</span>
+          <span className="text-microcopy-2 text-gray-400 block mb-1">Deliverable</span>
           <p className="text-microcopy-2 text-gray-300">{deliverable}</p>
         </div>
         {guarantee && (
@@ -36,7 +36,7 @@ function OfferCard({ label, price, timeline, description, deliverable, guarantee
           </div>
         )}
         {convertsTo && (
-          <p className="text-microcopy-2 text-gray-500 text-center pt-1">
+          <p className="text-microcopy-2 text-gray-400 text-center pt-1">
             {"→ Often becomes "}
             <span className="text-zg-teal">{convertsTo}</span>
           </p>
@@ -79,7 +79,7 @@ export default function ConsultingPage() {
       description:
         "I fix the top priorities from the Diagnosis. Design it, build it, ship it to production. Fixed price. No scope creep.",
       deliverable:
-        "Shipped feature or flow. No handoff debt. No translation loss.",
+        "A shipped feature or flow, with the design rationale carried into implementation.",
       guarantee: null,
       convertsTo: "Embedded",
       featured: true,
@@ -89,7 +89,7 @@ export default function ConsultingPage() {
       price: "$6,500/mo",
       timeline: "15 hrs/week · 3-month min",
       description:
-        "I own a product area like a senior hire: design + engineering, full cycle. No $180K overhead, no 6-month ramp, no handoff chain.",
+        "I contribute across a product area as a senior design engineer: design, implementation, and delivery in close collaboration with your team.",
       deliverable:
         "Ongoing product area ownership. Features scoped, built, and shipped.",
       guarantee: null,
@@ -121,9 +121,9 @@ export default function ConsultingPage() {
               I fix that.
             </h1>
             <p className="text-body-2 text-gray-400 mb-8 max-w-2xl">
-              You shipped the MVP. Now features are stuck in branches, the UX is a mess,
-              and you can{"'"}t fix both without hiring two people. I{"'"}m the one person
-              who owns the full fix: research, design, code, deploy. No handoffs.
+              You shipped the MVP. Now features are stuck in branches and key workflows need
+              both product and implementation attention. I help teams investigate the problem,
+              design the experience, and contribute to the production work.
             </p>
             <a
               href="#contact"

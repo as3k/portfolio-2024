@@ -1,22 +1,13 @@
-import Image from 'next/image';
+import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
-import PasswordGate from "@/components/PasswordGate";
 
 export const metadata = {
-  title: "LaunchBook — Branded Booking | Zachary Guerrero",
+  title: "LaunchBook | Zachary Guerrero",
   description:
-    "A mobile-first branded booking platform for solo providers. Flat 1.5%. No account walls. Your brand, your clients, your rules.",
+    "A paused PWA proof of concept for local-business appointment booking, documented for its product and business-model decisions.",
 };
-
-function Tag({ children }) {
-  return (
-    <span className="text-microcopy-1 bg-zg-dark-0 text-gray-300 px-2.5 py-1 rounded">
-      {children}
-    </span>
-  );
-}
 
 export default function LaunchBookProjectPage() {
   const breadcrumbSchema = createBreadcrumbSchema([
@@ -41,12 +32,11 @@ export default function LaunchBookProjectPage() {
           </Link>
         </FadeIn>
 
-        {/* Hero image */}
         <FadeIn delay={0.15}>
           <div className="relative aspect-video rounded-lg overflow-hidden mb-16">
             <Image
-              src="/images/projects/lb-cover.png"
-              alt="LaunchBook"
+              src="/images/projects/lb-cover.webp"
+              alt="LaunchBook booking proof of concept"
               fill
               className="object-cover"
               priority
@@ -57,214 +47,59 @@ export default function LaunchBookProjectPage() {
         <section className="mb-16">
           <FadeIn>
             <span className="inline-block text-microcopy-2-semibold text-gray-400 border border-gray-700 rounded-full px-4 py-1.5 mb-4">
-              SaaS &middot; Stripe-powered &middot; In Development
+              PWA proof of concept &middot; Paused
             </span>
-            <h1 className="text-heading-2-bold md:text-heading-1-bold mb-6">
-              LaunchBook
-            </h1>
+            <h1 className="text-heading-2-bold md:text-heading-1-bold mb-6">LaunchBook</h1>
             <p className="text-body-2 text-gray-400 max-w-2xl mb-4">
-              A branded booking platform for solo providers. One script tag on your website. Your colors, your logo, your domain. No platform branding, no account walls, no marketplace commissions.
+              A booking proof of concept for local business owners to manage products or services, set availability, and share an appointment link with customers.
             </p>
-            <p className="text-body-1 text-gray-500 max-w-2xl">
-              Concept to working booking flow in a weekend. Flat 1.5% per transaction. Auth-hold no-show protection. In active development.
+            <p className="text-body-1 text-gray-400 max-w-2xl">
+              The work is paused. It remains here because the decision to stop was as important as the interaction work that made the booking flow usable.
             </p>
           </FadeIn>
         </section>
 
-        {/* Project info grid */}
-        <FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 mb-8 border-b border-gray-800">
-            <div>
-              <h3 className="text-utility-micro-2-semibold text-gray-500 uppercase tracking-wider mb-2">
-                Client
-              </h3>
-              <p className="text-body-1 text-white">Personal Project</p>
-            </div>
-            <div>
-              <h3 className="text-utility-micro-2-semibold text-gray-500 uppercase tracking-wider mb-2">
-                Role
-              </h3>
-              <p className="text-body-1 text-white">Product Designer, Full-Stack Developer, API Developer</p>
-            </div>
-            <div>
-              <h3 className="text-utility-micro-2-semibold text-gray-500 uppercase tracking-wider mb-2">
-                Technologies
-              </h3>
-              <p className="text-body-1 text-white">Next.js, Stripe Connect, PostgreSQL, TypeScript, Docker</p>
-            </div>
-          </div>
-        </FadeIn>
-
-        <PasswordGate projectId="launchbook">
-          <div className="max-w-3xl mx-auto space-y-16">
-
-            {/* BITE: Solo providers lose 20-30% of revenue to platforms */}
+        <div className="max-w-3xl mx-auto space-y-16">
+          <FadeIn>
             <section>
-              <h2 className="text-heading-3-bold mb-3">Solo providers lose 20 to 30 percent of their revenue to booking platforms.</h2>
-              <p className="text-body-2 text-gray-300 mb-6">
-                Fresha takes up to 20% of new client revenue. Booksy takes 30%. Vagaro pushes per-seat fees. The model works by renting the provider's customers back to them.
-              </p>
-              <p className="text-body-1 text-gray-400 mb-4">
-                I've been building booking and payment systems at Member Splash: Splash Cards, Check-In 2.0. I know how these systems work from the inside. LaunchBook is what booking looks like when the platform disappears and the provider's brand comes first.
-              </p>
-              <p className="text-body-1 text-gray-400 mb-4">
-                On top of the commission, clients hit an account wall. Create a profile on a platform they will never use again. And when they book, they see the platform's branding. The person doing the work becomes invisible.
-              </p>
-              <p className="text-body-1 text-gray-400 mb-4">
-                Most booking tools also assume a desktop workflow. These providers run their business from their phone. Instagram DMs. Google Business messages. Text threads. The booking system should live where they already are.
-              </p>
-              <p className="text-body-1 text-gray-400">
-                Built solo, in parallel with a day job. Platforms take. Providers lose.
-              </p>
-            </section>
-
-            {/* BITE: The provider's brand is the face of the page */}
-            <section>
-              <h2 className="text-heading-4-bold mb-6">The provider's brand is the face of the page</h2>
-              <p className="text-body-1 text-gray-400 mb-6">
-                No "Powered by LaunchBook." No platform logo. No marketplace redirect. The booking page renders the provider's colors, logo, and domain. One script tag on their site. It feels like a natural part of their business because it is.
-              </p>
-
-              <h2 className="text-heading-4-bold mb-6">Three taps. No password. No account wall.</h2>
-              <p className="text-body-1 text-gray-400 mb-6">
-                Client hits the link, picks a time, enters their card. Done. The auth-hold model authorizes at booking and captures after service. Eliminates friction. Protects the provider from no-shows. No chasing payments.
-              </p>
-
-              <h2 className="text-heading-4-bold mb-6">1.5% flat. No commission creep.</h2>
-              <p className="text-body-1 text-gray-400 mb-4">
-                No tiers. No per-seat charges. The 1.5% is a platform fee on top of the provider's standard Stripe processing costs, the same card fees they'd pay anywhere. LaunchBook doesn't take a cut of that. It's infrastructure, not a marketplace.
-              </p>
-              <div className="bg-zg-dark-0 rounded-lg p-4 mb-2">
-                <p className="text-body-1-semibold text-white">A $120 service costs the provider $1.80 in LaunchBook fees. Fresha would take $24.</p>
+              <h2 className="text-heading-4-bold mb-4">What the proof of concept demonstrated</h2>
+              <div className="space-y-4 text-body-1 text-gray-400">
+                <p>
+                  The PWA let a local business owner add products or services, schedule availability, and share a booking link. I tested a complete booking flow from the customer side without payment.
+                </p>
+                <p>
+                  No business owners used the proof of concept, so this is not presented as a validated market or a launched service. It was a working product exploration.
+                </p>
               </div>
             </section>
+          </FadeIn>
 
-            {/* BITE: You send five things. We handle the rest in one afternoon. */}
+          <FadeIn>
             <section className="bg-zg-dark-0 rounded-lg p-6 md:p-8">
-              <h2 className="text-heading-4-bold mb-4">You send five things. I handle the rest in one afternoon.</h2>
-              <p className="text-body-1 text-gray-400 mb-4">
-                Logo. Brand colors. Service menu. No-show policy. Stripe email. That's it. The branded page is built, services imported, payments connected, Google Business Profile synced. The provider never touches a settings page.
-              </p>
-              <p className="text-body-1 text-gray-400">
-                Currently this is manual. Manual onboarding means I validate the value prop before building self-serve, and I talk to every early adopter directly. A self-serve builder is the next major investment.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                <Tag>$600 one-time setup</Tag>
-                <Tag>$19.95/mo early adopter</Tag>
-                <Tag>1.5% per transaction</Tag>
+              <h2 className="text-heading-4-bold mb-4">Why I paused it</h2>
+              <div className="space-y-4 text-body-1 text-gray-400">
+                <p>
+                  Payment was the next major step. The intended model was to operate as a payment provider and take a percentage of each transaction.
+                </p>
+                <p>
+                  Before building that layer, I evaluated the economics, legal scope, and compliance obligations. Competitor pricing made the transaction-fee model unattractive, and the additional complexity was not justified by the revenue potential.
+                </p>
+                <p>
+                  Stopping was a product decision. Continuing because the prototype worked would have meant investing in a business model I no longer believed was viable.
+                </p>
               </div>
             </section>
+          </FadeIn>
 
-            {/* BITE: Stripe Connect. PCI-compliant by architecture. */}
+          <FadeIn>
             <section>
-              <h2 className="text-heading-4-bold mb-6">Stripe Connect. PCI-compliant by architecture.</h2>
-
-              <p className="text-body-1 text-gray-400 mb-4">
-                Every payment runs through Stripe Connect Standard. Funds flow directly to the provider's Stripe account. LaunchBook takes its 1.5% as a platform fee at capture time. No float, no escrow, no manual settlement.
-              </p>
-
-              <p className="text-body-1 text-gray-400 mb-4">
-                PCI compliance is handled entirely by Stripe Elements. No credit card data ever touches the LaunchBook server. The card number goes from the client's browser to Stripe's API. Never seen, stored, or routed by LaunchBook. The booking page is built in React with Stripe Elements embedded in a Next.js app — the provider's brand colors and logo render as CSS over the Stripe payment form.
-              </p>
-
-              <p className="text-body-1 text-gray-400 mb-4">
-                The one-script-tag embed is a React component rendered on Next.js. The provider drops a script into their site (or I host a dedicated subpage). Their brand profile (colors, logo, services) is fetched at render time from PostgreSQL. No iframe. No external redirect. It feels like a native part of their site because the script renders the booking experience inline.
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                <Tag>Stripe Connect Standard</Tag>
-                <Tag>Stripe Elements</Tag>
-                <Tag>PCI DSS compliant</Tag>
-                <Tag>React / Next.js</Tag>
-                <Tag>one-script embed</Tag>
-              </div>
-
-              <h3 className="text-heading-5-semibold text-white mb-3">Payment flow</h3>
-              <ol className="list-decimal pl-5 space-y-2 text-body-1 text-gray-400 mb-4">
-                <li>Client selects a time slot. Unique booking ID generated server-side.</li>
-                <li>Stripe Payment Element renders inline with the provider's brand.</li>
-                <li>Card is authorized but not captured. The hold prevents double-booking the slot.</li>
-                <li>After service, the platform captures the authorized amount and takes the 1.5% fee.</li>
-                <li>Remaining balance settles to the provider's Stripe account automatically.</li>
-                <li>Stripe webhooks push booking status updates back to LaunchBook's frontend in real time.</li>
-              </ol>
-
+              <h2 className="text-heading-4-bold mb-4">What I took from it</h2>
               <p className="text-body-1 text-gray-400">
-                Auth-hold is harder than capture-at-booking. Card expiration, declines on capture, disputes, insufficient funds. All edge cases a simpler design avoids. But auth-hold protects the provider from managing refunds. Harder to build. Better for the person doing the work.
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                <Tag>auth-hold flow</Tag>
-                <Tag>platform fee capture</Tag>
-                <Tag>Stripe webhooks</Tag>
-                <Tag>unique booking IDs</Tag>
-                <Tag>provider settlement</Tag>
-              </div>
-            </section>
-
-            {/* BITE: Mobile-first means phone-first */}
-            <section className="bg-zg-dark-0 rounded-lg p-6 md:p-8">
-              <h2 className="text-heading-4-bold mb-6">Mobile-first means phone-first, not responsive</h2>
-
-              <p className="text-body-1 text-gray-400 mb-4">
-                Most booking tools are desktop apps with mobile responsive layouts. That's backwards for this market. Solo providers run their business from a phone: Instagram DMs, text threads, Google Business messages. The booking flow needs to work in a browser tab at 375px width on a cellular connection.
-              </p>
-
-              <p className="text-body-1 text-gray-400 mb-4">
-                The booking page is designed mobile-first: full-width tap targets, simplified calendar, Stripe Payment Element in a single-column layout. The provider dashboard surfaces what needs attention and nothing else. Auto-reminders fire via SMS and email. Google Calendar syncs in real time.
-              </p>
-
-              <p className="text-body-1 text-gray-400">
-                Branded pages, Stripe Connect, auth-hold payments, auto reminders, and Google sync all work. The design decision that unlocked this: phone-first layout constraints forced simplicity in the booking flow that benefits every device.
-              </p>
-
-              <div className="flex flex-wrap gap-2 mt-3">
-                <Tag>mobile-first UI</Tag>
-                <Tag>SMS reminders</Tag>
-                <Tag>Google Calendar sync</Tag>
-                <Tag>auto-reminders</Tag>
-                <Tag>375px target</Tag>
-              </div>
-            </section>
-
-            {/* BITE: No marketplace means no discoverability. That's the tradeoff. */}
-            <section className="bg-zg-dark-0 rounded-lg p-6 md:p-8">
-              <h2 className="text-heading-4-bold mb-6">No marketplace means no discoverability. That's the tradeoff.</h2>
-
-              <div className="space-y-5">
-                <div>
-                  <p className="text-body-1-semibold text-zg-teal mb-1">You keep your clients, but you need them to start</p>
-                  <p className="text-body-1 text-gray-400">LaunchBook is built for providers with an existing client base. Not cold starts. You keep 100% of the relationship. You just stop paying 20-30% to keep it.</p>
-                </div>
-
-                <div>
-                  <p className="text-body-1-semibold text-zg-teal mb-1">Auth-hold is harder. Better for the provider.</p>
-                  <p className="text-body-1 text-gray-400">Holding a card and charging later means handling expiration, disputes, insufficient funds. The simpler approach would capture at booking and refund on cancellation. But that makes the provider manage refunds. Auth-hold is harder to build. Better for the person doing the work.</p>
-                </div>
-
-                <div>
-                  <p className="text-body-1-semibold text-zg-teal mb-1">Manual onboarding first was the right call. Then it became the bottleneck.</p>
-                  <p className="text-body-1 text-gray-400">Validates the model before building self-serve. Every early adopter gets a direct conversation. The bottleneck is real and it's next on the list.</p>
-                </div>
-              </div>
-            </section>
-
-            {/* BITE: Booking pages work. Self-serve setup is next. */}
-            <section>
-              <h2 className="text-heading-4-bold mb-4">Booking pages work. Self-serve setup is next.</h2>
-
-              <p className="text-body-1 text-gray-400 mb-4">
-                Branded pages. Stripe Connect. Auth-hold payments. Auto reminders. Google sync. All working. What's being wrangled: self-serve setup, admin-to-client messaging for weather cancellations, calendar management, and webhook queue depth under concurrent bookings.
-              </p>
-
-              <p className="text-body-1 text-gray-500">
-                Invisible, fair, and designed for the phone in your pocket.{" "}
-                <Link href="/lets-talk" className="text-zg-teal hover:text-zg-coral transition-colors">Get in touch</Link> to talk architecture or early access.
+                A build can be technically successful and still be the wrong product to pursue. LaunchBook reinforced the value of testing the product, operating model, and compliance implications together before treating implementation progress as a reason to keep going.
               </p>
             </section>
-
-          </div>
-        </PasswordGate>
+          </FadeIn>
+        </div>
       </div>
     </>
   );

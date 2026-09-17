@@ -3,86 +3,58 @@ title: "Cydrion"
 slug: "cydrion"
 client: "Cydrion"
 year: 2024
-featured: true
+featured: false
 order: 5
-excerpt: "Built a complete digital presence and brand identity from scratch for an ISP support company, establishing them as a leader in network operations."
+excerpt: "A static B2B presence, brand system, and signup path for a new ISP-support business."
 category: "B2B Tech"
-tags: ["UX/UI Design", "SEO", "Responsive Design", "Branding", "Iconography"]
-heroImage: "/images/projects/cydrion/Cydrion-Featured-Image.jpg"
+tags: ["Design Engineering", "B2B Brand", "Custom Iconography", "Static Architecture"]
+heroImage: "/images/projects/cydrion/Cydrion-Featured-Image.webp"
 images:
-  - "/images/projects/cydrion/Cydrion01.jpg"
-  - "/images/projects/cydrion/Cydrion02.jpg"
-  - "/images/projects/cydrion/Cydrion03.jpg"
-  - "/images/projects/cydrion/Cydrion04.jpg"
-  - "/images/projects/cydrion/Cydrion05.jpg"
+  - "/images/projects/cydrion/Cydrion01.webp"
+  - "/images/projects/cydrion/Cydrion02.webp"
+  - "/images/projects/cydrion/Cydrion03.webp"
+  - "/images/projects/cydrion/Cydrion04.webp"
+  - "/images/projects/cydrion/Cydrion05.webp"
 metrics:
-  - label: "Accessibility Score"
+  - label: "Lighthouse accessibility"
     value: "92"
     unit: "%"
     type: "percentage"
-  - label: "Page Load Time"
+  - label: "Lighthouse load time"
     value: "0.6"
     unit: "s"
     type: "speed"
-  - label: "Brand Identity"
-    value: "Stealth military aesthetic"
+  - label: "Product path"
+    value: "Stripe billing and service-pipeline signup"
     type: "qualitative"
-  - label: "Security"
-    value: "Zero attack surface"
+  - label: "Architecture"
+    value: "Static site, no CMS"
     type: "qualitative"
 colors:
   primary: "#000000"
   accent: "#00F5FF"
-technologies: ["Next.js", "Figma", "Custom Iconography", "Stripe", "Responsive Design"]
-roles: ["UX/UI Designer", "Brand Designer", "Front-End Developer", "Content Strategist"]
+technologies: ["Next.js", "Figma", "Custom Iconography", "Stripe"]
+roles: ["Product Designer", "Brand Designer", "Front-End Developer", "Content Strategist"]
 seo:
-  metaTitle: "Cydrion - B2B SaaS Brand & UX Design | Zachary Guerrero"
-  metaDescription: "Complete digital presence and brand identity design for an ISP support company, achieving 92% accessibility score and 0.6s load time."
+  metaTitle: "Cydrion - Design Engineering Case Study | Zachary Guerrero"
+  metaDescription: "A fully static Next.js B2B presence, brand system, custom iconography, and signup path for an ISP-support business."
   keywords: ["B2B SaaS design", "brand identity", "ISP", "network operations", "accessible design"]
 ---
 
-## The problem
+## From no presence to a technical B2B front door
 
-**A B2B ISP support company that needed to look established from day one.**
+Cydrion was a new ISP-support business with no existing brand or web presence. It needed a site that could make a technical offer legible, establish a credible visual identity, and give a prospective customer a path from interest to signup.
 
-Cydrion was a natural extension of the High Rapid Networks ecosystem. A network engineer who had been managing ISP infrastructure wanted to scale his expertise to other wireless ISPs. Same industry, different audience: B2B support instead of consumer internet.
+I owned the brand, design, development, content, and custom iconography end to end. The visual system used a dark, technical direction with a cyan accent and an octopus mark inspired by a bundle of Ethernet cables: a way to represent organized systems emerging from infrastructure complexity.
 
-The company was brand new. No logo, no website, no market presence, no precedent. Every decision was a precedent. The audience was other WISP operators. Technical buyers who need to trust you with their network operations. They are skeptical of fluff. They want to know you understand their business.
+## Design for a specialized audience
 
-**The brand was built around a stealth military operation aesthetic.**
+Generic visual language would have made the company feel generic. I created custom icons for the kind of network operations and support work its customers understood, then carried the visual system through the public site and its conversion path.
 
-Black background. Neon cyan accent. Clean, technical, no-nonsense. The visual language says: "We are your behind-the-scenes network engineering team backed by military precision."
+The public site was fully static in Next.js, with no CMS or public administrative layer. Stripe handled billing, and the signup flow connected to the service pipeline. This kept the public marketing surface focused while supporting the product’s operational path.
 
-The logo came from a bundle of Ethernet cables that looked like an octopus. A tangle of cables that become one organized system. That image became the Cydrion octopus. The mascot of a covert network operations team working silently in the background.
+## Measured implementation snapshot
 
-Everything else was designed to reinforce that language. Low-light, high-contrast, terminal-inspired. A company that doesn't need to shout because their work speaks for itself.
+At the time of measurement, Lighthouse reported a 92% accessibility score and a 0.6-second load time. Those are Lighthouse snapshots, not universal guarantees about every device, connection, or future deployment.
 
-## What I did
-
-**Custom icons that prove we understand the domain.**
-
-Network monitoring. Network topologies. Support workflows. These are not concepts you find in big box icon packs. I built a custom icon set that translates technical ISP operations into visual language. Every icon says "we have been inside your operation." Generic icons would have broken the trust we were building.
-
-The octopus reappears throughout the design. As a watermark. As a detail in the hero. As a quiet signal that there is organization underneath the complexity.
-
-**Performance targets were set before a line of code was written.**
-
-92% accessibility score. 0.6 second load time. Every component was built to those thresholds, not optimized afterward. This was one of my first Next.js projects, and the choice of framework was deliberate. Static page generation meant no database queries, no server-side processing, and no attack surface.
-
-The analytics told the story. After launch, we watched attack attempts hit the infrastructure repeatedly. Next.js static pages had nothing to attack. No plugins to exploit. No admin panels to brute force. The same security philosophy as the Art Healing Hearts rebuild: if there's nothing to hack, you don't get hacked.
-
-**Trust signals for a technical audience.**
-
-Partner logos from the ISP ecosystem: Calix, Cisco, Juniper, Proxmox, Splynx. A 99.9% uptime guarantee front and center. A tagline that landed: "Support with Swagger." The military background language spoke directly to the WISP operator audience, because many of them come from the same background.
-
-Stripe was integrated for billing. The signup flow connected directly to their service pipeline. The site was the front door for a complete B2B support operation.
-
-## The result
-
-**The site performed. The business didn't make it for reasons outside the website.**
-
-The people who did sign up through the site worked well. The brand was right. The conversion flow was right. The site held up under attack attempts, loaded instantly, and communicated exactly what Cydrion needed to communicate.
-
-The company went out of business for reasons that had nothing to do with the website. They didn't want to run marketing. They went to a couple of trade shows, signed some customers, but the operation didn't sustain.
-
-The case study is about the design and engineering work. A complete brand identity built from nothing. Custom icons for a domain that has none. A security-first architecture that stopped attacks before they started. An octopus born from a tangle of Ethernet cables. That work stands on its own.
+Cydrion is supporting work, not a flagship case study. Its value here is the combination of brand judgment, a technical buyer’s language, custom domain-specific visuals, and a production signup path built from zero.

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title description">
+  <title id="title">PXC destructive-action safety model</title>
+  <desc id="description">A three-step safety model: verify the target, type the VM ID to confirm, and wait through a cancellable countdown.</desc>
+  <rect width="1200" height="620" fill="#0d1726"/>
+  <text x="72" y="92" fill="#a5b4c7" font-family="Arial, sans-serif" font-size="24" letter-spacing="3">INTERACTION SAFETY MODEL</text>
+  <text x="72" y="150" fill="#f8fafc" font-family="Arial, sans-serif" font-size="46" font-weight="700">Three pause points before destruction</text>
+  <text x="72" y="192" fill="#a5b4c7" font-family="Arial, sans-serif" font-size="25">Designed to prevent a correct command from targeting the wrong infrastructure.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="72" y="282" width="306" height="190" rx="20" fill="#13243a" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="120" cy="334" r="22" fill="#1d4ed8"/>
+    <text x="113" y="342" fill="#fff" font-size="19" font-weight="700">1</text>
+    <text x="156" y="342" fill="#f8fafc" font-size="27" font-weight="700">Verify target</text>
+    <text x="104" y="392" fill="#bae6fd" font-size="21">Show the selected VM or ISO</text>
+    <text x="104" y="422" fill="#bae6fd" font-size="21">before the action is accepted.</text>
+    <rect x="447" y="282" width="306" height="190" rx="20" fill="#103247" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="495" cy="334" r="22" fill="#0369a1"/>
+    <text x="488" y="342" fill="#fff" font-size="19" font-weight="700">2</text>
+    <text x="531" y="342" fill="#f8fafc" font-size="27" font-weight="700">Type to confirm</text>
+    <text x="479" y="392" fill="#bae6fd" font-size="21">Require the VM ID, so intent</text>
+    <text x="479" y="422" fill="#bae6fd" font-size="21">is matched to the target.</text>
+    <rect x="822" y="282" width="306" height="190" rx="20" fill="#173a37" stroke="#2dd4bf" stroke-width="2"/>
+    <circle cx="870" cy="334" r="22" fill="#0f766e"/>
+    <text x="863" y="342" fill="#fff" font-size="19" font-weight="700">3</text>
+    <text x="906" y="342" fill="#f8fafc" font-size="27" font-weight="700">Countdown</text>
+    <text x="854" y="392" fill="#ccfbf1" font-size="21">Make a final pause visible</text>
+    <text x="854" y="422" fill="#ccfbf1" font-size="21">and let the person cancel.</text>
+  </g>
+  <line x1="72" y1="540" x2="1128" y2="540" stroke="#263d58"/>
+  <text x="72" y="580" fill="#94a3b8" font-family="Arial, sans-serif" font-size="19">This is an interaction model, not a claim that every infrastructure failure can be prevented.</text>
+</svg>

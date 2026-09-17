@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title description">
+  <title id="title">Abstract Member Check-In workflow reconstruction</title>
+  <desc id="description">A simplified counter workflow showing omnibox account lookup, arrival selection, guest entry with visible credits, optional credit purchase, and final check-in confirmation.</desc>
+  <rect width="1200" height="720" fill="#0d1726"/>
+  <text x="72" y="92" fill="#a5b4c7" font-family="Arial, sans-serif" font-size="24" letter-spacing="3">ABSTRACT WORKFLOW RECONSTRUCTION</text>
+  <text x="72" y="150" fill="#f8fafc" font-family="Arial, sans-serif" font-size="46" font-weight="700">Member Check-In</text>
+  <text x="72" y="192" fill="#a5b4c7" font-family="Arial, sans-serif" font-size="25">A counter flow designed for peak-season staff and waiting families</text>
+  <g font-family="Arial, sans-serif">
+    <g>
+      <rect x="72" y="292" width="188" height="182" rx="18" fill="#13243a" stroke="#3b82f6" stroke-width="2"/>
+      <text x="98" y="344" fill="#f8fafc" font-size="22" font-weight="700">Find account</text>
+      <text x="98" y="384" fill="#bae6fd" font-size="18">One omnibox for</text>
+      <text x="98" y="410" fill="#bae6fd" font-size="18">name, address,</text>
+      <text x="98" y="436" fill="#bae6fd" font-size="18">or phone</text>
+    </g>
+    <g>
+      <rect x="298" y="292" width="188" height="182" rx="18" fill="#103247" stroke="#38bdf8" stroke-width="2"/>
+      <text x="324" y="344" fill="#f8fafc" font-size="22" font-weight="700">Select arrivals</text>
+      <text x="324" y="384" fill="#bae6fd" font-size="18">Choose each</text>
+      <text x="324" y="410" fill="#bae6fd" font-size="18">member present</text>
+    </g>
+    <g>
+      <rect x="524" y="292" width="188" height="182" rx="18" fill="#103247" stroke="#38bdf8" stroke-width="2"/>
+      <text x="550" y="344" fill="#f8fafc" font-size="22" font-weight="700">Add guests</text>
+      <text x="550" y="384" fill="#bae6fd" font-size="18">Next guest row is</text>
+      <text x="550" y="410" fill="#bae6fd" font-size="18">ready when needed</text>
+    </g>
+    <g>
+      <rect x="750" y="292" width="188" height="182" rx="18" fill="#103247" stroke="#38bdf8" stroke-width="2"/>
+      <text x="776" y="344" fill="#f8fafc" font-size="22" font-weight="700">Check credits</text>
+      <text x="776" y="384" fill="#bae6fd" font-size="18">Available and used</text>
+      <text x="776" y="410" fill="#bae6fd" font-size="18">are visible together</text>
+    </g>
+    <g>
+      <rect x="976" y="292" width="152" height="182" rx="18" fill="#173a37" stroke="#2dd4bf" stroke-width="2"/>
+      <text x="1002" y="344" fill="#f8fafc" font-size="22" font-weight="700">Confirm</text>
+      <text x="1002" y="384" fill="#ccfbf1" font-size="18">Check in</text>
+      <text x="1002" y="410" fill="#ccfbf1" font-size="18">the group</text>
+    </g>
+    <g stroke="#38bdf8" stroke-width="4" stroke-linecap="round" fill="none">
+      <path d="M260 383h24"/><path d="M486 383h24"/><path d="M712 383h24"/><path d="M938 383h18"/>
+    </g>
+    <g fill="#38bdf8">
+      <path d="M279 374l12 9-12 9z"/><path d="M505 374l12 9-12 9z"/><path d="M731 374l12 9-12 9z"/><path d="M951 374l12 9-12 9z"/>
+    </g>
+  </g>
+  <rect x="750" y="512" width="378" height="86" rx="14" fill="#172b3f" stroke="#475569"/>
+  <text x="778" y="548" fill="#f8fafc" font-family="Arial, sans-serif" font-size="20" font-weight="700">If credits are short</text>
+  <text x="778" y="578" fill="#a5b4c7" font-family="Arial, sans-serif" font-size="18">Purchase by bill-to-account or credit card in the same flow.</text>
+  <line x1="72" y1="640" x2="1128" y2="640" stroke="#263d58"/>
+  <text x="72" y="680" fill="#94a3b8" font-family="Arial, sans-serif" font-size="19">Abstract reconstruction based on the shipped interaction model. It is not a production screen.</text>
+</svg>

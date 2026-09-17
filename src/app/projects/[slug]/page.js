@@ -1,20 +1,23 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import CaseStudyNavigation from '@/components/CaseStudyNavigation';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
 import JsonLd, { createBreadcrumbSchema, createCaseStudySchema } from '@/components/JsonLd';
 import MDXComponents from '@/components/MDXComponents';
 import { ProjectBackLink, ProjectCTAButtons, ProjectNavLink } from '@/components/ProjectNavigation';
-import { getAllWork, getWorkBySlug, getWorkSlugs } from '@/lib/content';
+import { getAllWork, getPublicWorkBySlug } from '@/lib/content';
+
+// Prevent unlisted draft and archived MDX files from being generated on demand.
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const slugs = getWorkSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return getAllWork().map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const work = getWorkBySlug(slug);
+  const work = getPublicWorkBySlug(slug);
 
   if (!work) {
     return { title: 'Not Found' };
@@ -34,7 +37,6 @@ export async function generateMetadata({ params }) {
       siteName: 'Zachary Guerrero',
       locale: 'en_US',
       type: 'article',
-      publishedTime: `${work.meta.year}-01-01T00:00:00.000Z`,
       authors: ['Zachary Guerrero'],
     },
     twitter: {
@@ -59,7 +61,7 @@ function MetricCard({ metric }) {
 
 export default async function WorkDetailPage({ params }) {
   const { slug } = await params;
-  const work = getWorkBySlug(slug);
+  const work = getPublicWorkBySlug(slug);
 
   if (!work) {
     notFound();
@@ -119,8 +121,10 @@ export default async function WorkDetailPage({ params }) {
             src={meta.heroImage}
             alt={meta.title}
             fill
+            loading="eager"
+            fetchPriority="high"
+            sizes="100vw"
             className="object-cover group-hover:scale-105 transition-transform duration-700"
-            priority
           />
         </div>
       </FadeIn>
@@ -165,7 +169,7 @@ export default async function WorkDetailPage({ params }) {
 
       {/* MDX Content */}
       <FadeIn delay={0.5}>
-        <article className="max-w-3xl mx-auto px-4 sm:px-0
+        <article className="max-w-3xl mx-auto px-4 sm:px-0 scroll-smooth
           prose prose-invert
           prose-headings:font-semibold prose-headings:text-white
           prose-h2:text-2xl prose-h2:lg:text-3xl prose-h2:mt-10 prose-h2:mb-4
@@ -181,6 +185,7 @@ export default async function WorkDetailPage({ params }) {
           prose-pre:bg-zg-dark-0 prose-pre:rounded-lg prose-pre:p-4 prose-pre:mb-5
           prose-hr:border-gray-700 prose-hr:my-10
         ">
+          <CaseStudyNavigation sections={meta.sectionNav} />
           <MDXRemote source={content} components={MDXComponents} />
         </article>
       </FadeIn>
@@ -198,6 +203,7 @@ export default async function WorkDetailPage({ params }) {
                       src={image}
                       alt={`${meta.title} screenshot`}
                       fill
+                      sizes="(max-width: 767px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
@@ -221,6 +227,7 @@ export default async function WorkDetailPage({ params }) {
                     src={meta.beforeImage}
                     alt={`${meta.title} - Before`}
                     fill
+                    sizes="(max-width: 767px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -232,6 +239,7 @@ export default async function WorkDetailPage({ params }) {
                     src={meta.heroImage}
                     alt={`${meta.title} - After`}
                     fill
+                    sizes="(max-width: 767px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -264,7 +272,7 @@ export default async function WorkDetailPage({ params }) {
                 fromProject={slug}
                 toProject={prevProject.slug}
               >
-                <span className="text-microcopy-2 text-gray-500 block mb-1">Previous Project</span>
+                <span className="text-microcopy-2 text-gray-400 block mb-1">Previous Project</span>
                 <span className="text-body-1-semibold text-white group-hover:text-zg-teal transition-colors">
                   {prevProject.meta.title}
                 </span>
@@ -279,7 +287,7 @@ export default async function WorkDetailPage({ params }) {
                 fromProject={slug}
                 toProject={nextProject.slug}
               >
-                <span className="text-microcopy-2 text-gray-500 block mb-1">Next Project</span>
+                <span className="text-microcopy-2 text-gray-400 block mb-1">Next Project</span>
                 <span className="text-body-1-semibold text-white group-hover:text-zg-teal transition-colors">
                   {nextProject.meta.title}
                 </span>

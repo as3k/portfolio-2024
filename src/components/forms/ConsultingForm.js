@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { trackContactFormSubmit } from "@/lib/umami"
 
-const Input = ({ label, type = "text", id, value, onChange, disabled, placeholder }) => {
+const Input = ({ label, type = "text", id, value, onChange, disabled, placeholder, ...inputProps }) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
     <div className="form-control flex flex-col gap-1">
@@ -13,13 +13,14 @@ const Input = ({ label, type = "text", id, value, onChange, disabled, placeholde
         className="rounded-md px-4 py-2 text-body-1 focus:ring-2 focus:ring-zg-teal bg-zg-dark-1/50 border-none text-gray-200 transition-all duration-200 focus:bg-zg-dark-1/80 disabled:opacity-50 disabled:cursor-not-allowed"
         type={type} id={id} name={id} value={value} onChange={onChange} disabled={disabled}
         placeholder={placeholder}
+        {...inputProps}
         onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)}
       />
     </div>
   );
 };
 
-const Textarea = ({ label, id, value, onChange, disabled, placeholder }) => {
+const Textarea = ({ label, id, value, onChange, disabled, placeholder, ...inputProps }) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
     <div className="form-control flex flex-col gap-1">
@@ -30,6 +31,7 @@ const Textarea = ({ label, id, value, onChange, disabled, placeholder }) => {
         className="rounded-md px-4 py-2 text-body-1 bg-zg-dark-1/50 text-gray-200 focus:ring-2 focus:ring-zg-teal border-none transition-all duration-200 focus:bg-zg-dark-1/80 disabled:opacity-50 disabled:cursor-not-allowed min-h-[120px]"
         id={id} name={id} value={value} onChange={onChange} disabled={disabled}
         placeholder={placeholder}
+        {...inputProps}
         onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)}
       />
     </div>
@@ -116,7 +118,7 @@ const TIMELINES = [
 
 export default function ConsultingForm() {
   const [formData, setFormData] = useState({
-    name: '', email: '', companyUrl: '', teamSize: '', stalling: '', offerInterest: '', timeline: '',
+    name: '', email: '', companyUrl: '', teamSize: '', stalling: '', offerInterest: '', timeline: '', website: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -136,7 +138,7 @@ export default function ConsultingForm() {
       const result = await response.json();
       if (result.success) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', companyUrl: '', teamSize: '', stalling: '', offerInterest: '', timeline: '' });
+        setFormData({ name: '', email: '', companyUrl: '', teamSize: '', stalling: '', offerInterest: '', timeline: '', website: '' });
         trackContactFormSubmit('consulting', 'success');
       } else {
         setSubmitStatus('error');
@@ -152,13 +154,17 @@ export default function ConsultingForm() {
 
   return (
     <form className="flex flex-col gap-5 p-6 bg-zg-dark-0 rounded-md" onSubmit={handleSubmit}>
+      <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="grid sm:grid-cols-2 gap-4">
-        <Input label="Name" id="name" value={formData.name} onChange={handleChange} disabled={isSubmitting} />
-        <Input label="Email" type="email" id="email" value={formData.email} onChange={handleChange} disabled={isSubmitting} />
+        <Input label="Name" id="name" value={formData.name} onChange={handleChange} disabled={isSubmitting} autoComplete="name" maxLength={120} required />
+        <Input label="Email" type="email" id="email" value={formData.email} onChange={handleChange} disabled={isSubmitting} autoComplete="email" maxLength={254} required />
       </div>
       <Input label="Company / product URL" type="url" id="companyUrl" value={formData.companyUrl} onChange={handleChange} disabled={isSubmitting} placeholder="https://" />
       <Select label="Team size" id="teamSize" value={formData.teamSize} onChange={handleChange} disabled={isSubmitting} options={TEAM_SIZES} />
-      <Textarea label="What's stalling?" id="stalling" value={formData.stalling} onChange={handleChange} disabled={isSubmitting} placeholder="What's the thing you can't seem to ship?" />
+      <Textarea label="What's stalling?" id="stalling" value={formData.stalling} onChange={handleChange} disabled={isSubmitting} placeholder="What's the thing you can't seem to ship?" maxLength={5000} required />
       <RadioGroup label="Which offer interests you?" id="offerInterest" value={formData.offerInterest} onChange={handleChange} disabled={isSubmitting} options={OFFER_OPTIONS} />
       <Select label="Timeline" id="timeline" value={formData.timeline} onChange={handleChange} disabled={isSubmitting} options={TIMELINES} />
       <div className="flex flex-col gap-3">
