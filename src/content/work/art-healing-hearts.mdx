@@ -3,80 +3,57 @@ title: "Art Healing Hearts"
 slug: "art-healing-hearts"
 client: "Art Healing Hearts"
 year: 2024
-featured: true
-order: 3
-excerpt: "Emergency redesign and rebuild for a nonprofit's website in under a week to support their television feature and streamline donations."
+featured: false
+order: 6
+excerpt: "A six-day nonprofit site rescue that restored a safe donation path before a Las Vegas television appearance."
 category: "Nonprofit"
-tags: ["UX/UI Design", "Single-Page Website", "Figma", "Next.js", "Vercel", "User Flows", "Website Optimization"]
-heroImage: "/images/projects/art-healing-hearts/art-healing-hearts-featured-image.jpg"
+tags: ["Design Engineering", "Next.js", "Vercel", "Stripe", "Launch Recovery"]
+heroImage: "/images/projects/art-healing-hearts/art-healing-hearts-featured-image.webp"
 images:
-  - "/images/projects/art-healing-hearts/art-healing-hearts-01.jpg"
-  - "/images/projects/art-healing-hearts/art-healing-hearts-02.jpg"
-  - "/images/projects/art-healing-hearts/art-healing-hearts-03.jpg"
+  - "/images/projects/art-healing-hearts/art-healing-hearts-01.webp"
+  - "/images/projects/art-healing-hearts/art-healing-hearts-02.webp"
+  - "/images/projects/art-healing-hearts/art-healing-hearts-03.webp"
 metrics:
-  - label: "Donors on Launch Day"
-    value: "10"
-    type: "count"
-  - label: "Traffic Reaches Donation Form"
-    value: "30"
-    unit: "%"
-    type: "percentage"
-  - label: "Donation Conversion"
-    value: "5"
-    unit: "%"
-    type: "percentage"
-  - label: "Site Vulnerabilities"
-    value: "Zero"
+  - label: "Delivery window"
+    value: "6 days"
+    type: "qualitative"
+  - label: "Donation readiness"
+    value: "Stripe test payments passed"
+    type: "qualitative"
+  - label: "Launch outcome"
+    value: "Donation spike during TV appearance"
     type: "qualitative"
 colors:
   primary: "#FFFFFF"
   accent: "linear-gradient(purple-pink-orange)"
 technologies: ["Next.js", "Vercel", "Stripe", "Figma"]
-roles: ["UX/UI Designer", "Front-End Developer", "Brand Designer"]
+roles: ["Product Designer", "Front-End Developer", "Launch Owner"]
 seo:
-  metaTitle: "Art Healing Hearts - UX Case Study | Zachary Guerrero"
-  metaDescription: "Emergency nonprofit website redesign in under a week. 10 donations on launch day, 5% conversion rate, zero security vulnerabilities."
-  keywords: ["nonprofit web design", "Next.js", "UX design", "donation optimization", "emergency redesign"]
+  metaTitle: "Art Healing Hearts - Design Engineering Case Study | Zachary Guerrero"
+  metaDescription: "A six-day nonprofit website rescue: rebuild, domain migration, Google remediation, and a tested Stripe donation flow before a television appearance."
+  keywords: ["nonprofit web design", "Next.js", "Stripe donations", "website migration", "launch recovery"]
 ---
 
-## The problem
+## A public launch with six days to recover
 
-**A nonprofit's website was hacked six days before their television feature.**
+Art Healing Hearts had a WordPress site compromised shortly before a scheduled appearance on *The Morning Blend* in Las Vegas. The appearance would send people to the organization’s website, and that site needed to accept donations before the segment aired.
 
-Art Healing Hearts helps people heal through artistic expression. Shelters, convalescent homes, youth centers. The founder, Lu Monteleone, is an old friend. She brings an incredible amount of joy and warmth to the work she does.
+The job was not a broad redesign exercise. In six days, I needed to replace the site, move the public URL away from the old server, forward existing paths, make the donation flow work, and clear the Google spam warning visible on the homepage.
 
-The existing website had been online for years. Wordpress, plugins, the usual stack. Less than a week before a live TV feature in Las Vegas, the site was attacked. Hacked, defaced, completely unusable. The TV spot was going to drive a wave of traffic directly to the website. If the site was down, the donations wouldn't come.
+## The launch constraint shaped the product
 
-**One week to design, build, and launch a secure donation site from scratch.**
+The replacement focused on the information a visitor arriving from television needed: what Art Healing Hearts does and how to donate. I designed and built a focused, single-page experience with the organization’s real imagery and a direct donation path.
 
-No time for a full redesign cycle. No time for multiple rounds of review. The TV feature was happening on a fixed date, and the site needed to be accepting donations before that camera started rolling.
+I built the replacement in Next.js and hosted it on Vercel. Stripe handled donations. There was no CMS or public administrative layer, which removed the CMS and plugin dependency layer from the old WordPress setup. That reduced the externally exposed application surface; it was not a claim that the new site was immune to compromise.
 
-The old site was gone. Whatever came next had to be built fast, work perfectly, and stay secure. No plugins to exploit. No vulnerable dependencies. A clean slate.
+## Migration, remediation, and testing
 
-## What I did
+I personally handled the replacement build, URL migration, forwarding, launch testing, and Google remediation. The homepage warning was removed before launch. Some legacy malicious URLs remained indexed, but they did not affect the replacement site or its public donation path.
 
-**A single-page design stripped down to what mattered: mission and donate.**
+The Stripe donation flow passed test payments before the television appearance. That made the launch condition concrete: people arriving from the segment could complete a donation rather than encounter an unavailable or untrusted site.
 
-White background with a warm purple-pink-orange gradient accent. Bright, hopeful, welcoming. Real photos of people creating art, not stock photography. The site needed to capture Lu's personality and the emotional impact of the work. Every element was either communicating the mission or guiding toward the donation form.
+## Outcome
 
-Single-page layout optimized for the TV audience. Someone sees the feature on TV, opens the site on their phone, and has a clear path to donate in under 30 seconds. No navigation, no sidebar, no distractions. The page scrolled through the mission, the impact areas, and the stories, then landed on a bold, colorful donation button.
+Stripe data showed a substantial donation spike around the television appearance. Afterward, donations settled to roughly one or two small gifts per month, with no continued promotional campaign behind the site.
 
-**Next.js on Vercel. Stripe for payments. Zero attack surface.**
-
-The old site was hacked through vulnerable plugins. The new site had zero plugins. No database to inject. No admin panel to brute force. Static generation with a Stripe integration. The site was a fixed set of pages served from a CDN. There was nothing to hack.
-
-Scroll-depth tracking showed the flow was working. 30% of visitors reached the donation form. 5% completed a donation. For a single-page site built in a week, those numbers told us the structure was right.
-
-**The design was mine. The site has since moved on.**
-
-This project was built for a specific moment. The TV feature launched, the donations came in, and the site did its job. For personal reasons, the website is no longer mine to maintain. But the design, the architecture, and the work I did that week belong to this portfolio.
-
-## The result
-
-**10 donations on launch day. Zero vulnerabilities ever.**
-
-The TV spot aired. The site stayed up. 10 people donated on launch day. 5% of everyone who landed on the site completed a donation. The attack surface was zero. Nothing to hack, nothing to exploit.
-
-Loading was instant. Stripe handled payments securely. The site worked on every device because the single-page format was designed for mobile-first traffic from a TV call-to-action.
-
-It was one week of work for a friend who needed help, and the site delivered exactly what it needed to deliver at the exact moment it mattered most.
+This is a smaller project, but it is a good example of design engineering under a fixed deadline: focus the visitor journey, build the experience, move the production domain safely, validate the payment path, and resolve the issue that could keep people from reaching it.

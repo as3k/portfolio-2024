@@ -5,7 +5,7 @@ import JsonLd, { createBreadcrumbSchema, createHowToSchema } from "@/components/
 export const metadata = {
   title: "From Concept to Production | Zachary Guerrero",
   description:
-    "Seven stages. One person. Full cycle. How I own features from research through deployment with AI amplification at every step.",
+    "How Zachary Guerrero connects research, interaction design, implementation, and iteration as a Design Engineer.",
 };
 
 function ProcessStep({ number, title, claim, body, ships, isAmplified }) {
@@ -16,11 +16,6 @@ function ProcessStep({ number, title, claim, body, ships, isAmplified }) {
           {number}
         </span>
         <h2 className="text-heading-3-bold text-white">{title}</h2>
-        {isAmplified && (
-          <span className="inline-flex items-center gap-1 text-microcopy-2 text-zg-teal bg-zg-teal/10 px-2 py-0.5 rounded-full">
-            AI-amplified
-          </span>
-        )}
       </div>
 
       {/* Snack: one bold claim */}
@@ -35,7 +30,7 @@ function ProcessStep({ number, title, claim, body, ships, isAmplified }) {
 
       {/* Snack: deliverables */}
       <div className="flex flex-wrap gap-2">
-        <span className="text-microcopy-2 text-gray-500 mr-1">Ships:</span>
+        <span className="text-microcopy-2 text-gray-400 mr-1">Ships:</span>
         {ships.map((item) => (
           <span
             key={item}
@@ -65,32 +60,32 @@ const processSteps = [
   {
     number: "01",
     title: "Understand & Research",
-    claim: "I do the research myself. No handoff to a separate researcher.",
-    body: "User interviews, competitive analysis, analytics review, current-state audit. I go straight to the source. AI helps me synthesize sessions, spot patterns across datasets, and flag assumptions I might have missed. But I ask the questions. I watch the recordings. I decide what matters.",
+    claim: "Start with the people, workflow, and constraints closest to the problem.",
+    body: "The evidence depends on the work: user interviews, support insight, operational feedback, competitive research, analytics, or a current-state audit. I make the assumptions visible before design decisions harden.",
     ships: ["Problem statement", "User pain points mapped", "Constraints documented"],
     isAmplified: false,
   },
   {
     number: "02",
     title: "Define & Strategize",
-    claim: "I scope the feature. I set the principles. No PM gatekeeper.",
-    body: "Journey maps, prioritization, success metrics, design principles. I define what we are solving and why before anyone touches a design tool. AI helps me generate journey alternatives, stress-test assumptions against edge cases I might not have considered, and document decisions as I go.",
+    claim: "Turn evidence into a clear problem, a workable scope, and success criteria.",
+    body: "I use journey maps, prioritization, design principles, and technical investigation to define what the feature needs to do. Product, support, engineering, and stakeholders add context that changes the decision.",
     ships: ["User journey maps", "Design principles", "Success metrics"],
     isAmplified: false,
   },
   {
     number: "03",
     title: "Ideate & Prototype",
-    claim: "Human-led exploration. AI-accelerated iteration.",
-    body: "I sketch in Figma first. Low-fi wireframes, flow diagrams, rough layouts. The thinking is mine — the information architecture, the decision hierarchy, the sequencing. Once the structure is right, AI helps me generate visual alternatives, fill in component variations, and spin up clickable prototypes faster so I can test sooner.",
+    claim: "Explore the interaction before committing to the implementation.",
+    body: "I use wireframes, flow diagrams, prototypes, and implementation sketches to test hierarchy, states, and sequencing. Knowing the code changes what is worth exploring and what is likely to break at the edges.",
     ships: ["Wireframes (multiple directions)", "Clickable prototype", "Edge cases identified"],
     isAmplified: false,
   },
   {
     number: "04",
     title: "Test & Iterate",
-    claim: "I watch every session. I decide what to fix.",
-    body: "Usability tests, stakeholder walkthroughs, pattern analysis. If one person struggles, I note it. If three struggle, I redesign it. AI helps me pull themes across test sessions, compile findings faster, and track which patterns keep appearing across projects so I don't solve the same problem twice.",
+    claim: "Validate the riskiest assumptions before and after launch.",
+    body: "I use usability tests, stakeholder walkthroughs, operational feedback, and production signals to understand what changed. The goal is not a ceremony. It is to learn enough to make the next decision better.",
     ships: ["Test findings with recommendations", "Updated prototype", "Confidence to build"],
     isAmplified: false,
   },
@@ -100,24 +95,24 @@ const amplifiedSteps = [
   {
     number: "05",
     title: "Build",
-    claim: "Foundation is locked. AI flips the switch on execution.",
-    body: "I direct agents to generate code, write tests, scaffold components. They execute under my feedback and review. Every pull request runs through AI-assisted review alongside my eyes. I catch issues before they hit production. The result: what takes most teams two weeks ships in two days, without cutting corners on judgment.",
+    claim: "Build with the interaction, edge cases, and maintenance path in view.",
+    body: "I contribute to production interfaces, component architecture, integrations, and tests. AI can help with repetitive work, but implementation still needs careful review and collaboration with the people responsible for the system.",
     ships: ["Production code", "Tests", "Documentation"],
     isAmplified: true,
   },
   {
     number: "06",
     title: "Deploy",
-    claim: "I handle the pipeline. Code doesn't ship until I ship it.",
-    body: "Docker images, CI/CD pipelines, DNS, SSL, environment configs, monitoring. I build the deployment infrastructure alongside the feature so there is no 'throw it over the wall to DevOps.' If something breaks at 2am, I know the stack well enough to fix it without escalating.",
+    claim: "Make delivery part of the feature, not an afterthought.",
+    body: "Deployment, environment configuration, monitoring, documentation, and rollback planning affect whether a feature is actually usable. I work with the relevant owners to make those paths clear before launch.",
     ships: ["Deployed feature", "Monitoring in place", "Rollback plan"],
     isAmplified: true,
   },
   {
     number: "07",
     title: "Measure & Optimize",
-    claim: "Did it move the needle? I track it. I iterate it.",
-    body: "Post-launch metrics, user feedback, session replays, support ticket analysis. I don't launch and walk away. I watch how people actually use what I built, identify new friction points, and prioritize the next iteration. AI helps me surface anomalies across datasets and flag regression patterns early.",
+    claim: "Use what happened after launch to guide the next iteration.",
+    body: "I look at the evidence available: product metrics, support feedback, operational results, and direct observation. Then I document what worked, what remains uncertain, and what the team should improve next.",
     ships: ["Post-launch analysis", "Iteration backlog", "Learnings documented"],
     isAmplified: true,
   },
@@ -125,24 +120,24 @@ const amplifiedSteps = [
 
 const differentiators = [
   {
-    title: "One person, full cycle.",
+    title: "Context stays connected.",
     description:
-      "From research to deploy. No handoff tax, no translation loss. The person who designs it builds it. The person who builds it ships it.",
+      "I stay close to the work from research through implementation, so the product rationale remains available when technical tradeoffs appear.",
   },
   {
-    title: "Human direction, AI amplification.",
+    title: "Judgment before automation.",
     description:
-      "I do the thinking. I set the strategy. AI accelerates the execution under my feedback. That means I ship what takes most teams two weeks in two days, without sacrificing judgment.",
+      "AI can reduce repetitive work. It does not replace user understanding, technical review, or cross-functional decision-making.",
   },
   {
-    title: "No PM buffer, no handoff chain.",
+    title: "Collaboration across disciplines.",
     description:
-      "I scope features, prioritize decisions, and manage tradeoffs directly with stakeholders. The person you talk to is the person building it. One conversation replaces a chain of meetings.",
+      "I work directly with product, engineering, support, operations, and stakeholders to surface the information that shapes the feature.",
   },
   {
     title: "Design with reality, not theory.",
     description:
-      "I design in the stack. I prototype in production-grade tools. Every decision is made knowing how it will be built, deployed, and maintained. No surprises at implementation time.",
+      "I design with real implementation constraints in mind. Prototypes, code, and system knowledge help expose risk before the work becomes expensive to change.",
   },
 ];
 
@@ -150,7 +145,7 @@ const tools = [
   { category: "Design", items: "Figma, Pen & Paper" },
   { category: "Build", items: "Next.js, React, Vue, Python, PHP, Node.js" },
   { category: "Ship", items: "Docker, Vercel, Cloudflare, CI/CD, AWS" },
-  { category: "Amplify", items: "Claude Code, Pi, Hermes, Codex" },
+  { category: "Workflow support", items: "AI-assisted research synthesis, code review, and documentation" },
   { category: "Test", items: "Production monitoring, Umami, session replay" },
   { category: "Manage", items: "Obsidian, Linear, GitHub, n8n" },
 ];
@@ -162,7 +157,7 @@ const expectations = [
   },
   {
     claim: "I show work early and often.",
-    body: "First in Figma, then in a live staging environment. I don't disappear for two weeks. You see progress in real time.",
+    body: "First in Figma, then in a live staging environment when the work calls for it. You see the reasoning and progress as the work develops.",
   },
   {
     claim: "I push back when it hurts the user or the architecture.",
@@ -170,7 +165,7 @@ const expectations = [
   },
   {
     claim: "I ship the full pipeline.",
-    body: "Design, code, deploy, monitor. I don't hand off and disappear. I see features through to production and measure their impact. That is the full cycle.",
+    body: "Design, code, deploy, and monitor. I stay involved through production so the product rationale remains available when implementation tradeoffs appear.",
   },
 ];
 
@@ -199,20 +194,20 @@ export default function ProcessPage() {
             From Concept to Production
           </h1>
           <p className="text-heading-5 text-zg-teal mb-6">
-            Seven stages. One person. Full cycle.
+            A flexible path from discovery to iteration.
           </p>
           {/* Snack */}
           <p className="text-body-2 text-gray-300 mb-4">
-            I am the researcher, the definer, the designer, the builder, the QA tester, the shipper. Every role in this pipeline is me. I work with teams, but I don't depend on them to cross the finish line.
+            The sequence is not rigid, but the connection matters: understand the problem, shape the interaction, build with real constraints in view, then learn from what ships.
           </p>
           {/* Meal */}
-          <p className="text-body-1 text-gray-500">
-            AI agents amplify every stage under my direction. Research synthesis, prototype iteration, code generation, deployment orchestration, monitoring. They accelerate the execution. I own the decisions. The thinking is human. The output is amplified.
+          <p className="text-body-1 text-gray-400">
+            I work across product, design, engineering, support, and operations. My contribution is keeping the context visible as the feature moves between those conversations.
           </p>
         </header>
       </FadeIn>
 
-      {/* Process Steps --- Human-led (01-04) */}
+      {/* Process Steps --- Discovery and interaction (01-04) */}
       <FadeIn delay={0.1}>
         <div className="mb-12">
           {processSteps.map((step) => (
@@ -221,32 +216,32 @@ export default function ProcessPage() {
         </div>
       </FadeIn>
 
-      {/* AI Amplifier Callout --- Bite-level visual breakpoint */}
+      {/* Delivery context */}
       <FadeIn delay={0.15}>
         <section className="mb-12 p-8 md:p-10 bg-gradient-to-br from-zg-teal/10 to-zg-dark-0 rounded-lg border border-zg-teal/20">
           {/* Bite */}
           <h2 className="text-heading-3-bold text-white mb-3">
-            At this point, the process changes.
+            Design work changes shape when it meets implementation.
           </h2>
           {/* Snack */}
           <p className="text-body-1-semibold text-zg-teal mb-4">
-            Human direction shifts to AI-amplified execution.
+            The product decision becomes a delivery decision.
           </p>
           {/* Meal */}
           <p className="text-body-1 text-gray-400 mb-6 max-w-3xl">
-            Steps 1 through 4 are where the thinking happens. Research, strategy, design, testing. I own every decision. No AI shortcuts on judgment. Step 5 is where AI flips the switch. The foundation is locked, the direction is clear. Now I direct agents to build, iterate, and ship at a velocity most teams cannot match.
+            Research and interaction design create a direction. Implementation tests that direction against state, APIs, performance, accessibility, operations, and maintenance. Staying involved across both surfaces makes tradeoffs easier to see and discuss.
           </p>
           {/* Bite-level visual: two columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-zg-dark-0 rounded-lg p-4 border border-gray-700/50">
-              <span className="text-microcopy-1 text-gray-400">Human-led</span>
+              <span className="text-microcopy-1 text-gray-400">Problem and interaction</span>
               <div className="flex items-center gap-2 text-body-1 text-white">
                 <span className="text-zg-teal">01&ndash;04</span>
                 <span>Research &rarr; Define &rarr; Ideate &rarr; Test</span>
               </div>
             </div>
             <div className="bg-zg-dark-0 rounded-lg p-4 border border-zg-teal/20">
-              <span className="text-microcopy-1 text-zg-teal">AI-amplified</span>
+              <span className="text-microcopy-1 text-zg-teal">Implementation and delivery</span>
               <div className="flex items-center gap-2 text-body-1 text-white">
                 <span className="text-zg-teal">05&ndash;07</span>
                 <span>Build &rarr; Deploy &rarr; Measure</span>
@@ -256,7 +251,7 @@ export default function ProcessPage() {
         </section>
       </FadeIn>
 
-      {/* Process Steps --- AI-amplified (05-07) */}
+      {/* Process Steps --- Delivery (05-07) */}
       <FadeIn delay={0.2}>
         <div className="mb-16">
           {amplifiedSteps.map((step) => (
@@ -265,10 +260,10 @@ export default function ProcessPage() {
         </div>
       </FadeIn>
 
-      {/* The Product Engineer Difference */}
+      {/* Design engineering in practice */}
       <FadeIn delay={0.25}>
         <section className="mb-16">
-          <h2 className="text-heading-3-bold mb-8">The Product Engineer Difference</h2>
+          <h2 className="text-heading-3-bold mb-8">Design Engineering in Practice</h2>
           <div className="space-y-4">
             {differentiators.map((item) => (
               <DifferentiatorCard

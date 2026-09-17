@@ -15,9 +15,9 @@ function PostCard({ post }) {
       <Link href={`/blog/${slug}`} className="block">
         <div className="bg-zg-dark-0 rounded-lg p-6 border border-transparent hover:border-zg-teal/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-zg-teal/5">
           <div className="flex items-center gap-3 mb-3">
-            <time className="text-microcopy-2 text-gray-500">{meta.date}</time>
+            <time className="text-microcopy-2 text-gray-400">{meta.date}</time>
             <span className="text-gray-700">·</span>
-            <span className="text-microcopy-2 text-gray-500">{meta.readingTime}</span>
+            <span className="text-microcopy-2 text-gray-400">{meta.readingTime}</span>
           </div>
           <h2 className="text-heading-5-semibold text-white mb-2 group-hover:text-zg-teal transition-colors duration-300">
             {meta.title}
@@ -100,7 +100,7 @@ export default function BlogPage() {
                 <p className="text-body-1 text-gray-400 mb-2">
                   I'm building this section the same way I build products—testing the idea first.
                 </p>
-                <p className="text-body-2 text-gray-500">
+                <p className="text-body-2 text-gray-400">
                   (Translation: I'm working on it. Check back soon.)
                 </p>
               </div>

@@ -24,11 +24,11 @@ The traditional design-to-development pipeline has four failure points:
 3. **Feedback loops** — review → revise → rebuild cycles that eat sprints
 4. **Context loss** — the *why* behind a design decision gets lost somewhere between handoff and implementation
 
-I've experienced all of them. And the fix isn't better specs or more meetings. It's removing the handoff entirely.
+I've experienced all of them. Better specs and better conversations help, but so does keeping the product rationale close to implementation when the role and team structure make that possible.
 
 ## What Changes When You Build What You Design
 
-When I design a component in Figma and reach for the code editor without a handoff conversation, a few things happen differently.
+When I design a component in Figma and then contribute to its implementation, a few things happen differently.
 
 **I catch impossible states before they ship.** There's a unique awareness that comes from knowing both how something *looks* and how it *works*. When I'm designing a form, I'm already thinking about the loading state, the error state, the empty state, the success animation — not as separate specs, but as code I'm about to write.
 
@@ -40,7 +40,7 @@ When I design a component in Figma and reach for the code editor without a hando
 
 On my last project (a B2B SaaS platform for ISP support), I designed and built the site from scratch. The hero section had a specific animation I wanted — subtle, performant, responsive.
 
-In a traditional handoff, I would have spec'd it in Figma with notes about timing and easing curves, and hoped the developer got it right. Instead, I built it in React during the same session I designed it. The animation matched exactly what I visualized because *I wrote both the design spec and the implementation*.
+In a traditional handoff, I would have spec'd it in Figma with notes about timing and easing curves, then collaborated with an engineer to refine it in the product. In this case, I built it in React during the same session I designed it. The animation stayed close to the original intent because the design and implementation context remained connected.
 
 The result: 0.6-second load time and a 92% accessibility score. Not because I'm a better developer than any front-end engineer — but because there was zero translation loss between what I designed and what shipped.
 
@@ -56,6 +56,6 @@ That means:
 - Designs that survive contact with reality
 - A shared language with your engineering team
 
-I design in Figma because it's the best tool for exploration. I build in Next.js because it's the best tool for delivery. And I never let the gap between them cost you a sprint.
+I design in Figma because it is useful for exploration. I build in Next.js when it is a good fit for delivery. The goal is to reduce context loss between design and implementation, whether I am contributing directly in code or collaborating with an engineer.
 
 *The best UX is the one that ships.*

@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
           <h2>1. Information I Collect</h2>
           <p>I collect two types of information:</p>
           <ul>
-            <li><b>Analytics Data:</b> I use analytics software to track website traffic and understand user behavior. This may include information like your IP address, browser type, and pages visited.</li>
+            <li><b>Analytics Data:</b> I use analytics software to understand website traffic and content use. Depending on its configuration, this may include pages visited, referral information, and browser or device details.</li>
             <li><b>Contact Information:</b> If you choose to get in touch through my contact form, I collect your email address and any additional details you provide.</li>
           </ul>
 
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
           </ul>
 
           <h2>3. Information Sharing</h2>
-          <p>I value your privacy. Any information collected is solely for internal use and is never shared, sold, or distributed to third parties.</p>
+          <p>I do not sell personal information. Website and analytics service providers may process information only as needed to operate those services.</p>
 
           <h2>4. Your Rights</h2>
           <p>You have the right to request the deletion of any personal information you've provided. Simply reach out to me if you have any concerns.</p>

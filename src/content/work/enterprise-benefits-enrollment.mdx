@@ -1,0 +1,89 @@
+---
+title: "Enterprise Benefits Enrollment"
+slug: "enterprise-benefits-enrollment"
+client: "Large U.S. insurance company (anonymized)"
+year: 2023
+featured: true
+order: 3
+excerpt: "Designing an employee benefits portal for a new workforce-benefits line of business under a compressed enterprise launch timeline."
+category: "Enterprise UX"
+tags: ["UX Design", "User Research", "Design Systems", "Enterprise Software"]
+heroImage: "/images/projects/enterprise-benefits-enrollment.svg"
+metrics:
+  - label: "Launch timing"
+    value: "Month 9"
+    unit: ""
+    type: "qualitative"
+  - label: "UX team"
+    value: "8"
+    unit: "people"
+    type: "count"
+  - label: "Research sessions"
+    value: "~5 min"
+    unit: "each"
+    type: "qualitative"
+colors:
+  primary: "#2563EB"
+  accent: "#38BDF8"
+technologies: ["Zoom", "Hotjar", "CSS", "JavaScript"]
+roles: ["User Experience Designer II", "Design Systems Contributor"]
+sectionNav:
+  - id: "context"
+    label: "Context"
+  - id: "job-to-be-done"
+    label: "Employee job"
+  - id: "delivery-constraint"
+    label: "Delivery constraint"
+  - id: "research"
+    label: "Research"
+  - id: "outcome"
+    label: "Outcome"
+seo:
+  metaTitle: "Enterprise Benefits Enrollment Case Study | Zachary Guerrero"
+  metaDescription: "An anonymized enterprise UX case study on employee benefits enrollment, research-led iteration, and design-system implementation constraints."
+  keywords: ["enterprise UX", "benefits enrollment", "user research", "design systems", "employee portal"]
+---
+
+<h2 id="context">The context</h2>
+
+I worked on a new Workforce Benefits line of business at a large U.S. insurance company. The division was stood up in under a year by an eight-person UX team, in collaboration with PricewaterhouseCoopers, the external delivery agency.
+
+We started with personas because the experience had several distinct audiences: employee, employee dependent, employer, financial professional, and broker. The persona work helped define which portals were needed, the interactions each would need, and the systems that would have to participate.
+
+I owned the employee portal. Other teammates focused on the portals for the other audiences.
+
+<img src="/images/projects/enterprise-benefits-enrollment.svg" alt="Abstract reconstruction of the employee enrollment flow from employer or HR materials through employee benefit selection, verification, and policy creation" className="w-full rounded-lg my-8" />
+
+*Abstract reconstruction. This shows workflow structure, not proprietary UI or system architecture.*
+
+<h2 id="job-to-be-done">The employee job to be done</h2>
+
+An employee received enrollment materials from an employer or HR. From there, they needed to sign in, select benefits, make changes, file claims, view coverage information, and access cards.
+
+The primary onboarding flow collected the employee’s information, sent it for verification, and then supported policy creation. The work had to make a consequential, unfamiliar process understandable without exposing implementation complexity to the employee.
+
+<h2 id="delivery-constraint">A delivery constraint shaped the design</h2>
+
+The intended UI was clean and crisp, built around the internal design tokens and component system. The implementation system selected by the external delivery team could not conform to those components as expected, despite earlier assurances that it could.
+
+I was the only technical member of the UX team. Where the platform allowed it, I supplied design tokens along with CSS and JavaScript that the PwC team could use. That helped translate the internal design system into something buildable. In other places, the platform had no flexibility, and the experience had to be redesigned within its constraints.
+
+The lesson was practical: design-system fidelity is not a brand-detail problem. It changes what interaction patterns can survive implementation.
+
+<h2 id="research">Research that changed the flow</h2>
+
+I planned and conducted remote prototype sessions with brokers and people who had recently enrolled in insurance, using Zoom and Hotjar. Sessions were short, task-based conversations of about five minutes. We asked participants to complete tasks or explain what they expected, then reviewed the recordings to see where the UI did not meet those expectations.
+
+One clear finding was in the policy-information selection flow. Participants could not find parts of the information they needed. We relabeled and repositioned those elements to make them easier to locate and select, then brought the findings back to the team and key stakeholders.
+
+<img src="/images/projects/enterprise-benefits/employee-enrollment-research-sketch.webp" alt="Hand-drawn abstract reconstruction showing research with brokers and recent enrollees, an original benefits-selection flow where policy information was hard to find, and a revised flow that changed its category and placement" width={2102} height={1379} className="w-full rounded-lg my-8" />
+
+*Working sketch reconstructed from the research finding and resulting design decision. It is an abstract representation, not proprietary UI.*
+
+We did not have time to re-test the revised flow before launch. Given more time, that is the first validation step I would add.
+
+<h2 id="outcome">Outcome and reflection</h2>
+
+The employee portal launched around month nine of the division effort, and internal stakeholders were happy with the launch. I had already moved to another project by then, so I do not claim external adoption, satisfaction, or business outcomes that I cannot substantiate.
+
+The project reinforced a pattern that has carried into my design-engineering work: start with the people and workflows, but stay close enough to implementation that design decisions can survive the systems that have to deliver them.

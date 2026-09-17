@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
 import JsonLd, { createBreadcrumbSchema, createCollectionPageSchema } from '@/components/JsonLd';
 import ProjectCard from '@/components/ProjectCard';
-import { getArchivedProjects, getProjectsByCategory, getProjectsPageProjects } from '@/lib/content';
+import { getArchivedProjects, getProjectsPageProjects } from '@/lib/content';
 
 export const metadata = {
   title: 'Case Studies | Zachary Guerrero',
@@ -43,7 +43,7 @@ function ProjectSection({ title, projects, children }) {
   );
 }
 
-function WorkInProgressCard({ slug, title, excerpt, tags, image }) {
+function WorkInProgressCard({ slug, title, excerpt, tags, image, status = "In Development" }) {
   return (
     <Link
       href={`/projects/${slug}`}
@@ -51,17 +51,13 @@ function WorkInProgressCard({ slug, title, excerpt, tags, image }) {
     >
       <div className="relative aspect-video overflow-hidden">
         {image ? (
-          <>
-            <Image
-              src={image}
-              alt={title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute top-3 right-3 bg-zg-dark-1/80 backdrop-blur-sm text-zg-teal text-microcopy-1-semibold px-2 py-1 rounded">
-              Password protected
-            </div>
-          </>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 767px) 100vw, 50vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+          />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-zg-teal/5 to-zg-dark-1 flex items-center justify-center">
             <div className="text-center p-8">
@@ -70,7 +66,7 @@ function WorkInProgressCard({ slug, title, excerpt, tags, image }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <span className="text-microcopy-2 text-zg-teal">Password protected</span>
+              <span className="text-microcopy-2 text-zg-teal">Project overview</span>
             </div>
           </div>
         )}
@@ -85,7 +81,7 @@ function WorkInProgressCard({ slug, title, excerpt, tags, image }) {
       </div>
       <div className="p-6">
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-microcopy-2 text-gray-400">In Development</span>
+          <span className="text-microcopy-2 text-gray-400">{status}</span>
           <span className="text-gray-600">&bull;</span>
           <span className="text-microcopy-2 text-gray-400">2026</span>
         </div>
@@ -131,14 +127,19 @@ function SideProjectLink({ emoji, title, description, href }) {
 export default function ProjectsPage() {
   const allProjects = getProjectsPageProjects();
 
-  // Separate projects by category
+  // Separate projects by category.
+  // Client work matches the `Local Business` tag or category so a B2B-tagged client
+  // project like High Rapid Networks (which carries a Local Business tag) lands in
+  // Client Projects while its factual `category` stays "B2B Tech".
   const featured = allProjects.filter(p => p.meta.featured);
-  const b2bTech = allProjects.filter(p => p.meta.category === 'B2B Tech' && !p.meta.featured);
-  const personalProjects = allProjects.filter(p => p.meta.category === 'Personal Project' && !p.meta.featured);
-  const localBusiness = getProjectsByCategory('Local Business');
-
-  // Additional work combines non-featured B2B and personal projects
-  const additionalWork = [...b2bTech, ...personalProjects];
+  const clientProjects = allProjects.filter(
+    (project) =>
+      project.meta.category === 'Local Business' ||
+      (project.meta.tags || []).includes('Local Business'),
+  );
+  const supportingWork = allProjects.filter(
+    (project) => !project.meta.featured && !clientProjects.includes(project),
+  );
   const archived = getArchivedProjects();
 
   const collectionSchema = createCollectionPageSchema(allProjects);
@@ -151,16 +152,17 @@ export default function ProjectsPage() {
     {
       slug: "ren",
       title: "Ren",
-      image: "/images/projects/ren-cover.png",
-      excerpt: "An AI memory system built for the way ADHD brains actually work. Privacy-first architecture, on-demand activation, and a calm surface that disappears when you don't need it.",
-      tags: ["AI", "Memory System", "Local-first"],
+      image: "/images/projects/ren-cover.webp",
+      excerpt: "An active React Native prototype for turning messy brain dumps into useful memory and accountability context.",
+      tags: ["React Native", "Memory", "Prototype"],
     },
     {
       slug: "launchbook",
       title: "LaunchBook",
-      image: "/images/projects/lb-cover.png",
-      excerpt: "A mobile-first booking platform for independent providers. Customizable branded pages, Stripe payments, and a dashboard designed to reduce cognitive load.",
-      tags: ["Booking", "SaaS", "Mobile-first"],
+      image: "/images/projects/lb-cover.webp",
+      excerpt: "A paused PWA proof of concept for local business owners to manage services, availability, and shareable appointment links.",
+      tags: ["Booking", "PWA", "Exploration"],
+      status: "Paused",
     },
   ];
 
@@ -188,7 +190,7 @@ export default function ProjectsPage() {
           <section className="mb-16">
             <h1 className="text-heading-2-bold md:text-heading-1-bold mb-4">Case Studies</h1>
             <p className="text-body-2 text-gray-400 max-w-2xl">
-              Full-stack product engineering case studies. Features owned from concept to production across B2B SaaS, infrastructure, and personal projects. Want to know how I approach problems? Check out my{' '}
+              Design engineering case studies across B2B SaaS, enterprise UX, infrastructure, and independent product work. Want to know how I approach problems? Check out my{' '}
               <Link href="/process" className="text-zg-teal hover:text-zg-coral transition-colors">
                 design process
               </Link>.
@@ -197,15 +199,15 @@ export default function ProjectsPage() {
         </FadeIn>
 
         {/* Featured Work */}
-        <ProjectSection title="Built for Production" projects={featured} />
+        <ProjectSection title="Featured Case Studies" projects={featured} />
 
-        {/* Additional Work */}
-        <ProjectSection title="More Projects" projects={additionalWork} />
+        {/* Supporting Work */}
+        <ProjectSection title="Supporting Work" projects={supportingWork} />
 
         {/* Past Client Work - Local Business */}
-        <ProjectSection title="Client Projects" projects={localBusiness}>
+        <ProjectSection title="Client Projects" projects={clientProjects}>
           <FadeIn delay={0.2}>
-            <p className="text-body-1 text-gray-500 mt-6">
+            <p className="text-body-1 text-gray-400 mt-6">
               I also do freelance work for local businesses. If you're interested in that type of work, feel free to{' '}
               <Link href="/lets-talk" className="text-zg-teal hover:text-zg-coral transition-colors">
                 reach out
@@ -226,9 +228,9 @@ export default function ProjectsPage() {
         {/* Work in Progress */}
         <section className="mb-16">
           <FadeIn>
-            <h2 className="text-heading-4-bold mb-6">In Development</h2>
+            <h2 className="text-heading-4-bold mb-6">In Development and Explorations</h2>
             <p className="text-body-1 text-gray-400 mb-8 max-w-2xl">
-              Active projects currently being built end to end. Full architecture details are password protected — request access to see the deep dives.
+              Current projects and documented explorations. These pages share product direction and implementation decisions, with each project&apos;s status stated clearly.
             </p>
           </FadeIn>
           <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10" staggerDelay={0.1}>
@@ -246,7 +248,7 @@ export default function ProjectsPage() {
             <div className="flex justify-center mb-16">
               <Link
                 href="/projects/archive"
-                className="group text-body-1-semibold text-gray-500 hover:text-gray-300 transition-colors duration-300 inline-flex items-center gap-2"
+                className="group text-body-1-semibold text-gray-400 hover:text-gray-300 transition-colors duration-300 inline-flex items-center gap-2"
               >
                 View Archived Projects
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -262,7 +264,7 @@ export default function ProjectsPage() {
           <section className="p-6 md:p-8 lg:p-12 bg-zg-dark-0 rounded-lg text-center mb-16">
             <h2 className="text-heading-5-semibold mb-4">Interested in working together?</h2>
             <p className="text-body-1 text-gray-400 mb-6 max-w-xl mx-auto">
-              I'm looking for Senior Product Engineer roles at companies where I own features end to end. Also open to consulting engagements.
+              I&apos;m looking for Design Engineer and UX Engineer roles where product design and implementation work closely together. Also open to consulting engagements.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link

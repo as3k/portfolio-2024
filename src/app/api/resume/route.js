@@ -23,7 +23,7 @@ export async function POST(request) {
         "Content-Disposition": 'attachment; filename="Custom-Resume.pdf"',
       },
     });
-  } catch (error) {
+  } catch (_error) {
     return new Response(
       JSON.stringify({ error: "Invalid resume data" }),
       {

@@ -1,10 +1,10 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
 import MDXComponents from "@/components/MDXComponents";
-import { getBlogBySlug, getBlogSlugs, getAllPosts, getAllWork } from "@/lib/content";
+import { getAllPosts, getBlogBySlug, getBlogSlugs } from "@/lib/content";
 
 export async function generateStaticParams() {
   const slugs = getBlogSlugs();
@@ -91,7 +91,7 @@ export default async function BlogPostPage({ params }) {
         <FadeIn>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-microcopy-2 text-gray-500 hover:text-zg-teal transition-colors mb-12"
+            className="inline-flex items-center gap-2 text-microcopy-2 text-gray-400 hover:text-zg-teal transition-colors mb-12"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -104,9 +104,9 @@ export default async function BlogPostPage({ params }) {
         <FadeIn delay={0.1}>
           <header className="max-w-3xl mx-auto mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <time className="text-microcopy-2 text-gray-500">{meta.date}</time>
+              <time className="text-microcopy-2 text-gray-400">{meta.date}</time>
               <span className="text-gray-700">·</span>
-              <span className="text-microcopy-2 text-gray-500">{meta.readingTime}</span>
+              <span className="text-microcopy-2 text-gray-400">{meta.readingTime}</span>
             </div>
             <h1 className="text-heading-2-bold md:text-heading-1-bold mb-4">{meta.title}</h1>
             <p className="text-body-2 text-gray-400 max-w-2xl">{meta.excerpt}</p>
@@ -156,7 +156,7 @@ export default async function BlogPostPage({ params }) {
                   href={`/blog/${nextPost.slug}`}
                   className="group text-left"
                 >
-                  <span className="text-microcopy-2 text-gray-500 block mb-1">Next Post</span>
+                  <span className="text-microcopy-2 text-gray-400 block mb-1">Next Post</span>
                   <span className="text-body-1-semibold text-white group-hover:text-zg-teal transition-colors">
                     {nextPost.meta.title}
                   </span>
@@ -169,7 +169,7 @@ export default async function BlogPostPage({ params }) {
                   href={`/blog/${prevPost.slug}`}
                   className="group text-left md:text-right"
                 >
-                  <span className="text-microcopy-2 text-gray-500 block mb-1">Previous Post</span>
+                  <span className="text-microcopy-2 text-gray-400 block mb-1">Previous Post</span>
                   <span className="text-body-1-semibold text-white group-hover:text-zg-teal transition-colors">
                     {prevPost.meta.title}
                   </span>

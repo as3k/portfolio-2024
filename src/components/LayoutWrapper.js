@@ -10,14 +10,12 @@ export default function LayoutWrapper({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    console.log(
-      "%cSomething broke. Or you're scoping the build.",
-      "font-size: 13px; color: #94a3b8;"
-    );
-    console.log(
-      "%cEither way — let's talk.\n→ zack@zkg.io",
-      "font-size: 13px; font-weight: 600; color: #009ba6;"
-    );
+    console.groupCollapsed("%cZG. terminal", "font-size: 13px; font-weight: 700; color: #009ba6;");
+    console.log("%cHello, fellow builder.", "font-size: 13px; color: #f8fafc;");
+    console.log("%cYou found the console. The portfolio is built with Next.js, MDX, and an unreasonable respect for edge cases.", "font-size: 13px; color: #94a3b8;");
+    console.log("%c$ whoami\nZachary Guerrero — Design Engineer / UX Engineer", "font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #38bdf8;");
+    console.log("%cWant to compare notes? → zack@zkg.io", "font-size: 13px; font-weight: 600; color: #009ba6;");
+    console.groupEnd();
   }, []);
 
   // Lock body scroll when menu is open

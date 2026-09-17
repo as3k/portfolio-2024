@@ -59,7 +59,7 @@ export default function ToolkitSection() {
             </div>
             <h3 className="text-heading-5-semibold text-white mb-3">Research & Testing</h3>
             <p className="text-body-1 text-gray-400">
-              I validate before I build. Watch what users do, not what they say.
+              I use the evidence the work makes available: research sessions, operational feedback, prototypes, and post-launch signals.
             </p>
           </div>
         </FadeIn>
@@ -75,7 +75,7 @@ export default function ToolkitSection() {
             </div>
 
             <div className="mb-5">
-              <h4 className="text-utility-micro-2-semibold text-gray-500 uppercase tracking-wider mb-2">
+              <h4 className="text-utility-micro-2-semibold text-gray-400 uppercase tracking-wider mb-2">
                 Tools I Use
               </h4>
               <ToolList
@@ -89,7 +89,7 @@ export default function ToolkitSection() {
             </div>
 
             <div className="mb-5">
-              <h4 className="text-utility-micro-2-semibold text-gray-500 uppercase tracking-wider mb-2">
+              <h4 className="text-utility-micro-2-semibold text-gray-400 uppercase tracking-wider mb-2">
                 What I Do
               </h4>
               <ToolList
@@ -143,7 +143,7 @@ export default function ToolkitSection() {
               10+ Years Building for the Web
             </h3>
             <p className="text-body-1 text-gray-400 mb-4">
-              React, Next.js, TypeScript, Tailwind CSS. I don't just design it—I can build it.
+              React, Next.js, TypeScript, and Tailwind CSS. I design with implementation constraints in view and contribute directly in code.
             </p>
             <Link
               href="https://github.com/as3k"

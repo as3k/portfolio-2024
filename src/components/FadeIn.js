@@ -1,11 +1,12 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 
 export function FadeIn({ children, className = "", delay = 0, direction = "up" }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const shouldReduceMotion = useReducedMotion();
 
   const directions = {
     up: { y: 24, x: 0 },
@@ -17,10 +18,10 @@ export function FadeIn({ children, className = "", delay = 0, direction = "up" }
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, ...directions[direction] }}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...directions[direction] }}
+      initial={shouldReduceMotion ? false : { opacity: 0, ...directions[direction] }}
+      animate={shouldReduceMotion || isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...directions[direction] }}
       transition={{
-        duration: 1,
+        duration: shouldReduceMotion ? 0 : 1,
         delay: delay,
         ease: [0.25, 0.4, 0.25, 1],
       }}
@@ -34,17 +35,18 @@ export function FadeIn({ children, className = "", delay = 0, direction = "up" }
 export function FadeInStagger({ children, className = "", staggerDelay = 0.1 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      initial={shouldReduceMotion ? false : "hidden"}
+      animate={shouldReduceMotion || isInView ? "visible" : "hidden"}
       variants={{
         hidden: {},
         visible: {
           transition: {
-            staggerChildren: staggerDelay,
+            staggerChildren: shouldReduceMotion ? 0 : staggerDelay,
           },
         },
       }}
@@ -56,6 +58,7 @@ export function FadeInStagger({ children, className = "", staggerDelay = 0.1 }) 
 }
 
 export function FadeInStaggerItem({ children, className = "", direction = "up" }) {
+  const shouldReduceMotion = useReducedMotion();
   const directions = {
     up: { y: 24, x: 0 },
     down: { y: -24, x: 0 },
@@ -72,7 +75,7 @@ export function FadeInStaggerItem({ children, className = "", direction = "up" }
           x: 0,
           y: 0,
           transition: {
-            duration: 1,
+            duration: shouldReduceMotion ? 0 : 1,
             ease: [0.25, 0.4, 0.25, 1],
           },
         },

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Abstract employee enrollment flow reconstruction</title>
+  <desc id="description">An abstract diagram showing employee enrollment moving from employer materials to employee information, verification, and policy creation.</desc>
+  <rect width="1200" height="675" fill="#0d1726"/>
+  <text x="72" y="92" fill="#a5b4c7" font-family="Arial, sans-serif" font-size="24" letter-spacing="3">ANONYMIZED RECONSTRUCTION</text>
+  <text x="72" y="150" fill="#f8fafc" font-family="Arial, sans-serif" font-size="46" font-weight="700">Employee enrollment flow</text>
+  <text x="72" y="192" fill="#a5b4c7" font-family="Arial, sans-serif" font-size="25">Abstracted from a 2023 enterprise workforce benefits launch</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="72" y="302" width="220" height="170" rx="20" fill="#13243a" stroke="#3b82f6" stroke-width="2"/>
+    <text x="102" y="356" fill="#f8fafc" font-size="24" font-weight="700">Employer / HR</text>
+    <text x="102" y="402" fill="#a5b4c7" font-size="20">Enrollment</text>
+    <text x="102" y="430" fill="#a5b4c7" font-size="20">materials</text>
+    <path d="M320 387h95" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M395 372l25 15-25 15" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="438" y="302" width="230" height="170" rx="20" fill="#103247" stroke="#38bdf8" stroke-width="2"/>
+    <text x="468" y="356" fill="#f8fafc" font-size="23" font-weight="700">Employee portal</text>
+    <text x="468" y="402" fill="#bae6fd" font-size="20">Information and</text>
+    <text x="468" y="430" fill="#bae6fd" font-size="20">benefit selection</text>
+    <path d="M696 387h95" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M771 372l25 15-25 15" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="814" y="302" width="220" height="170" rx="20" fill="#13243a" stroke="#3b82f6" stroke-width="2"/>
+    <text x="844" y="356" fill="#f8fafc" font-size="24" font-weight="700">Verification</text>
+    <text x="844" y="402" fill="#a5b4c7" font-size="20">Then policy</text>
+    <text x="844" y="430" fill="#a5b4c7" font-size="20">creation</text>
+  </g>
+  <line x1="72" y1="560" x2="1128" y2="560" stroke="#263d58"/>
+  <text x="72" y="606" fill="#94a3b8" font-family="Arial, sans-serif" font-size="20">Workflow structure only. It does not represent proprietary screens</text>
+  <text x="72" y="634" fill="#94a3b8" font-family="Arial, sans-serif" font-size="20">or system architecture.</text>
+</svg>

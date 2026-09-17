@@ -39,6 +39,27 @@ export function getWorkBySlug(slug) {
 }
 
 /**
+ * Whether a work item may be published as a public case study.
+ * Drafts and archived work can be read by build-time tooling, but must not
+ * receive public detail pages.
+ * @param {{ meta: object }} item
+ * @returns {boolean}
+ */
+export function isPublicWork(item) {
+  return !item.meta.draft && item.meta.status !== 'archived';
+}
+
+/**
+ * Get a public work item by slug.
+ * @param {string} slug - The public slug to look up
+ * @returns {{ slug: string, meta: object, content: string } | null}
+ */
+export function getPublicWorkBySlug(slug) {
+  const work = getWorkBySlug(slug);
+  return work && isPublicWork(work) ? work : null;
+}
+
+/**
  * Get all work items sorted by order (excludes drafts by default)
  * @param {{ includeDrafts?: boolean }} options
  * @returns {Array<{ slug: string, meta: object, content: string }>}
@@ -48,9 +69,13 @@ export function getAllWork({ includeDrafts = false } = {}) {
   const work = slugs
     .map((slug) => getWorkBySlug(slug))
     .filter(Boolean)
-    .filter((item) => includeDrafts || !item.meta.draft)
+    .filter((item) => includeDrafts || isPublicWork(item))
     .filter((item) => item.meta.status !== 'archived')
-    .sort((a, b) => (a.meta.order || 0) - (b.meta.order || 0));
+    .sort(
+      (a, b) =>
+        (a.meta.order || 0) - (b.meta.order || 0) ||
+        String(a.meta.title || '').localeCompare(String(b.meta.title || '')),
+    );
 
   return work;
 }
@@ -138,5 +163,13 @@ export function getProjectsByCategory(category) {
  * @returns {Array<{ slug: string, meta: object, content: string }>}
  */
 export function getArchivedProjects() {
-  return getAllWork().filter((item) => item.meta.status === 'archived');
+  return getWorkSlugs()
+    .map((slug) => getWorkBySlug(slug))
+    .filter(Boolean)
+    .filter((item) => !item.meta.draft && item.meta.status === 'archived')
+    .sort(
+      (a, b) =>
+        (a.meta.order || 0) - (b.meta.order || 0) ||
+        String(a.meta.title || '').localeCompare(String(b.meta.title || '')),
+    );
 }

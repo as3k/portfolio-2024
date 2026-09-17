@@ -3,7 +3,7 @@
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { trackLetsTalkCTA, trackLogoClick, trackMobileMenuToggle, trackNavigationClick } from "@/lib/umami";
 
 const navItems = [
@@ -50,6 +50,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
           trackMobileMenuToggle(newState ? 'open' : 'close');
         }}
         aria-label="Toggle menu"
+        aria-controls="mobile-navigation"
         aria-expanded={isMenuOpen}
       >
         <Bars3Icon className="w-6 h-6" />
@@ -68,7 +69,7 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
                   <Link
                     className={`relative transition-colors duration-300 pb-1 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-zg-teal after:transition-all after:duration-300 ${
                       isActive
-                        ? "text-zg-teal after:w-full"
+                        ? "text-zg-teal-light after:w-full"
                         : "hover:text-zg-teal after:w-0 hover:after:w-full"
                     }`}
                     href={item.href}
@@ -99,15 +100,34 @@ export default function Header({ onMenuToggle, isMenuOpen }) {
 // Mobile navigation overlay
 export function MobileNav({ isOpen, onClose }) {
   const pathname = usePathname();
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const firstLink = navRef.current?.querySelector("a");
+    firstLink?.focus();
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
 
   return (
     <div className="fixed inset-0 z-40 lg:hidden pointer-events-none">
       {/* Nav content - sits on left side */}
       <nav
+        ref={navRef}
+        id="mobile-navigation"
         className={`absolute left-0 top-0 bottom-0 w-72 pt-8 px-6 transition-opacity duration-300 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0"
         }`}
         aria-label="Mobile navigation"
+        aria-hidden={!isOpen}
+        inert={!isOpen}
       >
         {/* Logo */}
         <div className="text-heading-3-bold text-white mb-8">
@@ -123,7 +143,7 @@ export function MobileNav({ isOpen, onClose }) {
               <li key={item.href}>
                 <Link
                   className={`block py-3 text-body-2 transition-colors duration-300 ${
-                    isActive ? "text-zg-teal" : "text-gray-300 hover:text-white"
+                    isActive ? "text-zg-teal-light" : "text-gray-300 hover:text-white"
                   }`}
                   href={item.href}
                   onClick={() => {

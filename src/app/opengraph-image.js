@@ -2,7 +2,7 @@ import { ImageResponse } from '@vercel/og';
 
 export const runtime = 'edge';
 
-export const alt = 'Zachary Guerrero - Senior Product Designer';
+export const alt = 'Zachary Guerrero - Design Engineer';
 export const size = {
   width: 1200,
   height: 630,
@@ -71,7 +71,7 @@ export default async function Image() {
               marginBottom: 16,
             }}
           >
-            Senior Product Designer
+            Design Engineer
           </div>
           <div
             style={{
@@ -81,7 +81,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            I help B2B SaaS companies turn complex problems into simple experiences.
+            Product design, frontend engineering, and systems thinking for complex products.
           </div>
         </div>
 

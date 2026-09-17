@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
-import JsonLd, { personSchema, professionalServiceSchema, websiteSchema } from "@/components/JsonLd";
+import JsonLd, { personSchema, professionalProfileSchema, websiteSchema } from "@/components/JsonLd";
 import LayoutWrapper from "@/components/LayoutWrapper";
 
 const poppins = Poppins({
@@ -15,9 +15,11 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
-  title: "Zachary Guerrero - Senior Product Engineer",
-  description: "Senior Product Engineer with 10+ years building B2B SaaS products. I design for clarity, build with React, and measure impact. Based in California, open to remote roles.",
+  title: "Zachary Guerrero | Design Engineer",
+  description: "Design Engineer and UX Engineer working across product design, frontend engineering, and systems thinking. I take complex product work from research and interaction design through implementation and iteration.",
   keywords: [
+    "design engineer",
+    "UX engineer",
     "product designer",
     "senior product designer",
     "UX designer",
@@ -35,8 +37,8 @@ export const metadata = {
     "conversion optimization"
   ],
   openGraph: {
-    title: "Zachary Guerrero - Senior Product Engineer",
-    description: "I help B2B SaaS companies turn complex problems into simple experiences.",
+    title: "Zachary Guerrero | Design Engineer",
+    description: "Product design, frontend engineering, and systems thinking for complex products.",
     url: 'https://zacharyguerrero.com',
     siteName: 'Zachary Guerrero',
     locale: 'en_US',
@@ -44,8 +46,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Zachary Guerrero - Senior Product Engineer",
-    description: "I help B2B SaaS companies turn complex problems into simple experiences.",
+    title: "Zachary Guerrero | Design Engineer",
+    description: "Product design, frontend engineering, and systems thinking for complex products.",
   },
 };
 
@@ -53,13 +55,14 @@ export default function RootLayout({ children }) {
   const umamiScriptUrl = process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL;
   const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
   const umamiHostUrl = process.env.NEXT_PUBLIC_UMAMI_HOST_URL;
+  const analyticsScriptUrl = umamiScriptUrl || "https://stats.zkg.io/api/script.js";
 
   return (
     <html lang="en" className={`${poppins.className} text-gray-200`}>
       <head>
         <JsonLd data={{ "@context": "https://schema.org", ...personSchema }} />
         <JsonLd data={websiteSchema} />
-        <JsonLd data={{ "@context": "https://schema.org", ...professionalServiceSchema }} />
+        <JsonLd data={professionalProfileSchema} />
       </head>
       <body className="antialiased overflow-x-hidden">
         <a
@@ -68,19 +71,15 @@ export default function RootLayout({ children }) {
         >
           Skip to content
         </a>
-        {umamiScriptUrl && umamiWebsiteId ? (
+        {analyticsScriptUrl ? (
           <Script
-            src={umamiScriptUrl}
-            data-website-id={umamiWebsiteId}
-            {...(umamiHostUrl ? { "data-host-url": umamiHostUrl } : {})}
+            src={analyticsScriptUrl}
+            {...(umamiWebsiteId
+              ? { "data-website-id": umamiWebsiteId, ...(umamiHostUrl ? { "data-host-url": umamiHostUrl } : {}) }
+              : { "data-site-id": "fafd29329cd3" })}
             strategy="afterInteractive"
           />
         ) : null}
-        <Script
-          src="https://stats.zkg.io/api/script.js"
-          data-site-id="fafd29329cd3"
-          strategy="afterInteractive"
-        />
         <LayoutWrapper>
           {children}
         </LayoutWrapper>

@@ -19,6 +19,8 @@ export default function ProjectCard({ project, location = 'projects_page' }) {
           src={meta.heroImage}
           alt={meta.title}
           fill
+          loading={meta.featured ? "eager" : "lazy"}
+          sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 560px"
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
         {meta.featured && (

@@ -33,10 +33,10 @@ export default function NowPage() {
                 Building
               </h2>
               <p className="text-body-1 text-gray-400 mb-6">
-                Splash Cards at Member Splash. A prepaid POS payment system rolled out to 460+ clubs, processing thousands of daily transactions. Check-In 2.0 cutting check-in from 30+ seconds to under 10. Shipping features that move real metrics.
+                Splash Cards at Member Splash. A prepaid, digital stored-value capability available to every club and used by 72 clubs in 2026. Check-In 2.0 reduced an internally timed workflow from 30+ seconds to under 10 seconds.
               </p>
               <p className="text-body-1 text-gray-400 mb-6">
-                LaunchBook. A mobile-first booking platform for independent providers. Ren. An AI memory system designed for how ADHD brains actually work. Both in active development, both owned end to end.
+                Ren is an active React Native prototype that is not currently under active development. LaunchBook is a paused booking-platform exploration; legal and compliance complexity outweighed the revenue potential to continue it.
               </p>
               <p className="text-body-1 text-gray-400 mb-6">
                 B&F. Auditing and fixing security vulnerabilities across 20+ client sites. Building custom WordPress plugins for mortgage application flows. Modernizing legacy code. Running the Lift hosting infrastructure. And building the content flywheel.
@@ -50,7 +50,7 @@ export default function NowPage() {
                 How I Work
               </h2>
               <p className="text-body-1 text-gray-400 mb-6">
-                I own features from problem to production. Research, design, code, deploy, iterate. I direct AI agents to accelerate every step. They execute, I steer. The thinking is mine, the output is amplified.
+                I carry features across research, interaction design, implementation, launch, and iteration while working with the people closest to the product and system. AI helps with repetitive work, but product judgment and technical review remain human responsibilities.
               </p>
             </section>
           </FadeIn>
@@ -61,7 +61,7 @@ export default function NowPage() {
                 Looking
               </h2>
               <p className="text-body-1 text-gray-400 mb-6">
-                Senior Product Engineer roles where I can own the full cycle. Also open to consulting engagements that need a full-stack rewrite. Remote or SoCal hybrid.
+                Design Engineer and UX Engineer roles where product design and implementation stay closely connected. Also open to consulting engagements that need a product-focused full-stack rebuild. Remote or SoCal hybrid.
               </p>
             </section>
           </FadeIn>
