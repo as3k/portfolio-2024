@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Local previews are shared over Tailscale, so Next's dev client must accept
+  // the tailnet hostname instead of treating its HMR requests as cross-origin.
+  allowedDevOrigins: ['lunamor.husky-chickadee.ts.net'],
   async headers() {
     return [
       {
