@@ -8,7 +8,7 @@ export const metadata = {
     "How Zachary Guerrero connects research, interaction design, implementation, and iteration as a Design Engineer.",
 };
 
-function ProcessStep({ number, title, claim, body, ships, isAmplified }) {
+function ProcessStep({ number, title, claim, body, detail, ships, isAmplified }) {
   return (
     <section className="py-12 border-b border-gray-800 last:border-b-0">
       <div className="flex items-baseline gap-4 mb-4">
@@ -27,6 +27,12 @@ function ProcessStep({ number, title, claim, body, ships, isAmplified }) {
       <p className="text-body-1 text-gray-400 mb-4 max-w-3xl">
         {body}
       </p>
+
+      {detail && (
+        <p className="text-body-1 text-gray-400 mb-4 max-w-3xl">
+          {detail}
+        </p>
+      )}
 
       {/* Snack: deliverables */}
       <div className="flex flex-wrap gap-2">
@@ -62,6 +68,7 @@ const processSteps = [
     title: "Understand & Research",
     claim: "Start with the people, workflow, and constraints closest to the problem.",
     body: "The evidence depends on the work: user interviews, support insight, operational feedback, competitive research, analytics, or a current-state audit. I make the assumptions visible before design decisions harden.",
+    detail: "Specialized research agents accelerate evidence-gathering and synthesis. I review their output before it shapes scope.",
     ships: ["Problem statement", "User pain points mapped", "Constraints documented"],
     isAmplified: false,
   },
@@ -86,6 +93,7 @@ const processSteps = [
     title: "Test & Iterate",
     claim: "Validate the riskiest assumptions before and after launch.",
     body: "I use usability tests, stakeholder walkthroughs, operational feedback, and production signals to understand what changed. The goal is not a ceremony. It is to learn enough to make the next decision better.",
+    detail: "Independent QA and review agents check the work. The agent that built something is never the only one judging it, and my review is the final gate.",
     ships: ["Test findings with recommendations", "Updated prototype", "Confidence to build"],
     isAmplified: false,
   },
@@ -96,7 +104,8 @@ const amplifiedSteps = [
     number: "05",
     title: "Build",
     claim: "Build with the interaction, edge cases, and maintenance path in view.",
-    body: "I contribute to production interfaces, component architecture, integrations, and tests. AI can help with repetitive work, but implementation still needs careful review and collaboration with the people responsible for the system.",
+    body: "I contribute to production interfaces, component architecture, integrations, and tests. One AI orchestrator directs specialized subagents across research, SEO research, planning, development, QA, review, copywriting, and image generation. Copywriting agents work within the brand documents.",
+    detail: "Models are routed by task: GPT-5.6 Terra for research, planning, QA, and imagery; DeepSeek V4 Flash through Vercel AI Gateway for development and review. Human approval gates separate each stage. I conduct the final review before anything ships.",
     ships: ["Production code", "Tests", "Documentation"],
     isAmplified: true,
   },
@@ -127,7 +136,7 @@ const differentiators = [
   {
     title: "Judgment before automation.",
     description:
-      "AI can reduce repetitive work. It does not replace user understanding, technical review, or cross-functional decision-making.",
+      "Agents produce work at scale. I define the workflow, decide which model handles each task, review every stage, and remain responsible for whether the work continues or ships. The human never leaves the loop.",
   },
   {
     title: "Collaboration across disciplines.",
@@ -145,7 +154,7 @@ const tools = [
   { category: "Design", items: "Figma, Pen & Paper" },
   { category: "Build", items: "Next.js, React, Vue, Python, PHP, Node.js" },
   { category: "Ship", items: "Docker, Vercel, Cloudflare, CI/CD, AWS" },
-  { category: "Workflow support", items: "AI-assisted research synthesis, code review, and documentation" },
+  { category: "Workflow support", items: "Claude Code, Hermes, agentic subagent workflows (orchestrator + specialists), Vercel AI Gateway model routing" },
   { category: "Test", items: "Production monitoring, Umami, session replay" },
   { category: "Manage", items: "Obsidian, Linear, GitHub, n8n" },
 ];
@@ -262,6 +271,36 @@ export default function ProcessPage() {
 
       {/* Design engineering in practice */}
       <FadeIn delay={0.25}>
+        <section className="mb-16">
+          <h2 className="text-heading-3-bold mb-8">Why this strengthens the work</h2>
+          <div className="space-y-4">
+            <DifferentiatorCard
+              title="Leverage without abdication."
+              description="One person carries context from research through implementation, now with agent scale."
+            />
+            <DifferentiatorCard
+              title="Review is structural, not aspirational."
+              description="Separate QA and review agents check the work before it reaches a human approval gate."
+            />
+            <DifferentiatorCard
+              title="Models are routed by task, not habit."
+              description="Research, planning, QA, imagery, development, and review each go to the model suited to the work."
+            />
+            <div className="flex gap-4 p-6 bg-zg-dark-0 rounded-lg">
+              <div className="flex-shrink-0 w-1.5 h-1.5 mt-2.5 rounded-full bg-zg-teal" />
+              <div>
+                <h3 className="text-body-1-semibold text-white mb-2">Outcomes stay measurable.</h3>
+                <p className="text-body-1 text-gray-400">
+                  As of September 26, 2026, hemettowing.com ranks on page 1 for “emergency towing hemet.” That is a dated search snapshot, not a permanent ranking claim.{' '}
+                  <Link href="/projects/hemet-towing" className="text-zg-teal hover:text-zg-coral transition-colors">
+                    Read the Hemet Towing case study.
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="mb-16">
           <h2 className="text-heading-3-bold mb-8">Design Engineering in Practice</h2>
           <div className="space-y-4">
