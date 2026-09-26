@@ -1,0 +1,149 @@
+---
+title: "Beetle & Frog"
+slug: "beetle-and-frog"
+client: "Beetle & Frog Design"
+year: 2026
+featured: true
+order: 1
+excerpt: "A business-site rebuild treated as a product: a diagnostic funnel, local-search system, productized AI workflows, and the operations behind client work."
+category: "Independent Product"
+tags: ["Product Strategy", "Local SEO", "AI Workflows", "Next.js", "Operations"]
+heroImage: "/images/projects/beetle-and-frog/beetle-and-frog-featured.webp"
+metrics:
+  - label: "Pages in the system"
+    value: "100+"
+    type: "number"
+  - label: "Diagnostic runs"
+    value: "107"
+    type: "number"
+  - label: "Qualified leads"
+    value: "14"
+    type: "number"
+  - label: "New customers since rebuild"
+    value: "3"
+    type: "number"
+colors:
+  primary: "#071914"
+  accent: "#00CDDB"
+technologies: ["Next.js", "Vercel", "Neon Postgres", "n8n", "Docker", "DigitalOcean"]
+roles: ["Product Strategist", "UX Engineer", "AI Workflow Designer", "Operations Lead"]
+sectionNav:
+  - id: "context"
+    label: "The context"
+  - id: "funnel"
+    label: "The funnel"
+  - id: "operations"
+    label: "Operations"
+  - id: "results"
+    label: "Results"
+seo:
+  metaTitle: "Beetle & Frog - Building the Business Site as a Product | Zachary Guerrero"
+  metaDescription: "How Zachary Guerrero rebuilt Beetle & Frog as a diagnostic-first business product with local SEO, AI workflows, and durable client operations."
+  keywords: ["Beetle & Frog", "diagnostic funnel", "local SEO", "AI workflows", "Next.js", "design engineering"]
+---
+
+## This is my own business, and I treated its website as a product
+
+Beetle & Frog is the solo UX consultancy I have run part-time since 2018. I currently support roughly 10 clients. This was self-directed work with no external client constraints. I set the brief, made the product decisions, and remained accountable for whether they worked.
+
+The site was on WordPress for years before I moved it to Next.js. That improved the foundation, but it did not solve the strategy. Before this rebuild, SEO was abysmal. Pages were small, case studies were thin, and I had not invested enough in how the site should acquire clients.
+
+Starting in late May 2026, I rebuilt and extended it around a more demanding brief:
+
+> Build a business site that can create interest, diagnose a real problem, and move the right visitor toward a useful next step without waiting for me to start the conversation.
+
+The site now has more than 100 pages across cities, industries, industry-and-city combinations, and the blog. The more important work is underneath: a diagnostic funnel, admin backend, productized AI workflows, and infrastructure supporting existing clients.
+
+## My role
+
+I designed and built the system end to end: positioning, information architecture, local SEO strategy, product flows, implementation, AI orchestration, operations, and ongoing optimization.
+
+## A diagnostic funnel, not a contact form
+
+The free diagnostic is the door to the business.
+
+When someone submits a site, three processes begin in parallel:
+
+- A sitemap scan
+- A broken-link scan
+- A Google PageSpeed Insights run
+
+The system combines those findings, including Lighthouse scores and PageSpeed results, then sends them to DeepSeek. The model produces a general diagnostic covering what appears broken and where the site can improve.
+
+That free result leads to a paid fix list, delivered within 48 hours. From there, the customer can move toward a tune-up when the existing site is fixable or a full build when it is not.
+
+**Diagnostic → fix list → tune-up or full build**
+
+Each step is useful on its own and makes the next decision easier to understand.
+
+## The human layer
+
+AI does the heavy lifting. My strategic judgment is the product.
+
+After someone purchases the fix list, I inspect the site myself. I record a 5–10 minute Loom video showing what needs to change and where the experience can improve, then deliver a Google Doc with the findings and recommendations. The customer can hire me to make the changes or hand the document to another developer.
+
+The paid deliverable is not a longer AI response. It is my assessment, informed by the automated evidence and grounded in my product and UX experience.
+
+**AI doesn't have eyes.** It can accelerate the investigation, but it cannot replace the judgment required to decide what matters.
+
+## A durable admin backend
+
+Every diagnostic is stored in Neon Postgres. Each record includes Lighthouse scores, PageSpeed results, and AI recommendations, with a shareable link that I and the requester can revisit.
+
+The admin view shows the person's name, phone number, email address, diagnostic link, and a high-level overview. Two tables separate diagnostic captures from fix-list records, preserving the path from free entry point to paid service.
+
+## Productized AI workflows
+
+The site also introduces customizable n8n workflows: scouts, foragers, AI front desk, no lead left behind, command center, and AI operating system.
+
+The workflow foundations are built, then tailored to each business. This is a new offering with no buyers yet. I can show the product thinking and working foundations; I cannot claim client outcomes until clients are using them.
+
+## Lift: operations behind the client work
+
+Newer client sites use Next.js and Vercel. Lift supports the older WordPress portfolio on a DigitalOcean droplet with Docker and a customized monitoring and updating stack.
+
+The monitors report to the Hermes agent. It handles routine operations such as rebooting machines, updating images, running diagnostics, and reporting back to me for review. Lift also runs nightly backups.
+
+If a WordPress site is compromised, I am notified immediately. Hermes can restore a clean backup when nothing has changed since that backup. If a restore could overwrite legitimate changes, it escalates to me and I handle the repair personally.
+
+Hermes acts as an on-call operator. I remain the escalation path and the person responsible for the outcome.
+
+## How I built it
+
+I used the same AI orchestrator and specialized-subagent system behind the Hemet Towing site, but aimed it at a much wider local-search mesh.
+
+The system coordinates research, SEO planning, page strategy, development, quality review, and brand-constrained copy. It produced more than 100 pages across services, industries, cities, and supporting content, with JSON-LD schema built into the page architecture.
+
+Page count is not the result by itself. The work was understanding what each page needed to do, how the pages related, and how to expand the site without treating every page as interchangeable filler.
+
+## Results
+
+The diagnostic funnel has produced:
+
+- **107 diagnostic runs**
+- **14 leads**
+- **3 new customers since rebuild**
+
+Before the rebuild, most pages appeared on page four or lower. Now most rank around position 20, with some pages in the top 10. The site is performing well for “Inland Empire website design” and “Chino Hills website design.”
+
+I monitor performance through Google Search Console and adjust as results change. SEO is ongoing work, not a finished victory. Rankings move and competition changes.
+
+The AI-systems product line has zero purchases to date. It is built as a new offering, but there is no customer evidence for it yet.
+
+## What I can claim
+
+I cannot claim that every page ranks, that rankings are permanent, or that the new AI-systems line has proven demand. This is a system in operation, not a finished growth story.
+
+## Principles
+
+### AI doesn't have eyes
+
+Automation can scan, score, synthesize, and accelerate. Judgment is still the product. I decide what matters and remain responsible for the recommendation.
+
+### The funnel is the product
+
+The diagnostic is not a giveaway attached to a brochure site. It identifies a problem, the fix list turns that problem into a plan, and the plan leads to a tune-up or full build.
+
+### Operations is a design problem too
+
+A client experience continues after launch. Monitoring, backups, recovery rules, agent actions, and a human escalation path are part of the service, not infrastructure outside it.
