@@ -1,21 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { FadeIn } from "@/components/FadeIn";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
 import MDXComponents from "@/components/MDXComponents";
-import { getAllPosts, getBlogBySlug, getBlogSlugs } from "@/lib/content";
+import { getAllPosts, getBlogBySlug } from "@/lib/content";
 
 export async function generateStaticParams() {
-  const slugs = getBlogSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = getBlogBySlug(slug);
 
-  if (!post) {
+  if (!post || post.meta.draft) {
     return { title: "Not Found" };
   }
 
@@ -34,11 +34,13 @@ export async function generateMetadata({ params }) {
       type: "article",
       publishedTime: new Date(meta.date).toISOString(),
       authors: ["Zachary Guerrero"],
+      images: meta.heroImage ? [{ url: meta.heroImage, width: 1080, height: 675, alt: meta.title }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description: meta.excerpt,
+      images: meta.heroImage ? [meta.heroImage] : undefined,
     },
   };
 }
@@ -47,7 +49,7 @@ export default async function BlogPostPage({ params }) {
   const { slug } = await params;
   const post = getBlogBySlug(slug);
 
-  if (!post) {
+  if (!post || post.meta.draft) {
     notFound();
   }
 
@@ -80,6 +82,7 @@ export default async function BlogPostPage({ params }) {
       "@type": "Person",
       name: "Zachary Guerrero",
     },
+    image: meta.heroImage ? `https://zacharyguerrero.com${meta.heroImage}` : undefined,
   };
 
   return (
@@ -124,6 +127,21 @@ export default async function BlogPostPage({ params }) {
             )}
           </header>
         </FadeIn>
+
+        {meta.heroImage ? (
+          <FadeIn delay={0.15}>
+            <div className="max-w-3xl mx-auto mb-12 overflow-hidden rounded-lg border border-gray-800">
+              <Image
+                src={meta.heroImage}
+                alt={`Cover art for ${meta.title}`}
+                width={1080}
+                height={675}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          </FadeIn>
+        ) : null}
 
         {/* Article content */}
         <FadeIn delay={0.2}>

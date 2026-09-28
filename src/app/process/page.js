@@ -105,7 +105,7 @@ const amplifiedSteps = [
     title: "Build",
     claim: "Build with the interaction, edge cases, and maintenance path in view.",
     body: "I contribute to production interfaces, component architecture, integrations, and tests. One AI orchestrator directs specialized subagents across research, SEO research, planning, development, QA, review, copywriting, and image generation. Copywriting agents work within the brand documents.",
-    detail: "Models are routed by task: GPT-5.6 Terra for research, planning, QA, and imagery; DeepSeek V4 Flash through Vercel AI Gateway for development and review. Human approval gates separate each stage. I conduct the final review before anything ships.",
+    detail: "Models are selected from task context and constraints, then kept coherent across a session. Human approval gates separate each stage. I conduct the final review before anything ships.",
     ships: ["Production code", "Tests", "Documentation"],
     isAmplified: true,
   },
@@ -283,8 +283,8 @@ export default function ProcessPage() {
               description="Separate QA and review agents check the work before it reaches a human approval gate."
             />
             <DifferentiatorCard
-              title="Models are routed by task, not habit."
-              description="Research, planning, QA, imagery, development, and review each go to the model suited to the work."
+              title="Models are selected with context, not habit."
+              description="Task context and constraints determine a session's home model, with controlled escalation when the work changes."
             />
             <div className="flex gap-4 p-6 bg-zg-dark-0 rounded-lg">
               <div className="flex-shrink-0 w-1.5 h-1.5 mt-2.5 rounded-full bg-zg-teal" />

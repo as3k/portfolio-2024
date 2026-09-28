@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
@@ -14,6 +15,17 @@ function PostCard({ post }) {
     <article className="group">
       <Link href={`/blog/${slug}`} className="block">
         <div className="bg-zg-dark-0 rounded-lg p-6 border border-transparent hover:border-zg-teal/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-zg-teal/5">
+          {meta.heroImage ? (
+            <div className="mb-5 overflow-hidden rounded-md border border-gray-800">
+              <Image
+                src={meta.heroImage}
+                alt=""
+                width={1080}
+                height={675}
+                className="w-full h-auto transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+            </div>
+          ) : null}
           <div className="flex items-center gap-3 mb-3">
             <time className="text-microcopy-2 text-gray-400">{meta.date}</time>
             <span className="text-gray-700">·</span>
