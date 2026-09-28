@@ -1,0 +1,131 @@
+---
+title: "I Built a Smart AI Router. It Was Smart Enough to Be a Problem."
+slug: "smart-ai-router-problem"
+date: "2026-09-28"
+excerpt: "My model router was technically working. Then a simple cron fix took ten minutes and the logs showed the real problem: every turn was getting a different brain."
+heroImage: "/images/blog/smart-ai-router-problem.webp"
+tags: ["ai-systems", "agentic-systems", "internal-tools", "ux", "infrastructure"]
+readingTime: "7 min"
+---
+
+This morning, a cron job that needed one small tool change took more than ten minutes to debug.
+
+The code was not the hard part. My AI system was.
+
+For four days, my model router had been technically successful. It was selecting cheap models for ordinary work, local models for quick and private tasks, and frontier models for the work that earned them.
+
+Then I checked the logs from that cron fix.
+
+Every turn was going back through the routing gate. Every turn could be assigned to a different model. The router was making sensible decisions one request at a time while making the task worse as a whole.
+
+That is when I realized model routing is not just a cost-optimization problem. It is a workflow and UX problem. An agent doing real work needs continuity, not a new brain every time it speaks.
+
+This is how I changed the system from routing individual requests to designing for the task.
+
+## The System Was Working. The Experience Wasn't.
+
+The cron needed tools added so it could make a call. It was not an especially hard problem. But the task kept dragging, and I could feel the system getting in its own way.
+
+I checked the logs.
+
+Every turn was going back through the routing gate. Every turn could be assigned to a different model. One model would start the task, another would pick it up, and a third might finish it. Technically, each routing decision was defensible. As a working session, it was a mess.
+
+No model had enough continuity to own the problem.
+
+That is the part people miss when they talk about model routing. A long-running agent task is not a pile of isolated prompts. It has context. It has decisions already made. It has a working memory.
+
+Changing the model mid-task is a little like switching designers halfway through a flow without showing the next person the research, the constraints, or the Figma file. They might still do good work. But they are spending time reconstructing the problem instead of moving it forward.
+
+The router was making locally sensible decisions while creating a globally worse experience.
+
+## The Original Goal
+
+I wanted a deterministic system that could make model selection boring.
+
+The local model should handle quick, mechanical, or private work. A cheap cloud model should handle the normal multi-step reasoning that most agents need. Frontier models should be available for difficult, high-stakes, or long-chain work.
+
+The router uses a small decision model to ask three questions:
+
+1. What level of capability does this request actually need?
+2. How complex is it?
+3. What happens if the answer is wrong?
+
+If the decision model is unsure, a second model gets a vote. The result is a routing decision rather than a bigger model guessing what kind of work it has been given.
+
+That design still makes sense. The mistake was treating every message as a new task.
+
+## One Task Needs One Brain
+
+The first iteration was session pinning.
+
+Instead of classifying every message, the router classifies the first turn of a session and assigns that session a home model. The next turns skip the routing overhead and stay with the same model.
+
+That means a model can keep the thread of the work it started.
+
+It is not a permanent lock. A session can still be promoted when the work outgrows its home model. A request that will not fit in the local model's context window gets rescued automatically. A high-stakes turn can be explicitly sent to a frontier model.
+
+But the system does not casually downgrade a session halfway through the work. The worst outcome should be spending a little more than necessary, not asking an underpowered model to finish a task it cannot understand.
+
+That is a design choice as much as an engineering choice. I am optimizing for continuity and trust, not just the cheapest possible request.
+
+## The Edge Case That Changed the Design Again
+
+Session pinning solved the main problem, then immediately created another one.
+
+Imagine I am deep into a difficult task. The session is correctly pinned to a frontier model. I leave my desk for twenty minutes, come back, and ask a small self-contained question.
+
+Does that question really need the same expensive model?
+
+Not necessarily.
+
+That is where micro-delegation came from. The router checks whether a short interruption can be answered without any context from the ongoing session. If it can, the local model handles that one request quickly. The session's home model does not change. The next real turn goes back to the model that knows the task.
+
+The distinction matters.
+
+"What's 45 times 12?" is self-contained.
+
+"What was your third recommendation?" is not.
+
+They may look equally small, but one requires the accumulated context of the session. Routing both the same way would be another version of the original problem.
+
+## This Is the Same Process I Use in Product Design
+
+I did not start with a perfect architecture. I started with a problem I could observe.
+
+**Understand & Research.** I ran the router across my fleet for four days, then inspected real decisions, latency, failures, and the work that actually reached each model. The cron fix made the continuity problem visible.
+
+**Define & Strategize.** I had models with different costs, speed, privacy characteristics, and reasoning ability. I needed a system that could balance those constraints without forcing me to select a model for every request.
+
+**Ideate & Prototype.** What should routing mean? Which models belong in which role? What should happen when a model is unsure? The first answer was request-level routing. The next answer was session pinning. The edge case created micro-delegation.
+
+**Test & Iterate.** The ten-minute cron fix exposed the biggest flaw in the first design. Session pinning is the response. I am still testing the change, but I am already seeing faster sessions and better reasoning continuity.
+
+**Build, Deploy & Measure.** The router is running across the fleet, with decisions, latency, failures, and routing outcomes recorded for review. Each policy exists because of a behavior the system needs to support.
+
+This is what I mean when I say design process translates to agentic systems. The interface is not a dashboard or a button. It is the policy that decides what happens next.
+
+## The Guards Are the Product
+
+The interesting parts of the router are not the model names. They are the rules that keep the system from doing something dumb.
+
+- A session can promote to a more capable model, but does not bounce down mid-task.
+- Quick interruptions can use a local model only when they are truly context-free.
+- Scheduled work can declare the model it needs instead of hoping a classifier understands why it matters.
+- An alert gate fails open. If the router cannot decide whether an outage matters, the human still gets the alert.
+- Requests that overflow a local context window move to a model that can fit them instead of failing.
+
+None of those rules came from a slide deck. They came from watching a real system behave badly enough to be worth fixing.
+
+## What I Am Learning
+
+It is early. I am not going to pretend a day of testing proves the final answer on speed, quality, or cost.
+
+But the direction is already clear: the best AI system is not the one that uses the smartest model most often. It is the one that makes the right tradeoff without breaking the flow of the work.
+
+That is a systems problem. It is also a UX problem.
+
+AI systems have latency, safety boundaries, failure states, overrides, feedback loops, and users who need to trust what the system is doing. Sometimes the user is a customer. Sometimes it is another agent. Sometimes it is me at my desk, trying to fix a cron job before breakfast.
+
+The surface changes. The design work does not.
+
+The router is still evolving, and the code is public at [as3k/model-router](https://github.com/as3k/model-router).
