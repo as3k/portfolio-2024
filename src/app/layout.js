@@ -80,6 +80,11 @@ export default function RootLayout({ children }) {
             strategy="afterInteractive"
           />
         ) : null}
+        <Script
+          src="https://stats.zkg.io/api/script.js"
+          data-site-id="fafd29329cd3"
+          strategy="afterInteractive"
+        />
         <LayoutWrapper>
           {children}
         </LayoutWrapper>
