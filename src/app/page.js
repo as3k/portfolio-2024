@@ -8,9 +8,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
+import FieldNotesSection from "@/components/FieldNotesSection";
 import JsonLd, { profilePageSchema } from "@/components/JsonLd";
 import ToolkitSection from "@/components/ToolkitSection";
-import { getFeaturedWork } from "@/lib/content";
+import { getAllPosts, getFeaturedWork } from "@/lib/content";
+import { selectHomepagePosts } from "@/lib/homepage-blog";
+
+const PINNED_FIELD_NOTE_SLUG = "smart-ai-router-problem";
 
 function StatCard({ value, label, isAnimated = false, animatedValue = 0, suffix = "" }) {
   return (
@@ -90,6 +94,7 @@ function ProjectCard({ project }) {
 
 export default function Home() {
   const featuredWork = getFeaturedWork();
+  const fieldNotes = selectHomepagePosts(getAllPosts(), PINNED_FIELD_NOTE_SLUG);
 
   const services = [
     {
@@ -252,6 +257,7 @@ export default function Home() {
           </div>
         </FadeIn>
       </section>
+      <FieldNotesSection {...fieldNotes} />
       <div className="order-4">
         <ToolkitSection />
       </div>
