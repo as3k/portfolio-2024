@@ -25,6 +25,15 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 - Static assets are served from `public` (images under `public/images`).
 - Configuration sits at the repo root: `next.config.mjs` (core Next config), `tailwind.config.js`, `postcss.config.mjs`, and `jsconfig.json` for path hints.
 
+## Blog Cover Images
+- Use the `imagegen` skill for new blog covers. Before prompting, inspect existing files in `public/images/blog/` and the current post's title, excerpt, and headings.
+- Every cover is a **1080 × 675 WebP** at `public/images/blog/<post-slug>.webp`. Add `heroImage: "/images/blog/<post-slug>.webp"` to that post's frontmatter in `src/content/blog/`.
+- The visual system is a cohesive dark editorial collection: near-black/navy backgrounds, premium cinematic 3D or tactile abstract forms, one clear visual metaphor for the article's central tension, and substantial negative space. Covers should feel authored and materially believable, not like decorative AI filler.
+- Vary the restrained accent color to serve the article, while keeping the dark collection family: teal/coral for design-to-code, cyan/white for performance, amber/coral for urgency, muted green/blue for constraints, phosphor green/teal for infrastructure. Do not reuse a color just because it is in the palette.
+- No baked-in text, letters, numbers, logos, watermarks, fake code, fake UI chrome, people, device mockups, stock-photo treatment, or generic "AI network" imagery unless the article genuinely calls for it. Avoid neon overload and cliché imagery such as speedometers, clocks, terminal rain, server racks, or floating cards.
+- Prompt with the use case, exact article metaphor, dark editorial style, 16:10-ish horizontal composition, palette, and explicit avoid list. Generate one distinct prompt per post, inspect the result, and make a targeted revision if it does not fit the series.
+- Preserve generated source files outside the repository. Convert the selected image to the project WebP asset without overwriting an existing cover unless the user explicitly requests replacement. Validate the final dimensions and run `yarn build` after wiring the frontmatter.
+
 ## Build, Test, and Development Commands
 - `yarn dev` – run the dev server at `http://localhost:3000`.
 - `yarn build` – create the production build; run before deployments.

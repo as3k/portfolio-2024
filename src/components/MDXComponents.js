@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { getHeadingId } from "@/lib/blog-outline";
 import { trackExternalLinkClick } from "@/lib/umami";
 
 /**
@@ -15,8 +16,8 @@ const MDXComponents = {
       {children}
     </h1>
   ),
-  h2: ({ children, ...props }) => (
-    <h2 className="text-2xl font-semibold text-white lg:text-3xl mb-4 mt-10 scroll-mt-32" {...props}>
+  h2: ({ children, id, ...props }) => (
+    <h2 id={id || getHeadingId(children)} className="text-2xl font-semibold text-white lg:text-3xl mb-4 mt-10 scroll-mt-32" {...props}>
       {children}
     </h2>
   ),
