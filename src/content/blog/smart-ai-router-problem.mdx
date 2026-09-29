@@ -35,6 +35,10 @@ Every turn was going back through the routing gate. Every turn could be assigned
 
 No model had enough continuity to own the problem.
 
+The logs told the story in miniature. In one hour, a single session re-rolled the dice 25 times across three tiers: 20 turns on the cheap cloud model, 2 on the local one, 3 on the frontier model. The same tool output, classified 30 seconds apart, took two different paths through the classifier. Three consecutive frontier-model calls ran on input the complexity scores called borderline. Every turn was a new decision, and no model kept the thread.
+
+That is the pre-pinning failure mode. Under the new rules, that hour collapses to one classification and 25 pinned turns: one brain, no judge tax, and a consistent model for the whole session.
+
 That is the part people miss when they talk about model routing. A long-running agent task is not a pile of isolated prompts. It has context. It has decisions already made. It has a working memory.
 
 Changing the model mid-task is a little like switching designers halfway through a flow without showing the next person the research, the constraints, or the Figma file. They might still do good work. But they are spending time reconstructing the problem instead of moving it forward.
@@ -101,9 +105,9 @@ I did not start with a perfect architecture. I started with a problem I could ob
 
 **Ideate & Prototype.** What should routing mean? Which models belong in which role? What should happen when a model is unsure? The first answer was request-level routing. The next answer was session pinning. The edge case created micro-delegation.
 
-**Test & Iterate.** The ten-minute cron fix exposed the biggest flaw in the first design. Session pinning is the response. I am still testing the change, but I am already seeing faster sessions and better reasoning continuity.
+**Test & Iterate.** The ten-minute cron fix exposed the biggest flaw in the first design. Session pinning is the response. The router made 1,606 routing decisions across my fleet in its first four days for $2.25 in inference spend. Session pinning is too new for numbers that clean, but the sessions that stay pinned are already holding a single thread instead of restarting one.
 
-**Build, Deploy & Measure.** The router is running across the fleet, with decisions, latency, failures, and routing outcomes recorded for review. Each policy exists because of a behavior the system needs to support.
+**Build, Deploy & Measure.** The router is running across the fleet, with decisions, latency, failures, and routing outcomes recorded for review. Each policy exists because of a behavior the system needs to support. The router is public at https://github.com/as3k/model-router.
 
 This is what I mean when I say design process translates to agentic systems. The interface is not a dashboard or a button. It is the policy that decides what happens next.
 
@@ -121,9 +125,7 @@ None of those rules came from a slide deck. They came from watching a real syste
 
 ## What I Am Learning
 
-It is early. I am not going to pretend a day of testing proves the final answer on speed, quality, or cost.
-
-But the direction is already clear: the best AI system is not the one that uses the smartest model most often. It is the one that makes the right tradeoff without breaking the flow of the work.
+The best AI system is not the one that uses the smartest model most often. It is the one that makes the right tradeoff without breaking the flow of the work.
 
 That is a systems problem. It is also a UX problem.
 
@@ -131,4 +133,4 @@ AI systems have latency, safety boundaries, failure states, overrides, feedback 
 
 The surface changes. The design work does not.
 
-The router is still evolving, and the code is public at [as3k/model-router](https://github.com/as3k/model-router).
+The interface is not a dashboard or a button. It is the policy that decides what happens next.
