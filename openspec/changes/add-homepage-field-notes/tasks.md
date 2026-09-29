@@ -4,3 +4,4 @@
 - [x] 1.2 Build the Field Notes homepage section with featured and recent post treatments.
 - [x] 1.3 Place the section after the shipped case studies and before the remaining homepage content.
 - [x] 1.4 Verify links, date formatting, duplicate exclusion, responsive layout, lint, and production build.
+- [x] 1.5 Add responsive cover images for the featured and recent posts.

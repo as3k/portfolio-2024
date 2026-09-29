@@ -7,8 +7,8 @@ The portfolio should surface the thinking behind the work, not only the finished
 ## What Changes
 
 - Add a homepage section titled "Field Notes" after the shipped case studies.
-- Feature one manually selected blog post with its title, one-line summary, date, and link.
-- Show the three newest non-pinned blog posts with their titles, dates, and links.
+- Feature one manually selected blog post with its cover image, title, one-line summary, date, and link.
+- Show the three newest non-pinned blog posts with their cover images, titles, dates, and links.
 - Prevent the pinned post from appearing twice and gracefully handle fewer than three recent posts.
 
 ## Impact
