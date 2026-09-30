@@ -48,6 +48,7 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 - Manifest lookup: [`src/lib/blog-audio.js`](src/lib/blog-audio.js)
 - Generated output: [`public/audio/`](public/audio/)
 - Analytics: [`src/lib/rybbit.js`](src/lib/rybbit.js)
+- For Rybbit implementation, debugging, or verification, read the shared `~/Mycelium/AIOS/Skills/rybbit-analytics/SKILL.md` skill first.
 - Design/spec history: [`openspec/changes/add-blog-audio-player/`](openspec/changes/add-blog-audio-player/)
 
 ## Coding Style & Naming Conventions
