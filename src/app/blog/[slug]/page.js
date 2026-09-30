@@ -129,7 +129,11 @@ export default async function BlogPostPage({ params }) {
           </header>
         </FadeIn>
 
-        {audioManifest ? <BlogAudioPlayer manifest={audioManifest} /> : null}
+        {audioManifest ? (
+          <FadeIn delay={0.12}>
+            <BlogAudioPlayer manifest={audioManifest} />
+          </FadeIn>
+        ) : null}
 
         {meta.heroImage ? (
           <FadeIn delay={0.15}>
