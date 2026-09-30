@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import BlogAudioPlayer from '@/components/BlogAudioPlayer';
 import CaseStudyNavigation from '@/components/CaseStudyNavigation';
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from '@/components/FadeIn';
 import JsonLd, { createBreadcrumbSchema, createCaseStudySchema } from '@/components/JsonLd';
 import MDXComponents from '@/components/MDXComponents';
 import { ProjectBackLink, ProjectCTAButtons, ProjectNavLink } from '@/components/ProjectNavigation';
+import { getWorkAudioManifest } from '@/lib/blog-audio';
 import { getAllWork, getPublicWorkBySlug } from '@/lib/content';
 
 // Prevent unlisted draft and archived MDX files from being generated on demand.
@@ -68,6 +70,7 @@ export default async function WorkDetailPage({ params }) {
   }
 
   const { meta, content } = work;
+  const audioManifest = getWorkAudioManifest(slug);
 
   // Get all projects for next/prev navigation
   const allProjects = getAllWork();
@@ -113,6 +116,12 @@ export default async function WorkDetailPage({ params }) {
           <p className="text-body-2 text-gray-400 max-w-3xl">{meta.excerpt}</p>
         </header>
       </FadeIn>
+
+      {audioManifest ? (
+        <FadeIn delay={0.15}>
+          <BlogAudioPlayer contentSlug={slug} contentType="case_study" manifest={audioManifest} title="case study" />
+        </FadeIn>
+      ) : null}
 
       {/* Hero image */}
       <FadeIn delay={0.2}>

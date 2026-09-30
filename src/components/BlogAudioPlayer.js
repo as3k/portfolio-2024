@@ -2,6 +2,7 @@
 
 import { PauseIcon, PlayIcon } from "@heroicons/react/24/solid";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { trackAudioCompleted, trackAudioSpeedChanged, trackAudioStarted } from "@/lib/rybbit";
 
 const PLAYBACK_SPEED_STORAGE_KEY = "zg-blog-audio-playback-speed";
 const PLAYBACK_SPEEDS = [0.75, 1, 1.25, 1.5, 2];
@@ -13,10 +14,16 @@ function formatTime(seconds) {
   return `${minutes}:${remainingSeconds}`;
 }
 
-export default function BlogAudioPlayer({ manifest }) {
+export default function BlogAudioPlayer({
+  contentSlug,
+  contentType = "blog",
+  manifest,
+  title = "article",
+}) {
   const audioRef = useRef(null);
   const currentIndexRef = useRef(0);
   const playbackRateRef = useRef(1.25);
+  const hasTrackedStartRef = useRef(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -49,6 +56,7 @@ export default function BlogAudioPlayer({ manifest }) {
       if (nextIndex >= manifest.chunks.length) {
         setIsPlaying(false);
         setCurrentTime(totalDuration);
+        trackAudioCompleted(contentType, contentSlug, playbackRateRef.current);
         return;
       }
 
@@ -71,7 +79,7 @@ export default function BlogAudioPlayer({ manifest }) {
       audio.removeEventListener("ended", onEnded);
       audio.removeEventListener("error", onError);
     };
-  }, [manifest.chunks, offsets, totalDuration]);
+  }, [contentSlug, contentType, manifest.chunks, offsets, totalDuration]);
 
   useEffect(() => {
     try {
@@ -123,6 +131,10 @@ export default function BlogAudioPlayer({ manifest }) {
     try {
       await audio.play();
       setIsPlaying(true);
+      if (!hasTrackedStartRef.current) {
+        hasTrackedStartRef.current = true;
+        trackAudioStarted(contentType, contentSlug, playbackRate);
+      }
     } catch {
       setError(true);
     }
@@ -154,7 +166,7 @@ export default function BlogAudioPlayer({ manifest }) {
   };
 
   return (
-    <section className="mx-auto mb-10 max-w-5xl rounded-2xl border border-gray-800 bg-zg-dark-0 px-4 py-3 sm:px-5" aria-label="Listen to this article">
+      <section className="mx-auto mb-10 max-w-5xl rounded-2xl border border-gray-800 bg-zg-dark-0 px-4 py-3 sm:px-5" aria-label={`Listen to this ${title}`}>
       <div className="flex items-center gap-3">
         <button
           type="button"
@@ -186,7 +198,11 @@ export default function BlogAudioPlayer({ manifest }) {
           <span className="sr-only">Playback speed</span>
           <select
             value={playbackRate}
-            onChange={(event) => setPlaybackRate(Number(event.target.value))}
+            onChange={(event) => {
+              const nextRate = Number(event.target.value);
+              setPlaybackRate(nextRate);
+              trackAudioSpeedChanged(contentType, contentSlug, nextRate);
+            }}
             className="rounded border border-gray-700 bg-transparent px-1.5 py-1 text-xs text-gray-400 outline-none focus:border-zg-teal"
             aria-label="Playback speed"
           >

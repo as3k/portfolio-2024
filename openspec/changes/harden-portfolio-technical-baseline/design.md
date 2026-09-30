@@ -1,6 +1,6 @@
 ## Context
 
-This Next.js App Router portfolio uses Mailgun for contact delivery, React PDF for the canonical resume, MDX for case-study media, and Umami analytics. The changes cross security, rendering, performance, and discoverability but must stay dependency-free and preserve visible portfolio behavior.
+This Next.js App Router portfolio uses Mailgun for contact delivery, React PDF for the canonical resume, MDX for case-study media, and Rybbit analytics. The changes cross security, rendering, performance, and discoverability but must stay dependency-free and preserve visible portfolio behavior.
 
 ## Goals / Non-Goals
 
@@ -14,7 +14,7 @@ This Next.js App Router portfolio uses Mailgun for contact delivery, React PDF f
 - **Media sizing:** pass known width and height to media; where they are unknown, use natural layout rather than inventing an aspect-ratio reservation.
 - **PXC demo:** commit a converted asset and update its reference only after MIME, browser playback, and meaningful byte-size reduction are verified; otherwise retain the GIF.
 - **Sitemap:** enumerate public supplementary project routes explicitly or from the same public content source, excluding drafts/private routes.
-- **Analytics:** remove only Rybbbit references; retain `LayoutWrapper` console output as intentional product behavior.
+- **Analytics:** retain the Rybbit-only integration; remove obsolete analytics references while preserving `LayoutWrapper` console output as intentional product behavior.
 
 ## Risks / Trade-offs
 

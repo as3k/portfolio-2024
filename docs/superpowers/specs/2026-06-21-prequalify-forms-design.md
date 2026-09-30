@@ -82,11 +82,11 @@ New `type` field in payload: `'fte' | 'general' | 'consulting'` — used for ana
 
 ## Part 4: Analytics
 
-Both **Umami** and **Rybbit** (stats.zkg.io) track form submit events with a `type` dimension.
+Rybbit (stats.zkg.io) tracks form submit events with a `type` dimension.
 
 Rybbit re-added to `layout.js` (was removed due to CORS — user will fix CORS separately).
 
-Tracking call on success: `trackContactFormSubmit(type, 'success')` — update signature in `src/lib/umami.js` and add parallel Rybbit event call.
+Tracking call on success: `trackContactFormSubmit(type, 'success')` through the Rybbit-only analytics helper.
 
 ---
 
@@ -100,6 +100,6 @@ Tracking call on success: `trackContactFormSubmit(type, 'success')` — update s
 | `ContactForm.js` | keep | Used as-is for "Something else" path |
 | `layout.js` | update | Rybbit script re-added |
 | `/api/contact/route.js` | update | Accept + render extended fields, include `type` |
-| `src/lib/umami.js` | update | `trackContactFormSubmit` accepts `type` param |
+| `src/lib/rybbit.js` | update | `trackContactFormSubmit` accepts `type` param |
 | `/lets-talk/page.js` | update | Replace `<ContactForm />` with `<IntentGate />` |
 | `/consulting/page.js` | update | Add `<ConsultingForm />` section with `id="contact"` |

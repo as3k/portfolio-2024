@@ -15,7 +15,7 @@ Personal portfolio site for a product designer. Showcases case studies, blog pos
 - **Linting**: Biome (linter only, formatter disabled)
 - **PDF Generation**: @react-pdf/renderer (for resume)
 - **Email**: Mailgun.js
-- **Analytics**: Umami (privacy-focused)
+- **Analytics**: Rybbit (privacy-focused)
 
 ## Project Conventions
 
@@ -72,5 +72,5 @@ Content should follow the voice/tone guidelines: clear, plainspoken, confident w
 | Service | Purpose | Config |
 |---------|---------|--------|
 | Mailgun | Contact form email delivery | `MAILGUN_DOMAIN`, `MAILGUN_API_KEY` |
-| Umami | Privacy-focused analytics | `NEXT_PUBLIC_UMAMI_SCRIPT_URL`, `NEXT_PUBLIC_UMAMI_WEBSITE_ID` |
+| Rybbit | Privacy-focused analytics and custom events | `NEXT_PUBLIC_RYBBIT_SCRIPT_URL`, `NEXT_PUBLIC_RYBBIT_SITE_ID` |
 | Vercel | Hosting and OG image generation (@vercel/og) | Automatic via deployment |

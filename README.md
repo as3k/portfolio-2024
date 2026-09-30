@@ -20,7 +20,7 @@ yarn install
 ## Project Notes
 - App Router lives under `src/app`; global styles in `src/app/globals.css`.
 - Static assets are in `public` (portfolio photo at `public/images/`).
-- Umami analytics loads via `NEXT_PUBLIC_UMAMI_SCRIPT_URL`, `NEXT_PUBLIC_UMAMI_WEBSITE_ID`, and optional `NEXT_PUBLIC_UMAMI_HOST_URL` env vars in `src/app/layout.js`.
+- Rybbit analytics loads once from `NEXT_PUBLIC_RYBBIT_SCRIPT_URL` or the self-hosted default in `src/app/layout.js`; `NEXT_PUBLIC_RYBBIT_SITE_ID` can override the site ID passed to the script.
 
 ## Deployment
-Build with `yarn build` and deploy the `.next` output with your preferred host (Vercel recommended). Set Umami env vars in the host dashboard to enable analytics tracking.
+Build with `yarn build` and deploy the `.next` output with your preferred host (Vercel recommended). Set Rybbit env vars in the host dashboard when overriding the defaults.

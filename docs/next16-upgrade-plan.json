@@ -8,7 +8,7 @@
       "id": "runtime-testing",
       "status": "todo",
       "summary": "Run dev server sanity check",
-      "details": "Run `yarn dev`; verify routes, layouts, styling, and Umami script load (env-driven).",
+      "details": "Run `yarn dev`; verify routes, layouts, styling, and Rybbit script load (env-driven).",
       "owner": "codex",
       "eta": "0.25d"
     },
@@ -16,7 +16,7 @@
       "id": "regression-pass",
       "status": "todo",
       "summary": "Manual regression checklist",
-      "details": "Hero, navigation, footer, contact form submission (mock), Umami tracking, responsiveness, 404 route.",
+      "details": "Hero, navigation, footer, contact form submission (mock), Rybbit tracking, responsiveness, 404 route.",
       "owner": "qa",
       "eta": "0.25d"
     }
@@ -26,7 +26,7 @@
       "id": "docs-update",
       "status": "done",
       "summary": "Document upgrade steps and commands",
-      "details": "README now reflects Next 16/React 19 stack with Yarn commands and Umami env-driven analytics; AGENTS coding-style bullet updated to Next 16.",
+      "details": "README now reflects Next 16/React 19 stack with Yarn commands and Rybbit env-driven analytics; AGENTS coding-style bullet updated to Next 16.",
       "owner": "assistant",
       "eta": "0.1d"
     },
@@ -42,7 +42,7 @@
       "id": "dependency-audit",
       "status": "done",
       "summary": "Inventory deps for compatibility",
-      "details": "Reviewed deps: removed next-plausible in favor of env-driven Umami script; tailwindcss@3.4.x, @tailwindcss/forms & typography, mailgun.js@10.2.3, form-data@4.0.0 remain compatible with Next 16.",
+      "details": "Reviewed deps: removed next-plausible in favor of env-driven Rybbit script; tailwindcss@3.4.x, @tailwindcss/forms & typography, mailgun.js@10.2.3, form-data@4.0.0 remain compatible with Next 16.",
       "owner": "assistant",
       "eta": "0.25d"
     },
@@ -82,7 +82,7 @@
       "id": "upgrade-next-core",
       "status": "done",
       "summary": "Bump Next/React and regenerate lockfile",
-      "details": "Updated Next to ^16.0.10 with React/React-DOM ^19.0.0 and regenerated yarn.lock; removed next-plausible dependency (analytics handled via Umami script).",
+      "details": "Updated Next to ^16.0.10 with React/React-DOM ^19.0.0 and regenerated yarn.lock; removed next-plausible dependency (analytics handled via Rybbit script).",
       "owner": "codex",
       "eta": "0.25d"
     },
@@ -90,7 +90,7 @@
       "id": "config-verification",
       "status": "done",
       "summary": "Re-evaluate next.config.mjs",
-      "details": "Removed Plausible proxy wrapper; config now exports a plain Next config compatible with Umami script injection.",
+      "details": "Removed Plausible proxy wrapper; config now exports a plain Next config compatible with Rybbit script injection.",
       "owner": "codex",
       "eta": "0.25d"
     },
@@ -106,7 +106,7 @@
       "id": "env-compat-scan",
       "status": "done",
       "summary": "Review Next.js 15 & 16 breaking changes (App Router focus)",
-      "details": "App Router static pages plus one POST-only API route. No middleware, custom caching, or remote images, so major Next 15/16 changes (fetch caching adjustments, partial prerendering defaults, stricter segment config) do not apply. Analytics now via Umami script env vars (no Next config proxy).",
+      "details": "App Router static pages plus one POST-only API route. No middleware, custom caching, or remote images, so major Next 15/16 changes (fetch caching adjustments, partial prerendering defaults, stricter segment config) do not apply. Analytics now via Rybbit script env vars (no Next config proxy).",
       "owner": "codex",
       "eta": "0.5d"
     },

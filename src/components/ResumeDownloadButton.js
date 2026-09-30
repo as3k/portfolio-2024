@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { trackResumeDownload } from "@/lib/umami";
+import { trackResumeDownload } from "@/lib/rybbit";
 
 export default function ResumeDownloadButton({ href, children, className }) {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { trackBackToProjects, trackCTAClick, trackGetInTouchCTA, trackProjectNavigation } from "@/lib/umami";
+import { trackBackToProjects, trackCTAClick, trackGetInTouchCTA, trackProjectNavigation } from "@/lib/rybbit";
 
 export function ProjectBackLink({ currentSlug }) {
   return (

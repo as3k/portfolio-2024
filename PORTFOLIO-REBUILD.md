@@ -22,7 +22,7 @@ Position Zachary Guerrero primarily for Design Engineer and UX Engineer roles. P
 - **Shared UI:** Header, Footer, layout wrapper, cards, MDX component mapping, analytics helpers, and JSON-LD schemas.
 - **SEO and discoverability:** root metadata in `src/app/layout.js`; JSON-LD in `src/components/JsonLd.js`; sitemap and robots routes exist. Root canonical domain is `https://zacharyguerrero.com`.
 - **Resume:** rendered from `src/lib/resume-data.js` and downloadable through `/api/resume`.
-- **Analytics:** Umami loads through one environment-configured script with a `stats.zkg.io` fallback. The privacy policy describes the analytics-service processing accurately at a high level.
+- **Analytics:** Rybbit loads through one environment-configured script with a `stats.zkg.io` fallback. The privacy policy describes the analytics-service processing accurately at a high level.
 - **Accessibility baseline:** skip link, semantic nav labels, `next/image`, reduced-motion handling in `FadeIn`, and security headers are present. A keyboard, focus, contrast, responsive, and Lighthouse pass is still required.
 
 ## Content map
@@ -63,7 +63,7 @@ Position Zachary Guerrero primarily for Design Engineer and UX Engineer roles. P
 - ~~**P0:** `src/app/api/generate-tailored-resume/route.js` accepted unauthenticated caller-controlled content and created public Blob PDFs.~~ Resolved 2026-09-14: the unused route was removed. 
 - **P0:** `src/app/projects/[slug]/page.js` statically generates drafts and archived projects from every content slug, even though listings hide them.
 - **P1:** The archive query cannot return archived projects because `getAllWork()` filters them before `getArchivedProjects()` selects them. The sitemap omits manual routes including `/consulting`, `/projects/archive`, `/projects/ren`, and `/projects/launchbook`.
-- ~~**P1:** The unconditional external analytics script conflicted with the privacy policy’s third-party-sharing language, and the optional Umami configuration could duplicate tracking.~~ Resolved 2026-09-14: consolidated to one script with a fallback and corrected the privacy wording.
+- ~~**P1:** The unconditional external analytics script conflicted with the privacy policy’s third-party-sharing language, and the optional analytics configuration could duplicate tracking.~~ Resolved: consolidated to one Rybbit script with a fallback and corrected the privacy wording.
 - **P1:** Mobile navigation needs Escape handling, focus management, `aria-controls`, and deliberate click-away behavior. Reduced-motion support is also missing for widespread animation.
 - **P2:** Add explicit focus-visible affordances, descriptive gallery alt text, `sizes` for fill-mode images, and an image/GIF optimization pass.
 - Verification is currently blocked: dependencies are not installed, so `yarn lint` fails because Biome is unavailable.
@@ -76,7 +76,7 @@ Position Zachary Guerrero primarily for Design Engineer and UX Engineer roles. P
 4. **Public role labels are contradictory.** The active site uses Senior Product Engineer in metadata, schema, footer, resume, and CTAs; the OG image says Senior Product Designer; other copy says Product Designer & Developer. **Classification:** positioning and SEO.
 5. **Member Splash case-study details must be evidence-checked.** Club count, Splash Cards reach/transaction volume, credentials rollout, check-in timing, developer-environment timing, staff testing, and security statements are not cited in the repo. They remain unpublished or clearly scoped until confirmed in interview. **Classification:** weak evidence.
 6. **Stale draft metadata is public-risky.** The Supabase rebuild says `lastUpdated: 2024-12-16` and estimated completion Q1 2025, despite a 2025 project year. Drafts are excluded from lists but still get static project routes through `getWorkSlugs()`. **Classification:** factual inconsistency and content hierarchy.
-7. **At least two analytics scripts are injected.** Root layout loads both env-driven Umami and a hard-coded `stats.zkg.io` script. Verify intended ownership, consent/privacy disclosure, and duplicate pageview behavior. **Classification:** technical credibility and privacy.
+7. ~~**At least two analytics scripts are injected.**~~ Resolved: root layout now loads one Rybbit script. **Classification:** technical credibility and privacy.
 8. **Password-protected project details are not actually protected.** `src/components/PasswordGate.js` contains its passwords in client-side JavaScript. The content needs server-side protection or removal from the public build. **Classification:** security.
 9. ~~**The tailored-resume API is publicly abusable.**~~ Resolved 2026-09-14: the unused endpoint was removed. **Classification:** security and privacy.
 10. **Draft and archived projects can still be generated at direct routes.** `generateStaticParams` uses every MDX slug, while listings and the sitemap filter drafts and archives. Public visibility must be made intentional. **Classification:** technical credibility and content hierarchy.
@@ -321,7 +321,7 @@ The honeypot portion is implemented. Shared rate limiting, Turnstile, CSP enforc
 
 ### Content-security policy
 
-1. Inventory first-party and third-party origins required by fonts, Umami analytics, Mailgun-facing server code, images, and Vercel deployment behavior.
+1. Inventory first-party and third-party origins required by fonts, Rybbit analytics, Mailgun-facing server code, images, and Vercel deployment behavior.
 2. Start with a report-only CSP in production. Review violations before enforcing it.
 3. Move to an enforcing policy using nonces or hashes for any inline script that remains. Do not use `unsafe-inline` as a permanent shortcut.
 4. Re-check analytics, Open Graph generation, contact submission, browser navigation, and the console easter egg after enforcement.
@@ -488,7 +488,7 @@ These would add proof, not decorative filler. Sanitized or reconstructed artifac
 - **2026-09-14:** Confirmed the 2023 Workforce Benefits launch year and created an anonymized case study using only confirmed facts plus an explicitly labeled abstract flow reconstruction.
 - **2026-09-14:** Approved the anonymized Pacific Life case-study title, Enterprise Benefits Enrollment.
 - **2026-09-14:** Removed the unused, unauthenticated tailored-resume API. It accepted caller-controlled content and wrote public Blob PDFs; no in-repository caller existed.
-- **2026-09-14:** Consolidated analytics to one Umami script with an environment-configured URL and website ID plus an existing-site fallback. Updated privacy copy to describe analytics-service processing without an inaccurate no-third-party promise.
+- **2026-09-30:** Consolidated analytics to one Rybbit script with an environment-configured URL and site ID plus the existing-site fallback. Updated the analytics helpers to use Rybbit custom events.
 - **2026-09-14:** Began High Rapid Networks reconstruction. Captured the pre-redesign 2006 sign-up-form experience and the redesign’s product-comparison and local-community goals.
 - **2026-09-14:** Captured High Rapid Networks’ three-tier pricing-table decision and selected-plan prefill into the sign-up form.
 - **2026-09-14:** Confirmed Zachary’s end-to-end ownership of the High Rapid Networks brand, strategy, design, and implementation.

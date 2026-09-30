@@ -52,10 +52,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const umamiScriptUrl = process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL;
-  const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
-  const umamiHostUrl = process.env.NEXT_PUBLIC_UMAMI_HOST_URL;
-  const analyticsScriptUrl = umamiScriptUrl || "https://stats.zkg.io/api/script.js";
+  const rybbitSiteId = process.env.NEXT_PUBLIC_RYBBIT_SITE_ID || "fafd29329cd3";
+  const rybbitScriptUrl = process.env.NEXT_PUBLIC_RYBBIT_SCRIPT_URL || "https://stats.zkg.io/api/script.js";
 
   return (
     <html lang="en" className={`${poppins.className} text-gray-200`}>
@@ -71,20 +69,13 @@ export default function RootLayout({ children }) {
         >
           Skip to content
         </a>
-        {analyticsScriptUrl ? (
+        {rybbitScriptUrl ? (
           <Script
-            src={analyticsScriptUrl}
-            {...(umamiWebsiteId
-              ? { "data-website-id": umamiWebsiteId, ...(umamiHostUrl ? { "data-host-url": umamiHostUrl } : {}) }
-              : { "data-site-id": "fafd29329cd3" })}
+            src={rybbitScriptUrl}
+            data-site-id={rybbitSiteId}
             strategy="afterInteractive"
           />
         ) : null}
-        <Script
-          src="https://stats.zkg.io/api/script.js"
-          data-site-id="fafd29329cd3"
-          strategy="afterInteractive"
-        />
         <LayoutWrapper>
           {children}
         </LayoutWrapper>

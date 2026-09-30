@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { trackProjectCardClick, trackProjectCardHover } from "@/lib/umami";
+import { trackProjectCardClick, trackProjectCardHover } from "@/lib/rybbit";
 
 export default function ProjectCard({ project, location = 'projects_page' }) {
   const { slug, meta } = project;

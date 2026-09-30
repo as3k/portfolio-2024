@@ -35,7 +35,7 @@ This is a personal portfolio site built with Next.js 16, React 19, and Tailwind 
 ### Directory Structure
 
 - `src/app/` – Next.js App Router pages and layouts
-  - `layout.js` – root layout with Poppins font, Header/Footer, and Umami analytics
+  - `layout.js` – root layout with Poppins font, Header/Footer, and Rybbit analytics
   - `page.js` – landing page
   - `api/contact/route.js` – contact form API endpoint using Mailgun
   - `privacy-policy/page.js` – static page
@@ -94,7 +94,7 @@ seo:
 
 - **Styling**: Tailwind CSS with custom design tokens in `tailwind.config.js` (brand colors `zg-teal`, `zg-coral`, `zg-dark-*`; typography scale for body/heading/display/utility/microcopy)
 - **Linting**: Biome (formatter disabled, linter enabled with recommended rules)
-- **Analytics**: Umami (loaded via `NEXT_PUBLIC_UMAMI_SCRIPT_URL`, `NEXT_PUBLIC_UMAMI_WEBSITE_ID`, optional `NEXT_PUBLIC_UMAMI_HOST_URL`)
+- **Analytics**: Rybbit (loaded once via `NEXT_PUBLIC_RYBBIT_SCRIPT_URL`, with optional `NEXT_PUBLIC_RYBBIT_SITE_ID`)
 - **Email**: Mailgun via `MAILGUN_DOMAIN` and `MAILGUN_API_KEY` env vars
 
 ### Conventions
@@ -109,7 +109,7 @@ seo:
 
 Required in `.env.local`:
 - `MAILGUN_DOMAIN`, `MAILGUN_API_KEY` – for contact form
-- `NEXT_PUBLIC_UMAMI_SCRIPT_URL`, `NEXT_PUBLIC_UMAMI_WEBSITE_ID` – for analytics (optional `NEXT_PUBLIC_UMAMI_HOST_URL`)
+- `NEXT_PUBLIC_RYBBIT_SCRIPT_URL`, `NEXT_PUBLIC_RYBBIT_SITE_ID` – for analytics overrides
 
 ---
 

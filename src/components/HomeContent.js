@@ -11,7 +11,7 @@ import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import { ProjectBadge } from "@/components/ProjectBadge";
-import { trackCTAClick, trackProjectCardClick, trackProjectCardHover } from "@/lib/umami";
+import { trackCTAClick, trackProjectCardClick, trackProjectCardHover } from "@/lib/rybbit";
 
 function StatCard({ value, label, isAnimated = false, animatedValue = 0, suffix = "" }) {
   return (

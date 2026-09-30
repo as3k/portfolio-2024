@@ -4,7 +4,7 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { trackLetsTalkCTA, trackLogoClick, trackMobileMenuToggle, trackNavigationClick } from "@/lib/umami";
+import { trackLetsTalkCTA, trackLogoClick, trackMobileMenuToggle, trackNavigationClick } from "@/lib/rybbit";
 
 const navItems = [
   { href: "/", label: "Home" },

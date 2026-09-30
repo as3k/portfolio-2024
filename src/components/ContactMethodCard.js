@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { trackExternalLinkClick } from "@/lib/umami";
+import { trackExternalLinkClick } from "@/lib/rybbit";
 
 export function ContactMethodCard({ href, icon: Icon, title, subtitle, destination, external = false }) {
   return (

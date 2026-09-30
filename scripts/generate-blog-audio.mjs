@@ -10,8 +10,11 @@ import {
 } from './blog-audio.js';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const contentDirectory = path.join(projectRoot, 'src/content/blog');
-const outputDirectory = path.join(projectRoot, 'public/audio/blog');
+const requestedType = process.argv[2];
+const contentType = requestedType === 'work' || requestedType === 'blog' ? requestedType : 'blog';
+const requestedSlug = requestedType === 'work' || requestedType === 'blog' ? process.argv[3] : requestedType;
+const contentDirectory = path.join(projectRoot, 'src/content', contentType);
+const outputDirectory = path.join(projectRoot, 'public/audio', contentType);
 const kokoroUrl = process.env.KOKORO_URL || 'http://100.118.202.118:8880/v1/audio/speech';
 const model = process.env.KOKORO_MODEL || 'kokoro-82m';
 const voice = process.env.KOKORO_VOICE || 'af_heart';
@@ -86,12 +89,12 @@ async function addDurationMetadata(manifest, postDirectory) {
   return updatedManifest;
 }
 
-async function generatePost(fileName) {
+async function generateContent(fileName) {
   const slug = fileName.replace(/\.mdx$/, '');
   const source = await fs.readFile(path.join(contentDirectory, fileName), 'utf8');
   const { data, content } = matter(source);
 
-  if (data.draft) return { slug, skipped: true };
+  if (data.draft || data.status === 'archived') return { slug, skipped: true };
 
   const chunks = createAudioChunks(content, maxChars);
   const contentHash = getContentHash(chunks);
@@ -114,7 +117,7 @@ async function generatePost(fileName) {
     // No usable manifest yet. Generate the post below.
   }
 
-  const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), `blog-audio-${slug}-`));
+  const temporaryDirectory = await fs.mkdtemp(path.join(os.tmpdir(), `${contentType}-audio-${slug}-`));
   const manifestChunks = [];
   let totalBytes = 0;
 
@@ -129,7 +132,7 @@ async function generatePost(fileName) {
       totalBytes += stats.size;
       manifestChunks.push({
         index,
-        url: `/audio/blog/${slug}/${fileNameForChunk}`,
+        url: `/audio/${contentType}/${slug}/${fileNameForChunk}`,
         text: chunks[index],
         bytes: stats.size,
         duration,
@@ -139,6 +142,7 @@ async function generatePost(fileName) {
 
     const manifest = {
       slug,
+      contentType,
       contentHash,
       model,
       voice,
@@ -161,17 +165,16 @@ async function generatePost(fileName) {
   }
 }
 
-const requestedSlug = process.argv[2];
 const files = (await fs.readdir(contentDirectory))
   .filter((fileName) => fileName.endsWith('.mdx'))
   .filter((fileName) => !requestedSlug || fileName === `${requestedSlug}.mdx`);
 
 if (requestedSlug && files.length === 0) {
-  throw new Error(`No blog post found for slug: ${requestedSlug}`);
+  throw new Error(`No ${contentType} content found for slug: ${requestedSlug}`);
 }
 
 for (const file of files) {
-  const result = await generatePost(file);
+  const result = await generateContent(file);
   if (result.skipped) console.log(`${result.slug}: already up to date`);
   else console.log(`${result.slug}: ${result.chunks} chunks, ${(result.bytes / 1024 / 1024).toFixed(2)} MB`);
 }
