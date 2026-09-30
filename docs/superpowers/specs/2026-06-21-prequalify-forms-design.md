@@ -82,7 +82,7 @@ New `type` field in payload: `'fte' | 'general' | 'consulting'` — used for ana
 
 ## Part 4: Analytics
 
-Both **Umami** and **Rybbit** (stats.zkg.io) track form submit events with a `type` dimension.
+Rybbit (stats.zkg.io) tracks form submit events with a `type` dimension.
 
 Rybbit re-added to `layout.js` (was removed due to CORS — user will fix CORS separately).
 
