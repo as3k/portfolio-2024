@@ -1,0 +1,144 @@
+---
+title: "I Don't Start with Screens"
+slug: "how-i-run-feature-design"
+date: "2026-09-30"
+excerpt: "A feature design is not a collection of screens. It is a sequence of decisions that turns messy reality into a product people can trust."
+heroImage: "/images/blog/how-i-run-feature-design.webp"
+tags: ["feature-design", "product-design", "ux", "design-engineering", "case-study"]
+readingTime: "8 min"
+---
+
+When I start a feature, I try not to open Figma.
+
+Not because screens are unimportant. I just know how easy it is to make an unresolved problem look finished. A polished screen gives everyone something to react to, even when nobody has agreed on what the system actually needs to do.
+
+I would rather start with the mess.
+
+Recently, I designed a rebuild of Member Splash's member-data import tool. The opportunity was to make it easier for organizations to bring in the files they already have, instead of asking them to reshape everything before they can get started. An onboarding specialist had been carrying a lot of the judgment manually, using spreadsheets, experience, and emerging tools to help people through the process.
+
+The obvious brief was “make importing easier.” The useful brief was more specific: let people start with what they already have, handle the parts the system can understand, and only ask for human judgment when it is actually needed.
+
+That distinction is where feature design begins for me.
+
+## Start with the person carrying the problem
+
+I began with an interview with an onboarding specialist who supports people through imports. I was looking for the moments where a person had to compensate manually, and where the product could take on more of that work.
+
+The interview gave me a much better map of the problem than a generic request for “a smarter importer.” Some issues were mechanical, like inconsistent formatting. Some were structural, like several pieces of information being combined into one field. Others were semantic. A column might have a name, but what did that name actually mean to the organization using it?
+
+Those categories matter because they call for different behavior. A formatting issue can be fixed. A combined field can be split as a suggestion, but should be shown for confirmation. An ambiguous value may need a short question in plain language.
+
+If I treat all three as the same kind of validation error, I end up asking the user to solve problems the system should have solved, while hiding the problems that really do need their judgment.
+
+I also wrote down the behavior around the data, not just the data itself. Many of the people doing this work are volunteers. They are fitting it into a night after work or a spare twenty minutes. They may not read every instruction. They may feel compelled to fill an optional field. They may close the tab if the tool stops them too many times.
+
+That became the real design brief: assume limited time, limited technical confidence, and incomplete information.
+
+## Split the problem before designing the interface
+
+At first, the import problem looked like one large automation problem. Once I spent time with it, I saw two different jobs:
+
+1. Understand what each piece of incoming data represents.
+2. Decide whether each value is valid, repairable, or ambiguous.
+
+That separation changed the shape of the work. Instead of designing one giant “smart import” moment, I could design a sequence that gradually reduced uncertainty:
+
+- Start with the file the organization already has.
+- Help the person clarify what the columns mean.
+- Resolve organization-specific choices before the rest of the review.
+- Fix safe formatting issues automatically.
+- Check for conflicts before anything is saved.
+- Ask focused questions only where interpretation is required.
+- Give the person one clear review point before completion.
+
+I also stopped thinking of AI as one universal solution. Some decisions have a known set of possible answers and should use a constrained mechanism. Other decisions need a conversational explanation or a question. Those are different jobs.
+
+I didn't want to use the same tool for every problem just because the feature contained the word “AI.” That feels obvious now, but it was useful to write down early.
+
+The same principle applies to the interface. If a problem has a safe rule, the interface should not turn it into a question. If it needs human judgment, the interface should not pretend that a confidence number can replace it.
+
+## Make ambiguity visible before it spreads
+
+The most important design risk was not a failed validation. It was an ambiguous success.
+
+If an incoming category did not match an organization's existing configuration, the system needed a clearer way to help the person resolve that difference. Otherwise, the resulting records could become harder to interpret later. The redesign made that decision explicit before the rest of the review began.
+
+This is the kind of decision that can feel like implementation detail until you look at it from the person's side. From their perspective, they are not configuring a data model. They are trying to answer a simple question: “What should this value mean here?”
+
+That's the job of the interface. Surface the choice at the point where it can prevent downstream confusion.
+
+The same thinking shaped required information. Details needed to create a usable record are required. Helpful-but-incomplete details are not. A missing value should not be disguised as a precise value just to make a form look complete.
+
+If the system can generate a safe answer, generate it. If the information is genuinely optional, make the empty state look intentional. I don't want people inventing data because the interface made an empty field feel like a failure.
+
+## Prototype the decisions, not just the happy path
+
+I built an interactive prototype that covered the full journey: starting with a file, clarifying its meaning, reviewing the results, completing the work, and deciding what happened afterward. I wanted it to be specific enough that engineering could challenge the state model, not just react to the visual direction.
+
+I can't share the prototype screens or process-flow diagrams publicly because they contain confidential product and operational details. The examples here describe the design reasoning and review process rather than reproducing those private artifacts.
+
+The most useful part of the prototype was not the visual polish. It was making consequences visible. Automatic fixes showed what the file said and what the system would use. Ambiguous values became a short queue of questions. An “I don't know, just handle it” answer gave the person a safe way forward instead of a dead end.
+
+Then I asked four reviewers to attack the prototype independently. The audience was deliberately specific: volunteer administrators, full-time jobs elsewhere, doing this work in scraps of free time, with almost no patience for friction. One reviewer was explicitly asked to challenge the structure of the flow rather than suggest copy edits.
+
+The review gave me exactly the kind of problems I wanted the prototype to expose:
+
+- A review step existed mainly to create another click.
+- An early setup choice served the team's convenience more than the person's immediate task.
+- Optional follow-up work had been placed directly after a successful completion.
+- “Send to our team” was too easy to choose.
+- A missing-configuration path looped back to the same empty screen.
+- An incomplete follow-up form could appear ready to send.
+- Internal labels were not useful explanations for a first-time admin.
+
+Some of these were copy details. Others were product decisions. I treated them differently. The copy details were refined. The structural challenges went back into the design as explicit decisions.
+
+The result was a shorter flow with one review point, a focused question queue, a direct completion step, and a dismissible follow-up callout instead of forced setup screens.
+
+## The messy part is killing your darlings
+
+This is the part of feature design that is hardest to show in a portfolio. The prototype creates a pile of ideas that seem reasonable when viewed one at a time. Usability testing makes it clear that several of them do not belong in the finished flow.
+
+That's what I mean by killing your darlings. The ideas are not necessarily bad. They may solve a real problem, use a familiar pattern, or make the system feel more complete. But a feature is not a collection of individually defensible ideas. It's a sequence that has to make sense to someone trying to finish a job.
+
+Here are some of the cuts that changed the design:
+
+- **A file-size gate.** I initially thought larger files should take a different path. Looking closer showed that size was not the useful signal. A small file and a large file could have the same kind of data-quality issue. The design shifted from volume-based handling to quality-based handling.
+- **Forced setup after success.** Optional follow-up tasks were originally placed directly after the main action. Testing showed that completion is when people most want to be done. Those tasks became a dismissible callout instead of extra required screens.
+- **A Back button everywhere.** A universal Back button felt like a safe default, but later decisions depended on earlier ones. Going backward could leave stale work behind or trigger confusing recalculation. The flow uses recap, undo, and an honest “Start over” action instead.
+- **One-click escalation.** Sending a difficult case to the internal team was initially too easy. That saves the admin a decision, but it also turns support into the default path and consumes limited specialist capacity. A deliberate confirmation keeps escalation available for cases that genuinely need human help. It adds one choice for the admin, but makes the overall service more sustainable.
+- **Dead ends and internal jargon.** Prototype testing found paths that looped back to the same screen and labels that made sense to the product team but not to a first-time admin. Those moments were reminders that an interface can be technically complete and still leave someone with nowhere useful to go.
+
+Usability testing was not just a way to polish the prototype. It was a way to decide which ideas deserved to survive. The work got better as the feature got smaller.
+
+## Design recovery around the real state of the work
+
+I still think about the Back-button question because it is a good example of how familiar UX patterns can become misleading.
+
+A Back button feels like a kindness. But if later decisions depend on earlier ones, going backward means the system has to either leave stale work in place or silently recompute it. Neither behavior is obvious to the person using the product.
+
+So recovery needs to match the actual state of the work. In this case, that meant keeping earlier decisions visible for review, allowing safe fixes to be undone, providing a clear “Start over” action before anything is saved, and only allowing navigation backward where it could not create a confusing state.
+
+That's a rule I come back to often: don't add a familiar control if its behavior would be ambiguous underneath.
+
+## Design the boundary where trust is earned
+
+I don't consider the feature finished when the screens look coherent. I consider it finished when we know what to learn from real usage and what to do when the assumptions are wrong.
+
+For this importer, that means measuring the shape of incoming files, the kinds of issues people encounter, and the outcome of each run. Early thresholds are provisional because there is no real distribution yet. We need feedback to learn which situations people can resolve themselves, which need deeper assistance, and when a specialist should step in.
+
+That is the feature design loop I trust:
+
+1. Find the person carrying the problem.
+2. Separate mechanical cleanup from genuine judgment.
+3. Resolve ambiguity before it spreads downstream.
+4. Build a prototype that makes the decisions and recovery paths tangible.
+5. Put it in front of people who have no patience for it.
+6. Cut anything that is optional, unclear, or serving the team's process instead of the user's goal.
+7. Leave enough feedback in the product to learn what should change next.
+
+I still care about the screen. I just want it to be the visible consequence of the thinking, not the place where the thinking begins.
+
+This feature is not complete yet. Development has not begun, and some decisions will change when the design meets the real codebase. But I had never shared this part of my process before: the interviews, the problem taxonomy, the prototype reviews, and the deliberate cuts that happen before implementation.
+
+This felt like the right feature to share it with, while the work is still in that space between a resolved design and something ready to build.
