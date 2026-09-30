@@ -1,5 +1,6 @@
 "use client";
 
+import { PauseIcon, PlayIcon } from "@heroicons/react/24/solid";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 function formatTime(seconds) {
@@ -141,7 +142,7 @@ export default function BlogAudioPlayer({ manifest }) {
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-zg-teal text-zg-dark-1 transition-colors hover:bg-zg-teal-light"
           aria-label={isPlaying ? "Pause article" : "Play article"}
         >
-          <span aria-hidden="true" className="text-sm">{isPlaying ? "Ⅱ" : "▶"}</span>
+          {isPlaying ? <PauseIcon className="h-4 w-4" aria-hidden="true" /> : <PlayIcon className="h-4 w-4" aria-hidden="true" />}
         </button>
 
         <div className="min-w-0 flex-1">
