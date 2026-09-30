@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getHeadingId } from "@/lib/blog-outline";
-import { trackExternalLinkClick } from "@/lib/umami";
+import { trackExternalLinkClick } from "@/lib/rybbit";
 
 /**
  * Custom MDX components mapping

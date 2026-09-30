@@ -155,7 +155,7 @@ const tools = [
   { category: "Build", items: "Next.js, React, Vue, Python, PHP, Node.js" },
   { category: "Ship", items: "Docker, Vercel, Cloudflare, CI/CD, AWS" },
   { category: "Workflow support", items: "Claude Code, Hermes, agentic subagent workflows (orchestrator + specialists), Vercel AI Gateway model routing" },
-  { category: "Test", items: "Production monitoring, Umami, session replay" },
+  { category: "Test", items: "Production monitoring, Rybbit, session replay" },
   { category: "Manage", items: "Obsidian, Linear, GitHub, n8n" },
 ];
 

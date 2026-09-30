@@ -1,0 +1,77 @@
+{
+  "slug": "south-corona-chiropractic-center",
+  "contentType": "work",
+  "contentHash": "ed2f58062556c10a",
+  "model": "kokoro-82m",
+  "voice": "af_heart",
+  "bitrate": "48k",
+  "sampleRate": 24000,
+  "channels": 1,
+  "totalBytes": 589077,
+  "totalDuration": 97.275,
+  "chunks": [
+    {
+      "index": 0,
+      "url": "/audio/work/south-corona-chiropractic-center/000.mp3",
+      "text": "Build the local presence from the ground up",
+      "bytes": 16365,
+      "duration": 2.625
+    },
+    {
+      "index": 1,
+      "url": "/audio/work/south-corona-chiropractic-center/001.mp3",
+      "text": "South Corona Chiropractic needed a web presence that could represent a new local practice and help people find it. There was no usable existing site to build from, so the work began with the business identity, the information visitors needed, and the local search path.",
+      "bytes": 101757,
+      "duration": 16.85
+    },
+    {
+      "index": 2,
+      "url": "/audio/work/south-corona-chiropractic-center/002.mp3",
+      "text": "I owned the branding, design, development, local SEO, and photography. I worked with Dr. Torrez to shape the visuals, layout, and copy, then captured original photography of the office and practice.",
+      "bytes": 81885,
+      "duration": 13.55
+    },
+    {
+      "index": 3,
+      "url": "/audio/work/south-corona-chiropractic-center/003.mp3",
+      "text": "Make the next step clear",
+      "bytes": 11901,
+      "duration": 1.875
+    },
+    {
+      "index": 4,
+      "url": "/audio/work/south-corona-chiropractic-center/004.mp3",
+      "text": "The site gave local visitors a clear way to learn about the practice and contact it about an appointment. It did not include an online booking integration. Appointment inquiries went directly to email, which kept the contact path aligned with the practice’s workflow.",
+      "bytes": 99453,
+      "duration": 16.475
+    },
+    {
+      "index": 5,
+      "url": "/audio/work/south-corona-chiropractic-center/005.mp3",
+      "text": "The implementation used Next.js and Vercel, alongside responsive design and local-search-oriented content. The goal was not to make generic healthcare marketing. It was to make this specific practice easier to understand, trust, find, and contact.",
+      "bytes": 103773,
+      "duration": 17.2
+    },
+    {
+      "index": 6,
+      "url": "/audio/work/south-corona-chiropractic-center/006.mp3",
+      "text": "Outcome",
+      "bytes": 9597,
+      "duration": 1.5
+    },
+    {
+      "index": 7,
+      "url": "/audio/work/south-corona-chiropractic-center/007.mp3",
+      "text": "After launch, the practice verified that appointments were coming in through the website. The team also observed new-customer growth as its findability improved. The business continues to receive organic traffic.",
+      "bytes": 82317,
+      "duration": 13.625
+    },
+    {
+      "index": 8,
+      "url": "/audio/work/south-corona-chiropractic-center/008.mp3",
+      "text": "I do not claim a percentage lift because no reliable measurement source is available. The meaningful evidence is that the site became a working acquisition path for a practice that had not had a usable site before.",
+      "bytes": 82029,
+      "duration": 13.575
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "slug": "cydrion",
+  "contentType": "work",
+  "contentHash": "7001e65f33f53ed7",
+  "model": "kokoro-82m",
+  "voice": "af_heart",
+  "bitrate": "48k",
+  "sampleRate": 24000,
+  "channels": 1,
+  "totalBytes": 647253,
+  "totalDuration": 106.97500000000001,
+  "chunks": [
+    {
+      "index": 0,
+      "url": "/audio/work/cydrion/000.mp3",
+      "text": "From no presence to a technical B2B front door",
+      "bytes": 21261,
+      "duration": 3.45
+    },
+    {
+      "index": 1,
+      "url": "/audio/work/cydrion/001.mp3",
+      "text": "Cydrion was a new ISP-support business with no existing brand or web presence. It needed a site that could make a technical offer legible, establish a credible visual identity, and give a prospective customer a path from interest to signup.",
+      "bytes": 95997,
+      "duration": 15.9
+    },
+    {
+      "index": 2,
+      "url": "/audio/work/cydrion/002.mp3",
+      "text": "I owned the brand, design, development, content, and custom iconography end to end. The visual system used a dark, technical direction with a cyan accent and an octopus mark inspired by a bundle of Ethernet cables: a way to represent organized systems emerging from infrastructure complexity.",
+      "bytes": 120909,
+      "duration": 20.05
+    },
+    {
+      "index": 3,
+      "url": "/audio/work/cydrion/003.mp3",
+      "text": "Design for a specialized audience",
+      "bytes": 15645,
+      "duration": 2.5
+    },
+    {
+      "index": 4,
+      "url": "/audio/work/cydrion/004.mp3",
+      "text": "Generic visual language would have made the company feel generic. I created custom icons for the kind of network operations and support work its customers understood, then carried the visual system through the public site and its conversion path.",
+      "bytes": 92829,
+      "duration": 15.375
+    },
+    {
+      "index": 5,
+      "url": "/audio/work/cydrion/005.mp3",
+      "text": "The public site was fully static in Next.js, with no CMS or public administrative layer. Stripe handled billing, and the signup flow connected to the service pipeline. This kept the public marketing surface focused while supporting the product’s operational path.",
+      "bytes": 107373,
+      "duration": 17.8
+    },
+    {
+      "index": 6,
+      "url": "/audio/work/cydrion/006.mp3",
+      "text": "Measured implementation snapshot",
+      "bytes": 15645,
+      "duration": 2.5
+    },
+    {
+      "index": 7,
+      "url": "/audio/work/cydrion/007.mp3",
+      "text": "At the time of measurement, Lighthouse reported a 92% accessibility score and a 0.6-second load time. Those are Lighthouse snapshots, not universal guarantees about every device, connection, or future deployment.",
+      "bytes": 91389,
+      "duration": 15.125
+    },
+    {
+      "index": 8,
+      "url": "/audio/work/cydrion/008.mp3",
+      "text": "Cydrion is supporting work, not a flagship case study. Its value here is the combination of brand judgment, a technical buyer’s language, custom domain-specific visuals, and a production signup path built from zero.",
+      "bytes": 86205,
+      "duration": 14.275
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "slug": "pxc-cli",
+  "contentType": "work",
+  "contentHash": "5bf1a9642b6b0fea",
+  "model": "kokoro-82m",
+  "voice": "af_heart",
+  "bitrate": "48k",
+  "sampleRate": 24000,
+  "channels": 1,
+  "totalBytes": 1775574,
+  "totalDuration": 292.9519159999999,
+  "chunks": [
+    {
+      "index": 0,
+      "url": "/audio/work/pxc-cli/000.mp3",
+      "text": "The problem",
+      "bytes": 9453,
+      "duration": 1.475
+    },
+    {
+      "index": 1,
+      "url": "/audio/work/pxc-cli/001.mp3",
+      "text": "A homelab task should not require remembering a command from scratch.",
+      "bytes": 27309,
+      "duration": 4.45
+    },
+    {
+      "index": 2,
+      "url": "/audio/work/pxc-cli/002.mp3",
+      "text": "PXC began as a scratch-your-own-itch tool for managing my Proxmox homelab. The Proxmox web UI can take me a few minutes to work through when I need to create a VM. From a phone shell emulator, that kind of panel-based workflow is even less practical.",
+      "bytes": 100749,
+      "duration": 16.7
+    },
+    {
+      "index": 3,
+      "url": "/audio/work/pxc-cli/003.mp3",
+      "text": "The alternative, a flags-only CLI, is powerful but puts the burden on memory. I can forget a flag or miss a required step, especially when I am using a phone keyboard. I wanted a terminal interface that preserved the speed of commands without making recall the primary interface.",
+      "bytes": 111693,
+      "duration": 18.525
+    },
+    {
+      "index": 4,
+      "url": "/audio/work/pxc-cli/004.mp3",
+      "text": "The interaction model",
+      "bytes": 11901,
+      "duration": 1.875
+    },
+    {
+      "index": 5,
+      "url": "/audio/work/pxc-cli/005.mp3",
+      "text": "Guidance by default, flags when I already know the path.",
+      "bytes": 23565,
+      "duration": 3.825
+    },
+    {
+      "index": 6,
+      "url": "/audio/work/pxc-cli/006.mp3",
+      "text": "The default flow is deliberately inspired by the sequential simplicity of create-next-app: one question at a time, only the decision currently needed, then the next. It is designed for a regular terminal but is especially useful from a shell emulator on a phone.",
+      "bytes": 100605,
+      "duration": 16.675
+    },
+    {
+      "index": 7,
+      "url": "/audio/work/pxc-cli/007.mp3",
+      "text": "PXC still supports flags for a faster, command-driven path. The two modes serve different needs:",
+      "bytes": 40701,
+      "duration": 6.675
+    },
+    {
+      "index": 8,
+      "url": "/audio/work/pxc-cli/008.mp3",
+      "text": "The guided flow helps me complete configuration without missing a step or recalling every option. Flags remain available when I already know exactly what I want to create.",
+      "bytes": 68637,
+      "duration": 11.35
+    },
+    {
+      "index": 9,
+      "url": "/audio/work/pxc-cli/009.mp3",
+      "text": "Working sketch of the interaction model. It records the decisions behind the guided flow rather than representing a literal terminal screen.",
+      "bytes": 54093,
+      "duration": 8.925
+    },
+    {
+      "index": 10,
+      "url": "/audio/work/pxc-cli/010.mp3",
+      "text": "Make the available choices visible.",
+      "bytes": 16365,
+      "duration": 2.625
+    },
+    {
+      "index": 11,
+      "url": "/audio/work/pxc-cli/011.mp3",
+      "text": "Instead of requiring me to type infrastructure identifiers from memory, the guided flow auto-discovers available storage pools, network bridges, and ISOs. It also remembers the prior VM configuration and can offer to reuse its CPU, RAM, and network settings for the next VM.",
+      "bytes": 115581,
+      "duration": 19.175
+    },
+    {
+      "index": 12,
+      "url": "/audio/work/pxc-cli/012.mp3",
+      "text": "That combination reduces repeated setup work without hiding the underlying decisions. I can accept a known-good starting point, then change the values that need to differ.",
+      "bytes": 66909,
+      "duration": 11.05
+    },
+    {
+      "index": 13,
+      "url": "/audio/work/pxc-cli/013.mp3",
+      "text": "Safety model",
+      "bytes": 10317,
+      "duration": 1.625
+    },
+    {
+      "index": 14,
+      "url": "/audio/work/pxc-cli/014.mp3",
+      "text": "Destructive actions deserve more than one chance to reconsider.",
+      "bytes": 27021,
+      "duration": 4.4
+    },
+    {
+      "index": 15,
+      "url": "/audio/work/pxc-cli/015.mp3",
+      "text": "PXC’s destructive-action flow comes from the risk of making an irreversible infrastructure mistake, not from a particular incident. I am careful with deployments, but careful people still benefit from interfaces that make the target and consequence explicit.",
+      "bytes": 99165,
+      "duration": 16.425
+    },
+    {
+      "index": 16,
+      "url": "/audio/work/pxc-cli/016.mp3",
+      "text": "Every destructive operation uses three safeguards:",
+      "bytes": 22557,
+      "duration": 3.65
+    },
+    {
+      "index": 17,
+      "url": "/audio/work/pxc-cli/017.mp3",
+      "text": "A visible confirmation of the target. A type-to-confirm check using the VM ID. A visible countdown that can be cancelled.",
+      "bytes": 52077,
+      "duration": 8.575
+    },
+    {
+      "index": 18,
+      "url": "/audio/work/pxc-cli/018.mp3",
+      "text": "The goal is not to make a valid action difficult. It is to create deliberate pause points before an action that could affect the wrong server. The same safety pattern is applied consistently rather than relying on attention alone.",
+      "bytes": 89373,
+      "duration": 14.8
+    },
+    {
+      "index": 19,
+      "url": "/audio/work/pxc-cli/019.mp3",
+      "text": "Interaction-model reconstruction based on the shipped safeguards.",
+      "bytes": 26589,
+      "duration": 4.325
+    },
+    {
+      "index": 20,
+      "url": "/audio/work/pxc-cli/020.mp3",
+      "text": "Engineering",
+      "bytes": 10029,
+      "duration": 1.575
+    },
+    {
+      "index": 21,
+      "url": "/audio/work/pxc-cli/021.mp3",
+      "text": "A terminal UI built around the environment it manages.",
+      "bytes": 25149,
+      "duration": 4.1
+    },
+    {
+      "index": 22,
+      "url": "/audio/work/pxc-cli/022.mp3",
+      "text": "PXC is implemented in TypeScript with React Ink and installed on the Proxmox node. It uses both the Proxmox API and local Proxmox commands, allowing the interface to combine guided interaction with the information and operations available on that node.",
+      "bytes": 106797,
+      "duration": 17.7
+    },
+    {
+      "index": 23,
+      "url": "/audio/work/pxc-cli/023.mp3",
+      "text": "React Ink made it possible to bring familiar interface patterns into a terminal renderer: composed UI, stateful steps, and input handling. The implementation matters here because the product decision is inseparable from the medium. The terminal is not treated as a degraded web form; it is the interface I need when I am away from a desktop.",
+      "bytes": 134013,
+      "duration": 22.225958
+    },
+    {
+      "index": 24,
+      "url": "/audio/work/pxc-cli/024.mp3",
+      "text": "My working architecture sketch. It shows the guided React Ink interface offering questions, saved configuration, and CLI flags on the node, able to use the Proxmox API and node-local commands against the VMs, containers, storage, and networking that node manages. It is a personal sketch, not production documentation, and does not show any specific cluster topology or host details.",
+      "bytes": 151293,
+      "duration": 25.125
+    },
+    {
+      "index": 25,
+      "url": "/audio/work/pxc-cli/025.mp3",
+      "text": "Outcome and reflection",
+      "bytes": 11901,
+      "duration": 1.875
+    },
+    {
+      "index": 26,
+      "url": "/audio/work/pxc-cli/026.mp3",
+      "text": "A tool I use for my own infrastructure.",
+      "bytes": 18525,
+      "duration": 3
+    },
+    {
+      "index": 27,
+      "url": "/audio/work/pxc-cli/027.mp3",
+      "text": "PXC is a personal-use project, not an externally benchmarked product. For my own workflow, it replaces a few minutes of web-UI navigation with a guided terminal sequence I can use from a phone shell emulator.",
+      "bytes": 87501,
+      "duration": 14.475
+    },
+    {
+      "index": 28,
+      "url": "/audio/work/pxc-cli/028.mp3",
+      "text": "Its most useful lesson is modest: infrastructure tools can make safer behavior easier without removing expert control. Guidance, discovery, remembered configuration, and an escape hatch to flags are all parts of the same design. The right interface depends on whether I need help remembering the path or simply need to move quickly through one I already know.",
+      "bytes": 140493,
+      "duration": 23.325
+    },
+    {
+      "index": 29,
+      "url": "/audio/work/pxc-cli/029.mp3",
+      "text": "GitHub → · npm →",
+      "bytes": 15213,
+      "duration": 2.425958
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const audioRoot = path.join(process.cwd(), 'public/audio/blog');
+const audioRoot = path.join(process.cwd(), 'public/audio');
 
-export function getBlogAudioManifest(slug) {
-  const filePath = path.join(audioRoot, slug, 'manifest.json');
+export function getAudioManifest(contentType, slug) {
+  const filePath = path.join(audioRoot, contentType, slug, 'manifest.json');
 
   if (!fs.existsSync(filePath)) return null;
 
@@ -13,4 +13,12 @@ export function getBlogAudioManifest(slug) {
   } catch {
     return null;
   }
+}
+
+export function getBlogAudioManifest(slug) {
+  return getAudioManifest('blog', slug);
+}
+
+export function getWorkAudioManifest(slug) {
+  return getAudioManifest('work', slug);
 }

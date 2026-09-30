@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { trackContactFormSubmit } from "@/lib/umami"
+import { trackContactFormSubmit } from "@/lib/rybbit"
 
 const Input = ({ label, type, id, value, onChange, disabled, ...inputProps }) => {
   const [isFocused, setIsFocused] = useState(false);

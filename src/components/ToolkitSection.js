@@ -7,7 +7,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
-import { trackExternalLinkClick } from "@/lib/umami";
+import { trackExternalLinkClick } from "@/lib/rybbit";
 
 const toolBadges = [
   { name: "Figma", src: "/images/icons/Figma Logo.png" },

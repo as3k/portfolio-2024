@@ -1,0 +1,77 @@
+{
+  "slug": "rhondas-aftercare",
+  "contentType": "work",
+  "contentHash": "44e6b44ff5811ed6",
+  "model": "kokoro-82m",
+  "voice": "af_heart",
+  "bitrate": "48k",
+  "sampleRate": 24000,
+  "channels": 1,
+  "totalBytes": 602325,
+  "totalDuration": 99.5,
+  "chunks": [
+    {
+      "index": 0,
+      "url": "/audio/work/rhondas-aftercare/000.mp3",
+      "text": "A website that blocked the people it needed to serve",
+      "bytes": 19821,
+      "duration": 3.2
+    },
+    {
+      "index": 1,
+      "url": "/audio/work/rhondas-aftercare/001.mp3",
+      "text": "Rhonda’s Aftercare needed its website to support two equally important paths: people seeking care and people applying for jobs. The existing site made both difficult. Its navigation was broken, it was not mobile friendly, and its colors were hard for the organization’s primarily older audience to read.",
+      "bytes": 118605,
+      "duration": 19.675
+    },
+    {
+      "index": 2,
+      "url": "/audio/work/rhondas-aftercare/002.mp3",
+      "text": "Email and phone were available, but the website’s contact form was broken. That left no dependable, direct way for a visitor to reach the organization from the site itself.",
+      "bytes": 67773,
+      "duration": 11.2
+    },
+    {
+      "index": 3,
+      "url": "/audio/work/rhondas-aftercare/003.mp3",
+      "text": "Rebuild the journeys around clarity and contact",
+      "bytes": 19677,
+      "duration": 3.175
+    },
+    {
+      "index": 4,
+      "url": "/audio/work/rhondas-aftercare/004.mp3",
+      "text": "I owned the redesign and implementation end to end. The client supplied its photography remotely from Grass Valley while I worked from Southern California.",
+      "bytes": 60429,
+      "duration": 9.975
+    },
+    {
+      "index": 5,
+      "url": "/audio/work/rhondas-aftercare/005.mp3",
+      "text": "The work focused on restoring the basics that matter when a site supports real decisions: legible visual choices, dependable mobile behavior, working navigation, and clear paths to care inquiries or job applications. I rebuilt the forms so a visitor could send a message directly from the website instead of having to fall back to email or phone.",
+      "bytes": 131565,
+      "duration": 21.825
+    },
+    {
+      "index": 6,
+      "url": "/audio/work/rhondas-aftercare/006.mp3",
+      "text": "Outcome",
+      "bytes": 9597,
+      "duration": 1.5
+    },
+    {
+      "index": 7,
+      "url": "/audio/work/rhondas-aftercare/007.mp3",
+      "text": "After launch, Rhonda’s team saw a substantial increase in both applicant messages and care-related messages. That is qualitative feedback rather than a measured percentage, so I do not present it as a conversion metric.",
+      "bytes": 86493,
+      "duration": 14.325
+    },
+    {
+      "index": 8,
+      "url": "/audio/work/rhondas-aftercare/008.mp3",
+      "text": "The project is a reminder that accessibility and operational reliability are product work. For this audience, a readable interface and a form that actually submits are not polish. They determine whether someone can take the next step.",
+      "bytes": 88365,
+      "duration": 14.625
+    }
+  ]
+}

@@ -131,7 +131,7 @@ export default async function BlogPostPage({ params }) {
 
         {audioManifest ? (
           <FadeIn delay={0.12}>
-            <BlogAudioPlayer manifest={audioManifest} />
+            <BlogAudioPlayer contentSlug={slug} manifest={audioManifest} />
           </FadeIn>
         ) : null}
 

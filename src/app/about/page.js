@@ -14,7 +14,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import JsonLd, { aboutPageSchema, createBreadcrumbSchema } from "@/components/JsonLd";
-import { trackTimelineScroll } from "@/lib/umami";
+import { trackTimelineScroll } from "@/lib/rybbit";
 
 function TimelineSection() {
   const sectionRef = useRef(null);

@@ -40,13 +40,14 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 - `yarn start` – serve the built app locally for smoke-testing.
 - `yarn lint` – run Biome checks; required before opening a PR.
 
-## Blog Audio
-- Start with the [blog audio operations guide](docs/blog-audio.md).
+## Static Audio
+- Start with the [static audio operations guide](docs/blog-audio.md).
 - Generator: [`scripts/generate-blog-audio.mjs`](scripts/generate-blog-audio.mjs)
 - Chunking rules: [`scripts/blog-audio.js`](scripts/blog-audio.js)
 - Player: [`src/components/BlogAudioPlayer.js`](src/components/BlogAudioPlayer.js)
 - Manifest lookup: [`src/lib/blog-audio.js`](src/lib/blog-audio.js)
-- Generated output: [`public/audio/blog/`](public/audio/blog/)
+- Generated output: [`public/audio/`](public/audio/)
+- Analytics: [`src/lib/rybbit.js`](src/lib/rybbit.js)
 - Design/spec history: [`openspec/changes/add-blog-audio-player/`](openspec/changes/add-blog-audio-player/)
 
 ## Coding Style & Naming Conventions
@@ -61,13 +62,13 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 - When introducing new components, include basic render and interaction coverage and keep snapshots minimal.
 
 ## Commit & Pull Request Guidelines
-- Use short, imperative commit subjects (e.g., "add umami analytics"), ideally under 72 characters.
+- Use short, imperative commit subjects (e.g., "add Rybbit analytics"), ideally under 72 characters.
 - For PRs, include: concise summary of changes, linked issues or task IDs, screenshots for UI updates (desktop + mobile), and notes on any migrations or env vars.
 - Run `yarn lint` (and any added tests) before pushing. Mention any skipped checks and why.
 
 ## Security & Configuration Tips
 - Keep secrets in `.env.local`; never commit API keys or Mailgun tokens. Add new env keys to PR descriptions and docs when needed.
-- Validate any third-party scripts against CSP needs; Umami is loaded via env-driven script in `src/app/layout.js`.
+- Validate the Rybbit script against CSP needs; it is loaded once via env-driven configuration in `src/app/layout.js`.
 
 ## Agent Task Tracking
 - Update `next16-upgrade-plan.json` as work progresses; move items between `backlog`, `todo`, `in_progress`, and `done` and keep `status` fields consistent.

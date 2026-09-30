@@ -1,0 +1,77 @@
+{
+  "slug": "manta",
+  "contentType": "work",
+  "contentHash": "7510cfdc3d9d0bcd",
+  "model": "kokoro-82m",
+  "voice": "af_heart",
+  "bitrate": "48k",
+  "sampleRate": 24000,
+  "channels": 1,
+  "totalBytes": 534645,
+  "totalDuration": 88.225,
+  "chunks": [
+    {
+      "index": 0,
+      "url": "/audio/work/manta/000.mp3",
+      "text": "A passphrase generator for the awkward moments",
+      "bytes": 18957,
+      "duration": 3.05
+    },
+    {
+      "index": 1,
+      "url": "/audio/work/manta/001.mp3",
+      "text": "Random strings can be excellent credentials, but they are difficult to read, type, or communicate when manual entry is unavoidable. Manta is a small Chrome extension for generating memorable passphrases with one interaction: open it, copy a phrase, and use it where needed.",
+      "bytes": 107805,
+      "duration": 17.875
+    },
+    {
+      "index": 2,
+      "url": "/audio/work/manta/002.mp3",
+      "text": "The design goal was not to claim a universal strength threshold. It was to make a better password practice easy to reach for people who need a phrase they can handle manually.",
+      "bytes": 67917,
+      "duration": 11.225
+    },
+    {
+      "index": 3,
+      "url": "/audio/work/manta/003.mp3",
+      "text": "Local generation by design",
+      "bytes": 14637,
+      "duration": 2.35
+    },
+    {
+      "index": 4,
+      "url": "/audio/work/manta/004.mp3",
+      "text": "Manta generates passphrases entirely inside the extension. It makes no runtime network requests and does not depend on an external API or backend service to produce a phrase. That was deliberate: generated credentials should not need to leave the application to work.",
+      "bytes": 105501,
+      "duration": 17.475
+    },
+    {
+      "index": 5,
+      "url": "/audio/work/manta/005.mp3",
+      "text": "The interface stays small on purpose. A phrase is ready immediately, and a person can copy it or generate another. There is no configuration flow to get through before the main task.",
+      "bytes": 72525,
+      "duration": 12
+    },
+    {
+      "index": 6,
+      "url": "/audio/work/manta/006.mp3",
+      "text": "A small, shipped utility",
+      "bytes": 13629,
+      "duration": 2.175
+    },
+    {
+      "index": 7,
+      "url": "/audio/work/manta/007.mp3",
+      "text": "The live Chrome Web Store listing shows a 5.0 rating from one rating. That is a useful signal that the extension is published and working, but not broad validation. Manta remains a small supporting project that demonstrates an interaction model, local-first privacy judgment, and a clear engineering boundary.",
+      "bytes": 120477,
+      "duration": 19.975
+    },
+    {
+      "index": 8,
+      "url": "/audio/work/manta/008.mp3",
+      "text": "Chrome Web Store →",
+      "bytes": 13197,
+      "duration": 2.1
+    }
+  ]
+}
