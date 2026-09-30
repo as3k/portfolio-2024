@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import BlogAudioPlayer from "@/components/BlogAudioPlayer";
 import BlogTableOfContents from "@/components/BlogTableOfContents";
 import { FadeIn } from "@/components/FadeIn";
 import JsonLd, { createBreadcrumbSchema } from "@/components/JsonLd";
 import MDXComponents from "@/components/MDXComponents";
+import { getBlogAudioManifest } from "@/lib/blog-audio";
 import { formatBlogDate } from "@/lib/blog-date";
 import { extractBlogHeadings } from "@/lib/blog-outline";
 import { getAllPosts, getBlogBySlug } from "@/lib/content";
@@ -58,6 +60,7 @@ export default async function BlogPostPage({ params }) {
 
   const { meta, content } = post;
   const headings = extractBlogHeadings(content);
+  const audioManifest = getBlogAudioManifest(slug);
 
   // Get all posts for next/prev navigation
   const allPosts = getAllPosts();
@@ -125,6 +128,8 @@ export default async function BlogPostPage({ params }) {
             <p className="mt-5 max-w-2xl text-body-2 text-gray-400">{meta.excerpt}</p>
           </header>
         </FadeIn>
+
+        {audioManifest ? <BlogAudioPlayer manifest={audioManifest} /> : null}
 
         {meta.heroImage ? (
           <FadeIn delay={0.15}>

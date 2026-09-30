@@ -40,6 +40,15 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 - `yarn start` – serve the built app locally for smoke-testing.
 - `yarn lint` – run Biome checks; required before opening a PR.
 
+## Blog Audio
+- Start with the [blog audio operations guide](docs/blog-audio.md).
+- Generator: [`scripts/generate-blog-audio.mjs`](scripts/generate-blog-audio.mjs)
+- Chunking rules: [`scripts/blog-audio.js`](scripts/blog-audio.js)
+- Player: [`src/components/BlogAudioPlayer.js`](src/components/BlogAudioPlayer.js)
+- Manifest lookup: [`src/lib/blog-audio.js`](src/lib/blog-audio.js)
+- Generated output: [`public/audio/blog/`](public/audio/blog/)
+- Design/spec history: [`openspec/changes/add-blog-audio-player/`](openspec/changes/add-blog-audio-player/)
+
 ## Coding Style & Naming Conventions
 - JavaScript/JSX on React 19 + Next 16; prefer 2-space indentation and consistent semicolons.
 - Components and files use PascalCase; hooks or helpers may use camelCase.

@@ -1,0 +1,144 @@
+{
+  "slug": "the-one-week-redesign",
+  "contentHash": "0e6b1d297cce7552",
+  "model": "kokoro-82m",
+  "voice": "af_heart",
+  "bitrate": "48k",
+  "sampleRate": 24000,
+  "channels": 1,
+  "totalBytes": 1259310,
+  "chunks": [
+    {
+      "index": 0,
+      "url": "/audio/blog/the-one-week-redesign/000.mp3",
+      "text": "Some projects come with a brief, a timeline, and a budget.",
+      "bytes": 23709
+    },
+    {
+      "index": 1,
+      "url": "/audio/blog/the-one-week-redesign/001.mp3",
+      "text": "This one came with a phone call: \"We're going to be on national television in a week. Our site can't handle donations. Can you fix it?\"",
+      "bytes": 51789
+    },
+    {
+      "index": 2,
+      "url": "/audio/blog/the-one-week-redesign/002.mp3",
+      "text": "Art Healing Hearts is a nonprofit that brings art therapy to children in hospitals. They'd been offered an appearance on The Morning Blend in Las Vegas. There was just one problem: their existing WordPress site was held together with hope, and it would buckle under the traffic a TV mention would bring.",
+      "bytes": 106509
+    },
+    {
+      "index": 3,
+      "url": "/audio/blog/the-one-week-redesign/003.mp3",
+      "text": "I had six days.",
+      "bytes": 11325
+    },
+    {
+      "index": 4,
+      "url": "/audio/blog/the-one-week-redesign/004.mp3",
+      "text": "The Scoping Decision",
+      "bytes": 11757
+    },
+    {
+      "index": 5,
+      "url": "/audio/blog/the-one-week-redesign/005.mp3",
+      "text": "The natural instinct when you have a week is to panic-code everything. New pages! New features! A full donation system!",
+      "bytes": 48045
+    },
+    {
+      "index": 6,
+      "url": "/audio/blog/the-one-week-redesign/006.mp3",
+      "text": "Instead, I asked one question: what's the minimum viable version of success?",
+      "bytes": 32061
+    },
+    {
+      "index": 7,
+      "url": "/audio/blog/the-one-week-redesign/007.mp3",
+      "text": "The answer came back clear: The donation flow has to work and be dead simple The mission has to be immediately clear to someone who's never heard of them Everything else is negotiable",
+      "bytes": 68493
+    },
+    {
+      "index": 8,
+      "url": "/audio/blog/the-one-week-redesign/008.mp3",
+      "text": "What I Cut",
+      "bytes": 9453
+    },
+    {
+      "index": 9,
+      "url": "/audio/blog/the-one-week-redesign/009.mp3",
+      "text": "Secondary pages. The about page, the team page, the blog — none of it mattered for the TV audience. One page, one message. The existing navigation. No menu. No choices. The TV audience arrives, sees the mission, donates. That's it. Complex animations. Everything that would be \"nice to have\" got killed. CSS transitions only. No JavaScript animations. Custom CMS. Flat content, statically generated. No dashboard, no admin panel, no future-proofing. Brand exploration. We used their existing colors and logo. No time for a rebrand.",
+      "bytes": 211053
+    },
+    {
+      "index": 10,
+      "url": "/audio/blog/the-one-week-redesign/010.mp3",
+      "text": "What I Kept",
+      "bytes": 9453
+    },
+    {
+      "index": 11,
+      "url": "/audio/blog/the-one-week-redesign/011.mp3",
+      "text": "A single, clear value proposition — visible above the fold, readable in under 3 seconds A frictionless donation flow — Stripe Checkout, three clicks, done Mobile-first layout — because most people watch TV on their phone now Analytics — so they could see exactly what the TV mention drove",
+      "bytes": 115293
+    },
+    {
+      "index": 12,
+      "url": "/audio/blog/the-one-week-redesign/012.mp3",
+      "text": "The Launch",
+      "bytes": 9597
+    },
+    {
+      "index": 13,
+      "url": "/audio/blog/the-one-week-redesign/013.mp3",
+      "text": "The segment aired. Donations came in. The site held up — no crashes, no slowdowns, no \"please try again later\" messages.",
+      "bytes": 50781
+    },
+    {
+      "index": 14,
+      "url": "/audio/blog/the-one-week-redesign/014.mp3",
+      "text": "The site wasn't beautiful. It wasn't comprehensive. It wasn't a \"complete digital presence.\" But it did the one thing it needed to do: turn a TV audience into donors.",
+      "bytes": 66189
+    },
+    {
+      "index": 15,
+      "url": "/audio/blog/the-one-week-redesign/015.mp3",
+      "text": "What I Learned About Speed",
+      "bytes": 12477
+    },
+    {
+      "index": 16,
+      "url": "/audio/blog/the-one-week-redesign/016.mp3",
+      "text": "Working under a hard deadline teaches you things about your own process that no amount of \"ideal timeline\" planning ever will.",
+      "bytes": 50349
+    },
+    {
+      "index": 17,
+      "url": "/audio/blog/the-one-week-redesign/017.mp3",
+      "text": "The most important skill in design isn't knowing what to build. It's knowing what NOT to build. Every feature you cut is time you can spend making the remaining features exceptional. The Art Healing Hearts site only had three screens, but each one was polished, tested, and bulletproof.",
+      "bytes": 105933
+    },
+    {
+      "index": 18,
+      "url": "/audio/blog/the-one-week-redesign/018.mp3",
+      "text": "\"Good enough that ships\" beats \"perfect that never sees the light of day.\" The most expensive design decision is the one that delays launch. The TV feature was happening on that date, whether the site was ready or not. Shipping was not optional.",
+      "bytes": 93405
+    },
+    {
+      "index": 19,
+      "url": "/audio/blog/the-one-week-redesign/019.mp3",
+      "text": "Constraints produce better work. A one-week timeline forced clarity. No second-guessing. No \"should we try this other layout?\" No scope creep. The constraint was the brief.",
+      "bytes": 68349
+    },
+    {
+      "index": 20,
+      "url": "/audio/blog/the-one-week-redesign/020.mp3",
+      "text": "I've worked on projects with 6-month timelines that produced worse outcomes than that one-week sprint. Because time without constraints isn't freedom — it's permission to add things nobody needs.",
+      "bytes": 73389
+    },
+    {
+      "index": 21,
+      "url": "/audio/blog/the-one-week-redesign/021.mp3",
+      "text": "Perfect is the enemy of shipped. And shipped is the only thing that matters.",
+      "bytes": 29901
+    }
+  ]
+}

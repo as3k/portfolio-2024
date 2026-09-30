@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "audio:generate": "node scripts/generate-blog-audio.mjs",
     "prebuild": "tsx scripts/generate-resume-pdf.tsx",
     "build": "next build",
     "start": "next start",
