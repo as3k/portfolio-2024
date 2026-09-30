@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 function formatTime(seconds) {
   if (!Number.isFinite(seconds)) return "0:00";
@@ -12,36 +12,49 @@ function formatTime(seconds) {
 export default function BlogAudioPlayer({ manifest }) {
   const audioRef = useRef(null);
   const currentIndexRef = useRef(0);
+  const playbackRateRef = useRef(1);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const [playbackRate, setPlaybackRate] = useState(1);
   const [error, setError] = useState(false);
+
+  const durations = useMemo(
+    () => manifest.chunks.map((chunk) => Number(chunk.duration) || 0),
+    [manifest.chunks],
+  );
+  const totalDuration = manifest.totalDuration || durations.reduce((total, duration) => total + duration, 0);
+  const offsets = useMemo(() => durations.reduce((result, duration, index) => {
+    result.push((result[index - 1] || 0) + duration);
+    return result;
+  }, []), [durations]);
 
   useEffect(() => {
     const audio = new Audio();
     audio.preload = "none";
     audioRef.current = audio;
 
-    const onTimeUpdate = () => setProgress(audio.currentTime);
-    const onLoadedMetadata = () => setDuration(audio.duration);
+    const onTimeUpdate = () => {
+      const start = currentIndexRef.current === 0 ? 0 : offsets[currentIndexRef.current - 1];
+      setCurrentTime(start + audio.currentTime);
+    };
     const onEnded = () => {
       const nextIndex = currentIndexRef.current + 1;
       if (nextIndex >= manifest.chunks.length) {
         setIsPlaying(false);
-        setCurrentIndex(0);
-        setProgress(0);
+        setCurrentTime(totalDuration);
         return;
       }
+
       currentIndexRef.current = nextIndex;
       setCurrentIndex(nextIndex);
       audio.src = manifest.chunks[nextIndex].url;
+      audio.playbackRate = playbackRateRef.current;
       audio.play().catch(() => setError(true));
     };
     const onError = () => setError(true);
 
     audio.addEventListener("timeupdate", onTimeUpdate);
-    audio.addEventListener("loadedmetadata", onLoadedMetadata);
     audio.addEventListener("ended", onEnded);
     audio.addEventListener("error", onError);
 
@@ -49,11 +62,15 @@ export default function BlogAudioPlayer({ manifest }) {
       audio.pause();
       audio.src = "";
       audio.removeEventListener("timeupdate", onTimeUpdate);
-      audio.removeEventListener("loadedmetadata", onLoadedMetadata);
       audio.removeEventListener("ended", onEnded);
       audio.removeEventListener("error", onError);
     };
-  }, [manifest.chunks]);
+  }, [manifest.chunks, offsets, totalDuration]);
+
+  useEffect(() => {
+    playbackRateRef.current = playbackRate;
+    if (audioRef.current) audioRef.current.playbackRate = playbackRate;
+  }, [playbackRate]);
 
   useEffect(() => {
     if (!isPlaying) return undefined;
@@ -79,9 +96,9 @@ export default function BlogAudioPlayer({ manifest }) {
       return;
     }
 
-    if (!audio.src || audio.src !== new URL(manifest.chunks[currentIndex].url, window.location.origin).href) {
-      audio.src = manifest.chunks[currentIndex].url;
-    }
+    const source = new URL(manifest.chunks[currentIndexRef.current].url, window.location.origin).href;
+    if (audio.src !== source) audio.src = source;
+    audio.playbackRate = playbackRate;
 
     try {
       await audio.play();
@@ -91,35 +108,70 @@ export default function BlogAudioPlayer({ manifest }) {
     }
   };
 
-  const reset = () => {
+  const seek = (value) => {
+    const nextTime = Number(value);
+    const matchingIndex = offsets.findIndex((offset) => nextTime < offset);
+    const nextIndex = matchingIndex === -1 ? manifest.chunks.length - 1 : matchingIndex;
+    const chunkStart = nextIndex === 0 ? 0 : offsets[nextIndex - 1];
     const audio = audioRef.current;
-    audio?.pause();
-    if (audio) audio.currentTime = 0;
-    setCurrentIndex(0);
-    currentIndexRef.current = 0;
-    setProgress(0);
-    setIsPlaying(false);
+    if (!audio) return;
+
+    currentIndexRef.current = nextIndex;
+    setCurrentIndex(nextIndex);
+    setCurrentTime(nextTime);
+    audio.src = manifest.chunks[nextIndex].url;
+    audio.playbackRate = playbackRate;
+
+    const setAudioPosition = () => {
+      audio.currentTime = Math.max(0, nextTime - chunkStart);
+      audio.removeEventListener("loadedmetadata", setAudioPosition);
+    };
+    audio.addEventListener("loadedmetadata", setAudioPosition);
+    audio.load();
+
+    if (isPlaying) audio.play().catch(() => setError(true));
   };
 
   return (
-    <section className="mx-auto mb-10 max-w-5xl rounded-xl border border-gray-800 bg-zg-dark-0 p-4" aria-label="Listen to this article">
-      <div className="flex flex-wrap items-center gap-3">
+    <section className="mx-auto mb-10 max-w-5xl rounded-2xl border border-gray-800 bg-zg-dark-0 px-4 py-3 sm:px-5" aria-label="Listen to this article">
+      <div className="flex items-center gap-3">
         <button
           type="button"
           onClick={togglePlayback}
-          className="inline-flex items-center gap-2 rounded-full bg-zg-teal px-4 py-2 text-sm font-semibold text-zg-dark-1 transition-colors hover:bg-zg-teal-light"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-zg-teal text-zg-dark-1 transition-colors hover:bg-zg-teal-light"
           aria-label={isPlaying ? "Pause article" : "Play article"}
         >
-          <span aria-hidden="true">{isPlaying ? "Ⅱ" : "▶"}</span>
-          {isPlaying ? "Pause" : "Listen"}
+          <span aria-hidden="true" className="text-sm">{isPlaying ? "Ⅱ" : "▶"}</span>
         </button>
-        <button type="button" onClick={reset} className="text-sm text-gray-400 hover:text-white">Restart</button>
-        <span className="text-sm text-gray-500">
-          {formatTime(progress)} · Part {currentIndex + 1} of {manifest.chunks.length}
-        </span>
-      </div>
-      <div className="mt-3 h-1 overflow-hidden rounded-full bg-gray-800" aria-hidden="true">
-        <div className="h-full bg-zg-teal transition-[width]" style={{ width: duration ? `${(progress / duration) * 100}%` : "0%" }} />
+
+        <div className="min-w-0 flex-1">
+          <input
+            type="range"
+            min="0"
+            max={totalDuration || 0}
+            step="0.1"
+            value={Math.min(currentTime, totalDuration || 0)}
+            onChange={(event) => seek(event.target.value)}
+            className="h-1.5 w-full cursor-pointer accent-zg-teal"
+            aria-label="Seek through article"
+          />
+          <div className="mt-1 flex justify-between text-xs tabular-nums text-gray-500">
+            <span>{formatTime(currentTime)}</span>
+            <span>{formatTime(totalDuration)}</span>
+          </div>
+        </div>
+
+        <label className="shrink-0 text-xs text-gray-500">
+          <span className="sr-only">Playback speed</span>
+          <select
+            value={playbackRate}
+            onChange={(event) => setPlaybackRate(Number(event.target.value))}
+            className="rounded border border-gray-700 bg-transparent px-1.5 py-1 text-xs text-gray-400 outline-none focus:border-zg-teal"
+            aria-label="Playback speed"
+          >
+            {[0.75, 1, 1.25, 1.5, 2].map((rate) => <option key={rate} value={rate}>{rate}×</option>)}
+          </select>
+        </label>
       </div>
       {error ? <p className="mt-2 text-sm text-zg-coral">Audio could not be played right now.</p> : null}
     </section>

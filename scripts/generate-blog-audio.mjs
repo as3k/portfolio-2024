@@ -55,6 +55,37 @@ async function requestAudio(text) {
   return Buffer.from(await response.arrayBuffer());
 }
 
+async function getAudioDuration(filePath) {
+  return new Promise((resolve, reject) => {
+    const process = spawn('ffprobe', [
+      '-v', 'error',
+      '-show_entries', 'format=duration',
+      '-of', 'default=noprint_wrappers=1:nokey=1',
+      filePath,
+    ]);
+    let output = '';
+    let error = '';
+    process.stdout.on('data', (chunk) => { output += chunk.toString(); });
+    process.stderr.on('data', (chunk) => { error += chunk.toString(); });
+    process.on('error', reject);
+    process.on('close', (code) => {
+      if (code !== 0) reject(new Error(`ffprobe failed: ${error.trim() || `exit code ${code}`}`));
+      else resolve(Number(output.trim()));
+    });
+  });
+}
+
+async function addDurationMetadata(manifest, postDirectory) {
+  const chunks = await Promise.all(manifest.chunks.map(async (chunk) => ({
+    ...chunk,
+    duration: await getAudioDuration(path.join(postDirectory, path.basename(chunk.url))),
+  })));
+  const totalDuration = chunks.reduce((total, chunk) => total + chunk.duration, 0);
+  const updatedManifest = { ...manifest, totalDuration, chunks };
+  await fs.writeFile(path.join(postDirectory, 'manifest.json'), `${JSON.stringify(updatedManifest, null, 2)}\n`);
+  return updatedManifest;
+}
+
 async function generatePost(fileName) {
   const slug = fileName.replace(/\.mdx$/, '');
   const source = await fs.readFile(path.join(contentDirectory, fileName), 'utf8');
@@ -73,6 +104,10 @@ async function generatePost(fileName) {
       try { await fs.access(path.join(projectRoot, 'public', chunk.url)); return true; } catch { return false; }
     }));
     if (existing.contentHash === contentHash && filesExist.every(Boolean)) {
+      if (!existing.totalDuration || existing.chunks.some((chunk) => !chunk.duration)) {
+        const updated = await addDurationMetadata(existing, postDirectory);
+        return { slug, skipped: true, chunks: chunks.length, bytes: updated.totalBytes };
+      }
       return { slug, skipped: true, chunks: chunks.length, bytes: existing.totalBytes };
     }
   } catch {
@@ -90,12 +125,14 @@ async function generatePost(fileName) {
       const outputPath = path.join(temporaryDirectory, fileNameForChunk);
       await runFfmpeg(audio, outputPath);
       const stats = await fs.stat(outputPath);
+      const duration = await getAudioDuration(outputPath);
       totalBytes += stats.size;
       manifestChunks.push({
         index,
         url: `/audio/blog/${slug}/${fileNameForChunk}`,
         text: chunks[index],
         bytes: stats.size,
+        duration,
       });
       console.log(`${slug}: generated ${index + 1}/${chunks.length}`);
     }
@@ -109,6 +146,7 @@ async function generatePost(fileName) {
       sampleRate: 24000,
       channels: 1,
       totalBytes,
+      totalDuration: manifestChunks.reduce((total, chunk) => total + chunk.duration, 0),
       chunks: manifestChunks,
     };
     await fs.writeFile(path.join(temporaryDirectory, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
