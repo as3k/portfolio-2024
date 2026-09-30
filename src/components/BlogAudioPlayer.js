@@ -28,6 +28,8 @@ export default function BlogAudioPlayer({ manifest }) {
     [manifest.chunks],
   );
   const totalDuration = manifest.totalDuration || durations.reduce((total, duration) => total + duration, 0);
+  const displayDuration = totalDuration / playbackRate;
+  const displayTime = currentTime / playbackRate;
   const offsets = useMemo(() => durations.reduce((result, duration, index) => {
     result.push((result[index - 1] || 0) + duration);
     return result;
@@ -127,7 +129,8 @@ export default function BlogAudioPlayer({ manifest }) {
   };
 
   const seek = (value) => {
-    const nextTime = Number(value);
+    const nextDisplayTime = Number(value);
+    const nextTime = nextDisplayTime * playbackRate;
     const matchingIndex = offsets.findIndex((offset) => nextTime < offset);
     const nextIndex = matchingIndex === -1 ? manifest.chunks.length - 1 : matchingIndex;
     const chunkStart = nextIndex === 0 ? 0 : offsets[nextIndex - 1];
@@ -166,16 +169,16 @@ export default function BlogAudioPlayer({ manifest }) {
           <input
             type="range"
             min="0"
-            max={totalDuration || 0}
+            max={displayDuration || 0}
             step="0.1"
-            value={Math.min(currentTime, totalDuration || 0)}
+            value={Math.min(displayTime, displayDuration || 0)}
             onChange={(event) => seek(event.target.value)}
             className="h-1.5 w-full cursor-pointer accent-zg-teal"
             aria-label="Seek through article"
           />
           <div className="mt-1 flex justify-between text-xs tabular-nums text-gray-500">
-            <span>{formatTime(currentTime)}</span>
-            <span>{formatTime(totalDuration)}</span>
+            <span>{formatTime(displayTime)}</span>
+            <span>{formatTime(displayDuration)}</span>
           </div>
         </div>
 
