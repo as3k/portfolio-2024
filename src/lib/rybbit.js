@@ -7,7 +7,12 @@
 
 export function track(eventName, properties = {}) {
   if (typeof window !== "undefined" && window.rybbit?.event) {
-    window.rybbit.event(eventName, properties);
+    const normalizedProperties = Object.fromEntries(
+      Object.entries(properties)
+        .filter(([, value]) => value !== null && value !== undefined)
+        .map(([key, value]) => [key, typeof value === "boolean" ? String(value) : value]),
+    );
+    window.rybbit.event(eventName, normalizedProperties);
   }
 }
 
