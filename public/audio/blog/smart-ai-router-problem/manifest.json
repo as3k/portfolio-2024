@@ -12,355 +12,415 @@
       "index": 0,
       "url": "/audio/blog/smart-ai-router-problem/000.mp3",
       "text": "This morning, a cron job that needed one small tool change took more than ten minutes to debug.",
-      "bytes": 39549
+      "bytes": 39549,
+      "duration": 6.5
     },
     {
       "index": 1,
       "url": "/audio/blog/smart-ai-router-problem/001.mp3",
       "text": "The code was not the hard part. My AI system was.",
-      "bytes": 23709
+      "bytes": 23709,
+      "duration": 3.85
     },
     {
       "index": 2,
       "url": "/audio/blog/smart-ai-router-problem/002.mp3",
       "text": "For four days, my model router had been technically successful. It was selecting cheap models for ordinary work, local models for quick and private tasks, and frontier models for the work that earned them.",
-      "bytes": 74541
+      "bytes": 74541,
+      "duration": 12.325
     },
     {
       "index": 3,
       "url": "/audio/blog/smart-ai-router-problem/003.mp3",
       "text": "Then I checked the logs from that cron fix.",
-      "bytes": 17661
+      "bytes": 17661,
+      "duration": 2.85
     },
     {
       "index": 4,
       "url": "/audio/blog/smart-ai-router-problem/004.mp3",
       "text": "Every turn was going back through the routing gate. Every turn could be assigned to a different model. The router was making sensible decisions one request at a time while making the task worse as a whole.",
-      "bytes": 75693
+      "bytes": 75693,
+      "duration": 12.525
     },
     {
       "index": 5,
       "url": "/audio/blog/smart-ai-router-problem/005.mp3",
       "text": "That is when I realized model routing is not just a cost-optimization problem. It is a workflow and UX problem. An agent doing real work needs continuity, not a new brain every time it speaks.",
-      "bytes": 79149
+      "bytes": 79149,
+      "duration": 13.1
     },
     {
       "index": 6,
       "url": "/audio/blog/smart-ai-router-problem/006.mp3",
       "text": "This is how I changed the system from routing individual requests to designing for the task.",
-      "bytes": 36957
+      "bytes": 36957,
+      "duration": 6.05
     },
     {
       "index": 7,
       "url": "/audio/blog/smart-ai-router-problem/007.mp3",
       "text": "The System Was Working. The Experience Wasn't.",
-      "bytes": 20685
+      "bytes": 20685,
+      "duration": 3.35
     },
     {
       "index": 8,
       "url": "/audio/blog/smart-ai-router-problem/008.mp3",
       "text": "The cron needed tools added so it could make a call. It was not an especially hard problem. But the task kept dragging, and I could feel the system getting in its own way.",
-      "bytes": 64749
+      "bytes": 64749,
+      "duration": 10.7
     },
     {
       "index": 9,
       "url": "/audio/blog/smart-ai-router-problem/009.mp3",
       "text": "I checked the logs.",
-      "bytes": 11325
+      "bytes": 11325,
+      "duration": 1.8
     },
     {
       "index": 10,
       "url": "/audio/blog/smart-ai-router-problem/010.mp3",
       "text": "Every turn was going back through the routing gate. Every turn could be assigned to a different model. One model would start the task, another would pick it up, and a third might finish it. Technically, each routing decision was defensible. As a working session, it was a mess.",
-      "bytes": 100893
+      "bytes": 100893,
+      "duration": 16.725
     },
     {
       "index": 11,
       "url": "/audio/blog/smart-ai-router-problem/011.mp3",
       "text": "No model had enough continuity to own the problem.",
-      "bytes": 21261
+      "bytes": 21261,
+      "duration": 3.45
     },
     {
       "index": 12,
       "url": "/audio/blog/smart-ai-router-problem/012.mp3",
       "text": "The logs told the story in miniature. In one hour, a single session re-rolled the dice 25 times across three tiers: 20 turns on the cheap cloud model, 2 on the local one, 3 on the frontier model. The same tool output, classified 30 seconds apart, took two different paths through the classifier. Three consecutive frontier-model calls ran on input the complexity scores called borderline. Every turn was a new decision, and no model kept the thread.",
-      "bytes": 167565
+      "bytes": 167565,
+      "duration": 27.825
     },
     {
       "index": 13,
       "url": "/audio/blog/smart-ai-router-problem/013.mp3",
       "text": "That is the pre-pinning failure mode. Under the new rules, that hour collapses to one classification and 25 pinned turns: one brain, no judge tax, and a consistent model for the whole session.",
-      "bytes": 79581
+      "bytes": 79581,
+      "duration": 13.175
     },
     {
       "index": 14,
       "url": "/audio/blog/smart-ai-router-problem/014.mp3",
       "text": "That is the part people miss when they talk about model routing. A long-running agent task is not a pile of isolated prompts. It has context. It has decisions already made. It has a working memory.",
-      "bytes": 80589
+      "bytes": 80589,
+      "duration": 13.325
     },
     {
       "index": 15,
       "url": "/audio/blog/smart-ai-router-problem/015.mp3",
       "text": "Changing the model mid-task is a little like switching designers halfway through a flow without showing the next person the research, the constraints, or the Figma file. They might still do good work. But they are spending time reconstructing the problem instead of moving it forward.",
-      "bytes": 100173
+      "bytes": 100173,
+      "duration": 16.6
     },
     {
       "index": 16,
       "url": "/audio/blog/smart-ai-router-problem/016.mp3",
       "text": "The router was making locally sensible decisions while creating a globally worse experience.",
-      "bytes": 35661
+      "bytes": 35661,
+      "duration": 5.85
     },
     {
       "index": 17,
       "url": "/audio/blog/smart-ai-router-problem/017.mp3",
       "text": "The Original Goal",
-      "bytes": 9165
+      "bytes": 9165,
+      "duration": 1.425
     },
     {
       "index": 18,
       "url": "/audio/blog/smart-ai-router-problem/018.mp3",
       "text": "I wanted a deterministic system that could make model selection boring.",
-      "bytes": 29757
+      "bytes": 29757,
+      "duration": 4.85
     },
     {
       "index": 19,
       "url": "/audio/blog/smart-ai-router-problem/019.mp3",
       "text": "The local model should handle quick, mechanical, or private work. A cheap cloud model should handle the normal multi-step reasoning that most agents need. Frontier models should be available for difficult, high-stakes, or long-chain work.",
-      "bytes": 89517
+      "bytes": 89517,
+      "duration": 14.825
     },
     {
       "index": 20,
       "url": "/audio/blog/smart-ai-router-problem/020.mp3",
       "text": "The router uses a small decision model to ask three questions:",
-      "bytes": 26445
+      "bytes": 26445,
+      "duration": 4.3
     },
     {
       "index": 21,
       "url": "/audio/blog/smart-ai-router-problem/021.mp3",
       "text": "What level of capability does this request actually need? How complex is it? What happens if the answer is wrong?",
-      "bytes": 44589
+      "bytes": 44589,
+      "duration": 7.325
     },
     {
       "index": 22,
       "url": "/audio/blog/smart-ai-router-problem/022.mp3",
       "text": "If the decision model is unsure, a second model gets a vote. The result is a routing decision rather than a bigger model guessing what kind of work it has been given.",
-      "bytes": 64173
+      "bytes": 64173,
+      "duration": 10.6
     },
     {
       "index": 23,
       "url": "/audio/blog/smart-ai-router-problem/023.mp3",
       "text": "That design still makes sense. The mistake was treating every message as a new task.",
-      "bytes": 33933
+      "bytes": 33933,
+      "duration": 5.55
     },
     {
       "index": 24,
       "url": "/audio/blog/smart-ai-router-problem/024.mp3",
       "text": "One Task Needs One Brain",
-      "bytes": 14061
+      "bytes": 14061,
+      "duration": 2.25
     },
     {
       "index": 25,
       "url": "/audio/blog/smart-ai-router-problem/025.mp3",
       "text": "The first iteration was session pinning.",
-      "bytes": 17661
+      "bytes": 17661,
+      "duration": 2.85
     },
     {
       "index": 26,
       "url": "/audio/blog/smart-ai-router-problem/026.mp3",
       "text": "Instead of classifying every message, the router classifies the first turn of a session and assigns that session a home model. The next turns skip the routing overhead and stay with the same model.",
-      "bytes": 74541
+      "bytes": 74541,
+      "duration": 12.325
     },
     {
       "index": 27,
       "url": "/audio/blog/smart-ai-router-problem/027.mp3",
       "text": "That means a model can keep the thread of the work it started.",
-      "bytes": 22845
+      "bytes": 22845,
+      "duration": 3.7
     },
     {
       "index": 28,
       "url": "/audio/blog/smart-ai-router-problem/028.mp3",
       "text": "It is not a permanent lock. A session can still be promoted when the work outgrows its home model. A request that will not fit in the local model's context window gets rescued automatically. A high-stakes turn can be explicitly sent to a frontier model.",
-      "bytes": 98445
+      "bytes": 98445,
+      "duration": 16.3
     },
     {
       "index": 29,
       "url": "/audio/blog/smart-ai-router-problem/029.mp3",
       "text": "But the system does not casually downgrade a session halfway through the work. The worst outcome should be spending a little more than necessary, not asking an underpowered model to finish a task it cannot understand.",
-      "bytes": 80013
+      "bytes": 80013,
+      "duration": 13.225958
     },
     {
       "index": 30,
       "url": "/audio/blog/smart-ai-router-problem/030.mp3",
       "text": "That is a design choice as much as an engineering choice. I am optimizing for continuity and trust, not just the cheapest possible request.",
-      "bytes": 56253
+      "bytes": 56253,
+      "duration": 9.275
     },
     {
       "index": 31,
       "url": "/audio/blog/smart-ai-router-problem/031.mp3",
       "text": "The Edge Case That Changed the Design Again",
-      "bytes": 15357
+      "bytes": 15357,
+      "duration": 2.45
     },
     {
       "index": 32,
       "url": "/audio/blog/smart-ai-router-problem/032.mp3",
       "text": "Session pinning solved the main problem, then immediately created another one.",
-      "bytes": 30477
+      "bytes": 30477,
+      "duration": 4.975
     },
     {
       "index": 33,
       "url": "/audio/blog/smart-ai-router-problem/033.mp3",
       "text": "Imagine I am deep into a difficult task. The session is correctly pinned to a frontier model. I leave my desk for twenty minutes, come back, and ask a small self-contained question.",
-      "bytes": 71949
+      "bytes": 71949,
+      "duration": 11.9
     },
     {
       "index": 34,
       "url": "/audio/blog/smart-ai-router-problem/034.mp3",
       "text": "Does that question really need the same expensive model?",
-      "bytes": 22845
+      "bytes": 22845,
+      "duration": 3.7
     },
     {
       "index": 35,
       "url": "/audio/blog/smart-ai-router-problem/035.mp3",
       "text": "Not necessarily.",
-      "bytes": 11613
+      "bytes": 11613,
+      "duration": 1.825958
     },
     {
       "index": 36,
       "url": "/audio/blog/smart-ai-router-problem/036.mp3",
       "text": "That is where micro-delegation came from. The router checks whether a short interruption can be answered without any context from the ongoing session. If it can, the local model handles that one request quickly. The session's home model does not change. The next real turn goes back to the model that knows the task.",
-      "bytes": 119757
+      "bytes": 119757,
+      "duration": 19.85
     },
     {
       "index": 37,
       "url": "/audio/blog/smart-ai-router-problem/037.mp3",
       "text": "The distinction matters.",
-      "bytes": 11901
+      "bytes": 11901,
+      "duration": 1.875
     },
     {
       "index": 38,
       "url": "/audio/blog/smart-ai-router-problem/038.mp3",
       "text": "\"What's 45 times 12?\" is self-contained.",
-      "bytes": 22557
+      "bytes": 22557,
+      "duration": 3.65
     },
     {
       "index": 39,
       "url": "/audio/blog/smart-ai-router-problem/039.mp3",
       "text": "\"What was your third recommendation?\" is not.",
-      "bytes": 19101
+      "bytes": 19101,
+      "duration": 3.075
     },
     {
       "index": 40,
       "url": "/audio/blog/smart-ai-router-problem/040.mp3",
       "text": "They may look equally small, but one requires the accumulated context of the session. Routing both the same way would be another version of the original problem.",
-      "bytes": 61437
+      "bytes": 61437,
+      "duration": 10.15
     },
     {
       "index": 41,
       "url": "/audio/blog/smart-ai-router-problem/041.mp3",
       "text": "This Is the Same Process I Use in Product Design",
-      "bytes": 22125
+      "bytes": 22125,
+      "duration": 3.6
     },
     {
       "index": 42,
       "url": "/audio/blog/smart-ai-router-problem/042.mp3",
       "text": "I did not start with a perfect architecture. I started with a problem I could observe.",
-      "bytes": 32493
+      "bytes": 32493,
+      "duration": 5.325
     },
     {
       "index": 43,
       "url": "/audio/blog/smart-ai-router-problem/043.mp3",
       "text": "Understand & Research. I ran the router across my fleet for four days, then inspected real decisions, latency, failures, and the work that actually reached each model. The cron fix made the continuity problem visible.",
-      "bytes": 89661
+      "bytes": 89661,
+      "duration": 14.85
     },
     {
       "index": 44,
       "url": "/audio/blog/smart-ai-router-problem/044.mp3",
       "text": "Define & Strategize. I had models with different costs, speed, privacy characteristics, and reasoning ability. I needed a system that could balance those constraints without forcing me to select a model for every request.",
-      "bytes": 88509
+      "bytes": 88509,
+      "duration": 14.65
     },
     {
       "index": 45,
       "url": "/audio/blog/smart-ai-router-problem/045.mp3",
       "text": "Ideate & Prototype. What should routing mean? Which models belong in which role? What should happen when a model is unsure? The first answer was request-level routing. The next answer was session pinning. The edge case created micro-delegation.",
-      "bytes": 94125
+      "bytes": 94125,
+      "duration": 15.6
     },
     {
       "index": 46,
       "url": "/audio/blog/smart-ai-router-problem/046.mp3",
       "text": "Test & Iterate. The ten-minute cron fix exposed the biggest flaw in the first design. Session pinning is the response. The router made 1,606 routing decisions across my fleet in its first four days for $2.25 in inference spend. Session pinning is too new for numbers that clean, but the sessions that stay pinned are already holding a single thread instead of restarting one.",
-      "bytes": 155613
+      "bytes": 155613,
+      "duration": 25.825958
     },
     {
       "index": 47,
       "url": "/audio/blog/smart-ai-router-problem/047.mp3",
       "text": "Build, Deploy & Measure. The router is running across the fleet, with decisions, latency, failures, and routing outcomes recorded for review. Each policy exists because of a behavior the system needs to support. The router is public at https://github.com/as3k/model-router.",
-      "bytes": 126093
+      "bytes": 126093,
+      "duration": 20.925
     },
     {
       "index": 48,
       "url": "/audio/blog/smart-ai-router-problem/048.mp3",
       "text": "This is what I mean when I say design process translates to agentic systems. The interface is not a dashboard or a button. It is the policy that decides what happens next.",
-      "bytes": 69933
+      "bytes": 69933,
+      "duration": 11.55
     },
     {
       "index": 49,
       "url": "/audio/blog/smart-ai-router-problem/049.mp3",
       "text": "The Guards Are the Product",
-      "bytes": 11901
+      "bytes": 11901,
+      "duration": 1.875
     },
     {
       "index": 50,
       "url": "/audio/blog/smart-ai-router-problem/050.mp3",
       "text": "The interesting parts of the router are not the model names. They are the rules that keep the system from doing something dumb.",
-      "bytes": 44733
+      "bytes": 44733,
+      "duration": 7.35
     },
     {
       "index": 51,
       "url": "/audio/blog/smart-ai-router-problem/051.mp3",
       "text": "A session can promote to a more capable model, but does not bounce down mid-task. Quick interruptions can use a local model only when they are truly context-free. Scheduled work can declare the model it needs instead of hoping a classifier understands why it matters. An alert gate fails open. If the router cannot decide whether an outage matters, the human still gets the alert. Requests that overflow a local context window move to a model that can fit them instead of failing.",
-      "bytes": 169725
+      "bytes": 169725,
+      "duration": 28.2
     },
     {
       "index": 52,
       "url": "/audio/blog/smart-ai-router-problem/052.mp3",
       "text": "None of those rules came from a slide deck. They came from watching a real system behave badly enough to be worth fixing.",
-      "bytes": 46893
+      "bytes": 46893,
+      "duration": 7.725
     },
     {
       "index": 53,
       "url": "/audio/blog/smart-ai-router-problem/053.mp3",
       "text": "What I Am Learning",
-      "bytes": 10173
+      "bytes": 10173,
+      "duration": 1.6
     },
     {
       "index": 54,
       "url": "/audio/blog/smart-ai-router-problem/054.mp3",
       "text": "The best AI system is not the one that uses the smartest model most often. It is the one that makes the right tradeoff without breaking the flow of the work.",
-      "bytes": 61005
+      "bytes": 61005,
+      "duration": 10.075
     },
     {
       "index": 55,
       "url": "/audio/blog/smart-ai-router-problem/055.mp3",
       "text": "That is a systems problem. It is also a UX problem.",
-      "bytes": 24429
+      "bytes": 24429,
+      "duration": 3.975
     },
     {
       "index": 56,
       "url": "/audio/blog/smart-ai-router-problem/056.mp3",
       "text": "AI systems have latency, safety boundaries, failure states, overrides, feedback loops, and users who need to trust what the system is doing. Sometimes the user is a customer. Sometimes it is another agent. Sometimes it is me at my desk, trying to fix a cron job before breakfast.",
-      "bytes": 114861
+      "bytes": 114861,
+      "duration": 19.05
     },
     {
       "index": 57,
       "url": "/audio/blog/smart-ai-router-problem/057.mp3",
       "text": "The surface changes. The design work does not.",
-      "bytes": 20973
+      "bytes": 20973,
+      "duration": 3.4
     },
     {
       "index": 58,
       "url": "/audio/blog/smart-ai-router-problem/058.mp3",
       "text": "The interface is not a dashboard or a button. It is the policy that decides what happens next.",
-      "bytes": 37965
+      "bytes": 37965,
+      "duration": 6.225
     }
-  ]
+  ],
+  "totalDuration": 544.052874
 }
