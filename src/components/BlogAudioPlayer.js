@@ -3,6 +3,9 @@
 import { PauseIcon, PlayIcon } from "@heroicons/react/24/solid";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+const PLAYBACK_SPEED_STORAGE_KEY = "zg-blog-audio-playback-speed";
+const PLAYBACK_SPEEDS = [0.75, 1, 1.25, 1.5, 2];
+
 function formatTime(seconds) {
   if (!Number.isFinite(seconds)) return "0:00";
   const minutes = Math.floor(seconds / 60);
@@ -13,11 +16,11 @@ function formatTime(seconds) {
 export default function BlogAudioPlayer({ manifest }) {
   const audioRef = useRef(null);
   const currentIndexRef = useRef(0);
-  const playbackRateRef = useRef(1);
+  const playbackRateRef = useRef(1.25);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [playbackRate, setPlaybackRate] = useState(1);
+  const [playbackRate, setPlaybackRate] = useState(1.25);
   const [error, setError] = useState(false);
 
   const durations = useMemo(
@@ -69,7 +72,21 @@ export default function BlogAudioPlayer({ manifest }) {
   }, [manifest.chunks, offsets, totalDuration]);
 
   useEffect(() => {
+    try {
+      const storedSpeed = Number(window.localStorage.getItem(PLAYBACK_SPEED_STORAGE_KEY));
+      if (PLAYBACK_SPEEDS.includes(storedSpeed)) setPlaybackRate(storedSpeed);
+    } catch {
+      // localStorage may be unavailable in privacy-restricted browsers.
+    }
+  }, []);
+
+  useEffect(() => {
     playbackRateRef.current = playbackRate;
+    try {
+      window.localStorage.setItem(PLAYBACK_SPEED_STORAGE_KEY, String(playbackRate));
+    } catch {
+      // localStorage may be unavailable in privacy-restricted browsers.
+    }
     if (audioRef.current) audioRef.current.playbackRate = playbackRate;
   }, [playbackRate]);
 
@@ -170,7 +187,7 @@ export default function BlogAudioPlayer({ manifest }) {
             className="rounded border border-gray-700 bg-transparent px-1.5 py-1 text-xs text-gray-400 outline-none focus:border-zg-teal"
             aria-label="Playback speed"
           >
-            {[0.75, 1, 1.25, 1.5, 2].map((rate) => <option key={rate} value={rate}>{rate}×</option>)}
+            {PLAYBACK_SPEEDS.map((rate) => <option key={rate} value={rate}>{rate}×</option>)}
           </select>
         </label>
       </div>
