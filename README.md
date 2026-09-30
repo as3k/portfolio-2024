@@ -20,7 +20,7 @@ yarn install
 ## Project Notes
 - App Router lives under `src/app`; global styles in `src/app/globals.css`.
 - Static assets are in `public` (portfolio photo at `public/images/`).
-- Rybbit analytics loads once from `NEXT_PUBLIC_RYBBIT_SCRIPT_URL` or the self-hosted default in `src/app/layout.js`; `NEXT_PUBLIC_RYBBIT_SITE_ID` can override the site ID passed to the script.
+- Rybbit analytics loads once through the first-party `/analytics/script.js` proxy. Set `NEXT_PUBLIC_RYBBIT_HOST` to override the `https://stats.zkg.io` backend, and `NEXT_PUBLIC_RYBBIT_SITE_ID` to override the site ID. `NEXT_PUBLIC_RYBBIT_SCRIPT_URL` remains available for an intentional direct-script override.
 
 ## Deployment
 Build with `yarn build` and deploy the `.next` output with your preferred host (Vercel recommended). Set Rybbit env vars in the host dashboard when overriding the defaults.

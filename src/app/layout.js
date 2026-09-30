@@ -53,7 +53,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const rybbitSiteId = process.env.NEXT_PUBLIC_RYBBIT_SITE_ID || "fafd29329cd3";
-  const rybbitScriptUrl = process.env.NEXT_PUBLIC_RYBBIT_SCRIPT_URL || "https://stats.zkg.io/api/script.js";
+  const rybbitScriptUrl = process.env.NEXT_PUBLIC_RYBBIT_SCRIPT_URL || "/analytics/script.js";
 
   return (
     <html lang="en" className={`${poppins.className} text-gray-200`}>
