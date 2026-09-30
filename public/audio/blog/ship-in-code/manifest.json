@@ -1,0 +1,150 @@
+{
+  "slug": "ship-in-code",
+  "contentHash": "2f6cbadb147149d7",
+  "model": "kokoro-82m",
+  "voice": "af_heart",
+  "bitrate": "48k",
+  "sampleRate": 24000,
+  "channels": 1,
+  "totalBytes": 1503195,
+  "chunks": [
+    {
+      "index": 0,
+      "url": "/audio/blog/ship-in-code/000.mp3",
+      "text": "One of the things I hear most from the CTOs and founders I work with is that their biggest frustration with designers isn't bad taste — it's the handoff.",
+      "bytes": 57693
+    },
+    {
+      "index": 1,
+      "url": "/audio/blog/ship-in-code/001.mp3",
+      "text": "They get beautiful Figma files. Pixel-perfect specs. A comprehensive design system. And then the engineering team builds something that looks nothing like what was designed.",
+      "bytes": 67197
+    },
+    {
+      "index": 2,
+      "url": "/audio/blog/ship-in-code/002.mp3",
+      "text": "It's not malice. It's translation loss. The developer didn't see the hover state. The animation timing wasn't specced. The responsive breakpoint was an assumption. And by the time anyone notices, the sprint is over.",
+      "bytes": 84477
+    },
+    {
+      "index": 3,
+      "url": "/audio/blog/ship-in-code/003.mp3",
+      "text": "I don't hand off designs. I ship working code.",
+      "bytes": 20253
+    },
+    {
+      "index": 4,
+      "url": "/audio/blog/ship-in-code/004.mp3",
+      "text": "The Handoff Tax",
+      "bytes": 11613
+    },
+    {
+      "index": 5,
+      "url": "/audio/blog/ship-in-code/005.mp3",
+      "text": "The traditional design-to-development pipeline has four failure points:",
+      "bytes": 26877
+    },
+    {
+      "index": 6,
+      "url": "/audio/blog/ship-in-code/006.mp3",
+      "text": "Specification gaps — things that exist in the designer's head but never make it into the file Translation drift — what the developer interprets vs. what the designer intended Feedback loops — review → revise → rebuild cycles that eat sprints Context loss — the why behind a design decision gets lost somewhere between handoff and implementation",
+      "bytes": 139485
+    },
+    {
+      "index": 7,
+      "url": "/audio/blog/ship-in-code/007.mp3",
+      "text": "I've experienced all of them. Better specs and better conversations help, but so does keeping the product rationale close to implementation when the role and team structure make that possible.",
+      "bytes": 74109
+    },
+    {
+      "index": 8,
+      "url": "/audio/blog/ship-in-code/008.mp3",
+      "text": "What Changes When You Build What You Design",
+      "bytes": 16509
+    },
+    {
+      "index": 9,
+      "url": "/audio/blog/ship-in-code/009.mp3",
+      "text": "When I design a component in Figma and then contribute to its implementation, a few things happen differently.",
+      "bytes": 43149
+    },
+    {
+      "index": 10,
+      "url": "/audio/blog/ship-in-code/010.mp3",
+      "text": "I catch impossible states before they ship. There's a unique awareness that comes from knowing both how something looks and how it works. When I'm designing a form, I'm already thinking about the loading state, the error state, the empty state, the success animation — not as separate specs, but as code I'm about to write.",
+      "bytes": 114717
+    },
+    {
+      "index": 11,
+      "url": "/audio/blog/ship-in-code/011.mp3",
+      "text": "Iteration speed changes entirely. Instead of \"let me update the mockup, export, write a spec, and hand it off,\" it's \"let me tweak the Tailwind class and see it instantly.\" The feedback loop collapses from days to seconds.",
+      "bytes": 87789
+    },
+    {
+      "index": 12,
+      "url": "/audio/blog/ship-in-code/012.mp3",
+      "text": "Design decisions become informed by real constraints. There's nothing like writing the CSS yourself to teach you why that 8-column grid was a bad idea for mobile. The designs that emerge from this process are buildable by default — not because I'm a saint, but because I hit the constraints myself.",
+      "bytes": 112413
+    },
+    {
+      "index": 13,
+      "url": "/audio/blog/ship-in-code/013.mp3",
+      "text": "A Real Example",
+      "bytes": 10749
+    },
+    {
+      "index": 14,
+      "url": "/audio/blog/ship-in-code/014.mp3",
+      "text": "On my last project (a B2B SaaS platform for ISP support), I designed and built the site from scratch. The hero section had a specific animation I wanted — subtle, performant, responsive.",
+      "bytes": 80301
+    },
+    {
+      "index": 15,
+      "url": "/audio/blog/ship-in-code/015.mp3",
+      "text": "In a traditional handoff, I would have spec'd it in Figma with notes about timing and easing curves, then collaborated with an engineer to refine it in the product. In this case, I built it in React during the same session I designed it. The animation stayed close to the original intent because the design and implementation context remained connected.",
+      "bytes": 131421
+    },
+    {
+      "index": 16,
+      "url": "/audio/blog/ship-in-code/016.mp3",
+      "text": "The result: 0.6-second load time and a 92% accessibility score. Not because I'm a better developer than any front-end engineer — but because there was zero translation loss between what I designed and what shipped.",
+      "bytes": 92829
+    },
+    {
+      "index": 17,
+      "url": "/audio/blog/ship-in-code/017.mp3",
+      "text": "What This Means for Teams I Join",
+      "bytes": 14493
+    },
+    {
+      "index": 18,
+      "url": "/audio/blog/ship-in-code/018.mp3",
+      "text": "I'm not advocating that every designer needs to code. Design and engineering are distinct disciplines, and specialization exists for a reason.",
+      "bytes": 56829
+    },
+    {
+      "index": 19,
+      "url": "/audio/blog/ship-in-code/019.mp3",
+      "text": "What I'm saying is: when you hire me, you're getting someone who closes the loop. I don't produce artifacts that need to be interpreted by someone else. I produce outcomes that go straight into the product.",
+      "bytes": 73389
+    },
+    {
+      "index": 20,
+      "url": "/audio/blog/ship-in-code/020.mp3",
+      "text": "That means: Fewer handoff meetings Faster iteration cycles Designs that survive contact with reality A shared language with your engineering team",
+      "bytes": 62301
+    },
+    {
+      "index": 21,
+      "url": "/audio/blog/ship-in-code/021.mp3",
+      "text": "I design in Figma because it is useful for exploration. I build in Next.js when it is a good fit for delivery. The goal is to reduce context loss between design and implementation, whether I am contributing directly in code or collaborating with an engineer.",
+      "bytes": 108813
+    },
+    {
+      "index": 22,
+      "url": "/audio/blog/ship-in-code/022.mp3",
+      "text": "The best UX is the one that ships.",
+      "bytes": 15789
+    }
+  ]
+}
