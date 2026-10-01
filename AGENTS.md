@@ -17,6 +17,13 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 
 <!-- OPENSPEC:END -->
 
+## Subagent runtime and model routing
+
+- Use **Pi as the subagent harness** for delegated work.
+- Use **Codex** for GPT model work, including Luna and Terra variants.
+- Use **Vercel AI Gateway** for `zai/glm-5.3-flash` by default and for `deepseek/deepseek-v4-flash` when that model is requested.
+- Keep model selection explicit in delegation notes so a later agent can reproduce the routing decision.
+
 # Repository Guidelines
 
 ## Project Structure & Module Organization

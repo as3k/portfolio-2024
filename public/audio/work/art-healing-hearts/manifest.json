@@ -1,6 +1,5 @@
 {
   "slug": "art-healing-hearts",
-  "contentType": "work",
   "contentHash": "6b78c93ba613080b",
   "model": "kokoro-82m",
   "voice": "af_heart",
@@ -12,87 +11,76 @@
   "chunks": [
     {
       "index": 0,
-      "url": "/audio/work/art-healing-hearts/000.mp3",
-      "text": "A public launch with six days to recover",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/000.mp3",
       "bytes": 18957,
       "duration": 3.05
     },
     {
       "index": 1,
-      "url": "/audio/work/art-healing-hearts/001.mp3",
-      "text": "Art Healing Hearts had a WordPress site compromised shortly before a scheduled appearance on The Morning Blend in Las Vegas. The appearance would send people to the organization’s website, and that site needed to accept donations before the segment aired.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/001.mp3",
       "bytes": 95565,
       "duration": 15.825
     },
     {
       "index": 2,
-      "url": "/audio/work/art-healing-hearts/002.mp3",
-      "text": "The job was not a broad redesign exercise. In six days, I needed to replace the site, move the public URL away from the old server, forward existing paths, make the donation flow work, and clear the Google spam warning visible on the homepage.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/002.mp3",
       "bytes": 100461,
       "duration": 16.65
     },
     {
       "index": 3,
-      "url": "/audio/work/art-healing-hearts/003.mp3",
-      "text": "The launch constraint shaped the product",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/003.mp3",
       "bytes": 16221,
       "duration": 2.6
     },
     {
       "index": 4,
-      "url": "/audio/work/art-healing-hearts/004.mp3",
-      "text": "The replacement focused on the information a visitor arriving from television needed: what Art Healing Hearts does and how to donate. I designed and built a focused, single-page experience with the organization’s real imagery and a direct donation path.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/004.mp3",
       "bytes": 99021,
       "duration": 16.4
     },
     {
       "index": 5,
-      "url": "/audio/work/art-healing-hearts/005.mp3",
-      "text": "I built the replacement in Next.js and hosted it on Vercel. Stripe handled donations. There was no CMS or public administrative layer, which removed the CMS and plugin dependency layer from the old WordPress setup. That reduced the externally exposed application surface; it was not a claim that the new site was immune to compromise.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/005.mp3",
       "bytes": 137757,
       "duration": 22.85
     },
     {
       "index": 6,
-      "url": "/audio/work/art-healing-hearts/006.mp3",
-      "text": "Migration, remediation, and testing",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/006.mp3",
       "bytes": 17949,
       "duration": 2.9
     },
     {
       "index": 7,
-      "url": "/audio/work/art-healing-hearts/007.mp3",
-      "text": "I personally handled the replacement build, URL migration, forwarding, launch testing, and Google remediation. The homepage warning was removed before launch. Some legacy malicious URLs remained indexed, but they did not affect the replacement site or its public donation path.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/007.mp3",
       "bytes": 113709,
       "duration": 18.85
     },
     {
       "index": 8,
-      "url": "/audio/work/art-healing-hearts/008.mp3",
-      "text": "The Stripe donation flow passed test payments before the television appearance. That made the launch condition concrete: people arriving from the segment could complete a donation rather than encounter an unavailable or untrusted site.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/008.mp3",
       "bytes": 89949,
       "duration": 14.9
     },
     {
       "index": 9,
-      "url": "/audio/work/art-healing-hearts/009.mp3",
-      "text": "Outcome",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/009.mp3",
       "bytes": 9597,
       "duration": 1.5
     },
     {
       "index": 10,
-      "url": "/audio/work/art-healing-hearts/010.mp3",
-      "text": "Stripe data showed a substantial donation spike around the television appearance. Afterward, donations settled to roughly one or two small gifts per month, with no continued promotional campaign behind the site.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/010.mp3",
       "bytes": 84045,
       "duration": 13.9
     },
     {
       "index": 11,
-      "url": "/audio/work/art-healing-hearts/011.mp3",
-      "text": "This is a smaller project, but it is a good example of design engineering under a fixed deadline: focus the visitor journey, build the experience, move the production domain safely, validate the payment path, and resolve the issue that could keep people from reaching it.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/art-healing-hearts/011.mp3",
       "bytes": 100317,
       "duration": 16.625
     }
-  ]
+  ],
+  "provider": "blob"
 }

@@ -2,9 +2,15 @@
   "name": "zg-portfolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "next dev",
     "audio:generate": "node scripts/generate-blog-audio.mjs",
+    "audio:generate:work": "node scripts/generate-blog-audio.mjs --work",
+    "audio:migrate:blob": "node scripts/migrate-audio-to-blob.mjs",
+    "audio:migrate:blob:work": "node scripts/migrate-audio-to-blob.mjs --work",
     "prebuild": "tsx scripts/generate-resume-pdf.tsx",
     "build": "next build",
     "start": "next start",

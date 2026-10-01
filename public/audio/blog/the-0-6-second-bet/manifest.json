@@ -10,151 +10,131 @@
   "chunks": [
     {
       "index": 0,
-      "url": "/audio/blog/the-0-6-second-bet/000.mp3",
-      "text": "Cydrion needed a website from scratch. Not a redesign — a birth. A new company entering the ISP support space with no existing brand, no existing trust, and a technical audience that would judge them instantly.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/000.mp3",
       "bytes": 87501,
       "duration": 14.475
     },
     {
       "index": 1,
-      "url": "/audio/blog/the-0-6-second-bet/001.mp3",
-      "text": "The typical design process would start with mood boards, brand workshops, and messaging frameworks. We started with a number: 0.6 seconds.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/001.mp3",
       "bytes": 57405,
       "duration": 9.475
     },
     {
       "index": 2,
-      "url": "/audio/blog/the-0-6-second-bet/002.mp3",
-      "text": "Why Performance Is a Brand Decision",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/002.mp3",
       "bytes": 17085,
       "duration": 2.75
     },
     {
       "index": 3,
-      "url": "/audio/blog/the-0-6-second-bet/003.mp3",
-      "text": "Here's something most designers won't tell you: for a technical audience, load time IS trust.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/003.mp3",
       "bytes": 35229,
       "duration": 5.775
     },
     {
       "index": 4,
-      "url": "/audio/blog/the-0-6-second-bet/004.mp3",
-      "text": "An ISP support company's website that takes 4 seconds to load is making a statement — whether they mean to or not. It says \"we don't prioritize what matters.\" A CTO evaluating a vendor doesn't consciously think \"this site is fast, therefore they're competent.\" But they feel it.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/004.mp3",
       "bytes": 107805,
       "duration": 17.875
     },
     {
       "index": 5,
-      "url": "/audio/blog/the-0-6-second-bet/005.mp3",
-      "text": "Performance isn't a technical requirement you slap on at the end. It's a design constraint you start with.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/005.mp3",
       "bytes": 40989,
       "duration": 6.725
     },
     {
       "index": 6,
-      "url": "/audio/blog/the-0-6-second-bet/006.mp3",
-      "text": "The Stack Decision",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/006.mp3",
       "bytes": 10893,
       "duration": 1.725
     },
     {
       "index": 7,
-      "url": "/audio/blog/the-0-6-second-bet/007.mp3",
-      "text": "Every design decision for Cydrion was filtered through one question: does this help or hurt performance?",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/007.mp3",
       "bytes": 39981,
       "duration": 6.575
     },
     {
       "index": 8,
-      "url": "/audio/blog/the-0-6-second-bet/008.mp3",
-      "text": "Custom iconography instead of an icon library — No Font Awesome import. No loading 2,000 icons when we need 12. Custom SVG icons, inlined, optimized. Responsive-first, mobile-priority — Not \"design desktop, then adapt for mobile.\" Mobile was the baseline. Everything added on desktop was earned. Minimal JavaScript — No heavy animation libraries. No unnecessary dependencies. If it could be done in CSS, it was done in CSS. Next.js with static generation — Pre-rendered pages served as static HTML. The server doesn't lift a finger on the first visit. Image optimization — Every image was sized, compressed, and lazy-loaded. The hero image was WebP with AVIF fallback.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/008.mp3",
       "bytes": 283485,
       "duration": 47.15
     },
     {
       "index": 9,
-      "url": "/audio/blog/the-0-6-second-bet/009.mp3",
-      "text": "None of these are exotic. They're just decisions that get made when performance is a first-class constraint instead of an afterthought.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/009.mp3",
       "bytes": 48909,
       "duration": 8.05
     },
     {
       "index": 10,
-      "url": "/audio/blog/the-0-6-second-bet/010.mp3",
-      "text": "The Accessibility Dividend",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/010.mp3",
       "bytes": 13917,
       "duration": 2.225
     },
     {
       "index": 11,
-      "url": "/audio/blog/the-0-6-second-bet/011.mp3",
-      "text": "The same constraints that produce fast sites also produce accessible ones. When you strip away unnecessary JavaScript and heavy frameworks, screen readers have an easier time. When you write semantic HTML with proper heading hierarchies, everyone benefits.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/011.mp3",
       "bytes": 99597,
       "duration": 16.5
     },
     {
       "index": 12,
-      "url": "/audio/blog/the-0-6-second-bet/012.mp3",
-      "text": "Cydrion scored 92% on accessibility on launch. Not because we ran an audit at the end — because accessible markup was baked into the component design from day one.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/012.mp3",
       "bytes": 68637,
       "duration": 11.35
     },
     {
       "index": 13,
-      "url": "/audio/blog/the-0-6-second-bet/013.mp3",
-      "text": "The \"bonus\" is that accessibility correlates with SEO, and SEO correlates with conversions. A site that works for everyone also ranks higher and converts better. The accessibility work wasn't charity. It was good product design.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/013.mp3",
       "bytes": 92973,
       "duration": 15.4
     },
     {
       "index": 14,
-      "url": "/audio/blog/the-0-6-second-bet/014.mp3",
-      "text": "What 0.6 Seconds Actually Feels Like",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/014.mp3",
       "bytes": 19821,
       "duration": 3.2
     },
     {
       "index": 15,
-      "url": "/audio/blog/the-0-6-second-bet/015.mp3",
-      "text": "A 0.6-second load time means: The page is interactive before the user finishes reaching for their mouse No loading spinners. No skeleton screens. No \"just a moment.\" Mobile users on 4G get the same experience as desktop users on fiber Google's Core Web Vitals are green across the board",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/015.mp3",
       "bytes": 120477,
       "duration": 19.975
     },
     {
       "index": 16,
-      "url": "/audio/blog/the-0-6-second-bet/016.mp3",
-      "text": "It means the website doesn't get in the way of the message. And for a company whose business is making ISPs more reliable, that's exactly the right message to send.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/016.mp3",
       "bytes": 62013,
       "duration": 10.225958
     },
     {
       "index": 17,
-      "url": "/audio/blog/the-0-6-second-bet/017.mp3",
-      "text": "The Lesson",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/017.mp3",
       "bytes": 9453,
       "duration": 1.475
     },
     {
       "index": 18,
-      "url": "/audio/blog/the-0-6-second-bet/018.mp3",
-      "text": "I've worked on projects where performance optimization was a phase. \"We'll make it fast in QA.\" It never works. Performance isn't something you bolt on. It's something you design for.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/018.mp3",
       "bytes": 70077,
       "duration": 11.575
     },
     {
       "index": 19,
-      "url": "/audio/blog/the-0-6-second-bet/019.mp3",
-      "text": "Cydrion's 0.6-second load time wasn't an achievement of engineering. It was a design decision. We chose to prioritize speed because for their audience, speed was the most honest design statement we could make.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/019.mp3",
       "bytes": 84333,
       "duration": 13.95
     },
     {
       "index": 20,
-      "url": "/audio/blog/the-0-6-second-bet/020.mp3",
-      "text": "Design isn't just what it looks like. It's how fast it loads.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/the-0-6-second-bet/020.mp3",
       "bytes": 24861,
       "duration": 4.05
     }
   ],
-  "totalDuration": 230.50095799999997
+  "totalDuration": 230.50095799999997,
+  "provider": "blob"
 }

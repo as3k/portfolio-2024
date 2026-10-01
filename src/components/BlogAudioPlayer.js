@@ -2,7 +2,12 @@
 
 import { PauseIcon, PlayIcon } from "@heroicons/react/24/solid";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { trackAudioCompleted, trackAudioSpeedChanged, trackAudioStarted } from "@/lib/rybbit";
+import {
+  trackAudioChunkError,
+  trackAudioComplete,
+  trackAudioResume,
+  trackAudioStart,
+} from "@/lib/rybbit";
 
 const PLAYBACK_SPEED_STORAGE_KEY = "zg-blog-audio-playback-speed";
 const PLAYBACK_SPEEDS = [0.75, 1, 1.25, 1.5, 2];
@@ -14,16 +19,11 @@ function formatTime(seconds) {
   return `${minutes}:${remainingSeconds}`;
 }
 
-export default function BlogAudioPlayer({
-  contentSlug,
-  contentType = "blog",
-  manifest,
-  title = "article",
-}) {
+export default function BlogAudioPlayer({ manifest, contentLabel = "article", contentType = "blog", slug }) {
   const audioRef = useRef(null);
   const currentIndexRef = useRef(0);
+  const hasStartedRef = useRef(false);
   const playbackRateRef = useRef(1.25);
-  const hasTrackedStartRef = useRef(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -56,7 +56,13 @@ export default function BlogAudioPlayer({
       if (nextIndex >= manifest.chunks.length) {
         setIsPlaying(false);
         setCurrentTime(totalDuration);
-        trackAudioCompleted(contentType, contentSlug, playbackRateRef.current);
+        trackAudioComplete({
+          slug,
+          contentType,
+          provider: manifest.provider || "local",
+          chunks: manifest.chunks.length,
+          totalDuration,
+        });
         return;
       }
 
@@ -66,7 +72,15 @@ export default function BlogAudioPlayer({
       audio.playbackRate = playbackRateRef.current;
       audio.play().catch(() => setError(true));
     };
-    const onError = () => setError(true);
+    const onError = () => {
+      setError(true);
+      trackAudioChunkError({
+        slug,
+        contentType,
+        provider: manifest.provider || "local",
+        chunkIndex: currentIndexRef.current,
+      });
+    };
 
     audio.addEventListener("timeupdate", onTimeUpdate);
     audio.addEventListener("ended", onEnded);
@@ -79,7 +93,7 @@ export default function BlogAudioPlayer({
       audio.removeEventListener("ended", onEnded);
       audio.removeEventListener("error", onError);
     };
-  }, [contentSlug, contentType, manifest.chunks, offsets, totalDuration]);
+  }, [contentType, manifest.chunks, manifest.provider, offsets, slug, totalDuration]);
 
   useEffect(() => {
     try {
@@ -131,10 +145,15 @@ export default function BlogAudioPlayer({
     try {
       await audio.play();
       setIsPlaying(true);
-      if (!hasTrackedStartRef.current) {
-        hasTrackedStartRef.current = true;
-        trackAudioStarted(contentType, contentSlug, playbackRate);
-      }
+      const event = hasStartedRef.current ? trackAudioResume : trackAudioStart;
+      event({
+        slug,
+        contentType,
+        provider: manifest.provider || "local",
+        chunkIndex: currentIndexRef.current,
+        playbackRate,
+      });
+      hasStartedRef.current = true;
     } catch {
       setError(true);
     }
@@ -166,7 +185,7 @@ export default function BlogAudioPlayer({
   };
 
   return (
-      <section className="mx-auto mb-10 max-w-5xl rounded-2xl border border-gray-800 bg-zg-dark-0 px-4 py-3 sm:px-5" aria-label={`Listen to this ${title}`}>
+    <section className="mx-auto mb-10 max-w-5xl rounded-2xl border border-gray-800 bg-zg-dark-0 px-4 py-3 sm:px-5" aria-label={`Listen to this ${contentLabel}`}>
       <div className="flex items-center gap-3">
         <button
           type="button"
@@ -198,11 +217,7 @@ export default function BlogAudioPlayer({
           <span className="sr-only">Playback speed</span>
           <select
             value={playbackRate}
-            onChange={(event) => {
-              const nextRate = Number(event.target.value);
-              setPlaybackRate(nextRate);
-              trackAudioSpeedChanged(contentType, contentSlug, nextRate);
-            }}
+            onChange={(event) => setPlaybackRate(Number(event.target.value))}
             className="rounded border border-gray-700 bg-transparent px-1.5 py-1 text-xs text-gray-400 outline-none focus:border-zg-teal"
             aria-label="Playback speed"
           >

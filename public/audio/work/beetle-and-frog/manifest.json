@@ -1,371 +1,320 @@
 {
   "slug": "beetle-and-frog",
-  "contentType": "work",
-  "contentHash": "0d571b3ed9331df2",
+  "contentHash": "f6aa0f0386b8e7c8",
   "model": "kokoro-82m",
   "voice": "af_heart",
   "bitrate": "48k",
   "sampleRate": 24000,
   "channels": 1,
-  "totalBytes": 2704311,
-  "totalDuration": 445.6519160000001,
+  "totalBytes": 2712087,
+  "totalDuration": 446.95191600000015,
   "chunks": [
     {
       "index": 0,
-      "url": "/audio/work/beetle-and-frog/000.mp3",
-      "text": "This is my own business, and I treated its website as a product",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/000.mp3",
       "bytes": 26445,
       "duration": 4.3
     },
     {
       "index": 1,
-      "url": "/audio/work/beetle-and-frog/001.mp3",
-      "text": "Beetle & Frog is the solo UX consultancy I have run part-time since 2018. I currently support roughly 10 clients. This was self-directed work with no external client constraints. I set the brief, made the product decisions, and remained accountable for whether they worked.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/001.mp3",
       "bytes": 111405,
       "duration": 18.475
     },
     {
       "index": 2,
-      "url": "/audio/work/beetle-and-frog/002.mp3",
-      "text": "The site was on WordPress for years before I moved it to Next.js. That improved the foundation, but it did not solve the strategy. Before this rebuild, SEO was abysmal. Pages were small, case studies were thin, and I had not invested enough in how the site should acquire clients.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/002.mp3",
       "bytes": 111261,
       "duration": 18.45
     },
     {
       "index": 3,
-      "url": "/audio/work/beetle-and-frog/003.mp3",
-      "text": "Starting in late May 2026, I rebuilt and extended it around a more demanding brief:",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/003.mp3",
       "bytes": 38829,
       "duration": 6.375
     },
     {
       "index": 4,
-      "url": "/audio/work/beetle-and-frog/004.mp3",
-      "text": "Build a business site that can create interest, diagnose a real problem, and move the right visitor toward a useful next step without waiting for me to start the conversation.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/004.mp3",
       "bytes": 65613,
       "duration": 10.825958
     },
     {
       "index": 5,
-      "url": "/audio/work/beetle-and-frog/005.mp3",
-      "text": "The site now has more than 100 pages across cities, industries, industry-and-city combinations, and the blog. The more important work is underneath: a diagnostic funnel, admin backend, productized AI workflows, and infrastructure supporting existing clients.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/005.mp3",
       "bytes": 107949,
       "duration": 17.9
     },
     {
       "index": 6,
-      "url": "/audio/work/beetle-and-frog/006.mp3",
-      "text": "My role",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/006.mp3",
       "bytes": 9453,
       "duration": 1.475
     },
     {
       "index": 7,
-      "url": "/audio/work/beetle-and-frog/007.mp3",
-      "text": "I designed and built the system end to end: positioning, information architecture, local SEO strategy, product flows, implementation, AI orchestration, operations, and ongoing optimization.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/007.mp3",
       "bytes": 82317,
       "duration": 13.625
     },
     {
       "index": 8,
-      "url": "/audio/work/beetle-and-frog/008.mp3",
-      "text": "A diagnostic funnel, not a contact form",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/008.mp3",
       "bytes": 19821,
       "duration": 3.2
     },
     {
       "index": 9,
-      "url": "/audio/work/beetle-and-frog/009.mp3",
-      "text": "The free diagnostic is the door to the business.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/009.mp3",
       "bytes": 20973,
       "duration": 3.4
     },
     {
       "index": 10,
-      "url": "/audio/work/beetle-and-frog/010.mp3",
-      "text": "When someone submits a site, three processes begin in parallel:",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/010.mp3",
       "bytes": 26013,
       "duration": 4.225958
     },
     {
       "index": 11,
-      "url": "/audio/work/beetle-and-frog/011.mp3",
-      "text": "A sitemap scan A broken-link scan A Google PageSpeed Insights run",
-      "bytes": 26733,
-      "duration": 4.35
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/011.mp3",
+      "bytes": 31773,
+      "duration": 5.2
     },
     {
       "index": 12,
-      "url": "/audio/work/beetle-and-frog/012.mp3",
-      "text": "The system combines those findings, including Lighthouse scores and PageSpeed results, then sends them to DeepSeek. The model produces a general diagnostic covering what appears broken and where the site can improve.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/012.mp3",
       "bytes": 85197,
       "duration": 14.1
     },
     {
       "index": 13,
-      "url": "/audio/work/beetle-and-frog/013.mp3",
-      "text": "That free result leads to a paid fix list, delivered within 48 hours. From there, the customer can move toward a tune-up when the existing site is fixable or a full build when it is not.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/013.mp3",
       "bytes": 74397,
       "duration": 12.3
     },
     {
       "index": 14,
-      "url": "/audio/work/beetle-and-frog/014.mp3",
-      "text": "Diagnostic → fix list → tune-up or full build",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/014.mp3",
       "bytes": 26877,
       "duration": 4.375
     },
     {
       "index": 15,
-      "url": "/audio/work/beetle-and-frog/015.mp3",
-      "text": "Each step is useful on its own and makes the next decision easier to understand.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/015.mp3",
       "bytes": 32781,
       "duration": 5.375
     },
     {
       "index": 16,
-      "url": "/audio/work/beetle-and-frog/016.mp3",
-      "text": "The human layer",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/016.mp3",
       "bytes": 10749,
       "duration": 1.7
     },
     {
       "index": 17,
-      "url": "/audio/work/beetle-and-frog/017.mp3",
-      "text": "AI does the heavy lifting. My strategic judgment is the product.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/017.mp3",
       "bytes": 29757,
       "duration": 4.85
     },
     {
       "index": 18,
-      "url": "/audio/work/beetle-and-frog/018.mp3",
-      "text": "After someone purchases the fix list, I inspect the site myself. I record a 5–10 minute Loom video showing what needs to change and where the experience can improve, then deliver a Google Doc with the findings and recommendations. The customer can hire me to make the changes or hand the document to another developer.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/018.mp3",
       "bytes": 124365,
       "duration": 20.625
     },
     {
       "index": 19,
-      "url": "/audio/work/beetle-and-frog/019.mp3",
-      "text": "The paid deliverable is not a longer AI response. It is my assessment, informed by the automated evidence and grounded in my product and UX experience.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/019.mp3",
       "bytes": 64029,
       "duration": 10.575
     },
     {
       "index": 20,
-      "url": "/audio/work/beetle-and-frog/020.mp3",
-      "text": "AI doesn't have eyes. It can accelerate the investigation, but it cannot replace the judgment required to decide what matters.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/020.mp3",
       "bytes": 49341,
       "duration": 8.125
     },
     {
       "index": 21,
-      "url": "/audio/work/beetle-and-frog/021.mp3",
-      "text": "A durable admin backend",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/021.mp3",
       "bytes": 13341,
       "duration": 2.125
     },
     {
       "index": 22,
-      "url": "/audio/work/beetle-and-frog/022.mp3",
-      "text": "Every diagnostic is stored in Neon Postgres. Each record includes Lighthouse scores, PageSpeed results, and AI recommendations, with a shareable link that I and the requester can revisit.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/022.mp3",
       "bytes": 76701,
       "duration": 12.675
     },
     {
       "index": 23,
-      "url": "/audio/work/beetle-and-frog/023.mp3",
-      "text": "The admin view shows the person's name, phone number, email address, diagnostic link, and a high-level overview. Two tables separate diagnostic captures from fix-list records, preserving the path from free entry point to paid service.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/023.mp3",
       "bytes": 97005,
       "duration": 16.075
     },
     {
       "index": 24,
-      "url": "/audio/work/beetle-and-frog/024.mp3",
-      "text": "Productized AI workflows",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/024.mp3",
       "bytes": 14205,
       "duration": 2.275
     },
     {
       "index": 25,
-      "url": "/audio/work/beetle-and-frog/025.mp3",
-      "text": "The site also introduces customizable n8n workflows: scouts, foragers, AI front desk, no lead left behind, command center, and AI operating system.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/025.mp3",
       "bytes": 70797,
       "duration": 11.7
     },
     {
       "index": 26,
-      "url": "/audio/work/beetle-and-frog/026.mp3",
-      "text": "The workflow foundations are built, then tailored to each business. This is a new offering with no buyers yet. I can show the product thinking and working foundations; I cannot claim client outcomes until clients are using them.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/026.mp3",
       "bytes": 88509,
       "duration": 14.65
     },
     {
       "index": 27,
-      "url": "/audio/work/beetle-and-frog/027.mp3",
-      "text": "Lift: operations behind the client work",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/027.mp3",
       "bytes": 18957,
       "duration": 3.05
     },
     {
       "index": 28,
-      "url": "/audio/work/beetle-and-frog/028.mp3",
-      "text": "Newer client sites use Next.js and Vercel. Lift supports the older WordPress portfolio on a DigitalOcean droplet with Docker and a customized monitoring and updating stack.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/028.mp3",
       "bytes": 73389,
       "duration": 12.125
     },
     {
       "index": 29,
-      "url": "/audio/work/beetle-and-frog/029.mp3",
-      "text": "The monitors report to the Hermes agent. It handles routine operations such as rebooting machines, updating images, running diagnostics, and reporting back to me for review. Lift also runs nightly backups.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/029.mp3",
       "bytes": 85629,
       "duration": 14.175
     },
     {
       "index": 30,
-      "url": "/audio/work/beetle-and-frog/030.mp3",
-      "text": "If a WordPress site is compromised, I am notified immediately. Hermes can restore a clean backup when nothing has changed since that backup. If a restore could overwrite legitimate changes, it escalates to me and I handle the repair personally.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/030.mp3",
       "bytes": 95853,
       "duration": 15.875
     },
     {
       "index": 31,
-      "url": "/audio/work/beetle-and-frog/031.mp3",
-      "text": "Hermes acts as an on-call operator. I remain the escalation path and the person responsible for the outcome.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/031.mp3",
       "bytes": 45885,
       "duration": 7.55
     },
     {
       "index": 32,
-      "url": "/audio/work/beetle-and-frog/032.mp3",
-      "text": "How I built it",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/032.mp3",
       "bytes": 10317,
       "duration": 1.625
     },
     {
       "index": 33,
-      "url": "/audio/work/beetle-and-frog/033.mp3",
-      "text": "I used the same AI orchestrator and specialized-subagent system behind the Hemet Towing site, but aimed it at a much wider local-search mesh.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/033.mp3",
       "bytes": 56829,
       "duration": 9.375
     },
     {
       "index": 34,
-      "url": "/audio/work/beetle-and-frog/034.mp3",
-      "text": "The system coordinates research, SEO planning, page strategy, development, quality review, and brand-constrained copy. It produced more than 100 pages across services, industries, cities, and supporting content, with JSON-LD schema built into the page architecture.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/034.mp3",
       "bytes": 110685,
       "duration": 18.35
     },
     {
       "index": 35,
-      "url": "/audio/work/beetle-and-frog/035.mp3",
-      "text": "Page count is not the result by itself. The work was understanding what each page needed to do, how the pages related, and how to expand the site without treating every page as interchangeable filler.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/035.mp3",
       "bytes": 77709,
       "duration": 12.85
     },
     {
       "index": 36,
-      "url": "/audio/work/beetle-and-frog/036.mp3",
-      "text": "Results",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/036.mp3",
       "bytes": 9165,
       "duration": 1.425
     },
     {
       "index": 37,
-      "url": "/audio/work/beetle-and-frog/037.mp3",
-      "text": "The diagnostic funnel has produced:",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/037.mp3",
       "bytes": 16221,
       "duration": 2.6
     },
     {
       "index": 38,
-      "url": "/audio/work/beetle-and-frog/038.mp3",
-      "text": "107 diagnostic runs 14 leads 3 new customers since rebuild",
-      "bytes": 35949,
-      "duration": 5.9
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/038.mp3",
+      "bytes": 38685,
+      "duration": 6.35
     },
     {
       "index": 39,
-      "url": "/audio/work/beetle-and-frog/039.mp3",
-      "text": "Before the rebuild, most pages appeared on page four or lower. Now most rank around position 20, with some pages in the top 10. The site is performing well for “Inland Empire website design” and “Chino Hills website design.”",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/039.mp3",
       "bytes": 92973,
       "duration": 15.4
     },
     {
       "index": 40,
-      "url": "/audio/work/beetle-and-frog/040.mp3",
-      "text": "I monitor performance through Google Search Console and adjust as results change. SEO is ongoing work, not a finished victory. Rankings move and competition changes.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/040.mp3",
       "bytes": 70653,
       "duration": 11.675
     },
     {
       "index": 41,
-      "url": "/audio/work/beetle-and-frog/041.mp3",
-      "text": "The AI-systems product line has zero purchases to date. It is built as a new offering, but there is no customer evidence for it yet.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/041.mp3",
       "bytes": 53517,
       "duration": 8.825
     },
     {
       "index": 42,
-      "url": "/audio/work/beetle-and-frog/042.mp3",
-      "text": "What I can claim",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/042.mp3",
       "bytes": 10461,
       "duration": 1.65
     },
     {
       "index": 43,
-      "url": "/audio/work/beetle-and-frog/043.mp3",
-      "text": "I cannot claim that every page ranks, that rankings are permanent, or that the new AI-systems line has proven demand. This is a system in operation, not a finished growth story.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/043.mp3",
       "bytes": 72957,
       "duration": 12.05
     },
     {
       "index": 44,
-      "url": "/audio/work/beetle-and-frog/044.mp3",
-      "text": "Principles",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/044.mp3",
       "bytes": 9885,
       "duration": 1.55
     },
     {
       "index": 45,
-      "url": "/audio/work/beetle-and-frog/045.mp3",
-      "text": "AI doesn't have eyes",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/045.mp3",
       "bytes": 12333,
       "duration": 1.95
     },
     {
       "index": 46,
-      "url": "/audio/work/beetle-and-frog/046.mp3",
-      "text": "Automation can scan, score, synthesize, and accelerate. Judgment is still the product. I decide what matters and remain responsible for the recommendation.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/046.mp3",
       "bytes": 64893,
       "duration": 10.725
     },
     {
       "index": 47,
-      "url": "/audio/work/beetle-and-frog/047.mp3",
-      "text": "The funnel is the product",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/047.mp3",
       "bytes": 12477,
       "duration": 1.975
     },
     {
       "index": 48,
-      "url": "/audio/work/beetle-and-frog/048.mp3",
-      "text": "The diagnostic is not a giveaway attached to a brochure site. It identifies a problem, the fix list turns that problem into a plan, and the plan leads to a tune-up or full build.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/048.mp3",
       "bytes": 70653,
       "duration": 11.675
     },
     {
       "index": 49,
-      "url": "/audio/work/beetle-and-frog/049.mp3",
-      "text": "Operations is a design problem too",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/049.mp3",
       "bytes": 17805,
       "duration": 2.875
     },
     {
       "index": 50,
-      "url": "/audio/work/beetle-and-frog/050.mp3",
-      "text": "A client experience continues after launch. Monitoring, backups, recovery rules, agent actions, and a human escalation path are part of the service, not infrastructure outside it.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/beetle-and-frog/050.mp3",
       "bytes": 74253,
       "duration": 12.275
     }
-  ]
+  ],
+  "provider": "blob"
 }

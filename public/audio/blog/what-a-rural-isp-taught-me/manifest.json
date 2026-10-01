@@ -10,144 +10,125 @@
   "chunks": [
     {
       "index": 0,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/000.mp3",
-      "text": "High Rapid Networks is a rural ISP serving communities that the big providers don't bother with. When they came to me for a full rebrand and website redesign, they had a problem most designers never encounter: their users didn't trust design.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/000.mp3",
       "bytes": 96141,
       "duration": 15.925
     },
     {
       "index": 1,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/001.mp3",
-      "text": "In rural communities, \"design\" often means \"fluff.\" A beautiful website is suspicious. It suggests you're spending money on things that don't matter instead of on the service. The audience was skeptical, practical, and bandwidth-constrained.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/001.mp3",
       "bytes": 92685,
       "duration": 15.35
     },
     {
       "index": 2,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/002.mp3",
-      "text": "This was the best design brief I've ever received.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/002.mp3",
       "bytes": 20685,
       "duration": 3.35
     },
     {
       "index": 3,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/003.mp3",
-      "text": "Real Constraints Beat Hypothetical Ones",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/003.mp3",
       "bytes": 18525,
       "duration": 3
     },
     {
       "index": 4,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/004.mp3",
-      "text": "Most design projects operate in a vacuum of hypotheticals. \"What if the user wants X?\" \"What if they're on a slow connection?\" \"What if they're on mobile?\" You make assumptions and move on.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/004.mp3",
       "bytes": 69645,
       "duration": 11.5
     },
     {
       "index": 5,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/005.mp3",
-      "text": "For HRN, the constraints were real and measurable: Slow internet speeds — many users were on connections slower than 10Mbps. Every kilobyte mattered. Skeptical users — this audience had been burned by providers who promised fast service and delivered dial-up. Anything that looked \"salesy\" would trigger distrust. Older demographic — the user base skewed 50+, which meant readable type, high contrast, and simple navigation weren't nice-to-haves. Limited devices — many users accessed the internet through budget phones or aging desktops.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/005.mp3",
       "bytes": 200541,
       "duration": 33.325
     },
     {
       "index": 6,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/006.mp3",
-      "text": "Designing for the Edge Case",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/006.mp3",
       "bytes": 12765,
       "duration": 2.025
     },
     {
       "index": 7,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/007.mp3",
-      "text": "When every kilobyte counts, your design decisions change:",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/007.mp3",
       "bytes": 23565,
       "duration": 3.825
     },
     {
       "index": 8,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/008.mp3",
-      "text": "No web fonts. System font stack. It loads instantly and looks native on every device. The typography hierarchy does the work instead of the font choice.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/008.mp3",
       "bytes": 64461,
       "duration": 10.65
     },
     {
       "index": 9,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/009.mp3",
-      "text": "Images that earn their place. Every image had to answer \"does this help someone understand the service or trust the company?\" If the answer was no, the image was cut. The hero image was a single, high-quality photo of a technician installing equipment — proof of work, not stock photography.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/009.mp3",
       "bytes": 112557,
       "duration": 18.65
     },
     {
       "index": 10,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/010.mp3",
-      "text": "Content-first layout. The site was structured around questions real customers asked: How fast is it? How much does it cost? When can I get it? Each page answered one question and moved the user to the next step. No fluff, no brand theater.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/010.mp3",
       "bytes": 93549,
       "duration": 15.5
     },
     {
       "index": 11,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/011.mp3",
-      "text": "High-contrast, readable design. Not trendy dark mode with gray-on-gray text. Real contrast. 16px minimum body text. Clear button labels that said what they did.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/011.mp3",
       "bytes": 71949,
       "duration": 11.9
     },
     {
       "index": 12,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/012.mp3",
-      "text": "The Result",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/012.mp3",
       "bytes": 9453,
       "duration": 1.475
     },
     {
       "index": 13,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/013.mp3",
-      "text": "The work supported a substantially larger subscriber base and helped the company expand into larger markets.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/013.mp3",
       "bytes": 42717,
       "duration": 7.025
     },
     {
       "index": 14,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/014.mp3",
-      "text": "Not because the design was award-winning. It wasn't — and that was the point. The design was trustworthy. It looked like a company that doesn't waste money on things that don't matter. It loaded fast even on slow connections. It answered the questions real customers were asking.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/014.mp3",
       "bytes": 104061,
       "duration": 17.25
     },
     {
       "index": 15,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/015.mp3",
-      "text": "What Every Designer Should Learn From This",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/015.mp3",
       "bytes": 16221,
       "duration": 2.6
     },
     {
       "index": 16,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/016.mp3",
-      "text": "The clean, well-resourced projects are easy. Everyone can do good work when the budget is there and the audience is receptive.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/016.mp3",
       "bytes": 49053,
       "duration": 8.075
     },
     {
       "index": 17,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/017.mp3",
-      "text": "The projects that make you better are the ones with real constraints. Slow internet. Skeptical users. Tight budgets. Hard deadlines. These aren't limitations — they're the brief. They force you to make decisions instead of adding features.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/017.mp3",
       "bytes": 88797,
       "duration": 14.7
     },
     {
       "index": 18,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/018.mp3",
-      "text": "Every time I hit a constraint on a project now, I think about HRN. If the design works for a rural ISP subscriber on a 5Mbps connection with a 2018 smartphone, it'll work for anyone.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/018.mp3",
       "bytes": 85917,
       "duration": 14.225
     },
     {
       "index": 19,
-      "url": "/audio/blog/what-a-rural-isp-taught-me/019.mp3",
-      "text": "Constraints aren't limitations. They're the brief.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/blog/what-a-rural-isp-taught-me/019.mp3",
       "bytes": 19677,
       "duration": 3.175
     }
   ],
-  "totalDuration": 213.525
+  "totalDuration": 213.525,
+  "provider": "blob"
 }

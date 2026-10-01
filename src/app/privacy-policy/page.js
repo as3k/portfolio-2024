@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
           </ul>
 
           <h2>3. Information Sharing</h2>
-          <p>I do not sell personal information. Website and analytics service providers may process information only as needed to operate those services.</p>
+          <p>I do not sell personal information. Rybbit and other website service providers may process information only as needed to operate and understand the site.</p>
 
           <h2>4. Your Rights</h2>
           <p>You have the right to request the deletion of any personal information you've provided. Simply reach out to me if you have any concerns.</p>

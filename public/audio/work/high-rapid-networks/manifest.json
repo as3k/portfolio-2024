@@ -1,6 +1,5 @@
 {
   "slug": "high-rapid-networks",
-  "contentType": "work",
   "contentHash": "e45b1301ee43d639",
   "model": "kokoro-82m",
   "voice": "af_heart",
@@ -12,122 +11,106 @@
   "chunks": [
     {
       "index": 0,
-      "url": "/audio/work/high-rapid-networks/000.mp3",
-      "text": "The problem",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/000.mp3",
       "bytes": 9453,
       "duration": 1.475
     },
     {
       "index": 1,
-      "url": "/audio/work/high-rapid-networks/001.mp3",
-      "text": "High Rapid Networks had a site built in 2006. It offered a sign-up form, but little help understanding the service before choosing it. The company had three tiers, presented in a single column without a meaningful way to compare them.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/001.mp3",
       "bytes": 92109,
       "duration": 15.25
     },
     {
       "index": 2,
-      "url": "/audio/work/high-rapid-networks/002.mp3",
-      "text": "The redesign needed to do two things at once: make the product understandable enough to choose, and show that the ISP was part of the communities it served rather than a distant utility company.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/002.mp3",
       "bytes": 73245,
       "duration": 12.1
     },
     {
       "index": 3,
-      "url": "/audio/work/high-rapid-networks/003.mp3",
-      "text": "Reconstructed information-architecture comparison. It shows the structure and intent of the change, not archival production UI.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/003.mp3",
       "bytes": 54381,
       "duration": 8.975
     },
     {
       "index": 4,
-      "url": "/audio/work/high-rapid-networks/004.mp3",
-      "text": "Make the choice clear",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/004.mp3",
       "bytes": 11325,
       "duration": 1.8
     },
     {
       "index": 5,
-      "url": "/audio/work/high-rapid-networks/005.mp3",
-      "text": "I owned the new High Rapid Networks experience end to end: brand, strategy, design, and implementation.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/005.mp3",
       "bytes": 46029,
       "duration": 7.575
     },
     {
       "index": 6,
-      "url": "/audio/work/high-rapid-networks/006.mp3",
-      "text": "The core product change was a pricing page that put the three tiers into a straightforward comparison table. Each plan had a clear path into sign-up, and the selected plan was prefilled into the form. Customers could make the decision once instead of having to interpret the differences, begin a form, and repeat it.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/006.mp3",
       "bytes": 115149,
       "duration": 19.1
     },
     {
       "index": 7,
-      "url": "/audio/work/high-rapid-networks/007.mp3",
-      "text": "Show the people behind the network",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/007.mp3",
       "bytes": 14637,
       "duration": 2.35
     },
     {
       "index": 8,
-      "url": "/audio/work/high-rapid-networks/008.mp3",
-      "text": "The brand work was grounded in real evidence of local work. The site told the stories of High Rapid Networks’ actual network engineer and installer, with real county job-site photos, including snowmobile access for tower and network-infrastructure installation.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/008.mp3",
       "bytes": 104781,
       "duration": 17.375
     },
     {
       "index": 9,
-      "url": "/audio/work/high-rapid-networks/009.mp3",
-      "text": "This was not decorative local flavor. It answered a trust question: who is responsible for the connection when the work is difficult and the geography is real?",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/009.mp3",
       "bytes": 59133,
       "duration": 9.75
     },
     {
       "index": 10,
-      "url": "/audio/work/high-rapid-networks/010.mp3",
-      "text": "Pair the site with the acquisition path",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/010.mp3",
       "bytes": 15789,
       "duration": 2.525
     },
     {
       "index": 11,
-      "url": "/audio/work/high-rapid-networks/011.mp3",
-      "text": "The site was one part of a larger acquisition effort. A direct-mail campaign went to every household in Craig, Lay, and Maybell. The mailers offered two paths: the redesigned website’s sign-up flow and a phone route for people who preferred to speak with someone directly.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/011.mp3",
       "bytes": 102333,
       "duration": 16.95
     },
     {
       "index": 12,
-      "url": "/audio/work/high-rapid-networks/012.mp3",
-      "text": "That pairing mattered. The online experience made services comparable and sign-up easier; the phone route respected a local preference for direct human contact.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/012.mp3",
       "bytes": 63453,
       "duration": 10.475
     },
     {
       "index": 13,
-      "url": "/audio/work/high-rapid-networks/013.mp3",
-      "text": "Outcome and reflection",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/013.mp3",
       "bytes": 11901,
       "duration": 1.875
     },
     {
       "index": 14,
-      "url": "/audio/work/high-rapid-networks/014.mp3",
-      "text": "Over the year after launch, the subscriber base grew from roughly 400 to between 900 and 1,200. The redesign and direct-mail campaign were both part of that period, so I do not attribute the growth to the website alone.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/014.mp3",
       "bytes": 92685,
       "duration": 15.35
     },
     {
       "index": 15,
-      "url": "/audio/work/high-rapid-networks/015.mp3",
-      "text": "I did not receive direct post-launch customer feedback, so I do not claim satisfaction data. The enduring lesson is simpler: a conversion flow works better when it helps people understand the product and gives them the communication path they actually prefer.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/015.mp3",
       "bytes": 100317,
       "duration": 16.625
     },
     {
       "index": 16,
-      "url": "/audio/work/high-rapid-networks/016.mp3",
-      "text": "Related reading: What a Rural ISP Taught Me About Design Constraints",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/high-rapid-networks/016.mp3",
       "bytes": 28893,
       "duration": 4.725
     }
-  ]
+  ],
+  "provider": "blob"
 }

@@ -1,6 +1,5 @@
 {
   "slug": "enterprise-benefits-enrollment",
-  "contentType": "work",
   "contentHash": "ee6c6ad8b450719b",
   "model": "kokoro-82m",
   "voice": "af_heart",
@@ -12,143 +11,124 @@
   "chunks": [
     {
       "index": 0,
-      "url": "/audio/work/enterprise-benefits-enrollment/000.mp3",
-      "text": "The context",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/000.mp3",
       "bytes": 10605,
       "duration": 1.675
     },
     {
       "index": 1,
-      "url": "/audio/work/enterprise-benefits-enrollment/001.mp3",
-      "text": "I worked on a new Workforce Benefits line of business at a large U.S. insurance company. The division was stood up in under a year by an eight-person UX team, in collaboration with PricewaterhouseCoopers, the external delivery agency.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/001.mp3",
       "bytes": 92253,
       "duration": 15.275
     },
     {
       "index": 2,
-      "url": "/audio/work/enterprise-benefits-enrollment/002.mp3",
-      "text": "We started with personas because the experience had several distinct audiences: employee, employee dependent, employer, financial professional, and broker. The persona work helped define which portals were needed, the interactions each would need, and the systems that would have to participate.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/002.mp3",
       "bytes": 111405,
       "duration": 18.475
     },
     {
       "index": 3,
-      "url": "/audio/work/enterprise-benefits-enrollment/003.mp3",
-      "text": "I owned the employee portal. Other teammates focused on the portals for the other audiences.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/003.mp3",
       "bytes": 35229,
       "duration": 5.775
     },
     {
       "index": 4,
-      "url": "/audio/work/enterprise-benefits-enrollment/004.mp3",
-      "text": "Abstract reconstruction. This shows workflow structure, not proprietary UI or system architecture.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/004.mp3",
       "bytes": 44157,
       "duration": 7.25
     },
     {
       "index": 5,
-      "url": "/audio/work/enterprise-benefits-enrollment/005.mp3",
-      "text": "The employee job to be done",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/005.mp3",
       "bytes": 13341,
       "duration": 2.125
     },
     {
       "index": 6,
-      "url": "/audio/work/enterprise-benefits-enrollment/006.mp3",
-      "text": "An employee received enrollment materials from an employer or HR. From there, they needed to sign in, select benefits, make changes, file claims, view coverage information, and access cards.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/006.mp3",
       "bytes": 79005,
       "duration": 13.075
     },
     {
       "index": 7,
-      "url": "/audio/work/enterprise-benefits-enrollment/007.mp3",
-      "text": "The primary onboarding flow collected the employee’s information, sent it for verification, and then supported policy creation. The work had to make a consequential, unfamiliar process understandable without exposing implementation complexity to the employee.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/007.mp3",
       "bytes": 105933,
       "duration": 17.55
     },
     {
       "index": 8,
-      "url": "/audio/work/enterprise-benefits-enrollment/008.mp3",
-      "text": "A delivery constraint shaped the design",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/008.mp3",
       "bytes": 15357,
       "duration": 2.45
     },
     {
       "index": 9,
-      "url": "/audio/work/enterprise-benefits-enrollment/009.mp3",
-      "text": "The intended UI was clean and crisp, built around the internal design tokens and component system. The implementation system selected by the external delivery team could not conform to those components as expected, despite earlier assurances that it could.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/009.mp3",
       "bytes": 104061,
       "duration": 17.25
     },
     {
       "index": 10,
-      "url": "/audio/work/enterprise-benefits-enrollment/010.mp3",
-      "text": "I was the only technical member of the UX team. Where the platform allowed it, I supplied design tokens along with CSS and JavaScript that the PwC team could use. That helped translate the internal design system into something buildable. In other places, the platform had no flexibility, and the experience had to be redesigned within its constraints.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/010.mp3",
       "bytes": 138333,
       "duration": 22.95
     },
     {
       "index": 11,
-      "url": "/audio/work/enterprise-benefits-enrollment/011.mp3",
-      "text": "The lesson was practical: design-system fidelity is not a brand-detail problem. It changes what interaction patterns can survive implementation.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/011.mp3",
       "bytes": 59709,
       "duration": 9.85
     },
     {
       "index": 12,
-      "url": "/audio/work/enterprise-benefits-enrollment/012.mp3",
-      "text": "Research that changed the flow",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/012.mp3",
       "bytes": 13773,
       "duration": 2.2
     },
     {
       "index": 13,
-      "url": "/audio/work/enterprise-benefits-enrollment/013.mp3",
-      "text": "I planned and conducted remote prototype sessions with brokers and people who had recently enrolled in insurance, using Zoom and Hotjar. Sessions were short, task-based conversations of about five minutes. We asked participants to complete tasks or explain what they expected, then reviewed the recordings to see where the UI did not meet those expectations.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/013.mp3",
       "bytes": 136605,
       "duration": 22.675
     },
     {
       "index": 14,
-      "url": "/audio/work/enterprise-benefits-enrollment/014.mp3",
-      "text": "One clear finding was in the policy-information selection flow. Participants could not find parts of the information they needed. We relabeled and repositioned those elements to make them easier to locate and select, then brought the findings back to the team and key stakeholders.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/014.mp3",
       "bytes": 105789,
       "duration": 17.525
     },
     {
       "index": 15,
-      "url": "/audio/work/enterprise-benefits-enrollment/015.mp3",
-      "text": "Working sketch reconstructed from the research finding and resulting design decision. It is an abstract representation, not proprietary UI.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/015.mp3",
       "bytes": 58989,
       "duration": 9.725
     },
     {
       "index": 16,
-      "url": "/audio/work/enterprise-benefits-enrollment/016.mp3",
-      "text": "We did not have time to re-test the revised flow before launch. Given more time, that is the first validation step I would add.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/016.mp3",
       "bytes": 51213,
       "duration": 8.425958
     },
     {
       "index": 17,
-      "url": "/audio/work/enterprise-benefits-enrollment/017.mp3",
-      "text": "Outcome and reflection",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/017.mp3",
       "bytes": 11901,
       "duration": 1.875
     },
     {
       "index": 18,
-      "url": "/audio/work/enterprise-benefits-enrollment/018.mp3",
-      "text": "The employee portal launched around month nine of the division effort, and internal stakeholders were happy with the launch. I had already moved to another project by then, so I do not claim external adoption, satisfaction, or business outcomes that I cannot substantiate.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/018.mp3",
       "bytes": 102045,
       "duration": 16.9
     },
     {
       "index": 19,
-      "url": "/audio/work/enterprise-benefits-enrollment/019.mp3",
-      "text": "The project reinforced a pattern that has carried into my design-engineering work: start with the people and workflows, but stay close enough to implementation that design decisions can survive the systems that have to deliver them.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/enterprise-benefits-enrollment/019.mp3",
       "bytes": 86781,
       "duration": 14.375
     }
-  ]
+  ],
+  "provider": "blob"
 }
