@@ -37,6 +37,7 @@ next-env.d.ts
 
 # generated files
 /public/Zachary-Guerrero-Resume.pdf
+/public/audio/**/*.mp3
 .env
 
 .omc/

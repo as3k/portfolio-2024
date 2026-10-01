@@ -6,6 +6,12 @@ function normalizeWhitespace(value) {
   return value.replace(/\s+/g, ' ').trim();
 }
 
+function normalizeListItem(value) {
+  const normalized = normalizeWhitespace(value);
+  if (!normalized || /[.!?…:;]$/.test(normalized)) return normalized;
+  return `${normalized}.`;
+}
+
 export function extractReadableParagraphs(mdx) {
   return mdx
     .replace(/<!--[\s\S]*?-->/g, '')
@@ -18,12 +24,13 @@ export function extractReadableParagraphs(mdx) {
       .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
       .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
       .replace(/^#{1,6}\s+/gm, '')
-      .replace(/^\s*[-*+]\s+/gm, '')
-      .replace(/^\s*\d+\.\s+/gm, '')
       .replace(/^\s*>\s?/gm, '')
       .replace(/[`*_~]/g, '')
       .split('\n')
-      .map(normalizeWhitespace)
+      .map((line) => {
+        const listItem = line.match(/^\s*(?:[-*+]|\d+[.)])\s+(.+)$/);
+        return listItem ? normalizeListItem(listItem[1]) : normalizeWhitespace(line);
+      })
       .filter(Boolean)
       .join(' '))
     .filter(Boolean);
@@ -62,4 +69,3 @@ export function createAudioChunks(mdx, maxChars = DEFAULT_MAX_CHARS) {
 export function getContentHash(chunks) {
   return crypto.createHash('sha256').update(JSON.stringify(chunks)).digest('hex').slice(0, 16);
 }
-

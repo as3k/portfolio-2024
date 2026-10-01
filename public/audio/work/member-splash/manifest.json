@@ -1,6 +1,5 @@
 {
   "slug": "member-splash",
-  "contentType": "work",
   "contentHash": "1244aee2f9c7aecc",
   "model": "kokoro-82m",
   "voice": "af_heart",
@@ -12,269 +11,232 @@
   "chunks": [
     {
       "index": 0,
-      "url": "/audio/work/member-splash/000.mp3",
-      "text": "The context",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/000.mp3",
       "bytes": 10605,
       "duration": 1.675
     },
     {
       "index": 1,
-      "url": "/audio/work/member-splash/001.mp3",
-      "text": "Member Splash is membership-management software for swim clubs. I work as a Senior Product Engineer, carrying features across product design and implementation while partnering with Customer Success, support, and other engineers.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/001.mp3",
       "bytes": 90525,
       "duration": 15
     },
     {
       "index": 2,
-      "url": "/audio/work/member-splash/002.mp3",
-      "text": "The work is operational by nature. A small interaction decision can affect a busy front desk, a family managing purchases for their children, or the developer who needs a working local environment before they can help ship the next improvement.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/002.mp3",
       "bytes": 91965,
       "duration": 15.225
     },
     {
       "index": 3,
-      "url": "/audio/work/member-splash/003.mp3",
-      "text": "Member Check-In",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/003.mp3",
       "bytes": 10317,
       "duration": 1.625
     },
     {
       "index": 4,
-      "url": "/audio/work/member-splash/004.mp3",
-      "text": "A counter workflow built for the busiest moments",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/004.mp3",
       "bytes": 19389,
       "duration": 3.125
     },
     {
       "index": 5,
-      "url": "/audio/work/member-splash/005.mp3",
-      "text": "At a check-in counter, staff might need to find an account by member name or account number, select each family member present, add and name guests, check available guest credits, sell more credits if necessary, and finally confirm that everyone was checked in.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/005.mp3",
       "bytes": 97581,
       "duration": 16.175
     },
     {
       "index": 6,
-      "url": "/audio/work/member-splash/006.mp3",
-      "text": "The old workflow was slow and unintuitive, especially around guest entry. That is a meaningful problem when the counter is staffed by high-school employees, volunteers, or an understaffed seasonal team and opening-weekend lines are building.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/006.mp3",
       "bytes": 94557,
       "duration": 15.65
     },
     {
       "index": 7,
-      "url": "/audio/work/member-splash/007.mp3",
-      "text": "The interaction model",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/007.mp3",
       "bytes": 11901,
       "duration": 1.875
     },
     {
       "index": 8,
-      "url": "/audio/work/member-splash/008.mp3",
-      "text": "I owned the upgrade end to end. I replaced the fragmented lookup with an omnibox that accepts a last name, address, or phone number. Staff can then select the people who arrived, with a ready-to-use next guest row instead of another button press.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/008.mp3",
       "bytes": 94989,
       "duration": 15.725
     },
     {
       "index": 9,
-      "url": "/audio/work/member-splash/009.mp3",
-      "text": "Guest credits are visible in context: how many are available and how many the current entry will use. When a family needs more, staff can purchase them in the same flow with bill-to-account or a credit card.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/009.mp3",
       "bytes": 77709,
       "duration": 12.85
     },
     {
       "index": 10,
-      "url": "/audio/work/member-splash/010.mp3",
-      "text": "Working sketch reconstructed from the shipped interaction model. It compares the prior staff workflow with the redesigned flow; it is not a production screen.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/010.mp3",
       "bytes": 58845,
       "duration": 9.7
     },
     {
       "index": 11,
-      "url": "/audio/work/member-splash/011.mp3",
-      "text": "How we evaluated it",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/011.mp3",
       "bytes": 12045,
       "duration": 1.9
     },
     {
       "index": 12,
-      "url": "/audio/work/member-splash/012.mp3",
-      "text": "There was no formal research program around the old flow. The signal was shared operational experience: people could get through it, but it took too long and everyone knew it could be improved. I ran timed workflow tests, used server data to model the consequence of opening-day volume, and reviewed the work with Customer Success, support, and other engineers.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/012.mp3",
       "bytes": 134733,
       "duration": 22.35
     },
     {
       "index": 13,
-      "url": "/audio/work/member-splash/013.mp3",
-      "text": "In internal timing, the workflow went from more than 30 seconds to under 10 seconds. It rolled out to all clubs with documentation for staff and club administrators. Clubs described the redesign as faster, easier to understand, and better to use.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/013.mp3",
       "bytes": 99309,
       "duration": 16.45
     },
     {
       "index": 14,
-      "url": "/audio/work/member-splash/014.mp3",
-      "text": "Internal reconstruction of the manual workflow-timing comparison behind the 30-plus-to-under-10-second result. It reflects timed manual runs covering search, arrivals, guests, and credits against a busy front-desk scenario, with server data used to understand peak-period traffic. It is not club-wide analytics and not a production screen.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/014.mp3",
       "bytes": 133437,
       "duration": 22.15
     },
     {
       "index": 15,
-      "url": "/audio/work/member-splash/015.mp3",
-      "text": "Splash Cards",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/015.mp3",
       "bytes": 10749,
       "duration": 1.7
     },
     {
       "index": 16,
-      "url": "/audio/work/member-splash/016.mp3",
-      "text": "Prepaid spending that works for families and clubs",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/016.mp3",
       "bytes": 19821,
       "duration": 3.2
     },
     {
       "index": 17,
-      "url": "/audio/work/member-splash/017.mp3",
-      "text": "Splash Cards are entirely digital stored-value cards. They let primary account holders load money for children or unattended youth to spend at the snack shack, without needing a parent present. The same prepaid model also lets clubs collect money before purchases that members would have made anyway.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/017.mp3",
       "bytes": 113565,
       "duration": 18.825
     },
     {
       "index": 18,
-      "url": "/audio/work/member-splash/018.mp3",
-      "text": "I owned the feature end to end, from the member-facing management experience through the payment and point-of-sale paths.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/018.mp3",
       "bytes": 44589,
       "duration": 7.325
     },
     {
       "index": 19,
-      "url": "/audio/work/member-splash/019.mp3",
-      "text": "Designing for a real family account",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/019.mp3",
       "bytes": 15789,
       "duration": 2.525
     },
     {
       "index": 20,
-      "url": "/audio/work/member-splash/020.mp3",
-      "text": "The initial concept assumed one card per person. Customer Success and community-forum feedback changed that. Families needed to provision more or fewer cards, transfer funds, and pause a card when appropriate. A primary member can now manage multiple cards across a family account, so one child cannot spend the entire shared balance.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/020.mp3",
       "bytes": 132717,
       "duration": 22.025
     },
     {
       "index": 21,
-      "url": "/audio/work/member-splash/021.mp3",
-      "text": "Members load cards in the portal using credit or debit cards through the existing payment gateway. At the snack shack, the attendant selects the member account as part of the usual order flow, and the account’s eligible Splash Cards appear as payment methods. Flexible card provisioning shipped in the first release; guest-pass payment support followed in July.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/021.mp3",
       "bytes": 133005,
       "duration": 22.075
     },
     {
       "index": 22,
-      "url": "/audio/work/member-splash/022.mp3",
-      "text": "Working flowchart reconstruction. It traces card funding and status management from the member account through point-of-sale payment, including what happens when a linked card is paused or has insufficient funds; it is not a production screen.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/022.mp3",
       "bytes": 90237,
       "duration": 14.95
     },
     {
       "index": 23,
-      "url": "/audio/work/member-splash/023.mp3",
-      "text": "Rollout and results",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/023.mp3",
       "bytes": 12045,
       "duration": 1.9
     },
     {
       "index": 24,
-      "url": "/audio/work/member-splash/024.mp3",
-      "text": "Work began April 15, 2026, and v1 shipped June 12. The capability was available to every club, behind a club-level toggle so adoption was opt-in.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/024.mp3",
       "bytes": 72237,
       "duration": 11.95
     },
     {
       "index": 25,
-      "url": "/audio/work/member-splash/025.mp3",
-      "text": "In 2026, 72 of 499 live clubs had Splash Card activity. The feature supported roughly 4,979 people across 1,701 active cards and approximately $76,000 in card loads.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/025.mp3",
       "bytes": 109245,
       "duration": 18.1
     },
     {
       "index": 26,
-      "url": "/audio/work/member-splash/026.mp3",
-      "text": "Money movement needed a safer boundary",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/026.mp3",
       "bytes": 18381,
       "duration": 2.975
     },
     {
       "index": 27,
-      "url": "/audio/work/member-splash/027.mp3",
-      "text": "An audit of the payment flow exposed a correctness risk: ambiguous gateway responses could be treated as successful loads even when payment confirmation was missing. I redesigned the failure boundary so the wrapper can return only a verified transaction ID or an explicit error. I added a second validation at the controllers where money moves, improved the authorized correction path for mistaken loads, and repaired a silently failing test bootstrap.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/027.mp3",
       "bytes": 168141,
       "duration": 27.925
     },
     {
       "index": 28,
-      "url": "/audio/work/member-splash/028.mp3",
-      "text": "The principle was simple: money state should be verified at the edge or refused at the boundary. The issue has not recurred since the hardening work.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/028.mp3",
       "bytes": 53517,
       "duration": 8.825
     },
     {
       "index": 29,
-      "url": "/audio/work/member-splash/029.mp3",
-      "text": "Abstract reconstruction of the payment-success and correction boundary. It shows flow structure only, not real payment data or production UI.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/029.mp3",
       "bytes": 57693,
       "duration": 9.525
     },
     {
       "index": 30,
-      "url": "/audio/work/member-splash/030.mp3",
-      "text": "Developer experience",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/030.mp3",
       "bytes": 12477,
       "duration": 1.975
     },
     {
       "index": 31,
-      "url": "/audio/work/member-splash/031.mp3",
-      "text": "Turning a personal environment into a team tool",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/031.mp3",
       "bytes": 20109,
       "duration": 3.25
     },
     {
       "index": 32,
-      "url": "/audio/work/member-splash/032.mp3",
-      "text": "The old local environment used Lando plus a substantial set of configuration and tooling layers. Setup could take days of back-and-forth, and it was unreliable on my Mac. I began with a Docker environment that ran Member Splash on my own machine, then asked the lead developer what the wider team needed before turning it into shared infrastructure.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/032.mp3",
       "bytes": 136317,
       "duration": 22.625
     },
     {
       "index": 33,
-      "url": "/audio/work/member-splash/033.mp3",
-      "text": "The result incorporated local SSL through mkcert and Traefik, along with the team’s existing Make commands. It runs on Windows, macOS, and Linux. After setting environment variables and adding local subsite host entries, normal setup is measured in minutes; slower cases remain under an hour.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/033.mp3",
       "bytes": 121917,
       "duration": 20.225
     },
     {
       "index": 34,
-      "url": "/audio/work/member-splash/034.mp3",
-      "text": "Abstract infrastructure-onboarding reconstruction. It shows the before/after local development flow, not production configuration.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/034.mp3",
       "bytes": 53085,
       "duration": 8.75
     },
     {
       "index": 35,
-      "url": "/audio/work/member-splash/035.mp3",
-      "text": "Existing developers adopted it, and new developers have used it to get running. The goal was not Docker for its own sake. It was reducing the delay between joining the codebase and being able to investigate, debug, and contribute.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/035.mp3",
       "bytes": 89373,
       "duration": 14.8
     },
     {
       "index": 36,
-      "url": "/audio/work/member-splash/036.mp3",
-      "text": "Reflection",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/036.mp3",
       "bytes": 9885,
       "duration": 1.55
     },
     {
       "index": 37,
-      "url": "/audio/work/member-splash/037.mp3",
-      "text": "The strongest work here has been less about a single interface and more about keeping context across a system: the staff member at the counter, the parent managing a family account, the payment boundary, and the developer who maintains the platform. That is where design engineering is most useful to me: making the product decision and the implementation decision reinforce each other.",
+      "url": "https://unjmr6o7qozow2mj.public.blob.vercel-storage.com/audio/work/member-splash/037.mp3",
       "bytes": 141357,
       "duration": 23.45
     }
-  ]
+  ],
+  "provider": "blob"
 }
